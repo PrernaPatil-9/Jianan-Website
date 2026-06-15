@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Global Presence - Jianan Engineering | Worldwide Operations</title>
+  <meta name="description" content="Jianan Engineering operates across India, Indonesia, and Bangladesh. Global EPC and MEP solutions with international footprint.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Centralized Theme Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: "#1E88E5",
+              light: "#4AA3E9",
+              dark: "#0F5B99"
+            },
+            secondary: {
+              DEFAULT: "#28B463",
+              light: "#4CC97E",
+              dark: "#1E7A43"
+            },
+            dark: "#0F172A",
+            light: "#F8FAFC",
+            text: "#475569",
+            border: "#E2E8F0"
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* ========================================
+       GLOBAL STYLES
+       ======================================== */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+    }
+    
+    /* Loader Styles */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0F172A;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
+    }
+    
+    .loader-content {
+      text-align: center;
+    }
+    
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .loader-text {
+      color: white;
+      font-size: 14px;
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    .loader-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .loader-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+      100% { left: 100%; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    
+    /* Scroll Progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #1E88E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: #28B463;
+      transform: translateY(-5px);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 100px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1E88E5;
+      background: rgba(30, 136, 229, 0.1);
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      color: #0F172A;
+      margin-bottom: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 32px;
+      }
+    }
+    
+    /* Location Card */
+    .location-card {
+      background: white;
+      border-radius: 24px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #E2E8F0;
+      height: 100%;
+    }
+    
+    .location-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-color: #1E88E5;
+    }
+    
+    .location-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    
+    .location-icon i {
+      font-size: 36px;
+      color: white;
+    }
+    
+    .office-list {
+      list-style: none;
+      margin-top: 15px;
+    }
+    
+    .office-list li {
+      padding: 5px 0;
+      color: #475569;
+      font-size: 14px;
+    }
+    
+    /* Map Container */
+    .map-container {
+      background: linear-gradient(135deg, #1a2a3a, #0F172A);
+      border-radius: 30px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .world-map-svg {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+    
+    .map-marker {
+      fill: #1E88E5;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .map-marker:hover {
+      fill: #28B463;
+      transform: scale(1.2);
+    }
+    
+    /* Stats Counter */
+    .stat-box {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid #E2E8F0;
+    }
+    
+    .stat-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .stat-number-lg {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1E88E5;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Roadmap Timeline */
+    .roadmap-item {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid #E2E8F0;
+      position: relative;
+    }
+    
+    .roadmap-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: #1E88E5;
+    }
+    
+    .roadmap-year {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1E88E5;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 10px;
+    }
+    
+    .bg-light {
+      background: #F8FAFC;
+    }
+    
+    .text-primary {
+      color: #1E88E5;
+    }
+    
+    .text-secondary {
+      color: #28B463;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">J</div>
+    <div class="loader-text">JIANAN ENGINEERING</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Back to Top -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Navbar Container -->
+<div id="navbar-container"></div>
+
+<main>
+  <!-- Page Hero Section -->
+  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
+    <div class="container text-center text-white">
+      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Global Presence</h1>
+      <p class="text-xl max-w-2xl mx-auto">Delivering engineering excellence across three continents</p>
+    </div>
+  </section>
+
+  <!-- Countries Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Locations</span>
+        <h2 class="section-title">Where We <span class="text-primary">Operate</span></h2>
+        <p class="section-subtitle">Strategic presence in key markets across Asia</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- India -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-flag-india"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">India</h3>
+          <p class="text-primary font-semibold mb-3">Headquarters</p>
+          <ul class="office-list">
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Mumbai (Corporate HQ)</li>
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Delhi NCR</li>
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Bangalore</li>
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Chennai</li>
+          </ul>
+          <p class="text-text mt-4 text-sm">Global headquarters and largest operational base with 300+ employees</p>
+        </div>
+        
+        <!-- Indonesia -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Indonesia</h3>
+          <p class="text-primary font-semibold mb-3">Regional Office</p>
+          <ul class="office-list">
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Jakarta</li>
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Surabaya</li>
+          </ul>
+          <p class="text-text mt-4 text-sm">Strategic hub for Southeast Asian operations established in 2018</p>
+        </div>
+        
+        <!-- Bangladesh -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Bangladesh</h3>
+          <p class="text-primary font-semibold mb-3">Project Office</p>
+          <ul class="office-list">
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Dhaka</li>
+            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Chittagong</li>
+          </ul>
+          <p class="text-text mt-4 text-sm">Key market for infrastructure development since 2005</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Stats -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="stat-box">
+          <i class="fas fa-globe-asia text-4xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="3">0</div>
+          <p class="font-semibold mt-2">Countries</p>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-building text-4xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="8">0</div>
+          <p class="font-semibold mt-2">Office Locations</p>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-users text-4xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="500">0</div>
+          <p class="font-semibold mt-2">Global Employees</p>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-handshake text-4xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="100">0</div>
+          <p class="font-semibold mt-2">Global Partners</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- World Map Visualization -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Map</span>
+        <h2 class="section-title">Global <span class="text-primary">Footprint</span></h2>
+      </div>
+      
+      <div class="map-container">
+        <i class="fas fa-globe-asia text-6xl text-primary mb-6"></i>
+        <h3 class="text-2xl text-white mb-4">Worldwide Operations</h3>
+        <p class="text-gray-300 mb-8">Active operations in India, Indonesia, and Bangladesh</p>
+        
+        <div class="flex justify-center gap-6 flex-wrap mt-6">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 bg-primary rounded-full"></div>
+            <span class="text-white">Active Operations</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
+            <span class="text-white">Future Expansion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expansion Roadmap -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Future Growth</span>
+        <h2 class="section-title">Expansion <span class="text-primary">Roadmap</span></h2>
+        <p class="section-subtitle">Strategic growth plans for global reach</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="roadmap-item">
+          <div class="roadmap-year">2025</div>
+          <i class="fas fa-flag-checkered text-3xl text-primary mb-3"></i>
+          <h3 class="text-xl font-bold mb-2">Middle East Entry</h3>
+          <p class="text-text">Establish regional office in Dubai, UAE to serve GCC markets</p>
+        </div>
+        
+        <div class="roadmap-item">
+          <div class="roadmap-year">2026</div>
+          <i class="fas fa-chart-line text-3xl text-primary mb-3"></i>
+          <h3 class="text-xl font-bold mb-2">Africa Operations</h3>
+          <p class="text-text">Launch operations in Kenya and Nigeria for infrastructure projects</p>
+        </div>
+        
+        <div class="roadmap-item">
+          <div class="roadmap-year">2027</div>
+          <i class="fas fa-handshake text-3xl text-primary mb-3"></i>
+          <h3 class="text-xl font-bold mb-2">European Partnership</h3>
+          <p class="text-text">Strategic partnership with European engineering firms</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- International Projects -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Global Projects</span>
+        <h2 class="section-title">International <span class="text-primary">Success Stories</span></h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
+          <i class="fas fa-industry text-3xl text-primary"></i>
+          <div>
+            <h3 class="font-bold text-lg">Jakarta Industrial Park</h3>
+            <p class="text-text text-sm">Indonesia | 2022-2024</p>
+            <p class="text-text mt-2">Complete EPC infrastructure development for 200-acre industrial zone</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
+          <i class="fas fa-bolt text-3xl text-primary"></i>
+          <div>
+            <h3 class="font-bold text-lg">Dhaka Power Plant</h3>
+            <p class="text-text text-sm">Bangladesh | 2020-2023</p>
+            <p class="text-text mt-2">Electrical systems and fire safety for 500MW power facility</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
+          <i class="fas fa-capsules text-3xl text-primary"></i>
+          <div>
+            <h3 class="font-bold text-lg">Pharma SEZ Mumbai</h3>
+            <p class="text-text text-sm">India | 2021-2024</p>
+            <p class="text-text mt-2">Turnkey MEP and HVAC for GMP-certified pharmaceutical zone</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
+          <i class="fas fa-subway text-3xl text-primary"></i>
+          <div>
+            <h3 class="font-bold text-lg">Jakarta MRT Extension</h3>
+            <p class="text-text text-sm">Indonesia | 2023-Present</p>
+            <p class="text-text mt-2">MEP systems for metro rail extension project</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer Container -->
+<div id="footer-container"></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+  // ============================================
+  // LOAD COMPONENTS (navbar and footer)
+  // ============================================
+  
+  async function loadComponent(elementId, componentPath) {
+    try {
+      const response = await fetch(componentPath);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const html = await response.text();
+      document.getElementById(elementId).innerHTML = html;
+      return true;
+    } catch (error) {
+      console.error(`Error loading ${componentPath}:`, error);
+      return false;
+    }
+  }
+  
+  function initNavbar() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const header = document.querySelector('.header');
+    
+    if (header) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+    
+    if (navToggle && navMenu) {
+      const newToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(newToggle, navToggle);
+      
+      const newMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(newMenu, navMenu);
+      
+      const finalToggle = document.getElementById('navToggle');
+      const finalMenu = document.getElementById('navMenu');
+      
+      if (finalToggle && finalMenu) {
+        finalToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          finalMenu.classList.toggle('active');
+          finalToggle.classList.toggle('active');
+          document.body.classList.toggle('mobile-nav-active');
+        });
+      }
+    }
+    
+    document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('navMenu');
+        const mobileToggle = document.getElementById('navToggle');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (mobileToggle) mobileToggle.classList.remove('active');
+        document.body.classList.remove('mobile-nav-active');
+      });
+    });
+    
+    document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+      dropdownLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 1024) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+    
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  function initGlobalUI() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = progress + '%';
+      });
+    }
+    
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+      
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+  
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-number-lg');
+    if (counters.length === 0) return;
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      if (isNaN(target)) return;
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                counter.innerText = target;
+                clearInterval(timer);
+              } else {
+                counter.innerText = Math.floor(current);
+              }
+            }, 30);
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(counter);
+    });
+  }
+  
+  async function loadAllComponents() {
+    await loadComponent('navbar-container', 'components/navbar.html');
+    await loadComponent('footer-container', 'components/footer.html');
+    
+    initNavbar();
+    initGlobalUI();
+    initCounters();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAllComponents);
+  } else {
+    loadAllComponents();
+  }
+  
+  window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    }
+  });
+</script>
+</body>
+</html>

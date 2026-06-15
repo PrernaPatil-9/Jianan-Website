@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Careers - Jianan Engineering | Join Our Team</title>
+  <meta name="description" content="Build your career with Jianan Engineering. Explore open positions in engineering, project management, safety, and more. Join a global leader in EPC and MEP solutions.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Centralized Theme Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: "#1E88E5",
+              light: "#4AA3E9",
+              dark: "#0F5B99"
+            },
+            secondary: {
+              DEFAULT: "#28B463",
+              light: "#4CC97E",
+              dark: "#1E7A43"
+            },
+            dark: "#0F172A",
+            light: "#F8FAFC",
+            text: "#475569",
+            border: "#E2E8F0"
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* ========================================
+       GLOBAL STYLES
+       ======================================== */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+    }
+    
+    /* Loader Styles */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0F172A;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
+    }
+    
+    .loader-content {
+      text-align: center;
+    }
+    
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .loader-text {
+      color: white;
+      font-size: 14px;
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    .loader-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .loader-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+      100% { left: 100%; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    
+    /* Scroll Progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #1E88E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: #28B463;
+      transform: translateY(-5px);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 100px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1E88E5;
+      background: rgba(30, 136, 229, 0.1);
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      color: #0F172A;
+      margin-bottom: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 32px;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Button Styles */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1E88E5;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: #0F5B99;
+      transform: translateY(-2px);
+    }
+    
+    /* Benefit Card */
+    .benefit-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid #E2E8F0;
+      height: 100%;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: #1E88E5;
+    }
+    
+    .benefit-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    
+    .benefit-icon i {
+      font-size: 30px;
+      color: white;
+    }
+    
+    /* Job Card */
+    .job-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 20px;
+      border: 1px solid #E2E8F0;
+      transition: all 0.3s;
+    }
+    
+    .job-card:hover {
+      transform: translateX(5px);
+      border-left: 4px solid #1E88E5;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    
+    .job-badge {
+      display: inline-block;
+      background: #28B463;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .job-location {
+      color: #1E88E5;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+    
+    .job-desc {
+      color: #475569;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+    
+    /* Application Form */
+    .application-form {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #E2E8F0;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #1E88E5;
+      box-shadow: 0 0 0 3px rgba(30,136,229,0.1);
+    }
+    
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+      color: #0F172A;
+    }
+    
+    /* Culture Values */
+    .culture-value {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .culture-value i {
+      font-size: 40px;
+      color: #1E88E5;
+      margin-bottom: 15px;
+    }
+    
+    .bg-light {
+      background: #F8FAFC;
+    }
+    
+    .text-primary {
+      color: #1E88E5;
+    }
+    
+    .text-secondary {
+      color: #28B463;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">J</div>
+    <div class="loader-text">JIANAN ENGINEERING</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Back to Top -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Navbar Container -->
+<div id="navbar-container"></div>
+
+<main>
+  <!-- Page Hero Section -->
+  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
+    <div class="container text-center text-white">
+      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Join Our Team</h1>
+      <p class="text-xl max-w-2xl mx-auto">Build your career with a global engineering leader</p>
+    </div>
+  </section>
+
+  <!-- Why Join Us / Benefits -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why Join Jianan</span>
+        <h2 class="section-title">Employee <span class="text-primary">Benefits</span></h2>
+        <p class="section-subtitle">We invest in our people with comprehensive benefits and growth opportunities</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Growth Opportunities</h3>
+          <p class="text-text text-sm">Continuous learning and career advancement with clear promotion paths</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Global Exposure</h3>
+          <p class="text-text text-sm">Work on international projects across India, Indonesia, and Bangladesh</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Health & Wellness</h3>
+          <p class="text-text text-sm">Comprehensive health coverage and wellness programs for all employees</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Learning & Development</h3>
+          <p class="text-text text-sm">Regular training, certifications, and skill development programs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Culture -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Culture</span>
+        <h2 class="section-title">Life at <span class="text-primary">Jianan</span></h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="culture-value">
+          <i class="fas fa-handshake"></i>
+          <h3 class="text-xl font-bold mb-2">Collaborative</h3>
+          <p class="text-text">Team-first approach where every voice matters</p>
+        </div>
+        <div class="culture-value">
+          <i class="fas fa-lightbulb"></i>
+          <h3 class="text-xl font-bold mb-2">Innovative</h3>
+          <p class="text-text">Encouraging creative solutions and new ideas</p>
+        </div>
+        <div class="culture-value">
+          <i class="fas fa-balance-scale"></i>
+          <h3 class="text-xl font-bold mb-2">Inclusive</h3>
+          <p class="text-text">Diverse workforce with equal opportunities</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Current Openings</span>
+        <h2 class="section-title">Open <span class="text-primary">Positions</span></h2>
+        <p class="section-subtitle">Find your next career opportunity with us</p>
+      </div>
+      
+      <!-- Job 1 -->
+      <div class="job-card">
+        <div class="flex justify-between items-start flex-wrap gap-4">
+          <div>
+            <h3 class="text-xl font-bold">Senior Project Engineer</h3>
+            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mumbai, India</div>
+            <div class="job-badge">Full-time</div>
+            <div class="job-desc">10+ years experience in EPC project management. Expertise in industrial projects preferred. Lead multi-disciplinary teams and ensure project delivery.</div>
+            <div class="flex gap-3 mt-2">
+              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 10+ Years Exp</span>
+              <span class="text-text text-sm"><i class="fas fa-graduation-cap"></i> B.Tech Civil</span>
+            </div>
+          </div>
+          <button onclick="openApplication('Senior Project Engineer')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      
+      <!-- Job 2 -->
+      <div class="job-card">
+        <div class="flex justify-between items-start flex-wrap gap-4">
+          <div>
+            <h3 class="text-xl font-bold">MEP Design Manager</h3>
+            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</div>
+            <div class="job-badge">Full-time</div>
+            <div class="job-desc">8+ years in HVAC/Electrical design for pharmaceutical or industrial facilities. Lead design team and coordinate with clients.</div>
+            <div class="flex gap-3 mt-2">
+              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 8+ Years Exp</span>
+              <span class="text-text text-sm"><i class="fas fa-graduation-cap"></i> B.Tech Mechanical</span>
+            </div>
+          </div>
+          <button onclick="openApplication('MEP Design Manager')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      
+      <!-- Job 3 -->
+      <div class="job-card">
+        <div class="flex justify-between items-start flex-wrap gap-4">
+          <div>
+            <h3 class="text-xl font-bold">Safety Officer</h3>
+            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</div>
+            <div class="job-badge">Full-time</div>
+            <div class="job-desc">NEBOSH certified with 5+ years construction safety experience. Implement HSE policies and conduct safety audits.</div>
+            <div class="flex gap-3 mt-2">
+              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 5+ Years Exp</span>
+              <span class="text-text text-sm"><i class="fas fa-certificate"></i> NEBOSH Certified</span>
+            </div>
+          </div>
+          <button onclick="openApplication('Safety Officer')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      
+      <!-- Job 4 -->
+      <div class="job-card">
+        <div class="flex justify-between items-start flex-wrap gap-4">
+          <div>
+            <h3 class="text-xl font-bold">Quantity Surveyor</h3>
+            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mumbai, India</div>
+            <div class="job-badge">Full-time</div>
+            <div class="job-desc">Experience in cost estimation, BOQ preparation, and contract management for EPC projects.</div>
+            <div class="flex gap-3 mt-2">
+              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 5+ Years Exp</span>
+              <span class="text-text text-sm"><i class="fas fa-calculator"></i> Cost Estimation</span>
+            </div>
+          </div>
+          <button onclick="openApplication('Quantity Surveyor')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      
+      <!-- Job 5 -->
+      <div class="job-card">
+        <div class="flex justify-between items-start flex-wrap gap-4">
+          <div>
+            <h3 class="text-xl font-bold">Electrical Engineer</h3>
+            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</div>
+            <div class="job-badge">Full-time</div>
+            <div class="job-desc">Experience in power distribution, switchgear, and industrial electrical systems design.</div>
+            <div class="flex gap-3 mt-2">
+              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 3+ Years Exp</span>
+              <span class="text-text text-sm"><i class="fas fa-bolt"></i> Power Systems</span>
+            </div>
+          </div>
+          <button onclick="openApplication('Electrical Engineer')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="section bg-light" id="applicationForm">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Apply Now</span>
+        <h2 class="section-title">Submit Your <span class="text-primary">Application</span></h2>
+        <p class="section-subtitle">Fill out the form below and attach your resume</p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="application-form">
+          <form id="careerForm" onsubmit="submitApplication(event)">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="form-label">Full Name <span class="text-red-500">*</span></label>
+                <input type="text" id="fullName" class="form-input" required placeholder="Enter your full name">
+              </div>
+              <div>
+                <label class="form-label">Email Address <span class="text-red-500">*</span></label>
+                <input type="email" id="email" class="form-input" required placeholder="your@email.com">
+              </div>
+              <div>
+                <label class="form-label">Phone Number <span class="text-red-500">*</span></label>
+                <input type="tel" id="phone" class="form-input" required placeholder="+91 XXXXX XXXXX">
+              </div>
+              <div>
+                <label class="form-label">Position Applying For <span class="text-red-500">*</span></label>
+                <select id="position" class="form-input" required>
+                  <option value="">Select Position</option>
+                  <option>Senior Project Engineer</option>
+                  <option>MEP Design Manager</option>
+                  <option>Safety Officer</option>
+                  <option>Quantity Surveyor</option>
+                  <option>Electrical Engineer</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="mt-4">
+              <label class="form-label">Years of Experience</label>
+              <input type="number" id="experience" class="form-input" placeholder="Years">
+            </div>
+            
+            <div class="mt-4">
+              <label class="form-label">Cover Letter / Message</label>
+              <textarea id="message" rows="4" class="form-input" placeholder="Tell us why you'd be a great fit..."></textarea>
+            </div>
+            
+            <div class="mt-4">
+              <label class="form-label">Upload Resume (PDF/DOC) <span class="text-red-500">*</span></label>
+              <input type="file" id="resume" class="form-input" accept=".pdf,.doc,.docx" required>
+              <p class="text-text text-xs mt-1">Max file size: 5MB. Accepted formats: PDF, DOC, DOCX</p>
+            </div>
+            
+            <div class="mt-6">
+              <button type="submit" class="btn-primary w-full justify-center">Submit Application <i class="fas fa-paper-plane"></i></button>
+            </div>
+            
+            <div id="formStatus" class="mt-4 text-center"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Walk-in Interviews -->
+  <section class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <i class="fas fa-calendar-alt text-4xl text-primary mb-4"></i>
+          <h2 class="text-3xl font-bold mb-4">Walk-in <span class="text-primary">Interviews</span></h2>
+          <p class="text-text mb-4">Every Wednesday between 10 AM - 4 PM at our Mumbai headquarters.</p>
+          <p class="text-text">Bring your updated resume and portfolio. No appointment needed!</p>
+          <div class="mt-6">
+            <p><i class="fas fa-map-marker-alt text-primary"></i> Jianan Engineering HQ, Worli, Mumbai - 400030</p>
+            <p class="mt-2"><i class="fas fa-phone text-primary"></i> +91 22 4567 8900</p>
+          </div>
+        </div>
+        <div class="bg-primary/10 p-8 rounded-2xl text-center">
+          <i class="fas fa-users text-5xl text-primary mb-4"></i>
+          <p class="text-lg font-semibold">"Great companies are built by great people."</p>
+          <p class="text-text mt-2">- Rajan Mehta, Managing Director</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer Container -->
+<div id="footer-container"></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+  // Function to open application form with pre-selected position
+  function openApplication(position) {
+    const positionSelect = document.getElementById('position');
+    if (positionSelect) {
+      positionSelect.value = position;
+    }
+    document.getElementById('applicationForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  
+  // Submit application
+  function submitApplication(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const position = document.getElementById('position').value;
+    const resumeFile = document.getElementById('resume').files[0];
+    
+    if (!name || !email || !phone || !position || !resumeFile) {
+      showStatus('Please fill all required fields', 'error');
+      return;
+    }
+    
+    const statusDiv = document.getElementById('formStatus');
+    statusDiv.innerHTML = '<span class="text-primary"><i class="fas fa-spinner fa-spin"></i> Submitting application...</span>';
+    
+    // Simulate form submission
+    setTimeout(() => {
+      statusDiv.innerHTML = '<span class="text-secondary"><i class="fas fa-check-circle"></i> Application submitted successfully! Our HR team will contact you soon.</span>';
+      document.getElementById('careerForm').reset();
+      
+      setTimeout(() => {
+        statusDiv.innerHTML = '';
+      }, 5000);
+    }, 1500);
+  }
+  
+  function showStatus(message, type) {
+    const statusDiv = document.getElementById('formStatus');
+    statusDiv.innerHTML = `<span class="${type === 'error' ? 'text-red-500' : 'text-secondary'}">${message}</span>`;
+    setTimeout(() => {
+      statusDiv.innerHTML = '';
+    }, 3000);
+  }
+  
+  // ============================================
+  // LOAD COMPONENTS (navbar and footer)
+  // ============================================
+  
+  async function loadComponent(elementId, componentPath) {
+    try {
+      const response = await fetch(componentPath);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const html = await response.text();
+      document.getElementById(elementId).innerHTML = html;
+      return true;
+    } catch (error) {
+      console.error(`Error loading ${componentPath}:`, error);
+      return false;
+    }
+  }
+  
+  function initNavbar() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const header = document.querySelector('.header');
+    
+    if (header) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+    
+    if (navToggle && navMenu) {
+      const newToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(newToggle, navToggle);
+      
+      const newMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(newMenu, navMenu);
+      
+      const finalToggle = document.getElementById('navToggle');
+      const finalMenu = document.getElementById('navMenu');
+      
+      if (finalToggle && finalMenu) {
+        finalToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          finalMenu.classList.toggle('active');
+          finalToggle.classList.toggle('active');
+          document.body.classList.toggle('mobile-nav-active');
+        });
+      }
+    }
+    
+    document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('navMenu');
+        const mobileToggle = document.getElementById('navToggle');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (mobileToggle) mobileToggle.classList.remove('active');
+        document.body.classList.remove('mobile-nav-active');
+      });
+    });
+    
+    document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+      dropdownLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 1024) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+    
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  function initGlobalUI() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = progress + '%';
+      });
+    }
+    
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+      
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+  
+  async function loadAllComponents() {
+    await loadComponent('navbar-container', 'components/navbar.html');
+    await loadComponent('footer-container', 'components/footer.html');
+    
+    initNavbar();
+    initGlobalUI();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAllComponents);
+  } else {
+    loadAllComponents();
+  }
+  
+  window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    }
+  });
+</script>
+</body>
+</html>

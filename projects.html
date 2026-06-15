@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Projects - Jianan Engineering | Project Portfolio</title>
+  <meta name="description" content="Explore Jianan Engineering's portfolio of successful EPC, MEP, and industrial infrastructure projects across India, Indonesia, and Bangladesh.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Centralized Theme Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: "#1E88E5",
+              light: "#4AA3E9",
+              dark: "#0F5B99"
+            },
+            secondary: {
+              DEFAULT: "#28B463",
+              light: "#4CC97E",
+              dark: "#1E7A43"
+            },
+            dark: "#0F172A",
+            light: "#F8FAFC",
+            text: "#475569",
+            border: "#E2E8F0"
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* ========================================
+       GLOBAL STYLES
+       ======================================== */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+    }
+    
+    /* Loader Styles */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0F172A;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
+    }
+    
+    .loader-content {
+      text-align: center;
+    }
+    
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .loader-text {
+      color: white;
+      font-size: 14px;
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    .loader-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .loader-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+      100% { left: 100%; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    
+    /* Scroll Progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #1E88E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: #28B463;
+      transform: translateY(-5px);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 100px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1E88E5;
+      background: rgba(30, 136, 229, 0.1);
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      color: #0F172A;
+      margin-bottom: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 32px;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Project Card */
+    .project-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #E2E8F0;
+      height: 100%;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+      border-color: #1E88E5;
+    }
+    
+    .project-img {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-img img {
+      transform: scale(1.05);
+    }
+    
+    .project-category {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #28B463;
+      color: white;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 1;
+    }
+    
+    .project-info {
+      padding: 20px;
+    }
+    
+    .project-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0F172A;
+    }
+    
+    .project-location {
+      color: #1E88E5;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    
+    .project-location i {
+      margin-right: 5px;
+    }
+    
+    .project-desc {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    /* Filter Buttons */
+    .filter-btn {
+      padding: 10px 28px;
+      border-radius: 50px;
+      border: 1px solid #E2E8F0;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      margin: 5px;
+    }
+    
+    .filter-btn:hover {
+      background: #1E88E5;
+      border-color: #1E88E5;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .filter-btn.active {
+      background: #1E88E5;
+      border-color: #1E88E5;
+      color: white;
+    }
+    
+    /* Stats Card */
+    .stat-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid #E2E8F0;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .stat-number-lg {
+      font-size: 42px;
+      font-weight: 800;
+      color: #1E88E5;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .bg-light {
+      background: #F8FAFC;
+    }
+    
+    .text-primary {
+      color: #1E88E5;
+    }
+    
+    .text-secondary {
+      color: #28B463;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">J</div>
+    <div class="loader-text">JIANAN ENGINEERING</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Back to Top -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Navbar Container -->
+<div id="navbar-container"></div>
+
+<main>
+  <!-- Page Hero Section -->
+  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
+    <div class="container text-center text-white">
+      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Project Portfolio</h1>
+      <p class="text-xl max-w-2xl mx-auto">Delivering excellence across industries and geographies</p>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section bg-light" style="padding: 60px 0;">
+    <div class="container">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="stat-card">
+          <i class="fas fa-chart-line text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="500">0</div>
+          <p class="font-semibold mt-2">Projects Completed</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-smile text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="100">0</div>
+          <p class="font-semibold mt-2">Happy Clients</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-globe text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="3">0</div>
+          <p class="font-semibold mt-2">Countries</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-trophy text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="25">0</div>
+          <p class="font-semibold mt-2">Years Excellence</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Gallery -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-title">Featured <span class="text-primary">Projects</span></h2>
+        <p class="section-subtitle">Explore our successful project deliveries across various sectors</p>
+      </div>
+      
+      <!-- Filter Buttons -->
+      <div class="flex justify-center flex-wrap gap-3 mb-12">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="pharmaceutical">Pharmaceutical</button>
+        <button class="filter-btn" data-filter="industrial">Industrial</button>
+        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+      </div>
+      
+      <!-- Projects Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid"></div>
+      
+      <!-- Load More Button -->
+      <div class="text-center mt-12">
+        <button id="loadMoreBtn" class="btn-primary" style="background: #28B463;">Load More Projects <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonial -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <i class="fas fa-quote-left text-5xl text-primary opacity-30 mb-4"></i>
+          <p class="text-2xl font-medium text-dark leading-relaxed">"Jianan Engineering delivered our pharmaceutical facility ahead of schedule with exceptional quality standards. Their MEP expertise is truly unmatched."</p>
+          <div class="flex items-center gap-4 mt-6">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-lg">Rajiv Mehta</h4>
+              <p class="text-primary">CEO, PharmaCorp India</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-bold mb-4">Start Your Project</h3>
+          <p class="text-text mb-6">Ready to bring your engineering project to life? Let's discuss how Jianan Engineering can help.</p>
+          <a href="contact.html" class="btn-primary">Request a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer Container -->
+<div id="footer-container"></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+  // Projects Data
+  const allProjects = [
+    { id: 1, title: "Pharma SEZ, Mumbai", category: "pharmaceutical", location: "Mumbai, India", desc: "Turnkey MEP + HVAC for GMP-certified pharmaceutical facility. Complete cleanroom installation with HEPA filtration.", img: "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 2, title: "Jakarta Industrial Park", category: "industrial", location: "Jakarta, Indonesia", desc: "Complete EPC infrastructure development for 200-acre industrial zone including roads, utilities, and buildings.", img: "https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 3, title: "Bangladesh Power Plant", category: "infrastructure", location: "Dhaka, Bangladesh", desc: "Electrical systems and fire safety for 500MW combined cycle power plant.", img: "https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 4, title: "Pharma Cleanroom Facility", category: "pharmaceutical", location: "Hyderabad, India", desc: "Class 100 cleanroom with HEPA filtration, HVAC, and environmental monitoring systems.", img: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 5, title: "Auto Manufacturing Plant", category: "industrial", location: "Chennai, India", desc: "Complete electrical systems, automation, and robotics integration for automotive assembly line.", img: "https://images.pexels.com/photos/1416531/pexels-photo-1416531.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 6, title: "Commercial Complex MEP", category: "commercial", location: "Delhi, India", desc: "HVAC, fire safety, and electrical systems for 40-story corporate tower.", img: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 7, title: "Solar Power Project", category: "infrastructure", location: "Gujarat, India", desc: "Engineering and installation of 100MW solar photovoltaic plant.", img: "https://images.pexels.com/photos/159397/pexels-photo-159397.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 8, title: "Food Processing Unit", category: "industrial", location: "Pune, India", desc: "Hygienic MEP design and installation for food processing facility.", img: "https://images.pexels.com/photos/4434246/pexels-photo-4434246.jpeg?auto=compress&cs=tinysrgb&w=600" },
+    { id: 9, title: "Metro Rail Project", category: "infrastructure", location: "Jakarta, Indonesia", desc: "MEP systems for metro rail extension project including ventilation and fire safety.", img: "https://images.pexels.com/photos/109558/pexels-photo-109558.jpeg?auto=compress&cs=tinysrgb&w=600" }
+  ];
+  
+  let visibleProjects = 6;
+  
+  function renderProjects() {
+    const grid = document.getElementById('projectsGrid');
+    if (!grid) return;
+    
+    const activeFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
+    const filtered = activeFilter === 'all' ? allProjects : allProjects.filter(p => p.category === activeFilter);
+    const visible = filtered.slice(0, visibleProjects);
+    
+    grid.innerHTML = visible.map(project => `
+      <div class="project-card" data-category="${project.category}">
+        <div class="project-img">
+          <img src="${project.img}" alt="${project.title}" loading="lazy">
+          <span class="project-category">${project.category.charAt(0).toUpperCase() + project.category.slice(1)}</span>
+        </div>
+        <div class="project-info">
+          <h3>${project.title}</h3>
+          <div class="project-location"><i class="fas fa-map-marker-alt"></i> ${project.location}</div>
+          <p class="project-desc">${project.desc}</p>
+        </div>
+      </div>
+    `).join('');
+    
+    // Hide load more button if no more projects
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      if (visibleProjects >= filtered.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-flex';
+      }
+    }
+  }
+  
+  // Initialize filters
+  function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        visibleProjects = 6;
+        renderProjects();
+      });
+    });
+  }
+  
+  // Load more projects
+  function initLoadMore() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        visibleProjects += 3;
+        renderProjects();
+      });
+    }
+  }
+  
+  // ============================================
+  // LOAD COMPONENTS (navbar and footer)
+  // ============================================
+  
+  async function loadComponent(elementId, componentPath) {
+    try {
+      const response = await fetch(componentPath);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const html = await response.text();
+      document.getElementById(elementId).innerHTML = html;
+      return true;
+    } catch (error) {
+      console.error(`Error loading ${componentPath}:`, error);
+      return false;
+    }
+  }
+  
+  function initNavbar() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const header = document.querySelector('.header');
+    
+    if (header) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+    
+    if (navToggle && navMenu) {
+      const newToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(newToggle, navToggle);
+      
+      const newMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(newMenu, navMenu);
+      
+      const finalToggle = document.getElementById('navToggle');
+      const finalMenu = document.getElementById('navMenu');
+      
+      if (finalToggle && finalMenu) {
+        finalToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          finalMenu.classList.toggle('active');
+          finalToggle.classList.toggle('active');
+          document.body.classList.toggle('mobile-nav-active');
+        });
+      }
+    }
+    
+    document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('navMenu');
+        const mobileToggle = document.getElementById('navToggle');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (mobileToggle) mobileToggle.classList.remove('active');
+        document.body.classList.remove('mobile-nav-active');
+      });
+    });
+    
+    document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+      dropdownLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 1024) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+    
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  function initGlobalUI() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = progress + '%';
+      });
+    }
+    
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+      
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+  
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-number-lg');
+    if (counters.length === 0) return;
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      if (isNaN(target)) return;
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                counter.innerText = target;
+                clearInterval(timer);
+              } else {
+                counter.innerText = Math.floor(current);
+              }
+            }, 30);
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(counter);
+    });
+  }
+  
+  async function loadAllComponents() {
+    await loadComponent('navbar-container', 'components/navbar.html');
+    await loadComponent('footer-container', 'components/footer.html');
+    
+    initNavbar();
+    initGlobalUI();
+    initCounters();
+    renderProjects();
+    initFilters();
+    initLoadMore();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAllComponents);
+  } else {
+    loadAllComponents();
+  }
+  
+  window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    }
+  });
+</script>
+</body>
+</html>

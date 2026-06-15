@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Services - Jianan Engineering | EPC · MEP · Engineering Solutions</title>
+  <meta name="description" content="Comprehensive engineering services including Civil & Structural, MEP Systems, HVAC, Electrical, and Turnkey EPC solutions from Jianan Engineering.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Centralized Theme Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: "#1E88E5",
+              light: "#4AA3E9",
+              dark: "#0F5B99"
+            },
+            secondary: {
+              DEFAULT: "#28B463",
+              light: "#4CC97E",
+              dark: "#1E7A43"
+            },
+            dark: "#0F172A",
+            light: "#F8FAFC",
+            text: "#475569",
+            border: "#E2E8F0"
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* ========================================
+       GLOBAL STYLES
+       ======================================== */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+    }
+    
+    /* Loader Styles */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0F172A;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
+    }
+    
+    .loader-content {
+      text-align: center;
+    }
+    
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .loader-text {
+      color: white;
+      font-size: 14px;
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    .loader-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .loader-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+      100% { left: 100%; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    
+    /* Scroll Progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #1E88E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: #28B463;
+      transform: translateY(-5px);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 100px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1E88E5;
+      background: rgba(30, 136, 229, 0.1);
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      color: #0F172A;
+      margin-bottom: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 32px;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Button Styles */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1E88E5;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: #0F5B99;
+      transform: translateY(-2px);
+    }
+    
+    /* Service Detailed Card */
+    .service-detailed {
+      background: white;
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border: 1px solid #E2E8F0;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .service-detailed:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+      border-color: #1E88E5;
+    }
+    
+    .service-icon-lg {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    
+    .service-icon-lg i {
+      font-size: 40px;
+      color: white;
+    }
+    
+    .service-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    
+    .service-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #475569;
+    }
+    
+    .service-list li i {
+      color: #28B463;
+      font-size: 16px;
+    }
+    
+    /* Process Step */
+    .process-step {
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      transition: all 0.3s;
+      border: 1px solid #E2E8F0;
+    }
+    
+    .process-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+    }
+    
+    /* Why Choose Us */
+    .feature-card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid #E2E8F0;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: #1E88E5;
+    }
+    
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(30, 136, 229, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+    
+    .feature-icon i {
+      font-size: 32px;
+      color: #1E88E5;
+    }
+    
+    .bg-light {
+      background: #F8FAFC;
+    }
+    
+    .text-primary {
+      color: #1E88E5;
+    }
+    
+    .text-secondary {
+      color: #28B463;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">J</div>
+    <div class="loader-text">JIANAN ENGINEERING</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Back to Top -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Navbar Container -->
+<div id="navbar-container"></div>
+
+<main>
+  <!-- Page Hero Section -->
+  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
+    <div class="container text-center text-white">
+      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Our Services</h1>
+      <p class="text-xl max-w-2xl mx-auto">Comprehensive engineering solutions from concept to completion</p>
+    </div>
+  </section>
+
+  <!-- Main Services Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title">Integrated <span class="text-primary">Engineering Services</span></h2>
+        <p class="section-subtitle">End-to-end solutions delivered with precision and expertise</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Civil & Structural Engineering -->
+        <div class="service-detailed" id="civil">
+          <div class="service-icon-lg">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Civil & Structural Engineering</h3>
+          <p class="text-text">Heavy industrial structures, foundations, earthworks, and reinforced concrete works. Our team delivers robust infrastructure that stands the test of time.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Industrial Buildings & Warehouses</li>
+            <li><i class="fas fa-check-circle"></i> Foundations & Piling Works</li>
+            <li><i class="fas fa-check-circle"></i> Structural Steel Fabrication</li>
+            <li><i class="fas fa-check-circle"></i> Retaining Walls & Earthworks</li>
+          </ul>
+        </div>
+        
+        <!-- MEP Systems -->
+        <div class="service-detailed" id="mep">
+          <div class="service-icon-lg">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">MEP Systems</h3>
+          <p class="text-text">Integrated mechanical, electrical, and plumbing solutions for complex industrial and commercial facilities.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> HVAC Design & Installation</li>
+            <li><i class="fas fa-check-circle"></i> Electrical Distribution Systems</li>
+            <li><i class="fas fa-check-circle"></i> Plumbing & Sanitary Systems</li>
+            <li><i class="fas fa-check-circle"></i> Building Management Systems (BMS)</li>
+          </ul>
+        </div>
+        
+        <!-- HVAC & Fire Safety -->
+        <div class="service-detailed" id="hvac">
+          <div class="service-icon-lg">
+            <i class="fas fa-wind"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">HVAC & Fire Safety</h3>
+          <p class="text-text">Energy-efficient HVAC systems and comprehensive fire protection solutions for all building types.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Chilled Water Systems</li>
+            <li><i class="fas fa-check-circle"></i> Fire Sprinkler & Suppression Systems</li>
+            <li><i class="fas fa-check-circle"></i> Smoke Management Systems</li>
+            <li><i class="fas fa-check-circle"></i> Cleanroom HVAC for Pharma</li>
+          </ul>
+        </div>
+        
+        <!-- Electrical Systems -->
+        <div class="service-detailed" id="electrical">
+          <div class="service-icon-lg">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Electrical Systems</h3>
+          <p class="text-text">Complete power distribution, lighting, automation, and control systems for industrial facilities.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Substations & Switchgear</li>
+            <li><i class="fas fa-check-circle"></i> PLC & SCADA Automation</li>
+            <li><i class="fas fa-check-circle"></i> Industrial & Street Lighting</li>
+            <li><i class="fas fa-check-circle"></i> Power Backup & UPS Systems</li>
+          </ul>
+        </div>
+        
+        <!-- Turnkey EPC Solutions -->
+        <div class="service-detailed" id="epc">
+          <div class="service-icon-lg">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Turnkey EPC Solutions</h3>
+          <p class="text-text">End-to-end project delivery from design and procurement to construction and commissioning.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Project Feasibility Studies</li>
+            <li><i class="fas fa-check-circle"></i> Procurement & Logistics Management</li>
+            <li><i class="fas fa-check-circle"></i> Construction Management</li>
+            <li><i class="fas fa-check-circle"></i> Commissioning & Handover</li>
+          </ul>
+        </div>
+        
+        <!-- Project Management -->
+        <div class="service-detailed" id="project">
+          <div class="service-icon-lg">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Project Management</h3>
+          <p class="text-text">Expert planning, scheduling, cost control, and quality management for complex engineering projects.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Primavera P6 Scheduling</li>
+            <li><i class="fas fa-check-circle"></i> Risk Management & Mitigation</li>
+            <li><i class="fas fa-check-circle"></i> Quality Assurance & QC</li>
+            <li><i class="fas fa-check-circle"></i> Cost Control & Budgeting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How We Work</span>
+        <h2 class="section-title">Our <span class="text-primary">Process</span></h2>
+        <p class="section-subtitle">A systematic approach to delivering excellence</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h3 class="text-xl font-bold mb-2">Consultation</h3>
+          <p class="text-text text-sm">Understanding client requirements and project feasibility</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3 class="text-xl font-bold mb-2">Design & Planning</h3>
+          <p class="text-text text-sm">Detailed engineering drawings and project scheduling</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3 class="text-xl font-bold mb-2">Execution</h3>
+          <p class="text-text text-sm">On-site construction with quality and safety focus</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h3 class="text-xl font-bold mb-2">Delivery</h3>
+          <p class="text-text text-sm">Testing, commissioning, and project handover</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="section-tag">Why Jianan</span>
+          <h2 class="text-4xl font-heading font-bold mb-6">Why Choose <span class="text-primary">Jianan Engineering?</span></h2>
+          <p class="text-text mb-6">With over 25 years of experience and 500+ successful projects, we bring unparalleled expertise to every engagement.</p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>ISO Certified</span></div>
+            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>25+ Years Experience</span></div>
+            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>Global Footprint</span></div>
+            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>500+ Projects</span></div>
+            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>On-Time Delivery</span></div>
+            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>Safety First</span></div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+            <h3 class="font-bold">Quality Assured</h3>
+            <p class="text-text text-sm">ISO 9001:2025 certified processes</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-clock"></i></div>
+            <h3 class="font-bold">On-Time Delivery</h3>
+            <p class="text-text text-sm">98% on-time project completion</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-headset"></i></div>
+            <h3 class="font-bold">24/7 Support</h3>
+            <p class="text-text text-sm">Dedicated client support team</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+            <h3 class="font-bold">Cost Effective</h3>
+            <p class="text-text text-sm">Optimized resource allocation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Need a Custom Engineering Solution?</h2>
+        <p class="text-text text-lg mb-8">Let's discuss your specific requirements and how Jianan Engineering can help bring your project to life.</p>
+        <a href="contact.html" class="btn-primary">Contact Our Experts <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer Container -->
+<div id="footer-container"></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+  // ============================================
+  // LOAD COMPONENTS (navbar and footer)
+  // ============================================
+  
+  async function loadComponent(elementId, componentPath) {
+    try {
+      const response = await fetch(componentPath);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const html = await response.text();
+      document.getElementById(elementId).innerHTML = html;
+      return true;
+    } catch (error) {
+      console.error(`Error loading ${componentPath}:`, error);
+      return false;
+    }
+  }
+  
+  function initNavbar() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const header = document.querySelector('.header');
+    
+    if (header) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+    
+    if (navToggle && navMenu) {
+      const newToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(newToggle, navToggle);
+      
+      const newMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(newMenu, navMenu);
+      
+      const finalToggle = document.getElementById('navToggle');
+      const finalMenu = document.getElementById('navMenu');
+      
+      if (finalToggle && finalMenu) {
+        finalToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          finalMenu.classList.toggle('active');
+          finalToggle.classList.toggle('active');
+          document.body.classList.toggle('mobile-nav-active');
+        });
+      }
+    }
+    
+    document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('navMenu');
+        const mobileToggle = document.getElementById('navToggle');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (mobileToggle) mobileToggle.classList.remove('active');
+        document.body.classList.remove('mobile-nav-active');
+      });
+    });
+    
+    document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+      dropdownLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 1024) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+    
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  function initGlobalUI() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = progress + '%';
+      });
+    }
+    
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+      
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+  
+  async function loadAllComponents() {
+    await loadComponent('navbar-container', 'components/navbar.html');
+    await loadComponent('footer-container', 'components/footer.html');
+    
+    initNavbar();
+    initGlobalUI();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAllComponents);
+  } else {
+    loadAllComponents();
+  }
+  
+  window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    }
+  });
+</script>
+</body>
+</html>

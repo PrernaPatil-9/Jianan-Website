@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Gallery - Jianan Engineering | Project Highlights</title>
+  <meta name="description" content="Explore Jianan Engineering's project gallery showcasing industrial, pharmaceutical, infrastructure, and corporate projects across India, Indonesia, and Bangladesh.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Centralized Theme Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: "#1E88E5",
+              light: "#4AA3E9",
+              dark: "#0F5B99"
+            },
+            secondary: {
+              DEFAULT: "#28B463",
+              light: "#4CC97E",
+              dark: "#1E7A43"
+            },
+            dark: "#0F172A",
+            light: "#F8FAFC",
+            text: "#475569",
+            border: "#E2E8F0"
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+  
+  <style>
+    /* ========================================
+       GLOBAL STYLES
+       ======================================== */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+    }
+    
+    /* Loader Styles */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0F172A;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
+    }
+    
+    .loader-content {
+      text-align: center;
+    }
+    
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1E88E5, #28B463);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .loader-text {
+      color: white;
+      font-size: 14px;
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    .loader-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .loader-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+      100% { left: 100%; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    
+    /* Scroll Progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #1E88E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: #28B463;
+      transform: translateY(-5px);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 100px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1E88E5;
+      background: rgba(30, 136, 229, 0.1);
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      color: #0F172A;
+      margin-bottom: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 32px;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Filter Buttons */
+    .filter-btn {
+      padding: 10px 28px;
+      border-radius: 50px;
+      border: 1px solid #E2E8F0;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      margin: 5px;
+    }
+    
+    .filter-btn:hover {
+      background: #1E88E5;
+      border-color: #1E88E5;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .filter-btn.active {
+      background: #1E88E5;
+      border-color: #1E88E5;
+      color: white;
+    }
+    
+    /* Gallery Item */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+      margin-bottom: 24px;
+      break-inside: avoid;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      padding: 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+    
+    .gallery-overlay h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .gallery-overlay p {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    
+    /* Stats Counter */
+    .stat-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid #E2E8F0;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .stat-number-lg {
+      font-size: 42px;
+      font-weight: 800;
+      color: #1E88E5;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .bg-light {
+      background: #F8FAFC;
+    }
+    
+    .text-primary {
+      color: #1E88E5;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">J</div>
+    <div class="loader-text">JIANAN ENGINEERING</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Back to Top -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Navbar Container -->
+<div id="navbar-container"></div>
+
+<main>
+  <!-- Page Hero Section -->
+  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
+    <div class="container text-center text-white">
+      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Project Gallery</h1>
+      <p class="text-xl max-w-2xl mx-auto">Visual journey of our engineering excellence</p>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section bg-light" style="padding: 60px 0;">
+    <div class="container">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="stat-card">
+          <i class="fas fa-images text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="500">0</div>
+          <p class="font-semibold mt-2">Photos</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-project-diagram text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="200">0</div>
+          <p class="font-semibold mt-2">Projects Covered</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-industry text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="15">0</div>
+          <p class="font-semibold mt-2">Industries</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-map-marker-alt text-3xl text-primary mb-3"></i>
+          <div class="stat-number-lg" data-target="8">0</div>
+          <p class="font-semibold mt-2">Locations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Visual Showcase</span>
+        <h2 class="section-title">Project <span class="text-primary">Highlights</span></h2>
+        <p class="section-subtitle">Explore our work through images from recent projects</p>
+      </div>
+      
+      <!-- Filter Buttons -->
+      <div class="flex justify-center flex-wrap gap-3 mb-12">
+        <button class="filter-btn active" data-filter="all">All Photos</button>
+        <button class="filter-btn" data-filter="industrial">Industrial</button>
+        <button class="filter-btn" data-filter="pharma">Pharmaceutical</button>
+        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+        <button class="filter-btn" data-filter="corporate">Corporate</button>
+        <button class="filter-btn" data-filter="construction">Construction</button>
+      </div>
+      
+      <!-- Masonry Gallery Grid -->
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-6" id="galleryGrid"></div>
+      
+      <!-- Load More Button -->
+      <div class="text-center mt-12">
+        <button id="loadMoreBtn" class="btn-primary" style="background: #28B463;">Load More Photos <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Video Showcase -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Video Tour</span>
+        <h2 class="section-title">Engineering in <span class="text-primary">Action</span></h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <video controls class="w-full h-auto">
+            <source src="https://videos.pexels.com/video-files/854873/854873-hd_1920_1080_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="p-4 bg-white">
+            <h3 class="font-bold">Industrial Construction Time-lapse</h3>
+            <p class="text-text text-sm">Jakarta Industrial Park Project</p>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <video controls class="w-full h-auto">
+            <source src="https://videos.pexels.com/video-files/3195396/3195396-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="p-4 bg-white">
+            <h3 class="font-bold">MEP Installation Process</h3>
+            <p class="text-text text-sm">Pharma Facility, Mumbai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Get in Touch CTA -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Want to See More?</h2>
+      <p class="text-text text-lg mb-8">Contact us for a detailed portfolio presentation of our projects</p>
+      <a href="contact.html" class="btn-primary">Request Portfolio <i class="fas fa-download"></i></a>
+    </div>
+  </section>
+</main>
+
+<!-- Footer Container -->
+<div id="footer-container"></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<script>
+  // Gallery Data
+  const allImages = [
+    { src: "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Industrial Construction", location: "Mumbai, India" },
+    { src: "https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Industrial Park Development", location: "Jakarta, Indonesia" },
+    { src: "https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "pharma", title: "Pharmaceutical Facility", location: "Hyderabad, India" },
+    { src: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "corporate", title: "Corporate Tower MEP", location: "Delhi, India" },
+    { src: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "pharma", title: "Cleanroom Installation", location: "Mumbai, India" },
+    { src: "https://images.pexels.com/photos/1416531/pexels-photo-1416531.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Manufacturing Plant", location: "Chennai, India" },
+    { src: "https://images.pexels.com/photos/159397/pexels-photo-159397.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "infrastructure", title: "Solar Power Project", location: "Gujarat, India" },
+    { src: "https://images.pexels.com/photos/4434246/pexels-photo-4434246.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Food Processing Unit", location: "Pune, India" },
+    { src: "https://images.pexels.com/photos/109558/pexels-photo-109558.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "infrastructure", title: "Metro Rail Project", location: "Jakarta, Indonesia" },
+    { src: "https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "construction", title: "Structural Steel Work", location: "Bangalore, India" },
+    { src: "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "construction", title: "Foundation Work", location: "Dhaka, Bangladesh" },
+    { src: "https://images.pexels.com/photos/258429/pexels-photo-258429.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "corporate", title: "Office Building HVAC", location: "Mumbai, India" }
+  ];
+  
+  let visibleCount = 9;
+  
+  function renderGallery() {
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+    
+    const activeFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
+    const filtered = activeFilter === 'all' ? allImages : allImages.filter(img => img.cat === activeFilter);
+    const visible = filtered.slice(0, visibleCount);
+    
+    grid.innerHTML = visible.map((img, idx) => `
+      <a href="${img.src}" data-lightbox="gallery" data-title="${img.title} - ${img.location}" class="gallery-item block">
+        <img src="${img.src}" alt="${img.title}" loading="lazy" class="w-full rounded-xl shadow-lg">
+        <div class="gallery-overlay">
+          <h4>${img.title}</h4>
+          <p><i class="fas fa-map-marker-alt"></i> ${img.location}</p>
+        </div>
+      </a>
+    `).join('');
+    
+    // Refresh lightbox
+    if (typeof lightbox !== 'undefined') {
+      lightbox.option({ resizeDuration: 200 });
+    }
+    
+    // Update load more button
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      if (visibleCount >= filtered.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-flex';
+      }
+    }
+  }
+  
+  // Initialize filters
+  function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        visibleCount = 9;
+        renderGallery();
+      });
+    });
+  }
+  
+  // Load more
+  function initLoadMore() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        visibleCount += 6;
+        renderGallery();
+      });
+    }
+  }
+  
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-number-lg');
+    if (counters.length === 0) return;
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      if (isNaN(target)) return;
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                counter.innerText = target;
+                clearInterval(timer);
+              } else {
+                counter.innerText = Math.floor(current);
+              }
+            }, 30);
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(counter);
+    });
+  }
+  
+  // ============================================
+  // LOAD COMPONENTS (navbar and footer)
+  // ============================================
+  
+  async function loadComponent(elementId, componentPath) {
+    try {
+      const response = await fetch(componentPath);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const html = await response.text();
+      document.getElementById(elementId).innerHTML = html;
+      return true;
+    } catch (error) {
+      console.error(`Error loading ${componentPath}:`, error);
+      return false;
+    }
+  }
+  
+  function initNavbar() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const header = document.querySelector('.header');
+    
+    if (header) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+    
+    if (navToggle && navMenu) {
+      const newToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(newToggle, navToggle);
+      
+      const newMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(newMenu, navMenu);
+      
+      const finalToggle = document.getElementById('navToggle');
+      const finalMenu = document.getElementById('navMenu');
+      
+      if (finalToggle && finalMenu) {
+        finalToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          finalMenu.classList.toggle('active');
+          finalToggle.classList.toggle('active');
+          document.body.classList.toggle('mobile-nav-active');
+        });
+      }
+    }
+    
+    document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('navMenu');
+        const mobileToggle = document.getElementById('navToggle');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (mobileToggle) mobileToggle.classList.remove('active');
+        document.body.classList.remove('mobile-nav-active');
+      });
+    });
+    
+    document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+      dropdownLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 1024) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+    
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  function initGlobalUI() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = progress + '%';
+      });
+    }
+    
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+      
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+  
+  async function loadAllComponents() {
+    await loadComponent('navbar-container', 'components/navbar.html');
+    await loadComponent('footer-container', 'components/footer.html');
+    
+    initNavbar();
+    initGlobalUI();
+    initCounters();
+    renderGallery();
+    initFilters();
+    initLoadMore();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAllComponents);
+  } else {
+    loadAllComponents();
+  }
+  
+  window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    }
+  });
+</script>
+</body>
+</html>
