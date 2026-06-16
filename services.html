@@ -150,18 +150,20 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       cursor: pointer;
       z-index: 99;
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top {
+      background: transparent !important;
+      box-shadow: none;
+      padding: 0;
     }
     
     .back-to-top.show {
@@ -169,15 +171,17 @@
       visibility: visible;
     }
     
-    .back-to-top:hover {
-      background: #28B463;
-      transform: translateY(-5px);
+    .back-to-top img {
+      width: 60px;
+      height: auto;
+      animation: bounce 2s infinite;
     }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
     /* Container */
     .container {
       max-width: 1280px;
@@ -187,18 +191,18 @@
     
     /* Section Styles */
     .section {
-      padding: 100px 0;
+      padding: 80px 0;
     }
     
     @media (max-width: 768px) {
       .section {
-        padding: 60px 0;
+        padding: 50px 0;
       }
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
     
     .section-tag {
@@ -207,94 +211,139 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
+      color: #28B463;
+      background: rgba(40, 180, 99, 0.1);
       padding: 6px 16px;
       border-radius: 50px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     
     .section-title {
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 700;
       font-family: 'Poppins', sans-serif;
       color: #0F172A;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     
     @media (max-width: 768px) {
       .section-title {
-        font-size: 32px;
+        font-size: 28px;
       }
     }
     
     .section-subtitle {
-      font-size: 18px;
+      font-size: 17px;
       color: #475569;
       max-width: 600px;
       margin: 0 auto;
     }
     
-    /* Button Styles */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #1E88E5;
-      color: white;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
+    .text-primary {
+      color: #28B463;
     }
     
-    .btn-primary:hover {
-      background: #0F5B99;
-      transform: translateY(-2px);
+    .bg-light {
+      background: #F8FAFC;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);
+      padding: 140px 0 70px;
+      position: relative;
+      overflow: hidden;
     }
     
-    /* Service Detailed Card */
-    .service-detailed {
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(40,180,99,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(30,136,229,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    /* Service Card - Modern */
+    .service-card-modern {
       background: white;
-      border-radius: 24px;
-      padding: 35px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      border: 1px solid #E2E8F0;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-    
-    .service-detailed:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
-    }
-    
-    .service-icon-lg {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, #1E88E5, #28B463);
       border-radius: 20px;
+      padding: 32px 28px;
+      border: 1px solid #E2E8F0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #28B463, #1E88E5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .service-card-modern:hover::before {
+      opacity: 1;
+    }
+    
+    .service-card-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(40, 180, 99, 0.15);
+      border-color: #28B463;
+    }
+    
+    .service-icon-wrap {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(40,180,99,0.12), rgba(30,136,229,0.08));
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
     }
     
-    .service-icon-lg i {
-      font-size: 40px;
+    .service-card-modern:hover .service-icon-wrap {
+      background: linear-gradient(135deg, #28B463, #1E88E5);
+    }
+    
+    .service-icon-wrap i {
+      font-size: 32px;
+      color: #28B463;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card-modern:hover .service-icon-wrap i {
       color: white;
     }
     
-    .service-list {
+    .service-feature-list {
       list-style: none;
-      margin-top: 20px;
+      margin-top: 16px;
     }
     
-    .service-list li {
-      margin-bottom: 12px;
+    .service-feature-list li {
+      padding: 6px 0;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -302,82 +351,130 @@
       color: #475569;
     }
     
-    .service-list li i {
+    .service-feature-list li i {
       color: #28B463;
-      font-size: 16px;
+      font-size: 14px;
+      width: 18px;
     }
-    
-    /* Process Step */
-    .process-step {
+
+    /* Process Steps - Modern */
+    .process-card {
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
       background: white;
-      border-radius: 20px;
-      transition: all 0.3s;
+      border-radius: 16px;
       border: 1px solid #E2E8F0;
+      transition: all 0.3s ease;
+      position: relative;
     }
     
-    .process-step:hover {
+    .process-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      border-color: #28B463;
     }
     
-    .step-number {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #1E88E5, #28B463);
+    .process-number {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #28B463, #1E88E5);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 24px;
+      margin: 0 auto 16px;
+      font-size: 22px;
       font-weight: 800;
       color: white;
     }
     
-    /* Why Choose Us */
-    .feature-card {
+    .process-connector {
+      position: absolute;
+      top: 50%;
+      right: -30px;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #28B463, transparent);
+      opacity: 0.3;
+    }
+    
+    @media (max-width: 768px) {
+      .process-connector {
+        display: none;
+      }
+    }
+
+    /* Feature Cards */
+    .feature-modern {
       background: white;
       padding: 25px;
-      border-radius: 20px;
+      border-radius: 16px;
       text-align: center;
-      transition: all 0.3s;
       border: 1px solid #E2E8F0;
+      transition: all 0.3s ease;
     }
     
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
+    .feature-modern:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(40,180,99,0.1);
+      border-color: #28B463;
     }
     
-    .feature-icon {
-      width: 70px;
-      height: 70px;
-      background: rgba(30, 136, 229, 0.1);
+    .feature-modern .icon-box {
+      width: 60px;
+      height: 60px;
+      background: rgba(40,180,99,0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 15px;
+      margin: 0 auto 12px;
     }
     
-    .feature-icon i {
-      font-size: 32px;
-      color: #1E88E5;
-    }
-    
-    .bg-light {
-      background: #F8FAFC;
-    }
-    
-    .text-primary {
-      color: #1E88E5;
-    }
-    
-    .text-secondary {
+    .feature-modern .icon-box i {
+      font-size: 28px;
       color: #28B463;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #28B463;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(40,180,99,0.3);
+    }
+    
+    .btn-primary:hover {
+      background: #1E7A43;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40,180,99,0.4);
+      gap: 14px;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid #28B463;
+      color: #28B463;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background: #28B463;
+      color: white;
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -397,212 +494,250 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <img src="assets/images/btt.png" alt="Back to Top">
 </div>
 
 <!-- Navbar Container -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Our Services</h1>
-      <p class="text-xl max-w-2xl mx-auto">Comprehensive engineering solutions from concept to completion</p>
+<!-- Page Hero Section - Parallax Background (Fixed - No transparent bottom) -->
+<section class="page-hero relative min-h-[80vh] flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(26, 60, 52, 0.88)), url('assets/images/industrial_park_prj.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding: 180px 0 100px;">
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-20 right-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="container relative z-10">
+      <div class="text-center text-white">
+        <span class="inline-block text-emerald-400 font-semibold text-sm tracking-widest uppercase bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full mb-4 border border-white/10">✦ Our Services</span>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold font-heading mb-4 leading-tight">Engineering <span class="text-emerald-400">Solutions</span> <br class="hidden md:block"/>That Deliver</h1>
+        <p class="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">Comprehensive engineering services from concept to completion</p>
+        
+        <!-- CTA Buttons in Hero -->
+        <div class="mt-8 flex flex-wrap gap-4 justify-center">
+          <a href="#services" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/30">
+            Explore Services <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+          <a href="contact.html" class="inline-flex items-center gap-2 border-2 border-white/60 hover:bg-white/10 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 backdrop-blur-sm">
+            Contact Us <i class="fas fa-phone text-sm"></i>
+          </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <!-- <div class="mt-12 flex flex-col items-center gap-2">
+          <span class="text-xs text-white/50 uppercase tracking-widest">Scroll</span>
+          <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-1.5">
+            <div class="w-1 h-2 bg-white/60 rounded-full animate-bounce"></div>
+          </div>
+        </div> -->
+      </div>
     </div>
-  </section>
+    
+    <!-- REMOVED: Bottom gradient that was making it transparent -->
+</section>
 
-  <!-- Main Services Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">What We Offer</span>
-        <h2 class="section-title">Integrated <span class="text-primary">Engineering Services</span></h2>
-        <p class="section-subtitle">End-to-end solutions delivered with precision and expertise</p>
+ <!-- Services Grid -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What We Offer</span>
+      <h2 class="section-title">Integrated <span class="text-primary">Engineering Services</span></h2>
+      <p class="section-subtitle">End-to-end solutions delivered with precision and expertise</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Service 1: Civil & Structural -->
+      <div class="service-card-modern relative bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-8">
+        <div class="service-icon-wrap">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-[#1a3c34]">Civil & Structural</h3>
+        <p class="text-text text-sm leading-relaxed">Heavy industrial structures, foundations, earthworks, and reinforced concrete works.</p>
+        <ul class="service-feature-list">
+          <li><i class="fas fa-check-circle"></i> Industrial Buildings</li>
+          <li><i class="fas fa-check-circle"></i> Foundations & Piling</li>
+          <li><i class="fas fa-check-circle"></i> Structural Steel Fabrication</li>
+          <li><i class="fas fa-check-circle"></i> Retaining Walls & Earthworks</li>
+        </ul>
+      </div>
+
+      <!-- Service 2: MEP Systems -->
+      <div class="service-card-modern relative bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-8">
+        <div class="service-icon-wrap">
+          <i class="fas fa-plug"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-[#1a3c34]">MEP Systems</h3>
+        <p class="text-text text-sm leading-relaxed">Integrated mechanical, electrical, and plumbing solutions for complex facilities.</p>
+        <ul class="service-feature-list">
+          <li><i class="fas fa-check-circle"></i> HVAC Design & Installation</li>
+          <li><i class="fas fa-check-circle"></i> Electrical Distribution</li>
+          <li><i class="fas fa-check-circle"></i> Plumbing & Sanitary</li>
+          <li><i class="fas fa-check-circle"></i> Building Management Systems</li>
+        </ul>
+      </div>
+
+      <!-- Service 3: HVAC & Fire Safety -->
+      <div class="service-card-modern relative bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-8">
+        <div class="service-icon-wrap">
+          <i class="fas fa-wind"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-[#1a3c34]">HVAC & Fire Safety</h3>
+        <p class="text-text text-sm leading-relaxed">Energy-efficient HVAC systems and comprehensive fire protection solutions.</p>
+        <ul class="service-feature-list">
+          <li><i class="fas fa-check-circle"></i> Chilled Water Systems</li>
+          <li><i class="fas fa-check-circle"></i> Fire Sprinkler Systems</li>
+          <li><i class="fas fa-check-circle"></i> Smoke Management</li>
+          <li><i class="fas fa-check-circle"></i> Cleanroom HVAC for Pharma</li>
+        </ul>
+      </div>
+
+      <!-- Service 4: Electrical Systems -->
+      <div class="service-card-modern relative bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-8">
+        <div class="service-icon-wrap">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-[#1a3c34]">Electrical Systems</h3>
+        <p class="text-text text-sm leading-relaxed">Complete power distribution, lighting, automation, and control systems.</p>
+        <ul class="service-feature-list">
+          <li><i class="fas fa-check-circle"></i> Substations & Switchgear</li>
+          <li><i class="fas fa-check-circle"></i> PLC & SCADA Automation</li>
+          <li><i class="fas fa-check-circle"></i> Industrial & Street Lighting</li>
+          <li><i class="fas fa-check-circle"></i> Power Backup & UPS</li>
+        </ul>
+      </div>
+
+      <!-- Service 5: Turnkey EPC -->
+      <div class="service-card-modern relative bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-8">
+        <div class="service-icon-wrap">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-[#1a3c34]">Turnkey EPC Solutions</h3>
+        <p class="text-text text-sm leading-relaxed">End-to-end project delivery from design to procurement, construction, and commissioning.</p>
+        <ul class="service-feature-list">
+          <li><i class="fas fa-check-circle"></i> Feasibility Studies</li>
+          <li><i class="fas fa-check-circle"></i> Procurement & Logistics</li>
+          <li><i class="fas fa-check-circle"></i> Construction Management</li>
+          <li><i class="fas fa-check-circle"></i> Commissioning & Handover</li>
+        </ul>
+      </div>
+
+      <!-- Service 6: Project Management -->
+      <div class="service-card-modern relative bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-8">
+        <div class="service-icon-wrap">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-[#1a3c34]">Project Management</h3>
+        <p class="text-text text-sm leading-relaxed">Expert planning, scheduling, cost control, and quality management for complex projects.</p>
+        <ul class="service-feature-list">
+          <li><i class="fas fa-check-circle"></i> Primavera P6 Scheduling</li>
+          <li><i class="fas fa-check-circle"></i> Risk Management</li>
+          <li><i class="fas fa-check-circle"></i> Quality Assurance & QC</li>
+          <li><i class="fas fa-check-circle"></i> Cost Control & Budgeting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Why Choose Us - With bg-[#e8f5e9] -->
+<section class="section" style="background: #e8f5e9; padding: 80px 0;">
+  <div class="container">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="section-tag">Why Jianan</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Why Choose <span class="text-primary">Jianan Engineering?</span></h2>
+        <p class="text-text mb-6">With over 25 years of experience and 500+ successful projects, we bring unparalleled expertise to every engagement.</p>
+        
+        <div class="grid grid-cols-2 gap-3">
+          <div class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary text-lg"></i><span class="text-sm font-medium">ISO Certified</span></div>
+          <div class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary text-lg"></i><span class="text-sm font-medium">25+ Years Experience</span></div>
+          <div class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary text-lg"></i><span class="text-sm font-medium">Global Footprint</span></div>
+          <div class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary text-lg"></i><span class="text-sm font-medium">500+ Projects</span></div>
+          <div class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary text-lg"></i><span class="text-sm font-medium">On-Time Delivery</span></div>
+          <div class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary text-lg"></i><span class="text-sm font-medium">Safety First</span></div>
+        </div>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Civil & Structural Engineering -->
-        <div class="service-detailed" id="civil">
-          <div class="service-icon-lg">
-            <i class="fas fa-building"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Civil & Structural Engineering</h3>
-          <p class="text-text">Heavy industrial structures, foundations, earthworks, and reinforced concrete works. Our team delivers robust infrastructure that stands the test of time.</p>
-          <ul class="service-list">
-            <li><i class="fas fa-check-circle"></i> Industrial Buildings & Warehouses</li>
-            <li><i class="fas fa-check-circle"></i> Foundations & Piling Works</li>
-            <li><i class="fas fa-check-circle"></i> Structural Steel Fabrication</li>
-            <li><i class="fas fa-check-circle"></i> Retaining Walls & Earthworks</li>
-          </ul>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="feature-modern">
+          <div class="icon-box"><i class="fas fa-trophy"></i></div>
+          <h3 class="font-bold text-sm">Quality Assured</h3>
+          <p class="text-text text-xs">ISO 9001:2025 certified</p>
         </div>
-        
-        <!-- MEP Systems -->
-        <div class="service-detailed" id="mep">
-          <div class="service-icon-lg">
-            <i class="fas fa-plug"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">MEP Systems</h3>
-          <p class="text-text">Integrated mechanical, electrical, and plumbing solutions for complex industrial and commercial facilities.</p>
-          <ul class="service-list">
-            <li><i class="fas fa-check-circle"></i> HVAC Design & Installation</li>
-            <li><i class="fas fa-check-circle"></i> Electrical Distribution Systems</li>
-            <li><i class="fas fa-check-circle"></i> Plumbing & Sanitary Systems</li>
-            <li><i class="fas fa-check-circle"></i> Building Management Systems (BMS)</li>
-          </ul>
+        <div class="feature-modern">
+          <div class="icon-box"><i class="fas fa-clock"></i></div>
+          <h3 class="font-bold text-sm">On-Time Delivery</h3>
+          <p class="text-text text-xs">98% on-time completion</p>
         </div>
-        
-        <!-- HVAC & Fire Safety -->
-        <div class="service-detailed" id="hvac">
-          <div class="service-icon-lg">
-            <i class="fas fa-wind"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">HVAC & Fire Safety</h3>
-          <p class="text-text">Energy-efficient HVAC systems and comprehensive fire protection solutions for all building types.</p>
-          <ul class="service-list">
-            <li><i class="fas fa-check-circle"></i> Chilled Water Systems</li>
-            <li><i class="fas fa-check-circle"></i> Fire Sprinkler & Suppression Systems</li>
-            <li><i class="fas fa-check-circle"></i> Smoke Management Systems</li>
-            <li><i class="fas fa-check-circle"></i> Cleanroom HVAC for Pharma</li>
-          </ul>
+        <div class="feature-modern">
+          <div class="icon-box"><i class="fas fa-headset"></i></div>
+          <h3 class="font-bold text-sm">24/7 Support</h3>
+          <p class="text-text text-xs">Dedicated client support</p>
         </div>
-        
-        <!-- Electrical Systems -->
-        <div class="service-detailed" id="electrical">
-          <div class="service-icon-lg">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Electrical Systems</h3>
-          <p class="text-text">Complete power distribution, lighting, automation, and control systems for industrial facilities.</p>
-          <ul class="service-list">
-            <li><i class="fas fa-check-circle"></i> Substations & Switchgear</li>
-            <li><i class="fas fa-check-circle"></i> PLC & SCADA Automation</li>
-            <li><i class="fas fa-check-circle"></i> Industrial & Street Lighting</li>
-            <li><i class="fas fa-check-circle"></i> Power Backup & UPS Systems</li>
-          </ul>
-        </div>
-        
-        <!-- Turnkey EPC Solutions -->
-        <div class="service-detailed" id="epc">
-          <div class="service-icon-lg">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Turnkey EPC Solutions</h3>
-          <p class="text-text">End-to-end project delivery from design and procurement to construction and commissioning.</p>
-          <ul class="service-list">
-            <li><i class="fas fa-check-circle"></i> Project Feasibility Studies</li>
-            <li><i class="fas fa-check-circle"></i> Procurement & Logistics Management</li>
-            <li><i class="fas fa-check-circle"></i> Construction Management</li>
-            <li><i class="fas fa-check-circle"></i> Commissioning & Handover</li>
-          </ul>
-        </div>
-        
-        <!-- Project Management -->
-        <div class="service-detailed" id="project">
-          <div class="service-icon-lg">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Project Management</h3>
-          <p class="text-text">Expert planning, scheduling, cost control, and quality management for complex engineering projects.</p>
-          <ul class="service-list">
-            <li><i class="fas fa-check-circle"></i> Primavera P6 Scheduling</li>
-            <li><i class="fas fa-check-circle"></i> Risk Management & Mitigation</li>
-            <li><i class="fas fa-check-circle"></i> Quality Assurance & QC</li>
-            <li><i class="fas fa-check-circle"></i> Cost Control & Budgeting</li>
-          </ul>
+        <div class="feature-modern">
+          <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+          <h3 class="font-bold text-sm">Cost Effective</h3>
+          <p class="text-text text-xs">Optimized resources</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Our Process -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">How We Work</span>
-        <h2 class="section-title">Our <span class="text-primary">Process</span></h2>
-        <p class="section-subtitle">A systematic approach to delivering excellence</p>
-      </div>
-      
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="process-step">
-          <div class="step-number">01</div>
-          <h3 class="text-xl font-bold mb-2">Consultation</h3>
-          <p class="text-text text-sm">Understanding client requirements and project feasibility</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">02</div>
-          <h3 class="text-xl font-bold mb-2">Design & Planning</h3>
-          <p class="text-text text-sm">Detailed engineering drawings and project scheduling</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">03</div>
-          <h3 class="text-xl font-bold mb-2">Execution</h3>
-          <p class="text-text text-sm">On-site construction with quality and safety focus</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">04</div>
-          <h3 class="text-xl font-bold mb-2">Delivery</h3>
-          <p class="text-text text-sm">Testing, commissioning, and project handover</p>
-        </div>
-      </div>
+  <!-- Our Process - Compact Redesign -->
+<section class="section bg-light" style="padding: 50px 0;">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 30px;">
+      <span class="section-tag" style="font-size: 12px; padding: 4px 14px;">How We Work</span>
+      <h2 class="section-title" style="font-size: 28px; margin-bottom: 6px;">Our <span class="text-primary">Process</span></h2>
+      <p class="section-subtitle" style="font-size: 15px;">A systematic approach to delivering excellence</p>
     </div>
-  </section>
+    
+    <div class="grid md:grid-cols-4 gap-4">
+      <!-- Process Step 1 -->
+      <div class="process-card bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-5 text-center">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#28B463] to-[#1E88E5] rounded-full text-white text-xl font-bold mb-2 shadow-lg shadow-emerald-500/20">1</div>
+        <h3 class="text-base font-bold mb-1 text-[#1a3c34]">Consultation</h3>
+        <p class="text-text text-xs leading-relaxed">Understanding your requirements and project feasibility</p>
+      </div>
 
-  <!-- Why Choose Us -->
-  <section class="section">
-    <div class="container">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="section-tag">Why Jianan</span>
-          <h2 class="text-4xl font-heading font-bold mb-6">Why Choose <span class="text-primary">Jianan Engineering?</span></h2>
-          <p class="text-text mb-6">With over 25 years of experience and 500+ successful projects, we bring unparalleled expertise to every engagement.</p>
-          
-          <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>ISO Certified</span></div>
-            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>25+ Years Experience</span></div>
-            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>Global Footprint</span></div>
-            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>500+ Projects</span></div>
-            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>On-Time Delivery</span></div>
-            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-xl"></i><span>Safety First</span></div>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-2 gap-4">
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-trophy"></i></div>
-            <h3 class="font-bold">Quality Assured</h3>
-            <p class="text-text text-sm">ISO 9001:2025 certified processes</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-clock"></i></div>
-            <h3 class="font-bold">On-Time Delivery</h3>
-            <p class="text-text text-sm">98% on-time project completion</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-headset"></i></div>
-            <h3 class="font-bold">24/7 Support</h3>
-            <p class="text-text text-sm">Dedicated client support team</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-            <h3 class="font-bold">Cost Effective</h3>
-            <p class="text-text text-sm">Optimized resource allocation</p>
-          </div>
-        </div>
+      <!-- Process Step 2 -->
+      <div class="process-card bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-5 text-center">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#28B463] to-[#1E88E5] rounded-full text-white text-xl font-bold mb-2 shadow-lg shadow-emerald-500/20">2</div>
+        <h3 class="text-base font-bold mb-1 text-[#1a3c34]">Design & Planning</h3>
+        <p class="text-text text-xs leading-relaxed">Detailed engineering and project scheduling</p>
+      </div>
+
+      <!-- Process Step 3 -->
+      <div class="process-card bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-5 text-center">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#28B463] to-[#1E88E5] rounded-full text-white text-xl font-bold mb-2 shadow-lg shadow-emerald-500/20">3</div>
+        <h3 class="text-base font-bold mb-1 text-[#1a3c34]">Execution</h3>
+        <p class="text-text text-xs leading-relaxed">On-site construction with quality and safety focus</p>
+      </div>
+
+      <!-- Process Step 4 -->
+      <div class="process-card bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 p-5 text-center">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#28B463] to-[#1E88E5] rounded-full text-white text-xl font-bold mb-2 shadow-lg shadow-emerald-500/20">4</div>
+        <h3 class="text-base font-bold mb-1 text-[#1a3c34]">Delivery</h3>
+        <p class="text-text text-xs leading-relaxed">Testing, commissioning, and project handover</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CTA Section -->
-  <section class="section bg-light">
+  <section class="section" style="background: linear-gradient(135deg, #0F172A, #1a3c34);">
     <div class="container">
       <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Need a Custom Engineering Solution?</h2>
-        <p class="text-text text-lg mb-8">Let's discuss your specific requirements and how Jianan Engineering can help bring your project to life.</p>
-        <a href="contact.html" class="btn-primary">Contact Our Experts <i class="fas fa-arrow-right"></i></a>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Need a Custom Engineering Solution?</h2>
+        <p class="text-gray-300 text-lg mb-8">Let's discuss your specific requirements and how Jianan Engineering can help bring your project to life.</p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="contact.html" class="btn-primary">Contact Our Experts <i class="fas fa-arrow-right"></i></a>
+          <a href="tel:+912245678900" class="inline-flex items-center gap-3 border-2 border-white/40 hover:border-white text-white font-semibold px-6 py-3 rounded-full transition-all">
+            <i class="fas fa-phone"></i> +91 22 4567 8900
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -612,9 +747,6 @@
 <div id="footer-container"></div>
 
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 <script>
   // ============================================
   // LOAD COMPONENTS (navbar and footer)
