@@ -150,8 +150,8 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      background: #1E88E5;
-      border-radius: 50%;
+      /* background: #1E88E5;
+      border-radius: 50%; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -168,7 +168,11 @@
       opacity: 1;
       visibility: visible;
     }
-    
+    .back-to-top {
+    background: transparent !important;
+    box-shadow: none;
+    padding: 0;
+}
     .back-to-top:hover {
       background: #28B463;
       transform: translateY(-5px);
@@ -357,8 +361,10 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Back to Top -->
-<div class="back-to-top" id="backToTop">
-  <i class="fas fa-arrow-up"></i>
+<div id="backToTop" class="back-to-top">
+    <img src="assets/images/btt.png"
+         alt="Back to Top"
+         class="w-16 h-auto animate-bounce">
 </div>
 
 <!-- Navbar Container -->

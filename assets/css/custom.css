@@ -182,9 +182,14 @@ body {
   border-radius: 30px;
 }
 
-/* Section Styles */
+/* Section Styles - FIXED */
 .section {
   padding: 100px 0;
+  display: block !important; /* Force display */
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -196,6 +201,7 @@ body {
 .section-header {
   text-align: center;
   margin-bottom: 60px;
+  display: block !important;
 }
 
 .section-tag {
@@ -231,7 +237,6 @@ body {
   max-width: 600px;
   margin: 0 auto;
 }
-
 /* Hero Section */
 .hero-section {
   position: relative;

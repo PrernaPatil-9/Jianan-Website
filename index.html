@@ -186,8 +186,8 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      background: #1E88E5;
-      border-radius: 50%;
+      /* background: #1E88E5;
+      border-radius: 50%; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -199,7 +199,12 @@
       transition: all 0.3s ease;
       box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
-    
+
+    .back-to-top {
+    background: transparent !important;
+    box-shadow: none;
+    padding: 0;
+}
     .back-to-top.show {
       opacity: 1;
       visibility: visible;
@@ -1276,6 +1281,26 @@
   }
 }
   </style>
+
+  <style>
+  /* Force sections to be visible */
+  .section {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Override any GSAP initial states */
+  .why-grid, .services-grid, .projects-grid {
+    display: grid !important;
+    opacity: 1 !important;
+  }
+  
+  .why-card, .service-card, .project-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+</style>
 </head>
 <body>
 
@@ -1292,8 +1317,10 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Back to Top -->
-<div class="back-to-top" id="backToTop">
-  <i class="fas fa-arrow-up"></i>
+<div id="backToTop" class="back-to-top bg-transparent">
+    <img src="assets/images/btt.png"
+         alt="Back to Top"
+         class="bg-transparent w-20 h-auto animate-bounce">
 </div>
 
 <!-- ============================================ -->
@@ -1489,85 +1516,261 @@
   </div>
 </section>
 
-  <!-- Why Choose Jianan -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Why Jianan</span>
-        <h2 class="section-title">The <span class="text-primary">Jianan Advantage</span></h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon"><i class="fas fa-medal"></i></div>
-          <h3>Uncompromising Quality</h3>
-          <p>ISO 9001:2025 certified processes ensuring international standards across all deliverables.</p>
+<!-- Why Jianan - Redesigned to match Elite Endeavor style with images -->
+<section class="pt-8 pb-16 bg-[#e8f5e9]">
+    <div class="container mx-auto px-4">
+
+        <!-- Section Header -->
+        <div class="text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#1a3c34] mb-16 md:mb-24 inline-block">
+                The <span class="text-primary">Jianan Advantage</span>
+                <span class="block w-20 h-1 mt-3 mx-auto bg-gradient-to-r from-[#e74c3c] to-[#f5b642] rounded-full"></span>
+            </h2>
         </div>
-        <div class="why-card">
-          <div class="why-icon"><i class="fas fa-globe-asia"></i></div>
-          <h3>Global Expertise</h3>
-          <p>Successfully executed projects across India, Indonesia, and Bangladesh with multicultural teams.</p>
+
+        <!-- Grid 4 cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- Card 1: Uncompromising Quality -->
+            <div class="relative text-center bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 pt-20 px-6 pb-8">
+                <!-- Image -->
+                <img src="assets/images/wj_1.png" alt="Uncompromising Quality"
+                    class="w-28 h-auto mx-auto absolute -top-14 left-1/2 -translate-x-1/2">
+
+                <h3 class="text-xl font-bold text-[#1a3c34] mb-6 text-center">
+                    Uncompromising Quality
+                    <span class="block w-12 h-0.5 mt-2 mx-auto bg-gradient-to-r from-[#e74c3c] to-[#f5b642] rounded-full"></span>
+                </h3>
+
+                <p class="text-gray-600">
+                    ISO 9001:2025 certified processes ensuring international standards across all deliverables.
+                </p>
+            </div>
+
+            <!-- Card 2: Global Expertise -->
+            <div class="relative text-center bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 pt-20 px-6 pb-8">
+
+                <img src="assets/images/wj_2.png" alt="Global Expertise"
+    class="w-28 h-auto mx-auto absolute -top-20 left-1/2 -translate-x-1/2">
+                <h3 class="text-xl font-bold text-[#1a3c34] mb-6 text-center">
+                    Global Expertise
+                    <span class="block w-12 h-0.5 mt-2 mx-auto bg-gradient-to-r from-[#e74c3c] to-[#f5b642] rounded-full"></span>
+                </h3>
+
+                <p class="text-gray-600">
+                    Successfully executed projects across India, Indonesia, and Bangladesh with multicultural teams.
+                </p>
+            </div>
+
+            <!-- Card 3: On-Time Delivery -->
+            <div class="relative text-center bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 pt-20 px-6 pb-8">
+
+                <img src="assets/images/wj_3.png" alt="On-Time Delivery"
+                    class="w-28 h-auto mx-auto absolute -top-14 left-1/2 -translate-x-1/2">
+
+                <h3 class="text-xl font-bold text-[#1a3c34] mb-6 text-center">
+                    On-Time Delivery
+                    <span class="block w-12 h-0.5 mt-2 mx-auto bg-gradient-to-r from-[#e74c3c] to-[#f5b642] rounded-full"></span>
+                </h3>
+
+                <p class="text-gray-600">
+                    98% project completion within committed timelines through advanced project management.
+                </p>
+            </div>
+
+            <!-- Card 4: Safety First -->
+            <div class="relative text-center bg-white rounded-xl border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl transition-all duration-300 pt-20 px-6 pb-8">
+                
+                <img src="assets/images/wj_4.png" alt="Safety First"
+                    class="w-28 h-auto mx-auto absolute -top-14 left-1/2 -translate-x-1/2">
+
+                <h3 class="text-xl font-bold text-[#1a3c34] mb-6 text-center">
+                    Safety First
+                    <span class="block w-12 h-0.5 mt-2 mx-auto bg-gradient-to-r from-[#e74c3c] to-[#f5b642] rounded-full"></span>
+                </h3>
+
+                <p class="text-gray-600">
+                    Zero Lost Time Injury (LTI) record with rigorous HSE policies and training.
+                </p>
+            </div>
+
         </div>
-        <div class="why-card">
-          <div class="why-icon"><i class="fas fa-clock"></i></div>
-          <h3>On-Time Delivery</h3>
-          <p>98% project completion within committed timelines through advanced project management.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
-          <h3>Safety First</h3>
-          <p>Zero Lost Time Injury (LTI) record with rigorous HSE policies and training.</p>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
   <!-- Services Overview -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Capabilities</span>
-        <h2 class="section-title">Integrated <span class="text-primary">Engineering Services</span></h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-building"></i></div>
-          <h3>Civil & Structural</h3>
-          <p>Heavy industrial structures, foundations, and earthworks.</p>
-          <a href="services.html#civil" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-plug"></i></div>
-          <h3>MEP Systems</h3>
-          <p>Mechanical, electrical, plumbing – integrated design & installation.</p>
-          <a href="services.html#mep" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-wind"></i></div>
-          <h3>HVAC & Fire Safety</h3>
-          <p>Energy-efficient HVAC, fire suppression, life safety systems.</p>
-          <a href="services.html#hvac" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-bolt"></i></div>
-          <h3>Electrical Systems</h3>
-          <p>Power distribution, lighting, automation, and control systems.</p>
-          <a href="services.html#electrical" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-cogs"></i></div>
-          <h3>Turnkey EPC</h3>
-          <p>End-to-end project delivery from design to commissioning.</p>
-          <a href="services.html#epc" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Project Management</h3>
-          <p>Expert planning, execution, and monitoring for complex projects.</p>
-          <a href="services.html#project" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
+<section class="py-16 bg-gray-50" id="services">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-wider uppercase rounded-full px-4 py-1.5 mb-3">
+        Our Capabilities
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+        Integrated <span class="text-emerald-600">Engineering Services</span>
+      </h2>
+      <div class="w-16 h-1 bg-emerald-500 mx-auto mt-3 rounded-full"></div>
     </div>
-  </section>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="group bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+        <div class="gradient-bg gradient-all-colors"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Civil & Structural</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Heavy industrial structures, foundations, and earthworks.</p>
+          <a href="services.html#civil" class="inline-flex items-center gap-1 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors group-hover:gap-2">
+            Learn More <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+        <div class="gradient-bg gradient-all-colors"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">MEP Systems</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Mechanical, electrical, plumbing – integrated design & installation.</p>
+          <a href="services.html#mep" class="inline-flex items-center gap-1 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors group-hover:gap-2">
+            Learn More <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+        <div class="gradient-bg gradient-all-colors"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-wind"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">HVAC & Fire Safety</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Energy-efficient HVAC, fire suppression, life safety systems.</p>
+          <a href="services.html#hvac" class="inline-flex items-center gap-1 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors group-hover:gap-2">
+            Learn More <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+        <div class="gradient-bg gradient-all-colors"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Electrical Systems</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Power distribution, lighting, automation, and control systems.</p>
+          <a href="services.html#electrical" class="inline-flex items-center gap-1 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors group-hover:gap-2">
+            Learn More <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="group bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+        <div class="gradient-bg gradient-all-colors"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Turnkey EPC</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">End-to-end project delivery from design to commissioning.</p>
+          <a href="services.html#epc" class="inline-flex items-center gap-1 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors group-hover:gap-2">
+            Learn More <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="group bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.18)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+        <div class="gradient-bg gradient-all-colors"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Project Management</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Expert planning, execution, and monitoring for complex projects.</p>
+          <a href="services.html#project" class="inline-flex items-center gap-1 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors group-hover:gap-2">
+            Learn More <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Gradient Background with All Colors: Sky Blue, Green, Golden - Always Visible with Slow Animation */
+  .gradient-bg {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  
+  .group:hover .gradient-bg {
+    opacity: 1;
+  }
+  
+  .gradient-all-colors {
+    background: linear-gradient(45deg, 
+      #e0f2fe, /* Sky Blue */
+      #bae6fd, /* Sky Blue */
+      #7dd3fc, /* Sky Blue */
+      #d1fae5, /* Green */
+      #6ee7b7, /* Green */
+      #34d399, /* Green */
+      #fef3c7, /* Golden */
+      #fcd34d, /* Golden */
+      #fbbf24, /* Golden */
+      #e0f2fe  /* Back to Sky Blue */
+    );
+    background-size: 400% 400%;
+    animation: gradientMove 20s ease-in-out infinite;
+  }
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Hover effect - border color changes slightly */
+  .group:hover {
+    border-color: #34d399;
+    box-shadow: 0 20px 25px -5px rgba(52, 211, 153, 0.25), 0 10px 10px -5px rgba(52, 211, 153, 0.08);
+  }
+</style>
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Featured Projects -->
   <section class="section" id="projects">
