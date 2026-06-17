@@ -9,7 +9,7 @@ const projectsData = [
     title: 'Pharmaceutical Manufacturing Plant',
     category: 'pharmaceutical',
     location: 'Mumbai, India',
-    image: 'https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/assets/images/P__1.jpg',
     description: 'Turnkey EPC for GMP-certified pharma facility'
   },
   {
@@ -25,7 +25,7 @@ const projectsData = [
     title: 'Renewable Energy Project',
     category: 'industrial',
     location: 'Bangladesh',
-    image: 'https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/assets/images/P_3.avif',
     description: 'Solar power plant electrical infrastructure'
   },
   {

@@ -150,8 +150,6 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -164,20 +162,21 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
     
+    .back-to-top {
+      background: transparent !important;
+      box-shadow: none;
+      padding: 0;
+    }
+    
     .back-to-top.show {
       opacity: 1;
       visibility: visible;
     }
     
     .back-to-top:hover {
-      background: #28B463;
       transform: translateY(-5px);
     }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
+    
     /* Container */
     .container {
       max-width: 1280px;
@@ -207,8 +206,8 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
+      color: #28B463;
+      background: rgba(40, 180, 99, 0.1);
       padding: 6px 16px;
       border-radius: 50px;
       margin-bottom: 20px;
@@ -235,8 +234,30 @@
       margin: 0 auto;
     }
     
-    /* Project Card */
-    .project-card {
+    /* ============================================
+       NEW PROJECT CARD LAYOUT - Modern Grid Style
+       ============================================ */
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Modern Project Card - matches index page style */
+    .project-card-modern {
       background: white;
       border-radius: 20px;
       overflow: hidden;
@@ -244,32 +265,38 @@
       transition: all 0.3s ease;
       border: 1px solid #E2E8F0;
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
     
-    .project-card:hover {
+    .project-card-modern:hover {
       transform: translateY(-8px);
       box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
+      border-color: #28B463;
     }
     
-    .project-img {
+    .project-card-modern .project-image-wrap {
       position: relative;
-      height: 250px;
       overflow: hidden;
+      padding-top: 65%;
+      background: #f0f4f8;
     }
     
-    .project-img img {
+    .project-card-modern .project-image-wrap img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
     
-    .project-card:hover .project-img img {
+    .project-card-modern:hover .project-image-wrap img {
       transform: scale(1.05);
     }
     
-    .project-category {
+    .project-card-modern .project-badge {
       position: absolute;
       top: 15px;
       right: 15px;
@@ -279,37 +306,78 @@
       border-radius: 50px;
       font-size: 12px;
       font-weight: 600;
-      z-index: 1;
+      z-index: 2;
     }
     
-    .project-info {
-      padding: 20px;
+    .project-card-modern .project-body {
+      padding: 20px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
-    .project-info h3 {
-      font-size: 20px;
+    .project-card-modern .project-title {
+      font-size: 19px;
       font-weight: 700;
-      margin-bottom: 8px;
       color: #0F172A;
+      margin-bottom: 6px;
     }
     
-    .project-location {
-      color: #1E88E5;
+    .project-card-modern .project-location {
+      color: #28B463;
       font-size: 14px;
+      font-weight: 500;
       margin-bottom: 10px;
     }
     
-    .project-location i {
-      margin-right: 5px;
+    .project-card-modern .project-location i {
+      margin-right: 6px;
     }
     
-    .project-desc {
+    .project-card-modern .project-desc {
       color: #475569;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.6;
+      flex: 1;
     }
     
-    /* Filter Buttons */
+    .project-card-modern .project-footer {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .project-card-modern .project-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1E88E5;
+      background: rgba(30, 136, 229, 0.08);
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    
+    .project-card-modern .project-link {
+      color: #28B463;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s;
+    }
+    
+    .project-card-modern .project-link:hover {
+      gap: 10px;
+    }
+    
+    /* Filter Buttons - styled like index page */
     .filter-btn {
       padding: 10px 28px;
       border-radius: 50px;
@@ -322,19 +390,19 @@
     }
     
     .filter-btn:hover {
-      background: #1E88E5;
-      border-color: #1E88E5;
+      background: #28B463;
+      border-color: #28B463;
       color: white;
       transform: translateY(-2px);
     }
     
     .filter-btn.active {
-      background: #1E88E5;
-      border-color: #1E88E5;
+      background: #28B463;
+      border-color: #28B463;
       color: white;
     }
     
-    /* Stats Card */
+    /* Stats Card - matches index page */
     .stat-card {
       background: white;
       border-radius: 20px;
@@ -352,7 +420,7 @@
     .stat-number-lg {
       font-size: 42px;
       font-weight: 800;
-      color: #1E88E5;
+      color: #28B463;
       font-family: 'Poppins', sans-serif;
     }
     
@@ -366,6 +434,96 @@
     
     .text-secondary {
       color: #28B463;
+    }
+    
+    /* Button Primary - matches index */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #28B463;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(40, 180, 99, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+      background: #1E7A43;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40, 180, 99, 0.4);
+    }
+    
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid #28B463;
+      color: #28B463;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background: #28B463;
+      color: white;
+    }
+
+    /* Gradient background for cards - from index */
+    .gradient-bg {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      opacity: 0.6;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+    
+    .group:hover .gradient-bg {
+      opacity: 1;
+    }
+    
+    .gradient-all-colors {
+      background: linear-gradient(45deg, 
+        #e0f2fe, #bae6fd, #7dd3fc, 
+        #d1fae5, #6ee7b7, #34d399, 
+        #fef3c7, #e0f2fe
+      );
+      background-size: 400% 400%;
+      animation: gradientMove 20s ease-in-out infinite;
+    }
+    
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 0%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .group:hover {
+      border-color: #34d399;
+      box-shadow: 0 20px 25px -5px rgba(52, 211, 153, 0.25), 0 10px 10px -5px rgba(52, 211, 153, 0.08);
+    }
+
+    /* Hero banner animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
     }
   </style>
 </head>
@@ -385,102 +543,139 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <img src="assets/images/btt.png" alt="Back to Top" class="w-16 h-auto animate-bounce">
 </div>
 
 <!-- Navbar Container -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Project Portfolio</h1>
-      <p class="text-xl max-w-2xl mx-auto">Delivering excellence across industries and geographies</p>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="section bg-light" style="padding: 60px 0;">
-    <div class="container">
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="stat-card">
-          <i class="fas fa-chart-line text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="500">0</div>
-          <p class="font-semibold mt-2">Projects Completed</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-smile text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="100">0</div>
-          <p class="font-semibold mt-2">Happy Clients</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-globe text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="3">0</div>
-          <p class="font-semibold mt-2">Countries</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-trophy text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="25">0</div>
-          <p class="font-semibold mt-2">Years Excellence</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Gallery -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Work</span>
-        <h2 class="section-title">Featured <span class="text-primary">Projects</span></h2>
-        <p class="section-subtitle">Explore our successful project deliveries across various sectors</p>
-      </div>
-      
-      <!-- Filter Buttons -->
-      <div class="flex justify-center flex-wrap gap-3 mb-12">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="pharmaceutical">Pharmaceutical</button>
-        <button class="filter-btn" data-filter="industrial">Industrial</button>
-        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-        <button class="filter-btn" data-filter="commercial">Commercial</button>
-      </div>
-      
-      <!-- Projects Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid"></div>
-      
-      <!-- Load More Button -->
-      <div class="text-center mt-12">
-        <button id="loadMoreBtn" class="btn-primary" style="background: #28B463;">Load More Projects <i class="fas fa-arrow-down"></i></button>
-      </div>
-    </div>
-  </section>
+ <!-- Page Hero Section - matches index page hero style -->
+<section class="relative h-[50vh] min-h-[635px] w-full overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('/assets/images/prj_hero.jpg');"></div>
+  </div>
+  <!-- Lighter overlay - reduced opacity -->
+  <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 z-10"></div>
   
-  <!-- Testimonial -->
-  <section class="section bg-light">
+  <div class="relative z-20 text-center px-4 max-w-4xl mx-auto animate-fade-in-up">
+    <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/40 rounded-full px-4 py-1.5 mb-5">
+      <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+      <span class="text-emerald-400 text-xs font-semibold tracking-wider uppercase">Our Portfolio</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
+      Project <span class="text-emerald-400">Portfolio</span>
+    </h1>
+    <p class="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
+      Delivering excellence across industries and geographies
+    </p>
+  </div>
+</section>
+
+  <!-- Stats Section - matches index page -->
+  <section class="section bg-light" style="padding: 40px 0;">
+  <div class="container">
+    <div class="grid md:grid-cols-4 gap-4">
+      <!-- Card 1 -->
+      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-indigo-400 hover:border-indigo-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-chart-line text-2xl text-indigo-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
+        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-indigo-600 transition-colors duration-300" data-target="500">0</div>
+        <p class="font-semibold text-xs text-slate-600">Projects Completed</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-sky-400 hover:border-sky-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-smile text-2xl text-sky-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
+        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-sky-600 transition-colors duration-300" data-target="100">0</div>
+        <p class="font-semibold text-xs text-slate-600">Happy Clients</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-emerald-400 hover:border-emerald-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-globe text-2xl text-emerald-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
+        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-emerald-600 transition-colors duration-300" data-target="3">0</div>
+        <p class="font-semibold text-xs text-slate-600">Countries</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-amber-400 hover:border-amber-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-trophy text-2xl text-amber-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
+        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-amber-600 transition-colors duration-300" data-target="25">0</div>
+        <p class="font-semibold text-xs text-slate-600">Years Excellence</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Projects Gallery with New Card Layout -->
+<section class="section" style="padding-top: 1.5rem; padding-bottom: 3rem;">
+  <div class="container">
+    <!-- Compact header with minimal spacing -->
+    <div class="section-header" style="margin-bottom: 1.25rem;">
+      <span class="section-tag" style="font-size: 0.7rem; display: inline-block; margin-bottom: 0.15rem; letter-spacing: 1px; font-weight: 600; color: #00b894; text-transform: uppercase;">Our Work</span>
+      <h2 class="section-title" style="font-size: 1.6rem; margin: 0; line-height: 1.2; font-weight: 700;">Featured <span style="color: #00b894;">Projects</span></h2>
+      <p class="section-subtitle" style="font-size: 0.85rem; margin-top: 0.2rem; margin-bottom: 0; color: #64748b;">Explore our successful project deliveries across various sectors</p>
+    </div>
+    
+    <!-- Filter Buttons - ultra compact with original colors -->
+    <div class="flex justify-center flex-wrap gap-1.5 mb-5">
+      <button class="filter-btn active" data-filter="all" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #00b894; background: #00b894; color: white; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">All Projects</button>
+      <button class="filter-btn" data-filter="pharmaceutical" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Pharmaceutical</button>
+      <button class="filter-btn" data-filter="industrial" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Industrial</button>
+      <button class="filter-btn" data-filter="infrastructure" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Infrastructure</button>
+      <button class="filter-btn" data-filter="commercial" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Commercial</button>
+    </div>
+    
+    <!-- Projects Grid -->
+    <div class="projects-grid" id="projectsGrid"></div>
+    
+    <!-- Load More Button - compact with original colors -->
+    <div class="text-center mt-5">
+      <button id="loadMoreBtn" class="btn-primary" style="padding: 0.4rem 1.4rem; font-size: 0.8rem; border-radius: 25px; background: #00b894; color: white; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Load More Projects <i class="fas fa-arrow-down" style="margin-left: 0.3rem;"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- Hover effect for filter buttons -->
+<style>
+  .filter-btn:hover:not(.active) {
+    background: #f0fdf4;
+    border-color: #00b894;
+  }
+  .filter-btn.active {
+    background: #00b894 !important;
+    color: white !important;
+    border-color: #00b894 !important;
+  }
+  .btn-primary:hover {
+    background: #059669 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+  }
+</style>
+  <!-- Testimonial + CTA - matches index page -->
+  <!-- <section class="section bg-light">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <i class="fas fa-quote-left text-5xl text-primary opacity-30 mb-4"></i>
+          <i class="fas fa-quote-left text-5xl text-secondary opacity-30 mb-4"></i>
           <p class="text-2xl font-medium text-dark leading-relaxed">"Jianan Engineering delivered our pharmaceutical facility ahead of schedule with exceptional quality standards. Their MEP expertise is truly unmatched."</p>
           <div class="flex items-center gap-4 mt-6">
             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
             <div>
               <h4 class="font-bold text-lg">Rajiv Mehta</h4>
-              <p class="text-primary">CEO, PharmaCorp India</p>
+              <p class="text-secondary">CEO, PharmaCorp India</p>
             </div>
           </div>
         </div>
-        <div class="bg-white p-8 rounded-2xl shadow-lg">
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-E2E8F0">
           <h3 class="text-2xl font-bold mb-4">Start Your Project</h3>
           <p class="text-text mb-6">Ready to bring your engineering project to life? Let's discuss how Jianan Engineering can help.</p>
           <a href="contact.html" class="btn-primary">Request a Quote <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </main>
 
 <!-- Footer Container -->
@@ -493,19 +688,31 @@
 <script>
   // Projects Data
   const allProjects = [
-    { id: 1, title: "Pharma SEZ, Mumbai", category: "pharmaceutical", location: "Mumbai, India", desc: "Turnkey MEP + HVAC for GMP-certified pharmaceutical facility. Complete cleanroom installation with HEPA filtration.", img: "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 2, title: "Jakarta Industrial Park", category: "industrial", location: "Jakarta, Indonesia", desc: "Complete EPC infrastructure development for 200-acre industrial zone including roads, utilities, and buildings.", img: "https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 3, title: "Bangladesh Power Plant", category: "infrastructure", location: "Dhaka, Bangladesh", desc: "Electrical systems and fire safety for 500MW combined cycle power plant.", img: "https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 4, title: "Pharma Cleanroom Facility", category: "pharmaceutical", location: "Hyderabad, India", desc: "Class 100 cleanroom with HEPA filtration, HVAC, and environmental monitoring systems.", img: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 5, title: "Auto Manufacturing Plant", category: "industrial", location: "Chennai, India", desc: "Complete electrical systems, automation, and robotics integration for automotive assembly line.", img: "https://images.pexels.com/photos/1416531/pexels-photo-1416531.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 6, title: "Commercial Complex MEP", category: "commercial", location: "Delhi, India", desc: "HVAC, fire safety, and electrical systems for 40-story corporate tower.", img: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 7, title: "Solar Power Project", category: "infrastructure", location: "Gujarat, India", desc: "Engineering and installation of 100MW solar photovoltaic plant.", img: "https://images.pexels.com/photos/159397/pexels-photo-159397.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 8, title: "Food Processing Unit", category: "industrial", location: "Pune, India", desc: "Hygienic MEP design and installation for food processing facility.", img: "https://images.pexels.com/photos/4434246/pexels-photo-4434246.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { id: 9, title: "Metro Rail Project", category: "infrastructure", location: "Jakarta, Indonesia", desc: "MEP systems for metro rail extension project including ventilation and fire safety.", img: "https://images.pexels.com/photos/109558/pexels-photo-109558.jpeg?auto=compress&cs=tinysrgb&w=600" }
+    { id: 1, title: "Pharma SEZ, Mumbai", category: "pharmaceutical", location: "Mumbai, India", desc: "Turnkey MEP + HVAC for GMP-certified pharmaceutical facility. Complete cleanroom installation with HEPA filtration.", img: "/assets/images/P__1.jpg" },
+    { id: 2, title: "Jakarta Industrial Park", category: "industrial", location: "Jakarta, Indonesia", desc: "Complete EPC infrastructure development for 200-acre industrial zone including roads, utilities, and buildings.", img: "/assets/images/p_2.jpg" },
+    { id: 3, title: "Bangladesh Power Plant", category: "industrial", location: "Dhaka, Bangladesh", desc: "Electrical systems and fire safety for 500MW combined cycle power plant.", img: "/assets/images/P_3.avif" },
+    { id: 4, title: "Pharma Cleanroom Facility", category: "pharmaceutical", location: "Hyderabad, India", desc: "Class 100 cleanroom with HEPA filtration, HVAC, and environmental monitoring systems.", img: "/assets/images/P__1.jpg" },
+    { id: 5, title: "Auto Manufacturing Plant", category: "infrastructure", location: "Chennai, India", desc: "Complete electrical systems, automation, and robotics integration for automotive assembly line.", img: "/assets/images/P_5.jpg" },
+    { id: 6, title: "Commercial Complex MEP", category: "commercial", location: "Delhi, India", desc: "HVAC, fire safety, and electrical systems for 40-story corporate tower.", img: "/assets/images/P_6.jpg" },
+    { id: 7, title: "Solar Power Project", category: "industrial", location: "Gujarat, India", desc: "Engineering and installation of 100MW solar photovoltaic plant.", img: "/assets/images/P_7.jpeg" },
+    { id: 8, title: "Food Processing Unit", category: "infrastructure", location: "Pune, India", desc: "Hygienic MEP design and installation for food processing facility.", img: "/assets/images/P_8.jpg" },
+    { id: 9, title: "Metro Rail Project", category: "industrial", location: "Jakarta, Indonesia", desc: "MEP systems for metro rail extension project including ventilation and fire safety.", img: "/assets/images/P_9.jpg" }
   ];
   
   let visibleProjects = 6;
   
+  // Get category display name
+  function getCategoryDisplay(category) {
+    const map = {
+      pharmaceutical: 'Pharma',
+      industrial: 'Industrial',
+      infrastructure: 'Infra',
+      commercial: 'Commercial'
+    };
+    return map[category] || category.charAt(0).toUpperCase() + category.slice(1);
+  }
+  
+  // Render projects with new card layout
   function renderProjects() {
     const grid = document.getElementById('projectsGrid');
     if (!grid) return;
@@ -515,15 +722,20 @@
     const visible = filtered.slice(0, visibleProjects);
     
     grid.innerHTML = visible.map(project => `
-      <div class="project-card" data-category="${project.category}">
-        <div class="project-img">
+      <div class="project-card-modern group relative overflow-hidden" data-category="${project.category}">
+        <div class="gradient-bg gradient-all-colors"></div>
+        <div class="project-image-wrap relative">
           <img src="${project.img}" alt="${project.title}" loading="lazy">
-          <span class="project-category">${project.category.charAt(0).toUpperCase() + project.category.slice(1)}</span>
+          <span class="project-badge">${getCategoryDisplay(project.category)}</span>
         </div>
-        <div class="project-info">
-          <h3>${project.title}</h3>
+        <div class="project-body relative z-10">
+          <h3 class="project-title">${project.title}</h3>
           <div class="project-location"><i class="fas fa-map-marker-alt"></i> ${project.location}</div>
           <p class="project-desc">${project.desc}</p>
+          <div class="project-footer">
+            <span class="project-tag"><i class="fas fa-folder-open mr-1"></i> ${getCategoryDisplay(project.category)}</span>
+            <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
     `).join('');
