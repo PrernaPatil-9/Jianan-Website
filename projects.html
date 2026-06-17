@@ -525,6 +525,22 @@
     .animate-fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
+
+    /*  */
+    .filter-btn:hover:not(.active) {
+    background: #f0fdf4;
+    border-color: #00b894;
+  }
+  .filter-btn.active {
+    background: #00b894 !important;
+    color: white !important;
+    border-color: #00b894 !important;
+  }
+  .btn-primary:hover {
+    background: #059669 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+  }
   </style>
 </head>
 <body>
@@ -550,62 +566,128 @@
 <div id="navbar-container"></div>
 
 <main>
- <!-- Page Hero Section - matches index page hero style -->
-<section class="relative h-[50vh] min-h-[635px] w-full overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);">
+<!-- Page Hero Section with Stats Integrated & Counters -->
+<section class="relative min-h-[635px] w-full overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);">
+  <!-- Video Background -->
   <div class="absolute inset-0 z-0">
-    <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('/assets/images/prj_hero.jpg');"></div>
+    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+      <source src="/assets/images/bg_v2.mp4" type="video/mp4">
+    </video>
   </div>
-  <!-- Lighter overlay - reduced opacity -->
-  <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 z-10"></div>
   
-  <div class="relative z-20 text-center px-4 max-w-4xl mx-auto animate-fade-in-up">
-    <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/40 rounded-full px-4 py-1.5 mb-5">
-      <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-      <span class="text-emerald-400 text-xs font-semibold tracking-wider uppercase">Our Portfolio</span>
+  <!-- Darker overlay for better text visibility -->
+  <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-10"></div>
+  
+  <!-- Content Wrapper -->
+  <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Content -->
+    <div class="text-center mb-8 animate-fade-in-up">
+      <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/40 rounded-full px-4 py-1.5 mb-5">
+        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+        <span class="text-emerald-400 text-xs font-semibold tracking-wider uppercase">Our Portfolio</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
+        Project <span class="text-emerald-400" style="text-shadow: 0 0 30px rgba(16, 185, 129, 0.5), 0 0 60px rgba(16, 185, 129, 0.2);">Portfolio</span>
+      </h1>
+      <p class="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+        Delivering excellence across industries and geographies
+      </p>
     </div>
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
-      Project <span class="text-emerald-400">Portfolio</span>
-    </h1>
-    <p class="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
-      Delivering excellence across industries and geographies
-    </p>
-  </div>
-</section>
 
-  <!-- Stats Section - matches index page -->
-  <section class="section bg-light" style="padding: 40px 0;">
-  <div class="container">
-    <div class="grid md:grid-cols-4 gap-4">
+    <!-- Stats Cards - Integrated in Hero with Counters -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mt-6">
+      
       <!-- Card 1 -->
-      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-indigo-400 hover:border-indigo-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <i class="fas fa-chart-line text-2xl text-indigo-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
-        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-indigo-600 transition-colors duration-300" data-target="500">0</div>
-        <p class="font-semibold text-xs text-slate-600">Projects Completed</p>
+      <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-chart-line text-xl text-emerald-400 mb-1 inline-block"></i>
+        <div class="text-2xl font-bold text-white stat-number" data-target="500">0</div>
+        <p class="font-semibold text-xs text-gray-300">Projects Completed</p>
       </div>
 
       <!-- Card 2 -->
-      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-sky-400 hover:border-sky-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <i class="fas fa-smile text-2xl text-sky-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
-        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-sky-600 transition-colors duration-300" data-target="100">0</div>
-        <p class="font-semibold text-xs text-slate-600">Happy Clients</p>
+      <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-smile text-xl text-emerald-400 mb-1 inline-block"></i>
+        <div class="text-2xl font-bold text-white stat-number" data-target="100">0</div>
+        <p class="font-semibold text-xs text-gray-300">Happy Clients</p>
       </div>
 
       <!-- Card 3 -->
-      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-emerald-400 hover:border-emerald-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <i class="fas fa-globe text-2xl text-emerald-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
-        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-emerald-600 transition-colors duration-300" data-target="3">0</div>
-        <p class="font-semibold text-xs text-slate-600">Countries</p>
+      <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-globe text-xl text-emerald-400 mb-1 inline-block"></i>
+        <div class="text-2xl font-bold text-white stat-number" data-target="3">0</div>
+        <p class="font-semibold text-xs text-gray-300">Countries</p>
       </div>
 
       <!-- Card 4 -->
-      <div class="stat-card bg-white rounded-xl py-4 px-3 text-center border-2 border-amber-400 hover:border-amber-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <i class="fas fa-trophy text-2xl text-amber-500 mb-1 inline-block hover:scale-110 transition-transform duration-300"></i>
-        <div class="stat-number-lg text-2xl font-bold text-slate-800 hover:text-amber-600 transition-colors duration-300" data-target="25">0</div>
-        <p class="font-semibold text-xs text-slate-600">Years Excellence</p>
+      <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-trophy text-xl text-emerald-400 mb-1 inline-block"></i>
+        <div class="text-2xl font-bold text-white stat-number" data-target="25">0</div>
+        <p class="font-semibold text-xs text-gray-300">Years Excellence</p>
       </div>
+
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+</style>
+
+<script>
+(function() {
+  // Counter Animation Function
+  function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-target'));
+          let current = 0;
+          const increment = Math.ceil(target / 50);
+          const duration = 2000;
+          const stepTime = Math.floor(duration / 50);
+          
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = current;
+              setTimeout(updateCounter, stepTime);
+            } else {
+              counter.textContent = target + '+';
+            }
+          };
+          
+          updateCounter();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    counters.forEach(counter => observer.observe(counter));
+  }
+  
+  // Run counter on page load
+  document.addEventListener('DOMContentLoaded', animateCounters);
+})();
+</script>
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
  <!-- Projects Gallery with New Card Layout -->
 <section class="section" style="padding-top: 1.5rem; padding-bottom: 3rem;">
@@ -636,23 +718,6 @@
   </div>
 </section>
 
-<!-- Hover effect for filter buttons -->
-<style>
-  .filter-btn:hover:not(.active) {
-    background: #f0fdf4;
-    border-color: #00b894;
-  }
-  .filter-btn.active {
-    background: #00b894 !important;
-    color: white !important;
-    border-color: #00b894 !important;
-  }
-  .btn-primary:hover {
-    background: #059669 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
-  }
-</style>
   <!-- Testimonial + CTA - matches index page -->
   <!-- <section class="section bg-light">
     <div class="container">

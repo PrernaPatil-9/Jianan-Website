@@ -45,7 +45,7 @@
   
   <style>
     /* ========================================
-       GLOBAL STYLES
+       GLOBAL STYLES - Shared across all pages
        ======================================== */
     
     * {
@@ -150,8 +150,6 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -164,20 +162,21 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
     
+    .back-to-top {
+      background: transparent !important;
+      box-shadow: none;
+      padding: 0;
+    }
+    
     .back-to-top.show {
       opacity: 1;
       visibility: visible;
     }
     
     .back-to-top:hover {
-      background: #28B463;
       transform: translateY(-5px);
     }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
+    
     /* Container */
     .container {
       max-width: 1280px;
@@ -207,8 +206,8 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
+      color: #28B463;
+      background: rgba(40, 180, 99, 0.1);
       padding: 6px 16px;
       border-radius: 50px;
       margin-bottom: 20px;
@@ -235,121 +234,318 @@
       margin: 0 auto;
     }
     
-    /* Button Styles */
+    /* Button Styles - matches index */
     .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #1E88E5;
+      background: #28B463;
       color: white;
       padding: 14px 32px;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
+      box-shadow: 0 5px 15px rgba(40, 180, 99, 0.3);
+      border: none;
+      cursor: pointer;
     }
     
     .btn-primary:hover {
-      background: #0F5B99;
+      background: #1E7A43;
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40, 180, 99, 0.4);
     }
     
-    /* Industry Card */
-    .industry-card {
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid #28B463;
+      color: #28B463;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background: #28B463;
+      color: white;
+    }
+    
+    /* ============================================
+       INDUSTRY CARD - Modern style matching index
+       ============================================ */
+    
+    .industry-card-modern {
       background: white;
-      border-radius: 24px;
-      padding: 35px 25px;
+      border-radius: 20px;
+      padding: 30px 24px;
       text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #E2E8F0;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .industry-card-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+      border-color: #28B463;
+    }
+    
+    /* Gradient background on hover - from index */
+    .gradient-bg {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+    
+    .industry-card-modern:hover .gradient-bg {
+      opacity: 0.6;
+    }
+    
+    .gradient-all-colors {
+      background: linear-gradient(45deg, 
+        #e0f2fe, #bae6fd, #7dd3fc, 
+        #d1fae5, #6ee7b7, #34d399, 
+        #fef3c7, #e0f2fe
+      );
+      background-size: 400% 400%;
+      animation: gradientMove 20s ease-in-out infinite;
+    }
+    
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 0%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .industry-card-modern .icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, #28B463, #1E7A43);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s;
+    }
+    
+    .industry-card-modern:hover .icon-wrap {
+      transform: scale(1.05);
+    }
+    
+    .industry-card-modern .icon-wrap i {
+      font-size: 32px;
+      color: white;
+    }
+    
+    .industry-card-modern h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .industry-card-modern p {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .industry-card-modern .feature-list {
+      list-style: none;
+      margin-top: 16px;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .industry-card-modern .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #475569;
+      padding: 4px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    
+    .industry-card-modern .feature-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .industry-card-modern .feature-list li i {
+      color: #28B463;
+      font-size: 13px;
+      width: 16px;
+    }
+    
+    /* Featured Project Card - matches index */
+    .featured-project-modern {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
       transition: all 0.3s ease;
       border: 1px solid #E2E8F0;
       height: 100%;
     }
     
-    .industry-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
-    }
-    
-    .industry-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, #1E88E5, #28B463);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-    }
-    
-    .industry-icon i {
-      font-size: 38px;
-      color: white;
-    }
-    
-    .industry-list {
-      list-style: none;
-      margin-top: 20px;
-      text-align: left;
-    }
-    
-    .industry-list li {
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      color: #475569;
-    }
-    
-    .industry-list li i {
-      color: #28B463;
-      font-size: 14px;
-    }
-    
-    /* Featured Project Card */
-    .featured-project {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.3s;
-      border: 1px solid #E2E8F0;
-      height: 100%;
-    }
-    
-    .featured-project:hover {
+    .featured-project-modern:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-color: #28B463;
     }
     
-    .featured-img {
+    .featured-project-modern .img-wrap {
       height: 200px;
       overflow: hidden;
+      position: relative;
     }
     
-    .featured-img img {
+    .featured-project-modern .img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s;
+      transition: transform 0.5s ease;
     }
     
-    .featured-project:hover .featured-img img {
+    .featured-project-modern:hover .img-wrap img {
       transform: scale(1.05);
     }
     
-    .featured-content {
-      padding: 20px;
+    .featured-project-modern .img-wrap .category-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #28B463;
+      color: white;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
     }
     
-    /* CTA Box */
-    .cta-box {
-      background: linear-gradient(135deg, #0F172A, #1E88E5);
+    .featured-project-modern .content {
+      padding: 20px 24px 24px;
+    }
+    
+    .featured-project-modern .content h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+    
+    .featured-project-modern .content .location {
+      color: #28B463;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .featured-project-modern .content .location i {
+      margin-right: 4px;
+    }
+    
+    .featured-project-modern .content p {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+    
+    /* Stats - matches index */
+    .stat-item-modern {
+      text-align: center;
+      padding: 24px;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #E2E8F0;
+      transition: all 0.3s;
+    }
+    
+    .stat-item-modern:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      border-color: #28B463;
+    }
+    
+    .stat-item-modern .number {
+      font-size: 40px;
+      font-weight: 800;
+      color: #28B463;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .stat-item-modern .label {
+      font-size: 14px;
+      color: #475569;
+      margin-top: 4px;
+    }
+    
+    .stat-item-modern i {
+      font-size: 32px;
+      color: #28B463;
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    /* CTA Box - matches index */
+    .cta-box-modern {
+      background: linear-gradient(135deg, #0F172A, #1a3c34);
       border-radius: 30px;
-      padding: 50px;
+      padding: 60px 40px;
       text-align: center;
       color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-box-modern::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(40,180,99,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    
+    .cta-box-modern h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-box-modern p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
     }
     
     .bg-light {
@@ -363,6 +559,31 @@
     .text-secondary {
       color: #28B463;
     }
+
+    /* Hero banner animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* hero */
+      @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
   </style>
 </head>
 <body>
@@ -381,257 +602,437 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <img src="assets/images/btt.png" alt="Back to Top" class="w-16 h-auto animate-bounce">
 </div>
 
 <!-- Navbar Container -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Industries We Serve</h1>
-      <p class="text-xl max-w-2xl mx-auto">Specialized engineering solutions across diverse sectors</p>
+<!-- Page Hero Section - matches index hero style -->
+<section class="relative h-[45vh] min-h-[635px] w-full overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);">
+  <div class="absolute inset-0 z-0">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="w-full h-full object-cover"
+  >
+    <source src="assets/images/bg_v1.mp4" type="video/mp4">
+  </video>
+</div>
+  <!-- Lighter overlay - reduced opacity -->
+  <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/40 z-10"></div>
+  
+  <div class="relative z-20 text-center px-4 max-w-4xl mx-auto animate-fade-in-up">
+    <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/40 rounded-full px-4 py-1.5 mb-5">
+      <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+      <span class="text-emerald-400 text-xs font-semibold tracking-wider uppercase">Sector Expertise</span>
     </div>
-  </section>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
+      Industries <span class="text-emerald-400">We Serve</span>
+    </h1>
+    <p class="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
+      Specialized engineering solutions across diverse sectors
+    </p>
+  </div>
+</section>
 
-  <!-- Main Industries Grid -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Sector Expertise</span>
-        <h2 class="section-title">Industry <span class="text-primary">Specializations</span></h2>
-        <p class="section-subtitle">Delivering tailored engineering solutions for every sector</p>
-      </div>
+<!-- Main Industries Grid - Modern Cards -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-wider uppercase rounded-full px-4 py-1.5 mb-3">
+        Industry Focus
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+        Sector <span class="text-emerald-600">Specializations</span>
+      </h2>
+      <p class="text-gray-600 text-base max-w-2xl mx-auto mt-2">Delivering tailored engineering solutions for every industry</p>
+      <div class="w-16 h-1 bg-emerald-500 mx-auto mt-3 rounded-full"></div>
+    </div>
+    
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- Pharmaceutical -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      <!-- Card 1 - Pharmaceutical -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-capsules"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Pharmaceutical</h3>
-          <p class="text-text">Specialized engineering for GMP-compliant pharmaceutical facilities with stringent quality requirements.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Cleanroom Construction</li>
-            <li><i class="fas fa-check-circle"></i> HVAC Validation</li>
-            <li><i class="fas fa-check-circle"></i> GMP-compliant MEP</li>
-            <li><i class="fas fa-check-circle"></i> Process Piping</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Pharmaceutical</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Specialized engineering for GMP-compliant facilities with stringent quality requirements.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Cleanroom Construction</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> HVAC & Validation</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> GMP-compliant MEP</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Process Piping</li>
           </ul>
         </div>
-        
-        <!-- Infrastructure -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 2 - Infrastructure -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-road"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Infrastructure</h3>
-          <p class="text-text">Comprehensive infrastructure development for urban and industrial projects.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Bridges & Flyovers</li>
-            <li><i class="fas fa-check-circle"></i> Metro Rail Systems</li>
-            <li><i class="fas fa-check-circle"></i> Water Treatment Plants</li>
-            <li><i class="fas fa-check-circle"></i> Road Networks</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Infrastructure</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Comprehensive infrastructure development for urban and industrial projects.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Bridges & Flyovers</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Metro Rail Systems</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Water Treatment</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Road Networks</li>
           </ul>
         </div>
-        
-        <!-- Renewable Energy -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 3 - Renewable Energy -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-solar-panel"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Renewable Energy</h3>
-          <p class="text-text">Sustainable energy solutions for solar, wind, and hybrid power projects.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Solar Power Plants</li>
-            <li><i class="fas fa-check-circle"></i> Wind Energy Projects</li>
-            <li><i class="fas fa-check-circle"></i> Energy Storage Systems</li>
-            <li><i class="fas fa-check-circle"></i> Grid Integration</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Renewable Energy</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Sustainable energy solutions for solar, wind, and hybrid power projects.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Solar Power Plants</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Wind Energy Projects</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Energy Storage</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Grid Integration</li>
           </ul>
         </div>
-        
-        <!-- Electronics -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 4 - Electronics -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-microchip"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Electronics</h3>
-          <p class="text-text">High-precision engineering for electronics and semiconductor manufacturing.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Semiconductor Fabs</li>
-            <li><i class="fas fa-check-circle"></i> ESD-safe Facilities</li>
-            <li><i class="fas fa-check-circle"></i> Precision HVAC</li>
-            <li><i class="fas fa-check-circle"></i> Cleanroom Class 100</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Electronics</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">High-precision engineering for electronics and semiconductor manufacturing.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Semiconductor Fabs</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> ESD-safe Facilities</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Precision HVAC</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Class 100 Cleanroom</li>
           </ul>
         </div>
-        
-        <!-- Manufacturing -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 5 - Manufacturing -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-industry"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Manufacturing</h3>
-          <p class="text-text">End-to-end engineering solutions for industrial manufacturing facilities.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Production Lines</li>
-            <li><i class="fas fa-check-circle"></i> Warehouse Facilities</li>
-            <li><i class="fas fa-check-circle"></i> Automation Systems</li>
-            <li><i class="fas fa-check-circle"></i> Utility Systems</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Manufacturing</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">End-to-end engineering solutions for industrial manufacturing facilities.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Production Lines</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Warehouse Facilities</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Automation Systems</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Utility Systems</li>
           </ul>
         </div>
-        
-        <!-- Automotive -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 6 - Automotive -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-car"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Automotive</h3>
-          <p class="text-text">Specialized engineering for automotive assembly and component manufacturing.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Assembly Plants</li>
-            <li><i class="fas fa-check-circle"></i> Paint Shops</li>
-            <li><i class="fas fa-check-circle"></i> Robotic Integration</li>
-            <li><i class="fas fa-check-circle"></i> Testing Facilities</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Automotive</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Specialized engineering for automotive assembly and component manufacturing.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Assembly Plants</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Paint Shops</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Robotic Integration</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Testing Facilities</li>
           </ul>
         </div>
-        
-        <!-- Commercial -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 7 - Commercial -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-store"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Commercial</h3>
-          <p class="text-text">Modern MEP solutions for commercial and mixed-use developments.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Office Towers</li>
-            <li><i class="fas fa-check-circle"></i> Shopping Malls</li>
-            <li><i class="fas fa-check-circle"></i> Hotels & Resorts</li>
-            <li><i class="fas fa-check-circle"></i> Hospitals</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Commercial</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Modern MEP solutions for commercial and mixed-use developments.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Office Towers</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Shopping Malls</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Hotels & Resorts</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Hospitals</li>
           </ul>
         </div>
-        
-        <!-- Chemicals -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 8 - Chemicals -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-flask"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Chemicals</h3>
-          <p class="text-text">Safe and compliant engineering for chemical processing facilities.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Process Plants</li>
-            <li><i class="fas fa-check-circle"></i> Storage Facilities</li>
-            <li><i class="fas fa-check-circle"></i> Hazardous Material Handling</li>
-            <li><i class="fas fa-check-circle"></i> Safety Systems</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Chemicals</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Safe and compliant engineering for chemical processing facilities.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Process Plants</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Storage Facilities</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Hazardous Material</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Safety Systems</li>
           </ul>
         </div>
-        
-        <!-- Food & Beverage -->
-        <div class="industry-card">
-          <div class="industry-icon">
+      </div>
+      
+      <!-- Card 9 - Food & Beverage -->
+      <div class="group relative overflow-hidden bg-white rounded-xl p-6 border-2 border-[#5BC0BE] shadow-[0_4px_12px_rgba(91,192,190,0.15)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-sky-200 via-sky-300 via-emerald-200 via-emerald-300 via-amber-200 via-amber-300 to-sky-200 bg-[length:400%_400%] animate-[gradientMove_20s_ease-in-out_infinite]"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
             <i class="fas fa-utensils"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Food & Beverage</h3>
-          <p class="text-text">Hygienic engineering solutions for food processing facilities.</p>
-          <ul class="industry-list">
-            <li><i class="fas fa-check-circle"></i> Processing Units</li>
-            <li><i class="fas fa-check-circle"></i> Cold Storage</li>
-            <li><i class="fas fa-check-circle"></i> Hygienic Piping</li>
-            <li><i class="fas fa-check-circle"></i> Temperature Control</li>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Food & Beverage</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Hygienic engineering solutions for food processing and storage facilities.</p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Processing Units</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Cold Storage</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Hygienic Piping</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-emerald-500 text-xs"></i> Temperature Control</li>
           </ul>
         </div>
       </div>
+      
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Featured Projects by Industry -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Success Stories</span>
-        <h2 class="section-title">Featured <span class="text-primary">Projects by Industry</span></h2>
-        <p class="section-subtitle">Demonstrating our expertise across sectors</p>
+<style>
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .group:hover {
+    border-color: #34d399 !important;
+    box-shadow: 0 20px 25px -5px rgba(52, 211, 153, 0.25), 0 10px 10px -5px rgba(52, 211, 153, 0.08) !important;
+  }
+</style>
+
+<!-- Industry Statistics - Compact -->
+<section class="py-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-0 left-0 w-56 h-56 bg-emerald-500 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header - Compact -->
+    <div class="text-center mb-8">
+      <span class="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1 text-emerald-400 text-[10px] font-semibold tracking-wider uppercase mb-2">
+        <span class="w-1 h-1 bg-emerald-400 rounded-full animate-pulse"></span>
+        By the Numbers
+      </span>
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+        Our Industry <span class="text-emerald-400">Footprint</span>
+      </h2>
+    </div>
+    
+    <!-- Stats Grid - Compact -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      
+      <!-- Stat 1 - Pharma -->
+      <div class="group relative bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 text-base mx-auto mb-2 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-capsules"></i>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold text-white mb-0.5 counter" data-target="15">0</div>
+        <p class="text-gray-400 text-xs font-medium">Pharma Projects</p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="featured-project">
-          <div class="featured-img">
-            <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pharma Project">
-          </div>
-          <div class="featured-content">
-            <span class="text-primary text-sm font-semibold">Pharmaceutical</span>
-            <h3 class="text-xl font-bold mt-2">Pharma SEZ, Mumbai</h3>
-            <p class="text-text text-sm mt-2">Turnkey MEP + HVAC for GMP-certified pharmaceutical facility</p>
-          </div>
+      <!-- Stat 2 - Industrial -->
+      <div class="group relative bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 text-base mx-auto mb-2 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-industry"></i>
         </div>
-        
-        <div class="featured-project">
-          <div class="featured-img">
-            <img src="https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Industrial Project">
-          </div>
-          <div class="featured-content">
-            <span class="text-primary text-sm font-semibold">Industrial</span>
-            <h3 class="text-xl font-bold mt-2">Jakarta Industrial Park</h3>
-            <p class="text-text text-sm mt-2">Complete EPC infrastructure for 200-acre industrial zone</p>
-          </div>
-        </div>
-        
-        <div class="featured-project">
-          <div class="featured-img">
-            <img src="https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Infrastructure Project">
-          </div>
-          <div class="featured-content">
-            <span class="text-primary text-sm font-semibold">Infrastructure</span>
-            <h3 class="text-xl font-bold mt-2">Bangladesh Power Plant</h3>
-            <p class="text-text text-sm mt-2">Electrical systems and fire safety for 500MW facility</p>
-          </div>
-        </div>
+        <div class="text-2xl sm:text-3xl font-bold text-white mb-0.5 counter" data-target="200">0</div>
+        <p class="text-gray-400 text-xs font-medium">Industrial Projects</p>
       </div>
       
-      <div class="text-center mt-10">
-        <a href="projects.html" class="btn-primary">View All Projects <i class="fas fa-arrow-right"></i></a>
+      <!-- Stat 3 - Infrastructure -->
+      <div class="group relative bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 text-base mx-auto mb-2 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-road"></i>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold text-white mb-0.5 counter" data-target="50">0</div>
+        <p class="text-gray-400 text-xs font-medium">Infrastructure Projects</p>
       </div>
+      
+      <!-- Stat 4 - Commercial -->
+      <div class="group relative bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 text-base mx-auto mb-2 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold text-white mb-0.5 counter" data-target="100">0</div>
+        <p class="text-gray-400 text-xs font-medium">Commercial Projects</p>
+      </div>
+      
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Industry Statistics -->
-  <section class="section">
-    <div class="container">
-      <div class="grid md:grid-cols-4 gap-6 text-center">
-        <div class="p-6">
-          <i class="fas fa-capsules text-4xl text-primary mb-3"></i>
-          <div class="text-3xl font-bold text-primary">15+</div>
-          <p class="font-semibold mt-2">Pharma Projects</p>
+<script>
+(function() {
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-target'));
+          let current = 0;
+          const increment = target / 40;
+          
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target + '+';
+            }
+          };
+          
+          updateCounter();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    counters.forEach(counter => observer.observe(counter));
+  }
+  
+  document.addEventListener('DOMContentLoaded', animateCounters);
+})();
+</script>
+
+<!-- Featured Projects by Industry - Redesigned -->
+<section class="py-12 bg-gray-50" id="projects">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-10">
+      <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-wider uppercase rounded-full px-4 py-1.5 mb-3">
+        Success Stories
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+        Featured <span class="text-emerald-600">Projects by Industry</span>
+      </h2>
+      <p class="text-gray-600 text-base max-w-2xl mx-auto mt-2">Demonstrating our expertise across sectors</p>
+      <div class="w-16 h-1 bg-emerald-500 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <!-- Card 1 - Pharma -->
+      <div class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/pharma_prj.jpg" alt="Pharma Project" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+          <span class="absolute top-4 left-4 bg-emerald-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">Pharma</span>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h3 class="text-white text-lg font-bold mb-1">Pharma SEZ, Mumbai</h3>
+            <p class="text-gray-200 text-xs"><i class="fas fa-map-marker-alt mr-1"></i> Mumbai, India</p>
+          </div>
         </div>
-        <div class="p-6">
-          <i class="fas fa-industry text-4xl text-primary mb-3"></i>
-          <div class="text-3xl font-bold text-primary">200+</div>
-          <p class="font-semibold mt-2">Industrial Projects</p>
-        </div>
-        <div class="p-6">
-          <i class="fas fa-road text-4xl text-primary mb-3"></i>
-          <div class="text-3xl font-bold text-primary">50+</div>
-          <p class="font-semibold mt-2">Infrastructure Projects</p>
-        </div>
-        <div class="p-6">
-          <i class="fas fa-store text-4xl text-primary mb-3"></i>
-          <div class="text-3xl font-bold text-primary">100+</div>
-          <p class="font-semibold mt-2">Commercial Projects</p>
+        <div class="p-5">
+          <p class="text-gray-600 text-sm leading-relaxed">Turnkey MEP + HVAC for GMP-certified pharmaceutical facility with cleanroom specifications.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm mt-4 hover:text-emerald-700 transition-colors group-hover:gap-3">
+            View Details <i class="fas fa-arrow-right text-xs"></i>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA Section -->
-  <section class="section bg-light">
+      <!-- Card 2 - Industrial -->
+      <div class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/industrial_park_prj.jpg" alt="Industrial Project" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+          <span class="absolute top-4 left-4 bg-emerald-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">Industrial</span>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h3 class="text-white text-lg font-bold mb-1">Jakarta Industrial Park</h3>
+            <p class="text-gray-200 text-xs"><i class="fas fa-map-marker-alt mr-1"></i> Jakarta, Indonesia</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-gray-600 text-sm leading-relaxed">Complete EPC infrastructure for 200-acre industrial zone with utility systems.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm mt-4 hover:text-emerald-700 transition-colors group-hover:gap-3">
+            View Details <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 - Infrastructure -->
+      <div class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/P_7.jpeg" alt="Infrastructure Project" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+          <span class="absolute top-4 left-4 bg-emerald-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">Infra</span>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h3 class="text-white text-lg font-bold mb-1">Bangladesh Power Plant</h3>
+            <p class="text-gray-200 text-xs"><i class="fas fa-map-marker-alt mr-1"></i> Dhaka, Bangladesh</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-gray-600 text-sm leading-relaxed">Electrical systems and fire safety for 500MW power generation facility.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm mt-4 hover:text-emerald-700 transition-colors group-hover:gap-3">
+            View Details <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-10">
+      <a href="projects.html" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+        View All Projects <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- CTA Section - matches index -->
+  <section class="section bg-light" style="padding: 60px 0;">
     <div class="container">
-      <div class="cta-box">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Need Industry-Specific Engineering?</h2>
-        <p class="text-lg mb-6 opacity-90">Our experts understand the unique requirements of your industry.</p>
-        <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-3 rounded-full font-semibold hover:shadow-lg transition">Discuss Your Project <i class="fas fa-arrow-right"></i></a>
+      <div class="cta-box-modern">
+        <h2>Need Industry-Specific <span style="color: #28B463;">Engineering?</span></h2>
+        <p>Our experts understand the unique requirements of your industry.</p>
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-[#0F172A] px-8 py-3 rounded-full font-semibold hover:shadow-lg transition hover:bg-gray-100">
+          Discuss Your Project <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -754,12 +1155,44 @@
     }
   }
   
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-item-modern .number');
+    if (counters.length === 0) return;
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      if (isNaN(target)) return;
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                counter.innerText = target + '+';
+                clearInterval(timer);
+              } else {
+                counter.innerText = Math.floor(current);
+              }
+            }, 30);
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(counter);
+    });
+  }
+  
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
     
     initNavbar();
     initGlobalUI();
+    initCounters();
   }
   
   if (document.readyState === 'loading') {
