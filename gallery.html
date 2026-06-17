@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Gallery - Jianan Engineering | Project Highlights</title>
   <meta name="description" content="Explore Jianan Engineering's project gallery showcasing industrial, pharmaceutical, infrastructure, and corporate projects across India, Indonesia, and Bangladesh.">
-  
+  <link rel="icon" href="/assets/images/logo.png">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Centralized Theme Configuration -->
+
+  <!-- Centralized Theme Configuration (extends the existing Jianan palette/fonts — nothing renamed or removed) -->
   <script>
     tailwind.config = {
       theme: {
@@ -18,14 +19,23 @@
             primary: {
               DEFAULT: "#1E88E5",
               light: "#4AA3E9",
-              dark: "#0F5B99"
+              dark: "#0F5B99",
+              pale: "#EAF4FE",
+              xpale: "#F5FAFF"
             },
             secondary: {
               DEFAULT: "#28B463",
               light: "#4CC97E",
-              dark: "#1E7A43"
+              dark: "#1E7A43",
+              pale: "#EAFBF1",
+              xpale: "#F3FDF8"
             },
-            dark: "#0F172A",
+            dark: {
+              DEFAULT: "#0F172A",
+              800: "#16213A",
+              700: "#1C2942",
+              600: "#22334F"
+            },
             light: "#F8FAFC",
             text: "#475569",
             border: "#E2E8F0"
@@ -33,311 +43,297 @@
           fontFamily: {
             heading: ['Poppins', 'sans-serif'],
             body: ['Inter', 'sans-serif']
+          },
+          keyframes: {
+            fadeUp: { from: { opacity: 0, transform: 'translateY(24px)' }, to: { opacity: 1, transform: 'none' } }
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease forwards'
           }
         }
       }
     }
   </script>
-  
-  <!-- Google Fonts -->
+
+  <!-- Google Fonts (same as current Jianan pages) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-  
+
   <style>
-    /* ========================================
-       GLOBAL STYLES
-       ======================================== */
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      overflow-x: hidden;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-    }
-    
-    /* Loader Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; font-family: 'Inter', sans-serif; background: #f8fafc; color: #475569; }
+    .font-heading { font-family: 'Poppins', sans-serif; }
+
+    /* ========== LOADER (unchanged from current site) ========== */
     .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0F172A;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #0F172A; z-index: 10000;
+      display: flex; align-items: center; justify-content: center;
       transition: opacity 0.8s ease-out;
     }
-    
-    .loader-content {
-      text-align: center;
-    }
-    
+    .loader-content { text-align: center; }
     .loader-logo {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       background: linear-gradient(135deg, #1E88E5, #28B463);
-      border-radius: 20px;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: 800;
-      color: white;
+      border-radius: 20px; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 800; color: white;
       animation: pulse 1.5s infinite;
     }
-    
-    .loader-text {
-      color: white;
-      font-size: 14px;
-      letter-spacing: 4px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-    
-    .loader-bar {
-      width: 200px;
-      height: 2px;
-      background: rgba(255,255,255,0.2);
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    
+    .loader-text { color: white; font-size: 14px; letter-spacing: 4px; font-weight: 500; margin-bottom: 20px; }
+    .loader-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto; position: relative; overflow: hidden; }
     .loader-bar::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
       background: linear-gradient(90deg, #1E88E5, #28B463);
       animation: loading 1.5s infinite;
     }
-    
-    @keyframes loading {
-      100% { left: 100%; }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
-    }
-    
-    /* Scroll Progress */
+    @keyframes loading { 100% { left: 100%; } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
+
+    /* ========== SCROLL PROGRESS (unchanged) ========== */
     .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
+      position: fixed; top: 0; left: 0; width: 0%; height: 3px;
       background: linear-gradient(90deg, #1E88E5, #28B463);
-      z-index: 10001;
-      transition: width 0.1s ease-out;
+      z-index: 10001; transition: width 0.1s ease-out;
     }
-    
-    /* Back to Top Button */
+
+    /* ========== BACK TO TOP ========== */
     .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
+      position: fixed; bottom: 30px; right: 30px; z-index: 99;
+      opacity: 0; visibility: hidden; transition: all 0.3s ease;
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top-inner { position: relative; }
+    .back-to-top-img {
+      width: 56px; height: 56px; border-radius: 50%; object-fit: cover; display: block;
+      box-shadow: 0 10px 30px rgba(30,136,229,.35);
+      border: 2px solid rgba(255,255,255,.6);
+      transition: transform .3s, box-shadow .3s;
+      animation: spin-slow 18s linear infinite;
       cursor: pointer;
-      z-index: 99;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
-    
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
+    .back-to-top-inner:hover .back-to-top-img { transform: scale(1.08) translateY(-2px); box-shadow: 0 14px 36px rgba(40,180,99,.45); }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .btt-tip {
+      position: absolute; right: 100%; margin-right: 12px; top: 50%; transform: translateY(-50%);
+      background: rgba(15,23,42,.92); color: #fff; font-size: 11px; font-weight: 500;
+      padding: 6px 12px; border-radius: 8px; white-space: nowrap;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
     }
-    
-    .back-to-top:hover {
-      background: #28B463;
-      transform: translateY(-5px);
+    .back-to-top-inner:hover .btt-tip { opacity: 1; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    @media (max-width: 768px) { .section { padding: 50px 0; } }
+    .bg-light { background: #F8FAFC; }
+
+    /* ========== ACCENT DIVIDER (replaces "gold-divider" — same idea, on-brand colors) ========== */
+    .accent-divider { height: 1px; background: linear-gradient(90deg, transparent, #28B463, #1E88E5, #28B463, transparent); opacity: .4; position: relative; }
+    .accent-divider::after {
+      content: '✦'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      color: #1E88E5; font-size: .75rem; background: #f8fafc; padding: 0 .7rem;
     }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
-    /* Container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
+
+    /* ========== REVEAL ON SCROLL ========== */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+
+    /* ========== HERO ========== */
+    .gallery-hero { position: relative; background: #0F172A; padding: 170px 0 90px; overflow: hidden; }
+    .gallery-hero::before {
+      content: ''; position: absolute; top: -40%; right: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(40,180,99,0.18) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
     }
-    
-    /* Section Styles */
-    .section {
-      padding: 100px 0;
+    .gallery-hero::after {
+      content: ''; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(30,136,229,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
     }
-    
-    @media (max-width: 768px) {
-      .section {
-        padding: 60px 0;
-      }
+    .gallery-hero-inner { position: relative; z-index: 2; }
+    .blink-dot { animation: blink 2.2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .animate-fade-in-down { animation: fadeInDown .6s ease-out forwards; }
+    .animate-fade-in-up { animation: fadeInUp .6s ease-out forwards; }
+    .anim-delay-200{animation-delay:.2s;opacity:0} .anim-delay-400{animation-delay:.4s;opacity:0} .anim-delay-600{animation-delay:.6s;opacity:0}
+
+    /* ========== COUNTER BAR ========== */
+    .counter-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #E2E8F0; }
+    .counter-item { background: #fff; padding: 2rem 1rem; text-align: center; transition: background .3s; }
+    .counter-item:hover { background: #F5FAFF; }
+    .counter-num {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 2.4rem; line-height: 1.1;
+      background: linear-gradient(135deg,#1E88E5,#28B463); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
+    @media (min-width: 768px) { .counter-num { font-size: 2.9rem; } }
+    .counter-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-top: 4px; }
+
+    /* ========== SECTION HEADER (shared by Gallery / Certifications) ========== */
+    .head-eyebrow { display:flex; align-items:center; gap:.6rem; color:#1E88E5; font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; margin-bottom:.85rem; }
+    .head-eyebrow .ln { width:24px; height:1px; background:#1E88E5; }
+    .head-eyebrow.center { justify-content:center; }
+
+    /* legacy section header (kept for Video Tour + CTA bonus sections, unchanged) */
+    .section-header { text-align: center; margin-bottom: 50px; }
     .section-tag {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 20px;
+      display: inline-block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+      color: #28B463; background: rgba(40,180,99,0.1); padding: 6px 18px; border-radius: 50px; margin-bottom: 16px;
     }
-    
-    .section-title {
-      font-size: 42px;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
-      color: #0F172A;
-      margin-bottom: 16px;
-    }
-    
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 32px;
-      }
-    }
-    
-    .section-subtitle {
-      font-size: 18px;
-      color: #475569;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    /* Filter Buttons */
+    .section-title { font-size: 38px; font-weight: 700; font-family: 'Poppins', sans-serif; color: #0F172A; margin-bottom: 12px; }
+    .section-title .highlight { color: #28B463; }
+    .section-subtitle { font-size: 17px; color: #475569; max-width: 600px; margin: 0 auto; }
+    @media (max-width: 768px) { .section-title { font-size: 28px; } }
+
+    /* ========== FILTERS ========== */
     .filter-btn {
-      padding: 10px 28px;
-      border-radius: 50px;
-      border: 1px solid #E2E8F0;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      margin: 5px;
+      padding: 9px 22px; border-radius: 40px; border: 1.5px solid #E2E8F0; background: #fff; color: #64748b;
+      font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 600; letter-spacing: .02em; cursor: pointer;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
     }
-    
-    .filter-btn:hover {
-      background: #1E88E5;
-      border-color: #1E88E5;
-      color: white;
-      transform: translateY(-2px);
+    .filter-btn:hover { border-color: #1E88E5; color: #1E88E5; background: #EAF4FE; }
+    .filter-btn.active { background: linear-gradient(135deg,#1E88E5,#28B463); border-color: transparent; color: #fff; box-shadow: 0 6px 18px rgba(30,136,229,.28); }
+
+    /* ========== MASONRY GALLERY ========== */
+    .masonry { columns: 4 240px; column-gap: 1.1rem; }
+    .m-card {
+      break-inside: avoid; margin-bottom: 1.1rem; position: relative; border-radius: 14px; overflow: hidden;
+      border: 1px solid #E2E8F0; cursor: pointer; background: #fff;
+      animation: fadeUp .6s ease both;
+      transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s cubic-bezier(.4,0,.2,1), border-color .35s;
     }
-    
-    .filter-btn.active {
-      background: #1E88E5;
-      border-color: #1E88E5;
-      color: white;
+    .m-card:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0 20px 48px rgba(30,136,229,.16), 0 0 0 1.5px rgba(30,136,229,.22); border-color: rgba(30,136,229,.35); }
+    .m-card:nth-child(1){animation-delay:.04s} .m-card:nth-child(2){animation-delay:.08s}
+    .m-card:nth-child(3){animation-delay:.12s} .m-card:nth-child(4){animation-delay:.16s}
+    .m-card:nth-child(5){animation-delay:.20s} .m-card:nth-child(6){animation-delay:.24s}
+    .m-card:nth-child(7){animation-delay:.28s} .m-card:nth-child(8){animation-delay:.32s}
+    .m-card:nth-child(9){animation-delay:.36s} .m-card:nth-child(10){animation-delay:.40s}
+    .m-card:nth-child(11){animation-delay:.44s} .m-card:nth-child(12){animation-delay:.48s}
+    .m-card:nth-child(13){animation-delay:.52s} .m-card:nth-child(14){animation-delay:.56s}
+    .m-card:nth-child(15){animation-delay:.60s}
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+
+    .m-card img { width:100%; display:block; vertical-align:bottom; transition: transform .55s cubic-bezier(.4,0,.2,1); }
+    .m-card:hover img { transform: scale(1.06); }
+
+    .m-overlay {
+      position:absolute; inset:0; background:linear-gradient(to top, rgba(15,23,42,.9) 0%, rgba(15,23,42,.25) 55%, transparent 100%);
+      opacity:0; transition:opacity .35s; display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem;
     }
-    
-    /* Gallery Item */
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      cursor: pointer;
-      margin-bottom: 24px;
-      break-inside: avoid;
+    .m-card:hover .m-overlay { opacity: 1; }
+    .m-overlay-title { font-family:'Poppins',sans-serif; font-size:.96rem; font-weight:600; color:#fff; line-height:1.3; transform:translateY(8px); transition:transform .35s; }
+    .m-card:hover .m-overlay-title { transform: translateY(0); }
+    .m-overlay-caption {
+      margin-top:.3rem; font-size:.72rem; color:#A7F3D0; letter-spacing:.03em; display:flex; align-items:center; gap:.35rem;
+      transform:translateY(8px); transition:transform .35s .05s; opacity:.9;
     }
-    
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.5s ease;
-      display: block;
+    .m-card:hover .m-overlay-caption { transform: translateY(0); }
+
+    .m-zoom-btn {
+      position:absolute; top:10px; right:10px; z-index:3; width:32px; height:32px; border-radius:50%;
+      background:rgba(255,255,255,.18); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.3);
+      color:#fff; font-size:.8rem; display:grid; place-items:center; opacity:0; transform:scale(.7);
+      transition:opacity .3s, transform .3s;
     }
-    
-    .gallery-item:hover img {
-      transform: scale(1.05);
+    .m-card:hover .m-zoom-btn { opacity:1; transform:scale(1); }
+
+    .m-badge {
+      position:absolute; top:10px; left:10px; z-index:3; font-size:.58rem; letter-spacing:.12em; text-transform:uppercase;
+      font-weight:700; padding:3px 11px; border-radius:20px; background:rgba(15,23,42,.78); backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.15); color:#fff;
     }
-    
-    .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      color: white;
-      padding: 20px;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
+    .m-card.hidden { display: none; }
+
+    @media(max-width:900px){ .masonry{columns:2 180px} .counter-bar{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:640px){ .masonry{columns:1} .counter-bar{grid-template-columns:repeat(2,1fr)} }
+
+    /* ========== CERTIFICATIONS CAROUSEL ========== */
+    .cert-card {
+      width: 270px; flex-shrink: 0; border-radius: 18px; overflow: hidden;
+      transition: transform .3s, box-shadow .3s; border: 1px solid #E2E8F0; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.03);
     }
-    
-    .gallery-item:hover .gallery-overlay {
-      transform: translateY(0);
+    @media(min-width:640px){ .cert-card{ width:290px; } }
+    @media(min-width:768px){ .cert-card{ width:310px; } }
+    .cert-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(15,23,42,.1); }
+    .cert-card .cert-icon-area { height: 150px; display:flex; align-items:center; justify-content:center; }
+    @media(min-width:768px){ .cert-card .cert-icon-area{ height:165px; } }
+    .cert-card .cert-icon-circle { width:64px; height:64px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.55); backdrop-filter: blur(2px); }
+    .cert-card .cert-icon-circle i { font-size: 26px; }
+    .cert-badge-pill {
+      position:absolute; top:14px; right:-6px; color:#fff; font-size:.56rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      padding:3px 14px 3px 10px; background:linear-gradient(135deg,#28B463,#1E7A43);
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%);
     }
-    
-    .gallery-overlay h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 5px;
+    .hide-scrollbar::-webkit-scrollbar{display:none} .hide-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+
+    /* ========== CONTACT FLOAT ========== */
+    .contact-float {
+      position: fixed; bottom: 24px; left: 24px; z-index: 500; width: 54px; height: 54px; border-radius: 50%;
+      background: #28B463; display:grid; place-items:center; box-shadow: 0 6px 24px rgba(40,180,99,.45);
+      text-decoration:none; transition: transform .3s, box-shadow .3s; animation: pulse-cf 2.5s ease-in-out infinite;
     }
-    
-    .gallery-overlay p {
-      font-size: 12px;
-      opacity: 0.8;
+    .contact-float:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(40,180,99,.6); animation: none; }
+    .contact-float i { color: #fff; font-size: 22px; }
+    @keyframes pulse-cf { 0%,100%{box-shadow:0 6px 24px rgba(40,180,99,.45)} 50%{box-shadow:0 6px 32px rgba(40,180,99,.8)} }
+    .cf-tip {
+      position:absolute; left:100%; margin-left:12px; top:50%; transform:translateY(-50%); background:rgba(15,23,42,.92);
+      color:#fff; font-size:11px; font-weight:500; padding:6px 12px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .3s;
     }
-    
-    /* Stats Counter */
-    .stat-card {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid #E2E8F0;
+    .contact-float:hover .cf-tip { opacity: 1; }
+
+    /* ========== LIGHTBOX ========== */
+    .lightbox-pane { position: fixed; inset:0; z-index:9999; background:rgba(15,23,42,.96); backdrop-filter: blur(18px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .28s; }
+    .lightbox-pane.open { opacity: 1; pointer-events: all; }
+    .lb-container { position: relative; max-width: min(92vw, 860px); width: 100%; }
+    .lb-img-frame { border-radius: 14px; overflow: hidden; border: 1px solid rgba(30,136,229,.3); box-shadow: 0 0 0 1px rgba(40,180,99,.18), 0 40px 100px rgba(0,0,0,.7); }
+    .lb-img-frame img { width:100%; max-height:70vh; object-fit:contain; display:block; background:#0F172A; }
+    .lb-info { margin-top: 1.2rem; text-align: center; }
+    .lb-title { font-family:'Poppins',sans-serif; font-size:1.2rem; font-weight:600; color:#fff; }
+    .lb-cap-text { margin-top:.25rem; font-size:.78rem; color:#4CC97E; letter-spacing:.05em; display:flex; align-items:center; justify-content:center; gap:.4rem; }
+    .lb-counter { margin-top:.4rem; font-size:.7rem; color:rgba(255,255,255,.35); letter-spacing:.1em; text-transform:uppercase; }
+    .lb-progress { position:absolute; bottom:0; left:0; height:2px; background:linear-gradient(90deg,#1E88E5,#28B463); transition:width .3s; border-radius:1px; }
+    .lb-close {
+      position:absolute; top:-14px; right:-14px; width:38px; height:38px; border-radius:50%; background:#16213A;
+      border:1px solid rgba(255,255,255,.15); color:#fff; font-size:1rem; cursor:pointer; display:grid; place-items:center; z-index:2; transition:background .3s;
     }
-    
-    .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    .lb-close:hover { background: #1E88E5; }
+    .lb-nav {
+      position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:50%;
+      background:rgba(15,23,42,.8); border:1px solid rgba(255,255,255,.15); color:#A7F3D0; font-size:1.2rem;
+      cursor:pointer; display:grid; place-items:center; transition:background .3s, box-shadow .3s;
     }
-    
-    .stat-number-lg {
-      font-size: 42px;
-      font-weight: 800;
-      color: #1E88E5;
-      font-family: 'Poppins', sans-serif;
+    .lb-nav:hover { background:#1E88E5; box-shadow:0 0 20px rgba(30,136,229,.5); }
+    .lb-prev { left: -56px; } .lb-next { right: -56px; }
+    @media(max-width:640px){ .lb-prev{left:0} .lb-next{right:0} }
+
+    /* ========== VIDEO SHOWCASE (kept from current site, bonus section) ========== */
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    @media (max-width: 768px) { .video-grid { grid-template-columns: 1fr; } }
+    .video-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #E2E8F0; transition: all 0.4s ease; }
+    .video-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: #28B463; }
+    .video-card video { width: 100%; display: block; }
+    .video-card .info { padding: 18px 22px; }
+    .video-card .info h4 { font-weight: 700; font-size: 17px; color: #0F172A; }
+    .video-card .info p { font-size: 14px; color: #475569; margin-top: 2px; }
+    .video-card .info p i { color: #28B463; margin-right: 4px; }
+
+    /* ========== CTA (kept from current site, bonus section) ========== */
+    .cta-section {
+      text-align: center; padding: 70px 40px; background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);
+      border-radius: 24px; color: white; position: relative; overflow: hidden;
     }
-    
-    .bg-light {
-      background: #F8FAFC;
+    .cta-section::before {
+      content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(40,180,99,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
     }
-    
-    .text-primary {
-      color: #1E88E5;
+    .cta-section h2 { position: relative; z-index: 1; font-size: 34px; font-weight: 700; margin-bottom: 12px; font-family:'Poppins',sans-serif; }
+    .cta-section p { position: relative; z-index: 1; color: rgba(255,255,255,0.8); font-size: 17px; margin-bottom: 24px; }
+    .cta-section .btn-cta {
+      position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 12px; background: white; color: #0F172A;
+      padding: 16px 36px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: all 0.3s ease;
     }
+    .cta-section .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,255,255,0.2); }
   </style>
 </head>
 <body>
@@ -356,294 +352,546 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <div class="back-to-top-inner">
+    <span class="btt-tip">Back to Top ↑</span>
+    <img src="assets/images/btt.png" alt="Back to Top" class="back-to-top-img">
+  </div>
 </div>
 
-<!-- Navbar Container -->
+<!-- Navbar (unchanged component loader) -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Project Gallery</h1>
-      <p class="text-xl max-w-2xl mx-auto">Visual journey of our engineering excellence</p>
-    </div>
-  </section>
 
-  <!-- Stats Section -->
-  <section class="section bg-light" style="padding: 60px 0;">
-    <div class="container">
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="stat-card">
-          <i class="fas fa-images text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="500">0</div>
-          <p class="font-semibold mt-2">Photos</p>
+  <!-- ══════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════ -->
+  <section class="gallery-hero">
+    <div class="orb w-64 h-64 bg-primary/15 top-10 left-0"></div>
+    <div class="orb w-48 h-48 bg-secondary/15 bottom-10 right-0"></div>
+    <div class="container gallery-hero-inner text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-xs font-medium text-primary-light tracking-widest uppercase mb-6 animate-fade-in-down">
+        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+        Visual Showcase · Our Journey
+        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] tracking-tight mb-5 animate-fade-in-up">
+        Project<br/>
+        <span class="text-secondary-light relative inline-block">
+          Gallery
+          <svg class="absolute -bottom-2 left-0 w-full h-1" viewBox="0 0 200 6" preserveAspectRatio="none">
+            <path d="M0,3 Q50,0 100,3 T200,3" stroke="#4CC97E" stroke-width="1.5" fill="none" opacity="0.6"/>
+          </svg>
+        </span>
+      </h1>
+
+      <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 animate-fade-in-up anim-delay-200">
+        A visual journey through our engineering excellence — industrial plants, pharmaceutical facilities,
+        infrastructure works, and the milestones we've delivered across India, Indonesia, and Bangladesh.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center mb-8 animate-fade-in-up anim-delay-400">
+        <a href="#gallery" class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-lg font-semibold text-sm shadow-lg shadow-secondary/30 hover:bg-secondary-light hover:-translate-y-0.5 transition-all duration-300">
+          <i class="fas fa-images text-sm"></i> View Gallery
+        </a>
+        <a href="#certifications" class="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-sm text-white/90 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-300">
+          <i class="fas fa-award text-sm"></i> View Certifications
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 animate-fade-in-up anim-delay-600">
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-images text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">500+ Photos</span>
         </div>
-        <div class="stat-card">
-          <i class="fas fa-project-diagram text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="200">0</div>
-          <p class="font-semibold mt-2">Projects Covered</p>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-project-diagram text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">200+ Projects Covered</span>
         </div>
-        <div class="stat-card">
-          <i class="fas fa-industry text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="15">0</div>
-          <p class="font-semibold mt-2">Industries</p>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-industry text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">15 Industries Served</span>
         </div>
-        <div class="stat-card">
-          <i class="fas fa-map-marker-alt text-3xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="8">0</div>
-          <p class="font-semibold mt-2">Locations</p>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-map-marker-alt text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">8 Global Locations</span>
         </div>
       </div>
     </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/30 text-[9px] tracking-[0.2em] flex flex-col items-center gap-1.5 z-10">
+      <span>SCROLL</span>
+      <div class="w-px h-6 bg-white/30"></div>
+    </div>
   </section>
 
-  <!-- Gallery Section -->
-  <section class="section">
+  <!-- ══════════════════════════════════════════════
+       COUNTERS
+  ══════════════════════════════════════════════ -->
+  <div class="counter-bar border-y border-border">
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="500" data-suffix="+">0</span></div>
+      <div class="counter-label">Photos</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="200" data-suffix="+">0</span></div>
+      <div class="counter-label">Projects Covered</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="15">0</span></div>
+      <div class="counter-label">Industries</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="8" data-suffix="+">0</span></div>
+      <div class="counter-label">Locations</div>
+    </div>
+  </div>
+
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       GALLERY
+  ══════════════════════════════════════════════ -->
+  <section class="py-10 md:py-14 bg-light" id="gallery">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Visual Showcase</span>
-        <h2 class="section-title">Project <span class="text-primary">Highlights</span></h2>
-        <p class="section-subtitle">Explore our work through images from recent projects</p>
+
+      <div class="mb-8 reveal">
+        <div class="head-eyebrow"><span class="ln"></span> Project Gallery</div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
+          Project <span class="text-primary">Highlights &amp; Milestones</span>
+        </h2>
+        <p class="text-text text-sm mt-2 max-w-xl">Browse through our journey — industrial plants, pharmaceutical facilities, infrastructure works, and corporate projects delivered across India, Indonesia, and Bangladesh.</p>
       </div>
-      
-      <!-- Filter Buttons -->
-      <div class="flex justify-center flex-wrap gap-3 mb-12">
-        <button class="filter-btn active" data-filter="all">All Photos</button>
+
+      <div class="flex flex-wrap gap-2 mb-8 reveal">
+        <button class="filter-btn active" data-filter="all">✦ All Photos</button>
         <button class="filter-btn" data-filter="industrial">Industrial</button>
         <button class="filter-btn" data-filter="pharma">Pharmaceutical</button>
         <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
         <button class="filter-btn" data-filter="corporate">Corporate</button>
         <button class="filter-btn" data-filter="construction">Construction</button>
       </div>
-      
-      <!-- Masonry Gallery Grid -->
-      <div class="columns-1 sm:columns-2 lg:columns-3 gap-6" id="galleryGrid"></div>
-      
-      <!-- Load More Button -->
-      <div class="text-center mt-12">
-        <button id="loadMoreBtn" class="btn-primary" style="background: #28B463;">Load More Photos <i class="fas fa-arrow-down"></i></button>
+
+      <!-- Masonry Grid -->
+      <div class="masonry" id="masonryGrid">
+
+        <div class="m-card" data-cat="industrial" data-title="Industrial Construction" data-location="Mumbai, India">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Industrial Construction" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Industrial Construction</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="pharma" data-title="Pharmaceutical Facility" data-location="Hyderabad, India">
+          <span class="m-badge">Pharmaceutical</span>
+          <img src="https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pharmaceutical Facility" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Pharmaceutical Facility</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="industrial" data-title="Industrial Park Development" data-location="Jakarta, Indonesia">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Industrial Park Development" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Industrial Park Development</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="corporate" data-title="Corporate Tower MEP" data-location="Delhi, India">
+          <span class="m-badge">Corporate</span>
+          <img src="https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Corporate Tower MEP" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Corporate Tower MEP</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="pharma" data-title="Cleanroom Installation" data-location="Mumbai, India">
+          <span class="m-badge">Pharmaceutical</span>
+          <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cleanroom Installation" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Cleanroom Installation</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="industrial" data-title="Manufacturing Plant" data-location="Chennai, India">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/1416531/pexels-photo-1416531.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Manufacturing Plant" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Manufacturing Plant</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Chennai, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="infrastructure" data-title="Solar Power Project" data-location="Gujarat, India">
+          <span class="m-badge">Infrastructure</span>
+          <img src="https://images.pexels.com/photos/159397/pexels-photo-159397.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Solar Power Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Solar Power Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Gujarat, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="industrial" data-title="Food Processing Unit" data-location="Pune, India">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/4434246/pexels-photo-4434246.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Food Processing Unit" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Food Processing Unit</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="infrastructure" data-title="Metro Rail Project" data-location="Jakarta, Indonesia">
+          <span class="m-badge">Infrastructure</span>
+          <img src="https://images.pexels.com/photos/109558/pexels-photo-109558.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Metro Rail Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Metro Rail Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="construction" data-title="Structural Steel Work" data-location="Bangalore, India">
+          <span class="m-badge">Construction</span>
+          <img src="https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Structural Steel Work" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Structural Steel Work</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="construction" data-title="Foundation Work" data-location="Dhaka, Bangladesh">
+          <span class="m-badge">Construction</span>
+          <img src="https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Foundation Work" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Foundation Work</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="corporate" data-title="Office Building HVAC" data-location="Mumbai, India">
+          <span class="m-badge">Corporate</span>
+          <img src="https://images.pexels.com/photos/258429/pexels-photo-258429.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Office Building HVAC" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Office Building HVAC</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="industrial" data-title="Factory Floor" data-location="Pune, India">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Factory Floor" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Factory Floor</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="construction" data-title="High-Rise Construction" data-location="Mumbai, India">
+          <span class="m-badge">Construction</span>
+          <img src="https://images.pexels.com/photos/2882171/pexels-photo-2882171.jpeg?auto=compress&cs=tinysrgb&w=600" alt="High-Rise Construction" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">High-Rise Construction</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+          </div>
+        </div>
+
+        <div class="m-card" data-cat="infrastructure" data-title="Bridge Construction" data-location="Jakarta, Indonesia">
+          <span class="m-badge">Infrastructure</span>
+          <img src="https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bridge Construction" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Bridge Construction</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
-  
-  <!-- Video Showcase -->
+
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       CERTIFICATIONS & RECOGNITIONS
+  ══════════════════════════════════════════════ -->
+  <section class="pt-4 md:pt-6 pb-16 md:pb-20 bg-gradient-to-br from-primary-pale via-white to-secondary-pale overflow-hidden" id="certifications">
+    <div class="w-full px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
+
+      <div class="text-center mb-8 md:mb-12 reveal relative">
+        <div class="head-eyebrow center">
+          <span class="ln"></span> Recognitions &amp; Certifications <span class="ln"></span>
+        </div>
+        <div class="relative max-w-3xl mx-auto">
+          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark text-center px-2">
+            Trusted &amp; <span class="text-secondary">Certified</span>
+          </h2>
+          <div class="hidden md:flex absolute -right-16 lg:-right-24 top-1/2 -translate-y-1/2 w-20 h-20 rounded-full items-center justify-center bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/20">
+            <i class="fas fa-medal text-white text-3xl"></i>
+          </div>
+          <div class="hidden md:flex absolute -left-16 lg:-left-24 top-1/2 -translate-y-1/2 w-20 h-20 rounded-full items-center justify-center bg-gradient-to-br from-secondary to-primary shadow-lg shadow-secondary/20">
+            <i class="fas fa-hard-hat text-white text-3xl"></i>
+          </div>
+        </div>
+        <p class="text-text max-w-2xl mx-auto mt-4 sm:mt-5 px-3 text-sm sm:text-base">Recognized for engineering excellence, quality systems, and safety performance across our project portfolio.</p>
+      </div>
+
+      <div class="relative w-full">
+        <div class="w-full overflow-x-auto overflow-y-visible pb-5 hide-scrollbar" id="certTrack" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+          <div class="flex gap-4 sm:gap-5 md:gap-6" style="width: max-content;">
+
+            <div class="cert-card" style="scroll-snap-align:start;">
+              <div class="cert-icon-area bg-gradient-to-br from-primary-pale to-primary-xpale">
+                <div class="cert-icon-circle"><i class="fas fa-certificate text-primary"></i></div>
+              </div>
+              <div class="p-4 md:p-5 text-center">
+                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">ISO 9001:2015</h3>
+                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Quality Management Certification</p>
+                <span class="text-[11px] text-slate-400">Issued by: International Organization for Standardization</span>
+              </div>
+            </div>
+
+            <div class="cert-card" style="scroll-snap-align:start;">
+              <div class="cert-icon-area bg-gradient-to-br from-secondary-pale to-secondary-xpale">
+                <div class="cert-icon-circle"><i class="fas fa-shield-alt text-secondary"></i></div>
+              </div>
+              <div class="p-4 md:p-5 text-center">
+                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">ISO 45001:2018</h3>
+                <p class="text-[11px] text-secondary font-semibold uppercase tracking-wide mb-1">Occupational Health &amp; Safety</p>
+                <span class="text-[11px] text-slate-400">Issued by: International Organization for Standardization</span>
+              </div>
+            </div>
+
+            <div class="cert-card" style="scroll-snap-align:start;">
+              <div class="cert-icon-area bg-gradient-to-br from-primary-pale to-secondary-pale">
+                <div class="cert-icon-circle"><i class="fas fa-globe text-primary"></i></div>
+              </div>
+              <div class="p-4 md:p-5 text-center">
+                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">ISO 14001:2015</h3>
+                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Environmental Management</p>
+                <span class="text-[11px] text-slate-400">Issued by: International Organization for Standardization</span>
+              </div>
+            </div>
+
+            <div class="cert-card" style="scroll-snap-align:start;">
+              <div class="cert-icon-area bg-gradient-to-br from-secondary-pale to-primary-xpale">
+                <div class="cert-icon-circle"><i class="fas fa-hard-hat text-secondary"></i></div>
+              </div>
+              <div class="p-4 md:p-5 text-center">
+                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Safety Excellence Award</h3>
+                <p class="text-[11px] text-secondary font-semibold uppercase tracking-wide mb-1">Site Safety Performance</p>
+                <span class="text-[11px] text-slate-400">Issued by: National Safety Council</span>
+              </div>
+            </div>
+
+            <div class="cert-card" style="scroll-snap-align:start;">
+              <div class="cert-icon-area bg-gradient-to-br from-primary-xpale to-primary-pale">
+                <div class="cert-icon-circle"><i class="fas fa-trophy text-primary"></i></div>
+              </div>
+              <div class="p-4 md:p-5 text-center">
+                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Engineering Excellence Award</h3>
+                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Project Delivery Excellence</p>
+                <span class="text-[11px] text-slate-400">Issued by: Federation of Indian Chambers of Commerce</span>
+              </div>
+            </div>
+
+            <div class="cert-card" style="scroll-snap-align:start;">
+              <div class="cert-icon-area bg-gradient-to-br from-secondary-xpale to-secondary-pale">
+                <div class="cert-icon-circle"><i class="fas fa-award text-secondary"></i></div>
+              </div>
+              <div class="p-4 md:p-5 text-center">
+                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Best EPC Contractor</h3>
+                <p class="text-[11px] text-secondary font-semibold uppercase tracking-wide mb-1">Industry Recognition</p>
+                <span class="text-[11px] text-slate-400">Issued by: Construction Industry Development Council</span>
+              </div>
+            </div>
+
+            <div class="cert-card" style="scroll-snap-align:start;">
+              <div class="cert-icon-area bg-gradient-to-br from-primary-pale to-primary-xpale">
+                <div class="cert-icon-circle"><i class="fas fa-stamp text-primary"></i></div>
+              </div>
+              <div class="p-4 md:p-5 text-center">
+                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Quality Assurance Recognition</h3>
+                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Process &amp; Materials Compliance</p>
+                <span class="text-[11px] text-slate-400">Issued by: Bureau of Indian Standards</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button id="certPrev" class="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-9 md:h-9 rounded-full bg-white shadow-md flex items-center justify-center text-slate-500 hover:text-primary transition-all z-10 border border-border">
+          <i class="fas fa-chevron-left text-xs sm:text-sm"></i>
+        </button>
+        <button id="certNext" class="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-9 md:h-9 rounded-full bg-white shadow-md flex items-center justify-center text-slate-500 hover:text-primary transition-all z-10 border border-border">
+          <i class="fas fa-chevron-right text-xs sm:text-sm"></i>
+        </button>
+      </div>
+
+      <div class="flex justify-center gap-2 mt-6 md:mt-8" id="certDots">
+        <span class="w-2 h-2 rounded-full bg-primary-light transition-all cursor-pointer" data-dot="0"></span>
+        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="1"></span>
+        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="2"></span>
+        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="3"></span>
+        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="4"></span>
+        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="5"></span>
+        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="6"></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       VIDEO SHOWCASE (bonus section, kept from current site)
+  ══════════════════════════════════════════════ -->
   <section class="section bg-light">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Video Tour</span>
-        <h2 class="section-title">Engineering in <span class="text-primary">Action</span></h2>
+        <h2 class="section-title">Engineering in <span class="highlight">Action</span></h2>
+        <p class="section-subtitle">Watch our projects come to life</p>
       </div>
-      
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="rounded-2xl overflow-hidden shadow-xl">
-          <video controls class="w-full h-auto">
+
+      <div class="video-grid">
+        <div class="video-card">
+          <video controls class="w-full">
             <source src="https://videos.pexels.com/video-files/854873/854873-hd_1920_1080_30fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <div class="p-4 bg-white">
-            <h3 class="font-bold">Industrial Construction Time-lapse</h3>
-            <p class="text-text text-sm">Jakarta Industrial Park Project</p>
+          <div class="info">
+            <h4>Industrial Construction Time-lapse</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Jakarta Industrial Park Project</p>
           </div>
         </div>
-        <div class="rounded-2xl overflow-hidden shadow-xl">
-          <video controls class="w-full h-auto">
+        <div class="video-card">
+          <video controls class="w-full">
             <source src="https://videos.pexels.com/video-files/3195396/3195396-uhd_2560_1440_25fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <div class="p-4 bg-white">
-            <h3 class="font-bold">MEP Installation Process</h3>
-            <p class="text-text text-sm">Pharma Facility, Mumbai</p>
+          <div class="info">
+            <h4>MEP Installation Process</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Pharma Facility, Mumbai</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- Get in Touch CTA -->
-  <section class="section">
-    <div class="container text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Want to See More?</h2>
-      <p class="text-text text-lg mb-8">Contact us for a detailed portfolio presentation of our projects</p>
-      <a href="contact.html" class="btn-primary">Request Portfolio <i class="fas fa-download"></i></a>
+
+  <!-- ══════════════════════════════════════════════
+       CTA (bonus section, kept from current site)
+  ══════════════════════════════════════════════ -->
+  <section class="section" style="padding: 50px 0;">
+    <div class="container">
+      <div class="cta-section">
+        <h2>Want to See <span class="text-secondary-light">More?</span></h2>
+        <p>Contact us for a detailed portfolio presentation of our projects</p>
+        <a href="contact.html" class="btn-cta">
+          Request Portfolio <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
   </section>
+
 </main>
 
-<!-- Footer Container -->
+<!-- Footer (unchanged component loader) -->
 <div id="footer-container"></div>
 
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+<!-- Contact float (swap href for a wa.me link once you have a WhatsApp number) -->
+<a href="contact.html" class="contact-float" aria-label="Contact us">
+  <span class="cf-tip">Need Help? Contact Us</span>
+  <i class="fas fa-comment-dots"></i>
+</a>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-pane" id="lightboxPane">
+  <div class="lb-container">
+    <div class="lb-progress" id="lbProgress"></div>
+    <button class="lb-close" id="lbClose">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev">‹</button>
+    <button class="lb-nav lb-next" id="lbNext">›</button>
+    <div class="lb-img-frame">
+      <img id="lbImg" src="" alt=""/>
+    </div>
+    <div class="lb-info">
+      <p class="lb-title" id="lbTitle"></p>
+      <p class="lb-cap-text" id="lbCap"><i class="fas fa-map-marker-alt"></i> <span id="lbCapText"></span></p>
+      <p class="lb-counter" id="lbCounter"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
 <script>
-  // Gallery Data
-  const allImages = [
-    { src: "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Industrial Construction", location: "Mumbai, India" },
-    { src: "https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Industrial Park Development", location: "Jakarta, Indonesia" },
-    { src: "https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "pharma", title: "Pharmaceutical Facility", location: "Hyderabad, India" },
-    { src: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "corporate", title: "Corporate Tower MEP", location: "Delhi, India" },
-    { src: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "pharma", title: "Cleanroom Installation", location: "Mumbai, India" },
-    { src: "https://images.pexels.com/photos/1416531/pexels-photo-1416531.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Manufacturing Plant", location: "Chennai, India" },
-    { src: "https://images.pexels.com/photos/159397/pexels-photo-159397.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "infrastructure", title: "Solar Power Project", location: "Gujarat, India" },
-    { src: "https://images.pexels.com/photos/4434246/pexels-photo-4434246.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "industrial", title: "Food Processing Unit", location: "Pune, India" },
-    { src: "https://images.pexels.com/photos/109558/pexels-photo-109558.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "infrastructure", title: "Metro Rail Project", location: "Jakarta, Indonesia" },
-    { src: "https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "construction", title: "Structural Steel Work", location: "Bangalore, India" },
-    { src: "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "construction", title: "Foundation Work", location: "Dhaka, Bangladesh" },
-    { src: "https://images.pexels.com/photos/258429/pexels-photo-258429.jpeg?auto=compress&cs=tinysrgb&w=600", cat: "corporate", title: "Office Building HVAC", location: "Mumbai, India" }
-  ];
-  
-  let visibleCount = 9;
-  
-  function renderGallery() {
-    const grid = document.getElementById('galleryGrid');
-    if (!grid) return;
-    
-    const activeFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
-    const filtered = activeFilter === 'all' ? allImages : allImages.filter(img => img.cat === activeFilter);
-    const visible = filtered.slice(0, visibleCount);
-    
-    grid.innerHTML = visible.map((img, idx) => `
-      <a href="${img.src}" data-lightbox="gallery" data-title="${img.title} - ${img.location}" class="gallery-item block">
-        <img src="${img.src}" alt="${img.title}" loading="lazy" class="w-full rounded-xl shadow-lg">
-        <div class="gallery-overlay">
-          <h4>${img.title}</h4>
-          <p><i class="fas fa-map-marker-alt"></i> ${img.location}</p>
-        </div>
-      </a>
-    `).join('');
-    
-    // Refresh lightbox
-    if (typeof lightbox !== 'undefined') {
-      lightbox.option({ resizeDuration: 200 });
-    }
-    
-    // Update load more button
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (loadMoreBtn) {
-      if (visibleCount >= filtered.length) {
-        loadMoreBtn.style.display = 'none';
-      } else {
-        loadMoreBtn.style.display = 'inline-flex';
-      }
-    }
-  }
-  
-  // Initialize filters
-  function initFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        visibleCount = 9;
-        renderGallery();
-      });
-    });
-  }
-  
-  // Load more
-  function initLoadMore() {
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (loadMoreBtn) {
-      loadMoreBtn.addEventListener('click', () => {
-        visibleCount += 6;
-        renderGallery();
-      });
-    }
-  }
-  
-  function initCounters() {
-    const counters = document.querySelectorAll('.stat-number-lg');
-    if (counters.length === 0) return;
-    
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      if (isNaN(target)) return;
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                counter.innerText = target;
-                clearInterval(timer);
-              } else {
-                counter.innerText = Math.floor(current);
-              }
-            }, 30);
-            observer.unobserve(counter);
-          }
-        });
-      }, { threshold: 0.5 });
-      
-      observer.observe(counter);
-    });
-  }
-  
-  // ============================================
-  // LOAD COMPONENTS (navbar and footer)
-  // ============================================
-  
+  /* ============================================
+     LOAD COMPONENTS (unchanged from current site)
+  ============================================ */
   async function loadComponent(elementId, componentPath) {
     try {
       const response = await fetch(componentPath);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const html = await response.text();
-      document.getElementById(elementId).innerHTML = html;
+      document.getElementById(elementId).innerHTML = await response.text();
       return true;
     } catch (error) {
       console.error(`Error loading ${componentPath}:`, error);
       return false;
     }
   }
-  
+
   function initNavbar() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
-    
+
     if (header) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 100);
       });
     }
-    
+
     if (navToggle && navMenu) {
-      const newToggle = navToggle.cloneNode(true);
-      navToggle.parentNode.replaceChild(newToggle, navToggle);
-      
-      const newMenu = navMenu.cloneNode(true);
-      navMenu.parentNode.replaceChild(newMenu, navMenu);
-      
-      const finalToggle = document.getElementById('navToggle');
-      const finalMenu = document.getElementById('navMenu');
-      
-      if (finalToggle && finalMenu) {
-        finalToggle.addEventListener('click', function(e) {
+      const finalToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(finalToggle, navToggle);
+      const finalMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(finalMenu, navMenu);
+
+      const newToggle = document.getElementById('navToggle');
+      const newMenu = document.getElementById('navMenu');
+
+      if (newToggle && newMenu) {
+        newToggle.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          finalMenu.classList.toggle('active');
-          finalToggle.classList.toggle('active');
+          newMenu.classList.toggle('active');
+          newToggle.classList.toggle('active');
           document.body.classList.toggle('mobile-nav-active');
         });
       }
     }
-    
+
     document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', () => {
         const mobileMenu = document.getElementById('navMenu');
         const mobileToggle = document.getElementById('navToggle');
         if (mobileMenu) mobileMenu.classList.remove('active');
@@ -651,79 +899,223 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    
+
     document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
-      dropdownLink.addEventListener('click', function(e) {
+      dropdownLink.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
           e.preventDefault();
-          const dropdown = this.parentElement;
-          dropdown.classList.toggle('active');
+          dropdownLink.parentElement.classList.toggle('active');
         }
       });
     });
-    
+
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPage) {
+      if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
       }
     });
   }
-  
+
   function initGlobalUI() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
-      window.addEventListener('scroll', function() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
+      window.addEventListener('scroll', () => {
+        const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
         scrollProgress.style.width = progress + '%';
       });
     }
-    
+
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('show', window.scrollY > 300);
       });
-      
-      backToTop.addEventListener('click', function() {
+      backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
-  
+
+  /* ============================================
+     REVEAL ON SCROLL
+  ============================================ */
+  function initReveal() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  }
+
+  /* ============================================
+     COUNTERS
+  ============================================ */
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target), suffix = el.dataset.suffix || '', duration = 1800, step = target / (duration / 16);
+    let cur = 0;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = Math.floor(cur).toLocaleString() + suffix;
+      if (cur >= target) clearInterval(t);
+    }, 16);
+  }
+  function initCounters() {
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } });
+    }, { threshold: .5 });
+    document.querySelectorAll('.counter-num [data-target]').forEach(c => counterObs.observe(c));
+  }
+
+  /* ============================================
+     GALLERY FILTER
+  ============================================ */
+  function initFilters() {
+    const fBtns = document.querySelectorAll('.filter-btn');
+    const mCards = document.querySelectorAll('.m-card');
+    fBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        fBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        mCards.forEach(c => {
+          if (f === 'all' || c.dataset.cat === f) {
+            c.classList.remove('hidden');
+            c.style.animation = 'none';
+            requestAnimationFrame(() => { c.style.animation = 'fadeUp .5s ease both'; });
+          } else { c.classList.add('hidden'); }
+        });
+      });
+    });
+  }
+
+  /* ============================================
+     LIGHTBOX
+  ============================================ */
+  function initLightbox() {
+    const mCards = document.querySelectorAll('.m-card');
+    const pane = document.getElementById('lightboxPane');
+    const lbImg = document.getElementById('lbImg'), lbTitle = document.getElementById('lbTitle'),
+          lbCapText = document.getElementById('lbCapText'), lbCounter = document.getElementById('lbCounter'),
+          lbProgress = document.getElementById('lbProgress');
+    let currentIdx = 0, visible = [];
+
+    function getVisible() { return [...mCards].filter(c => !c.classList.contains('hidden')); }
+    function updateLb() {
+      const c = visible[currentIdx];
+      lbImg.src = c.querySelector('img').src; lbImg.alt = c.querySelector('img').alt;
+      lbTitle.textContent = c.dataset.title; lbCapText.textContent = c.dataset.location;
+      lbCounter.textContent = `${currentIdx + 1} of ${visible.length}`;
+      lbProgress.style.width = ((currentIdx + 1) / visible.length * 100) + '%';
+    }
+    function openLb(idx) { visible = getVisible(); currentIdx = idx; updateLb(); pane.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeLb() { pane.classList.remove('open'); document.body.style.overflow = ''; }
+
+    mCards.forEach(card => { card.addEventListener('click', () => { visible = getVisible(); openLb(visible.indexOf(card)); }); });
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    pane.addEventListener('click', e => { if (e.target === pane) closeLb(); });
+    document.getElementById('lbPrev').addEventListener('click', () => { currentIdx = (currentIdx - 1 + visible.length) % visible.length; updateLb(); });
+    document.getElementById('lbNext').addEventListener('click', () => { currentIdx = (currentIdx + 1) % visible.length; updateLb(); });
+    document.addEventListener('keydown', e => {
+      if (!pane.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + visible.length) % visible.length; updateLb(); }
+      if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % visible.length; updateLb(); }
+    });
+    let touchX = 0;
+    pane.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+    pane.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) { if (dx < 0) currentIdx = (currentIdx + 1) % visible.length; else currentIdx = (currentIdx - 1 + visible.length) % visible.length; updateLb(); }
+    });
+  }
+
+  /* ============================================
+     CERTIFICATIONS CAROUSEL
+  ============================================ */
+  function initCertCarousel() {
+    const track = document.getElementById('certTrack');
+    const prevBtn = document.getElementById('certPrev');
+    const nextBtn = document.getElementById('certNext');
+    const dots = document.querySelectorAll('#certDots [data-dot]');
+    if (!track || !prevBtn || !nextBtn) return;
+    let autoSlide, isHovering = false;
+
+    function getCardWidth() {
+      const cards = track.querySelectorAll('.cert-card');
+      if (!cards.length) return 270;
+      const card = cards[0];
+      const gap = parseInt(getComputedStyle(card.parentElement).gap) || 16;
+      return card.offsetWidth + gap;
+    }
+    function updateDots() {
+      const step = getCardWidth();
+      const total = track.querySelectorAll('.cert-card').length;
+      let idx = Math.round(track.scrollLeft / step) % total;
+      dots.forEach((d, i) => {
+        d.classList.toggle('bg-primary-light', i === idx);
+        d.classList.toggle('bg-slate-300', i !== idx);
+      });
+    }
+    function scrollNext() {
+      const step = getCardWidth();
+      const max = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft + step >= max - 5) { track.scrollTo({ left: 0, behavior: 'smooth' }); }
+      else { track.scrollBy({ left: step, behavior: 'smooth' }); }
+      setTimeout(updateDots, 300);
+    }
+    function scrollPrev() {
+      const step = getCardWidth();
+      if (track.scrollLeft - step <= 5) { track.scrollTo({ left: track.scrollWidth - track.clientWidth, behavior: 'smooth' }); }
+      else { track.scrollBy({ left: -step, behavior: 'smooth' }); }
+      setTimeout(updateDots, 300);
+    }
+    function startAuto() {
+      if (autoSlide) clearInterval(autoSlide);
+      autoSlide = setInterval(() => { if (!isHovering) scrollNext(); }, 4000);
+    }
+
+    prevBtn.addEventListener('click', () => { scrollPrev(); clearInterval(autoSlide); startAuto(); });
+    nextBtn.addEventListener('click', () => { scrollNext(); clearInterval(autoSlide); startAuto(); });
+    track.addEventListener('mouseenter', () => isHovering = true);
+    track.addEventListener('mouseleave', () => isHovering = false);
+    track.addEventListener('scroll', () => setTimeout(updateDots, 100));
+    dots.forEach((d, i) => d.addEventListener('click', () => {
+      track.scrollTo({ left: i * getCardWidth(), behavior: 'smooth' });
+      clearInterval(autoSlide); startAuto();
+    }));
+    let resizeTimer;
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(updateDots, 150); });
+
+    startAuto();
+  }
+
+  /* ============================================
+     INIT
+  ============================================ */
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
-    
     initNavbar();
     initGlobalUI();
+    initReveal();
     initCounters();
-    renderGallery();
     initFilters();
-    initLoadMore();
+    initLightbox();
+    initCertCarousel();
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadAllComponents);
   } else {
     loadAllComponents();
   }
-  
-  window.addEventListener('load', function() {
+
+  window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     if (loader) {
       setTimeout(() => {
         loader.style.opacity = '0';
-        setTimeout(() => {
-          loader.style.display = 'none';
-        }, 500);
+        setTimeout(() => { loader.style.display = 'none'; }, 500);
       }, 1000);
     }
   });

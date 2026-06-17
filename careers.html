@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Careers - Jianan Engineering | Join Our Team</title>
   <meta name="description" content="Build your career with Jianan Engineering. Explore open positions in engineering, project management, safety, and more. Join a global leader in EPC and MEP solutions.">
+  <link rel="icon" href="/assets/images/logo.png">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,22 +45,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
-    /* ========================================
-       GLOBAL STYLES
-       ======================================== */
-    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       overflow-x: hidden;
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
     }
-    
+
     /* Loader Styles */
     .loader {
       position: fixed;
@@ -74,11 +71,9 @@
       justify-content: center;
       transition: opacity 0.8s ease-out;
     }
-    
-    .loader-content {
-      text-align: center;
-    }
-    
+
+    .loader-content { text-align: center; }
+
     .loader-logo {
       width: 80px;
       height: 80px;
@@ -93,7 +88,7 @@
       color: white;
       animation: pulse 1.5s infinite;
     }
-    
+
     .loader-text {
       color: white;
       font-size: 14px;
@@ -101,7 +96,7 @@
       font-weight: 500;
       margin-bottom: 20px;
     }
-    
+
     .loader-bar {
       width: 200px;
       height: 2px;
@@ -110,7 +105,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .loader-bar::after {
       content: '';
       position: absolute;
@@ -121,16 +116,13 @@
       background: linear-gradient(90deg, #1E88E5, #28B463);
       animation: loading 1.5s infinite;
     }
-    
-    @keyframes loading {
-      100% { left: 100%; }
-    }
-    
+
+    @keyframes loading { 100% { left: 100%; } }
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.9; }
     }
-    
+
     /* Scroll Progress */
     .scroll-progress {
       position: fixed;
@@ -142,7 +134,7 @@
       z-index: 10001;
       transition: width 0.1s ease-out;
     }
-    
+
     /* Back to Top Button */
     .back-to-top {
       position: fixed;
@@ -150,8 +142,6 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -161,59 +151,43 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      background: transparent !important;
+      box-shadow: none;
+      padding: 0;
     }
-    
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background: #28B463;
-      transform: translateY(-5px);
-    }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
+
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-5px); }
+
     /* Container */
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 24px;
     }
-    
+
     /* Section Styles */
-    .section {
-      padding: 100px 0;
-    }
-    
+    .section { padding: 100px 0; }
+
     @media (max-width: 768px) {
-      .section {
-        padding: 60px 0;
-      }
+      .section { padding: 60px 0; }
     }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
+
+    .section-header { text-align: center; margin-bottom: 60px; }
+
     .section-tag {
       display: inline-block;
       font-size: 14px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
+      color: #28B463;
+      background: rgba(40,180,99,0.1);
       padding: 6px 16px;
       border-radius: 50px;
       margin-bottom: 20px;
     }
-    
+
     .section-title {
       font-size: 42px;
       font-weight: 700;
@@ -221,165 +195,618 @@
       color: #0F172A;
       margin-bottom: 16px;
     }
-    
+
     @media (max-width: 768px) {
-      .section-title {
-        font-size: 32px;
-      }
+      .section-title { font-size: 32px; }
     }
-    
+
     .section-subtitle {
       font-size: 18px;
       color: #475569;
       max-width: 600px;
       margin: 0 auto;
     }
-    
-    /* Button Styles */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #1E88E5;
-      color: white;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
+
+    .bg-light { background: #F8FAFC; }
+    .text-primary { color: #1E88E5; }
+    .text-secondary { color: #28B463; }
+
+    /* ============ HERO ============ */
+    .careers-hero {
+      position: relative;
+      background: #0b1a2e;
+      padding: 170px 0 90px;
+      overflow: hidden;
     }
-    
-    .btn-primary:hover {
-      background: #0F5B99;
-      transform: translateY(-2px);
+    .careers-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(40,180,99,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
-    
-    /* Benefit Card */
-    .benefit-card {
+    .careers-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(30,136,229,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .careers-hero-inner { position: relative; z-index: 2; }
+
+    /* ============ BENEFIT CARDS - MODERN ============ */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .benefit-grid { grid-template-columns: 1fr; }
+    }
+
+    .benefit-card-modern {
       background: white;
       border-radius: 20px;
-      padding: 30px;
+      padding: 32px 24px;
       text-align: center;
-      transition: all 0.3s;
       border: 1px solid #E2E8F0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       height: 100%;
+      position: relative;
+      overflow: hidden;
     }
-    
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
+
+    .benefit-card-modern::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
-    
-    .benefit-icon {
-      width: 70px;
-      height: 70px;
+
+    .benefit-card-modern:hover::after {
+      transform: scaleX(1);
+    }
+
+    .benefit-card-modern:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+
+    .benefit-card-modern .icon-wrap {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, rgba(30,136,229,0.08), rgba(40,180,99,0.08));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #1E88E5;
+      transition: all 0.3s;
+    }
+
+    .benefit-card-modern:hover .icon-wrap {
       background: linear-gradient(135deg, #1E88E5, #28B463);
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    .benefit-card-modern h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+
+    .benefit-card-modern p {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ============ JOB CARDS - ACCORDION STYLE ============ */
+    .job-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .job-item {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #E2E8F0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .job-item:hover {
+      border-color: #28B463;
+      box-shadow: 0 8px 25px rgba(40,180,99,0.08);
+    }
+
+    .job-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 16px;
+      transition: background 0.3s;
+    }
+
+    .job-header:hover {
+      background: #F8FAFC;
+    }
+
+    .job-header .left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .job-header .left .job-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(40,180,99,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .job-header .left .job-icon i {
+      font-size: 20px;
+      color: #28B463;
+    }
+
+    .job-header .left .info h4 {
+      font-weight: 700;
+      font-size: 17px;
+      color: #0F172A;
+    }
+
+    .job-header .left .info .meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #475569;
+      margin-top: 2px;
+      flex-wrap: wrap;
+    }
+
+    .job-header .left .info .meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .job-header .left .info .meta i {
+      color: #1E88E5;
+      font-size: 12px;
+    }
+
+    .job-header .badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .job-badge-status {
+      background: #28B463;
+      color: white;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .job-header .toggle-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #F1F5F9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+
+    .job-header .toggle-icon i {
+      font-size: 14px;
+      color: #475569;
+      transition: transform 0.3s;
+    }
+
+    .job-item.active .toggle-icon i {
+      transform: rotate(180deg);
+    }
+
+    .job-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 24px;
+    }
+
+    .job-item.active .job-body {
+      max-height: 400px;
+      padding: 0 24px 24px;
+    }
+
+    .job-body .desc {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .job-body .requirements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .job-body .requirements .req-tag {
+      background: #F1F5F9;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      color: #475569;
+    }
+
+    .job-body .apply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #28B463;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .job-body .apply-btn:hover {
+      background: #1E7A43;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(40,180,99,0.3);
+    }
+
+    /* ============ CULTURE VALUES ============ */
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    @media (max-width: 768px) {
+      .culture-grid { grid-template-columns: 1fr; }
+    }
+
+    .culture-card {
+      text-align: center;
+      padding: 30px 20px;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #E2E8F0;
+      transition: all 0.3s;
+    }
+
+    .culture-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+      border-color: #28B463;
+    }
+
+    .culture-card .icon-ring {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 16px;
+      border: 2px solid rgba(40,180,99,0.2);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px;
-    }
-    
-    .benefit-icon i {
-      font-size: 30px;
-      color: white;
-    }
-    
-    /* Job Card */
-    .job-card {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      margin-bottom: 20px;
-      border: 1px solid #E2E8F0;
       transition: all 0.3s;
     }
-    
-    .job-card:hover {
-      transform: translateX(5px);
-      border-left: 4px solid #1E88E5;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+
+    .culture-card:hover .icon-ring {
+      border-color: #28B463;
+      background: rgba(40,180,99,0.05);
     }
-    
-    .job-badge {
-      display: inline-block;
-      background: #28B463;
-      color: white;
-      padding: 4px 12px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 600;
+
+    .culture-card .icon-ring i {
+      font-size: 30px;
+      color: #28B463;
     }
-    
-    .job-location {
-      color: #1E88E5;
-      font-size: 14px;
-      margin: 5px 0;
+
+    .culture-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
     }
-    
-    .job-desc {
+
+    .culture-card p {
       color: #475569;
       font-size: 14px;
-      margin: 10px 0;
     }
-    
-    /* Application Form */
-    .application-form {
+
+    /* ============ APPLICATION FORM ============ */
+    .form-modern {
       background: white;
       border-radius: 24px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       border: 1px solid #E2E8F0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     }
-    
-    .form-input {
+
+    .form-modern .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-modern label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #0F172A;
+      margin-bottom: 6px;
+    }
+
+    .form-modern label .required {
+      color: #EF4444;
+    }
+
+    .form-modern input,
+    .form-modern select,
+    .form-modern textarea {
       width: 100%;
-      padding: 14px 18px;
+      padding: 12px 16px;
       border: 1px solid #E2E8F0;
       border-radius: 12px;
       font-family: 'Inter', sans-serif;
+      font-size: 14px;
       transition: all 0.3s;
+      background: #FAFBFC;
     }
-    
-    .form-input:focus {
+
+    .form-modern input:focus,
+    .form-modern select:focus,
+    .form-modern textarea:focus {
       outline: none;
-      border-color: #1E88E5;
-      box-shadow: 0 0 0 3px rgba(30,136,229,0.1);
+      border-color: #28B463;
+      box-shadow: 0 0 0 3px rgba(40,180,99,0.1);
+      background: white;
     }
-    
-    .form-label {
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: block;
-      color: #0F172A;
+
+    .form-modern .file-upload {
+      position: relative;
     }
-    
-    /* Culture Values */
-    .culture-value {
-      text-align: center;
-      padding: 20px;
+
+    .form-modern .file-upload input[type="file"] {
+      padding: 10px;
+      background: #FAFBFC;
+      border: 2px dashed #E2E8F0;
+      cursor: pointer;
     }
-    
-    .culture-value i {
-      font-size: 40px;
-      color: #1E88E5;
-      margin-bottom: 15px;
+
+    .form-modern .file-upload input[type="file"]:hover {
+      border-color: #28B463;
     }
-    
-    .bg-light {
-      background: #F8FAFC;
+
+    .form-modern .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #28B463, #1E7A43);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
-    
-    .text-primary {
-      color: #1E88E5;
+
+    .form-modern .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40,180,99,0.3);
     }
-    
-    .text-secondary {
+
+    /* ============ WALK-IN SECTION ============ */
+    .walkin-card {
+      background: linear-gradient(135deg, #0F172A, #1a3c34);
+      border-radius: 24px;
+      padding: 50px 40px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .walkin-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(40,180,99,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .walkin-card .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .walkin-card .walkin-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(40,180,99,0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .walkin-card .walkin-icon i {
+      font-size: 28px;
       color: #28B463;
     }
+
+    .walkin-card h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .walkin-card h2 span {
+      color: #28B463;
+    }
+
+    .walkin-card p {
+      color: rgba(255,255,255,0.8);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .walkin-card .details {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .walkin-card .details .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .walkin-card .details .item i {
+      color: #28B463;
+      font-size: 16px;
+    }
+
+    .walkin-card .quote-box {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 20px 24px;
+      border-left: 4px solid #28B463;
+      margin-top: 16px;
+    }
+
+    .walkin-card .quote-box p {
+      font-style: italic;
+      font-size: 15px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .walkin-card .quote-box .author {
+      font-style: normal;
+      font-weight: 600;
+      margin-top: 6px;
+      color: white;
+    }
+
+    /* ============ FORM STATUS ============ */
+    .form-status {
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      background: rgba(40,180,99,0.1);
+      color: #28B463;
+      border: 1px solid rgba(40,180,99,0.2);
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(239,68,68,0.1);
+      color: #EF4444;
+      border: 1px solid rgba(239,68,68,0.2);
+    }
+
+    /* Hero animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+     /* Form status styles */
+  .form-status {
+    padding: 10px 14px;
+    border-radius: 10px;
+    display: none;
+    font-size: 13px;
+  }
+
+  .form-status.success {
+    display: block;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+
+  .form-status.error {
+    display: block;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+
+  .form-status.loading {
+    display: block;
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
+  }
+
+  /* Input focus styles */
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+  }
   </style>
 </head>
 <body>
@@ -398,280 +825,723 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <img src="assets/images/btt.png" alt="Back to Top" class="w-16 h-auto animate-bounce">
 </div>
 
 <!-- Navbar Container -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Join Our Team</h1>
-      <p class="text-xl max-w-2xl mx-auto">Build your career with a global engineering leader</p>
-    </div>
-  </section>
 
-  <!-- Why Join Us / Benefits -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Why Join Jianan</span>
-        <h2 class="section-title">Employee <span class="text-primary">Benefits</span></h2>
-        <p class="section-subtitle">We invest in our people with comprehensive benefits and growth opportunities</p>
-      </div>
-      
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Growth Opportunities</h3>
-          <p class="text-text text-sm">Continuous learning and career advancement with clear promotion paths</p>
-        </div>
-        
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Global Exposure</h3>
-          <p class="text-text text-sm">Work on international projects across India, Indonesia, and Bangladesh</p>
-        </div>
-        
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class="fas fa-heartbeat"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Health & Wellness</h3>
-          <p class="text-text text-sm">Comprehensive health coverage and wellness programs for all employees</p>
-        </div>
-        
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Learning & Development</h3>
-          <p class="text-text text-sm">Regular training, certifications, and skill development programs</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Hero Section -->
+<section class="careers-hero relative overflow-hidden" style="min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/assets/images/bg_1.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/70 z-10"></div>
+  </div>
+  
+  <div class="container careers-hero-inner text-center relative z-20 px-4">
+    <span class="inline-flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400 text-xs font-semibold tracking-wider uppercase rounded-full px-4 py-1.5 mb-5 border border-emerald-500/30">
+      <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+      We're Hiring
+    </span>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white leading-tight mb-5">
+      Build Your Career With <br><span class="text-emerald-400">Jianan Engineering</span>
+    </h1>
+    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">Join a global leader in EPC and MEP solutions. Grow your career with exciting projects across India, Indonesia, and Bangladesh.</p>
+  </div>
+</section>
 
-  <!-- Company Culture -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Culture</span>
-        <h2 class="section-title">Life at <span class="text-primary">Jianan</span></h2>
-      </div>
+<!-- Combined: Benefits + Culture Section -->
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header - Centered perfectly with image -->
+  <!-- Section Header - Centered perfectly with image -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-16 sm:gap-20 md:gap-24 lg:gap-28 mb-10">
+  <!-- Left Side - Heading Centered -->
+  <div class="text-center">
+    <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-wider uppercase rounded-full px-4 py-1.5 mb-2">
+      <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+      Why Join Us
+    </span>
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+      Employee <span class="text-emerald-600">Benefits</span>
+    </h2>
+    <p class="text-gray-500 text-sm max-w-md mx-auto mt-1">We invest in our people with comprehensive benefits and growth opportunities</p>
+    <div class="w-12 h-1 bg-emerald-500 rounded-full mt-2 mx-auto"></div>
+  </div>
+
+  <!-- Right Side - Small Image -->
+<!-- Right Side - Small Image -->
+<div class="flex-shrink-0">
+  <img src="/assets/images/h_1.jpg" 
+       alt="Team collaboration" 
+       class="w-32 sm:w-36 md:w-40 h-auto object-contain shadow-md hover:scale-105 transition-transform duration-300">
+</div>
+</div>
+
+    <!-- Benefits Grid - 4 Cards with Borders -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="culture-value">
+      <!-- Benefit 1 - Career Growth -->
+      <div class="group bg-white rounded-xl p-5 text-center border-2 border-emerald-200 hover:border-emerald-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xl mx-auto mb-3 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1">Career Growth</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Continuous learning and clear advancement paths with mentorship programs</p>
+      </div>
+
+      <!-- Benefit 2 - Global Exposure -->
+      <div class="group bg-white rounded-xl p-5 text-center border-2 border-sky-200 hover:border-sky-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center text-sky-600 text-xl mx-auto mb-3 group-hover:bg-sky-600 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-globe-asia"></i>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1">Global Exposure</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Work on international projects across India, Indonesia, and Bangladesh</p>
+      </div>
+
+      <!-- Benefit 3 - Health & Wellness -->
+      <div class="group bg-white rounded-xl p-5 text-center border-2 border-rose-200 hover:border-rose-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-rose-600 text-xl mx-auto mb-3 group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1">Health & Wellness</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Comprehensive health coverage and wellness programs for all employees</p>
+      </div>
+
+      <!-- Benefit 4 - Learning & Development -->
+      <div class="group bg-white rounded-xl p-5 text-center border-2 border-amber-200 hover:border-amber-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 text-xl mx-auto mb-3 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1">Learning & Development</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Regular training, certifications, and skill development programs</p>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="flex items-center justify-center gap-4 my-8">
+      <div class="h-px flex-1 max-w-20 bg-gray-200"></div>
+      <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Life at Jianan</span>
+      <div class="h-px flex-1 max-w-20 bg-gray-200"></div>
+    </div>
+
+    <!-- Culture Grid - 3 Cards with Borders -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      
+      <!-- Culture 1 - Collaborative -->
+      <div class="group bg-white rounded-xl p-5 text-center border-2 border-indigo-200 hover:border-indigo-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xl mx-auto mb-3 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
           <i class="fas fa-handshake"></i>
-          <h3 class="text-xl font-bold mb-2">Collaborative</h3>
-          <p class="text-text">Team-first approach where every voice matters</p>
         </div>
-        <div class="culture-value">
+        <h3 class="text-sm font-bold text-gray-800 mb-1">Collaborative</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Team-first approach where every voice matters and ideas are valued</p>
+      </div>
+
+      <!-- Culture 2 - Innovative -->
+      <div class="group bg-white rounded-xl p-5 text-center border-2 border-violet-200 hover:border-violet-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-violet-100 rounded-full flex items-center justify-center text-violet-600 text-xl mx-auto mb-3 group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
           <i class="fas fa-lightbulb"></i>
-          <h3 class="text-xl font-bold mb-2">Innovative</h3>
-          <p class="text-text">Encouraging creative solutions and new ideas</p>
         </div>
-        <div class="culture-value">
+        <h3 class="text-sm font-bold text-gray-800 mb-1">Innovative</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Encouraging creative solutions and new ideas to solve complex challenges</p>
+      </div>
+
+      <!-- Culture 3 - Inclusive -->
+      <div class="group bg-white rounded-xl p-5 text-center border-2 border-teal-200 hover:border-teal-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 text-xl mx-auto mb-3 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
           <i class="fas fa-balance-scale"></i>
-          <h3 class="text-xl font-bold mb-2">Inclusive</h3>
-          <p class="text-text">Diverse workforce with equal opportunities</p>
+        </div>
+        <h3 class="text-sm font-bold text-gray-800 mb-1">Inclusive</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Diverse workforce with equal opportunities for all backgrounds</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Golden Divider Link between Open Positions and Application Form Sections -->
+<div class="relative py-3">
+  <div class="absolute inset-0 flex items-center" aria-hidden="true">
+    <div class="w-full border-t-2 border-amber-300/40"></div>
+  </div>
+  <div class="relative flex justify-center">
+    <a href="#applicationForm" class="inline-flex items-center gap-2.5 px-7 py-2.5 bg-gradient-to-r from-amber-50 to-amber-100/80 border-2 border-amber-300/60 rounded-full text-amber-700 text-sm font-semibold hover:bg-amber-100 hover:border-amber-400 hover:shadow-lg hover:scale-105 transition-all duration-300 group">
+      <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+      <span>Take the Next Step</span>
+      <i class="fas fa-arrow-down text-amber-600 group-hover:translate-y-1 transition-transform duration-300"></i>
+    </a>
+  </div>
+</div>
+
+ <!-- Open Positions - Accordion Style (Modern Split Layout with Green Theme) -->
+<section class="py-12 bg-gradient-to-b from-white to-emerald-50/30" id="open-positions">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header with Decorative Line -->
+    <div class="mb-8">
+      <div class="flex items-center gap-4 mb-2">
+        <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-wider uppercase rounded-full px-3 py-1">
+          <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+          Careers
+        </span>
+        <div class="flex-1 h-px bg-gradient-to-r from-emerald-200 to-transparent"></div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
+            Open <span class="text-emerald-600">Positions</span>
+          </h2>
+          <p class="text-gray-500 text-sm mt-1">Find your next career opportunity with us</p>
+        </div>
+        <div class="flex items-center gap-2 mt-2 sm:mt-0">
+          <span class="text-xs text-gray-400">5 openings</span>
+          <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+          <span class="text-xs text-emerald-600 font-medium">Active</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Open Positions -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Current Openings</span>
-        <h2 class="section-title">Open <span class="text-primary">Positions</span></h2>
-        <p class="section-subtitle">Find your next career opportunity with us</p>
-      </div>
+    <!-- Job List - Modern Split Card Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       
       <!-- Job 1 -->
-      <div class="job-card">
-        <div class="flex justify-between items-start flex-wrap gap-4">
-          <div>
-            <h3 class="text-xl font-bold">Senior Project Engineer</h3>
-            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mumbai, India</div>
-            <div class="job-badge">Full-time</div>
-            <div class="job-desc">10+ years experience in EPC project management. Expertise in industrial projects preferred. Lead multi-disciplinary teams and ensure project delivery.</div>
-            <div class="flex gap-3 mt-2">
-              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 10+ Years Exp</span>
-              <span class="text-text text-sm"><i class="fas fa-graduation-cap"></i> B.Tech Civil</span>
+      <div class="job-item-compact group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:border-emerald-400 hover:-translate-y-1">
+        <div class="job-header-compact p-5 cursor-pointer" onclick="toggleJobCompact(this)">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 text-xl group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-hard-hat"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="text-base font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">Senior Project Engineer</h4>
+                <div class="toggle-icon-compact w-7 h-7 rounded-full bg-gray-100 group-hover:bg-emerald-100 flex items-center justify-center transition-all duration-200 flex-shrink-0 mt-0.5">
+                  <i class="fas fa-chevron-down text-gray-500 text-xs transition-transform duration-200"></i>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 mt-1.5">
+                <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-emerald-500 w-3"></i> Mumbai</span>
+                <span class="flex items-center gap-1"><i class="fas fa-briefcase text-emerald-500 w-3"></i> 10+ Yrs</span>
+                <span class="flex items-center gap-1"><i class="fas fa-graduation-cap text-emerald-500 w-3"></i> B.Tech</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border border-emerald-200">Full-time</span>
+                <span class="flex items-center gap-1 text-emerald-600 text-[10px] font-medium">
+                  <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                  Active
+                </span>
+              </div>
             </div>
           </div>
-          <button onclick="openApplication('Senior Project Engineer')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="job-body-compact max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5">
+          <div class="pt-0 pb-5 space-y-3 border-t border-gray-100">
+            <p class="text-sm text-gray-600 leading-relaxed">Lead multi-disciplinary teams on large-scale EPC projects. 10+ years experience in industrial project management required.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">EPC</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Project Management</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Team Leadership</span>
+            </div>
+            <a href="#applicationForm" onclick="event.stopPropagation(); setTimeout(() => { const pos = document.getElementById('position'); if(pos) { const options = Array.from(pos.options); const match = options.find(opt => opt.text === 'Senior Project Engineer'); if(match) pos.value = 'Senior Project Engineer'; } }, 100);" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium py-2.5 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+              Apply Now <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
       </div>
-      
+
       <!-- Job 2 -->
-      <div class="job-card">
-        <div class="flex justify-between items-start flex-wrap gap-4">
-          <div>
-            <h3 class="text-xl font-bold">MEP Design Manager</h3>
-            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</div>
-            <div class="job-badge">Full-time</div>
-            <div class="job-desc">8+ years in HVAC/Electrical design for pharmaceutical or industrial facilities. Lead design team and coordinate with clients.</div>
-            <div class="flex gap-3 mt-2">
-              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 8+ Years Exp</span>
-              <span class="text-text text-sm"><i class="fas fa-graduation-cap"></i> B.Tech Mechanical</span>
+      <div class="job-item-compact group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:border-emerald-400 hover:-translate-y-1">
+        <div class="job-header-compact p-5 cursor-pointer" onclick="toggleJobCompact(this)">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 text-xl group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-drafting-compass"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="text-base font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">MEP Design Manager</h4>
+                <div class="toggle-icon-compact w-7 h-7 rounded-full bg-gray-100 group-hover:bg-emerald-100 flex items-center justify-center transition-all duration-200 flex-shrink-0 mt-0.5">
+                  <i class="fas fa-chevron-down text-gray-500 text-xs transition-transform duration-200"></i>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 mt-1.5">
+                <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-emerald-500 w-3"></i> Jakarta</span>
+                <span class="flex items-center gap-1"><i class="fas fa-briefcase text-emerald-500 w-3"></i> 8+ Yrs</span>
+                <span class="flex items-center gap-1"><i class="fas fa-graduation-cap text-emerald-500 w-3"></i> B.Tech Mech</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border border-emerald-200">Full-time</span>
+                <span class="flex items-center gap-1 text-emerald-600 text-[10px] font-medium">
+                  <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                  Active
+                </span>
+              </div>
             </div>
           </div>
-          <button onclick="openApplication('MEP Design Manager')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="job-body-compact max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5">
+          <div class="pt-0 pb-5 space-y-3 border-t border-gray-100">
+            <p class="text-sm text-gray-600 leading-relaxed">Lead HVAC/Electrical design team for pharmaceutical and industrial facilities. 8+ years experience in MEP design.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">HVAC</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Electrical Systems</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Pharma</span>
+            </div>
+            <a href="#applicationForm" onclick="event.stopPropagation(); setTimeout(() => { const pos = document.getElementById('position'); if(pos) { const options = Array.from(pos.options); const match = options.find(opt => opt.text === 'MEP Design Manager'); if(match) pos.value = 'MEP Design Manager'; } }, 100);" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium py-2.5 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+              Apply Now <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
       </div>
-      
+
       <!-- Job 3 -->
-      <div class="job-card">
-        <div class="flex justify-between items-start flex-wrap gap-4">
-          <div>
-            <h3 class="text-xl font-bold">Safety Officer</h3>
-            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</div>
-            <div class="job-badge">Full-time</div>
-            <div class="job-desc">NEBOSH certified with 5+ years construction safety experience. Implement HSE policies and conduct safety audits.</div>
-            <div class="flex gap-3 mt-2">
-              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 5+ Years Exp</span>
-              <span class="text-text text-sm"><i class="fas fa-certificate"></i> NEBOSH Certified</span>
+      <div class="job-item-compact group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:border-emerald-400 hover:-translate-y-1">
+        <div class="job-header-compact p-5 cursor-pointer" onclick="toggleJobCompact(this)">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 text-xl group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="text-base font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">Safety Officer</h4>
+                <div class="toggle-icon-compact w-7 h-7 rounded-full bg-gray-100 group-hover:bg-emerald-100 flex items-center justify-center transition-all duration-200 flex-shrink-0 mt-0.5">
+                  <i class="fas fa-chevron-down text-gray-500 text-xs transition-transform duration-200"></i>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 mt-1.5">
+                <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-emerald-500 w-3"></i> Dhaka</span>
+                <span class="flex items-center gap-1"><i class="fas fa-briefcase text-emerald-500 w-3"></i> 5+ Yrs</span>
+                <span class="flex items-center gap-1"><i class="fas fa-certificate text-emerald-500 w-3"></i> NEBOSH</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border border-emerald-200">Full-time</span>
+                <span class="flex items-center gap-1 text-emerald-600 text-[10px] font-medium">
+                  <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                  Active
+                </span>
+              </div>
             </div>
           </div>
-          <button onclick="openApplication('Safety Officer')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="job-body-compact max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5">
+          <div class="pt-0 pb-5 space-y-3 border-t border-gray-100">
+            <p class="text-sm text-gray-600 leading-relaxed">Implement HSE policies, conduct safety audits, and ensure compliance. NEBOSH certification required.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">NEBOSH</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">HSE</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Safety Audits</span>
+            </div>
+            <a href="#applicationForm" onclick="event.stopPropagation(); setTimeout(() => { const pos = document.getElementById('position'); if(pos) { const options = Array.from(pos.options); const match = options.find(opt => opt.text === 'Safety Officer'); if(match) pos.value = 'Safety Officer'; } }, 100);" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium py-2.5 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+              Apply Now <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
       </div>
-      
+
       <!-- Job 4 -->
-      <div class="job-card">
-        <div class="flex justify-between items-start flex-wrap gap-4">
-          <div>
-            <h3 class="text-xl font-bold">Quantity Surveyor</h3>
-            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mumbai, India</div>
-            <div class="job-badge">Full-time</div>
-            <div class="job-desc">Experience in cost estimation, BOQ preparation, and contract management for EPC projects.</div>
-            <div class="flex gap-3 mt-2">
-              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 5+ Years Exp</span>
-              <span class="text-text text-sm"><i class="fas fa-calculator"></i> Cost Estimation</span>
+      <div class="job-item-compact group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:border-emerald-400 hover:-translate-y-1">
+        <div class="job-header-compact p-5 cursor-pointer" onclick="toggleJobCompact(this)">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 text-xl group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="text-base font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">Quantity Surveyor</h4>
+                <div class="toggle-icon-compact w-7 h-7 rounded-full bg-gray-100 group-hover:bg-emerald-100 flex items-center justify-center transition-all duration-200 flex-shrink-0 mt-0.5">
+                  <i class="fas fa-chevron-down text-gray-500 text-xs transition-transform duration-200"></i>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 mt-1.5">
+                <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-emerald-500 w-3"></i> Mumbai</span>
+                <span class="flex items-center gap-1"><i class="fas fa-briefcase text-emerald-500 w-3"></i> 5+ Yrs</span>
+                <span class="flex items-center gap-1"><i class="fas fa-calculator text-emerald-500 w-3"></i> Costing</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border border-emerald-200">Full-time</span>
+                <span class="flex items-center gap-1 text-emerald-600 text-[10px] font-medium">
+                  <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                  Active
+                </span>
+              </div>
             </div>
           </div>
-          <button onclick="openApplication('Quantity Surveyor')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="job-body-compact max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5">
+          <div class="pt-0 pb-5 space-y-3 border-t border-gray-100">
+            <p class="text-sm text-gray-600 leading-relaxed">Cost estimation, BOQ preparation, and contract management for EPC projects.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Cost Estimation</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">BOQ</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Contracts</span>
+            </div>
+            <a href="#applicationForm" onclick="event.stopPropagation(); setTimeout(() => { const pos = document.getElementById('position'); if(pos) { const options = Array.from(pos.options); const match = options.find(opt => opt.text === 'Quantity Surveyor'); if(match) pos.value = 'Quantity Surveyor'; } }, 100);" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium py-2.5 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+              Apply Now <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
       </div>
-      
-      <!-- Job 5 -->
-      <div class="job-card">
-        <div class="flex justify-between items-start flex-wrap gap-4">
-          <div>
-            <h3 class="text-xl font-bold">Electrical Engineer</h3>
-            <div class="job-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</div>
-            <div class="job-badge">Full-time</div>
-            <div class="job-desc">Experience in power distribution, switchgear, and industrial electrical systems design.</div>
-            <div class="flex gap-3 mt-2">
-              <span class="text-text text-sm"><i class="fas fa-briefcase"></i> 3+ Years Exp</span>
-              <span class="text-text text-sm"><i class="fas fa-bolt"></i> Power Systems</span>
+
+      <!-- Job 5 (Full width) -->
+      <div class="job-item-compact group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:border-emerald-400 hover:-translate-y-1 lg:col-span-2">
+        <div class="job-header-compact p-5 cursor-pointer" onclick="toggleJobCompact(this)">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0 text-xl group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="text-base font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">Electrical Engineer</h4>
+                <div class="toggle-icon-compact w-7 h-7 rounded-full bg-gray-100 group-hover:bg-emerald-100 flex items-center justify-center transition-all duration-200 flex-shrink-0 mt-0.5">
+                  <i class="fas fa-chevron-down text-gray-500 text-xs transition-transform duration-200"></i>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 mt-1.5">
+                <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-emerald-500 w-3"></i> Bangalore</span>
+                <span class="flex items-center gap-1"><i class="fas fa-briefcase text-emerald-500 w-3"></i> 3+ Yrs</span>
+                <span class="flex items-center gap-1"><i class="fas fa-bolt text-emerald-500 w-3"></i> Power Systems</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border border-emerald-200">Full-time</span>
+                <span class="flex items-center gap-1 text-emerald-600 text-[10px] font-medium">
+                  <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                  Active
+                </span>
+              </div>
             </div>
           </div>
-          <button onclick="openApplication('Electrical Engineer')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition">Apply Now <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="job-body-compact max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5">
+          <div class="pt-0 pb-5 space-y-3 border-t border-gray-100">
+            <p class="text-sm text-gray-600 leading-relaxed">Design power distribution systems, switchgear, and industrial electrical systems. Experience with AutoCAD required.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Power Distribution</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">Switchgear</span>
+              <span class="bg-emerald-50/70 text-emerald-700 text-[11px] px-3 py-1 rounded-full border border-emerald-100">AutoCAD</span>
+            </div>
+            <a href="#applicationForm" onclick="event.stopPropagation(); setTimeout(() => { const pos = document.getElementById('position'); if(pos) { const options = Array.from(pos.options); const match = options.find(opt => opt.text === 'Electrical Engineer'); if(match) pos.value = 'Electrical Engineer'; } }, 100);" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium py-2.5 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+              Apply Now <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Golden Divider Link between Open Positions and Application Form Sections -->
+<div class="relative py-3">
+  <div class="absolute inset-0 flex items-center" aria-hidden="true">
+    <div class="w-full border-t-2 border-amber-300/40"></div>
+  </div>
+  <div class="relative flex justify-center">
+    <a href="#applicationForm" class="inline-flex items-center gap-2.5 px-7 py-2.5 bg-gradient-to-r from-amber-50 to-amber-100/80 border-2 border-amber-300/60 rounded-full text-amber-700 text-sm font-semibold hover:bg-amber-100 hover:border-amber-400 hover:shadow-lg hover:scale-105 transition-all duration-300 group">
+      <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+      <span>Ready to Apply?</span>
+      <i class="fas fa-arrow-down text-amber-600 group-hover:translate-y-1 transition-transform duration-300"></i>
+    </a>
+  </div>
+</div>
+
+ <!-- Application Form Section - Redesigned with Timeline/Stepper Style -->
+<section class="py-16 bg-white" id="applicationForm">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+ <!-- Section Header with Decorative Elements - Shifted More Upward -->
+<div class="text-center mb-4">
+  <div class="flex items-center justify-center gap-3 mb-1.5">
+    <div class="w-8 h-px bg-emerald-300"></div>
+    <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-wider uppercase rounded-full px-3 py-0.5">
+      <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+      Start Your Journey
+    </span>
+    <div class="w-8 h-px bg-emerald-300"></div>
+  </div>
+  <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+    Apply <span class="text-emerald-600">Now</span>
+  </h2>
+  <p class="text-gray-500 text-sm mt-1 max-w-lg mx-auto">Complete the application form and take the first step toward an exciting career with Jianan Engineering.</p>
+</div>
+
+<!-- Application Steps Indicator - Shifted More Upward -->
+<div class="flex items-center justify-center gap-2 mb-5">
+  <div class="flex items-center">
+    <div class="w-7 h-7 rounded-full bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center">1</div>
+    <div class="w-10 h-0.5 bg-emerald-200"></div>
+  </div>
+  <div class="flex items-center">
+    <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 text-[10px] font-bold flex items-center justify-center">2</div>
+    <div class="w-10 h-0.5 bg-gray-200"></div>
+  </div>
+  <div class="flex items-center">
+    <div class="w-7 h-7 rounded-full bg-gray-100 text-gray-400 text-[10px] font-bold flex items-center justify-center">3</div>
+  </div>
+</div>
+
+    <!-- Form Card with Side Banner -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- Left Side - Info Banner -->
+      <div class="lg:col-span-1">
+        <div class="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 text-white h-full sticky top-24">
+          <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-paper-plane"></i>
+          </div>
+          <h4 class="text-lg font-bold mb-2">Quick Application</h4>
+          <p class="text-emerald-100 text-sm leading-relaxed">Fill out the form and our HR team will review your application within 48 hours.</p>
+          
+          <div class="mt-6 space-y-3">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium">No Registration Required</p>
+                <p class="text-emerald-100/70 text-xs">Apply directly without creating an account</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium">Quick Response</p>
+                <p class="text-emerald-100/70 text-xs">Get a response within 2-3 business days</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium">Confidential</p>
+                <p class="text-emerald-100/70 text-xs">Your information is secure and private</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-white/20">
+            <p class="text-emerald-100/80 text-xs">Questions? Call us at</p>
+            <p class="text-white font-semibold text-sm">+91 22 4567 8900</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side - Form -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
+          <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-gray-800">Application Form</h3>
+              <p class="text-xs text-gray-400">Fill in your details below</p>
+            </div>
+            <span class="text-xs text-red-500">* Required</span>
+          </div>
+
+          <div class="p-6">
+            <form id="careerForm" onsubmit="submitApplication(event)">
+              
+              <!-- Personal Information Section -->
+              <div class="mb-6">
+                <h4 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <span class="w-4 h-px bg-emerald-300"></span>
+                  Personal Information
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                      <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-xs">
+                        <i class="fas fa-user"></i>
+                      </span>
+                      <input type="text" id="fullName" required placeholder="John Doe" 
+                             class="w-full pl-8 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all bg-gray-50/50 hover:bg-white focus:bg-white">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                      <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-xs">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                      <input type="email" id="email" required placeholder="john@email.com" 
+                             class="w-full pl-8 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all bg-gray-50/50 hover:bg-white focus:bg-white">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Details Section -->
+              <div class="mb-6">
+                <h4 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <span class="w-4 h-px bg-emerald-300"></span>
+                  Contact Details
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                      <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-xs">
+                        <i class="fas fa-phone"></i>
+                      </span>
+                      <input type="tel" id="phone" required placeholder="+91 98765 43210" 
+                             class="w-full pl-8 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all bg-gray-50/50 hover:bg-white focus:bg-white">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Current Location</label>
+                    <div class="relative">
+                      <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-xs">
+                        <i class="fas fa-map-pin"></i>
+                      </span>
+                      <input type="text" id="location" placeholder="Mumbai, India" 
+                             class="w-full pl-8 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all bg-gray-50/50 hover:bg-white focus:bg-white">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Job Details Section -->
+              <div class="mb-6">
+                <h4 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <span class="w-4 h-px bg-emerald-300"></span>
+                  Job Details
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Position <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                      <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-xs">
+                        <i class="fas fa-briefcase"></i>
+                      </span>
+                      <select id="position" required 
+                              class="w-full pl-8 pr-8 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all bg-gray-50/50 hover:bg-white focus:bg-white appearance-none">
+                        <option value="">Select Position</option>
+                        <option>Senior Project Engineer</option>
+                        <option>MEP Design Manager</option>
+                        <option>Safety Officer</option>
+                        <option>Quantity Surveyor</option>
+                        <option>Electrical Engineer</option>
+                        <option>Other</option>
+                      </select>
+                      <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 text-xs">
+                        <i class="fas fa-chevron-down"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Years of Experience</label>
+                    <div class="relative">
+                      <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-xs">
+                        <i class="fas fa-clock"></i>
+                      </span>
+                      <input type="number" id="experience" placeholder="5" 
+                             class="w-full pl-8 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all bg-gray-50/50 hover:bg-white focus:bg-white">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cover Letter Section -->
+              <div class="mb-6">
+                <h4 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <span class="w-4 h-px bg-emerald-300"></span>
+                  Cover Letter
+                </h4>
+                <div class="relative">
+                  <span class="absolute top-3 left-3 text-gray-300 text-sm">
+                    <i class="fas fa-quote-left"></i>
+                  </span>
+                  <textarea id="message" rows="3" placeholder="Tell us why you'd be a great fit for this role..." 
+                            class="w-full pl-8 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all bg-gray-50/50 hover:bg-white focus:bg-white resize-none"></textarea>
+                </div>
+              </div>
+
+              <!-- Resume Upload Section -->
+              <div class="mb-6">
+                <h4 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <span class="w-4 h-px bg-emerald-300"></span>
+                  Resume Upload
+                </h4>
+                <div class="relative border-2 border-dashed border-gray-300 rounded-xl p-4 text-center hover:border-emerald-400 transition-all duration-200 bg-gray-50/30 hover:bg-emerald-50/20 group cursor-pointer">
+                  <input type="file" id="resume" accept=".pdf,.doc,.docx" required 
+                         class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                  <div class="flex items-center justify-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl group-hover:scale-110 transition-transform duration-200 flex-shrink-0">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="text-left">
+                      <p class="text-sm font-medium text-gray-700">Upload your resume</p>
+                      <p class="text-xs text-gray-400">PDF, DOC, DOCX (Max 5MB)</p>
+                      <p class="text-xs text-emerald-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity" id="fileName">No file selected</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-emerald-200/50 flex items-center justify-center gap-3 text-sm group">
+                <span>Submit Application</span>
+                <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+              </button>
+
+              <!-- Form Status -->
+              <div id="formStatus" class="form-status mt-4"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Ultra Elegant Gold Divider -->
+<div class="relative py-5">
+  <div class="flex items-center justify-center gap-4">
+    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-amber-300/40 relative">
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
+    </div>
+    
+    <div class="flex items-center gap-3 px-4">
+      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
+      <span class="text-amber-500 text-[10px] font-semibold tracking-[0.2em] uppercase">Your Future Awaits</span>
+      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
+    </div>
+    
+    <div class="flex-1 h-px bg-gradient-to-l from-transparent via-amber-400/80 to-amber-300/40 relative">
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
+    </div>
+  </div>
+</div>
+
+  <!-- Walk-in Interviews -->
+  <section class="section" style="padding: 60px 0;">
+    <div class="container">
+      <div class="walkin-card">
+        <div class="content">
+          <div class="walkin-icon"><i class="fas fa-calendar-alt"></i></div>
+          <h2>Walk-in <span>Interviews</span></h2>
+          <p>Every Wednesday between 10 AM - 4 PM at our Mumbai headquarters. No appointment needed!</p>
+          
+          <div class="details">
+            <div class="item"><i class="fas fa-map-marker-alt"></i> Jianan Engineering HQ, Worli, Mumbai - 400030</div>
+            <div class="item"><i class="fas fa-phone"></i> +91 22 4567 8900</div>
+          </div>
+
+          <div class="quote-box">
+            <p>"Great companies are built by great people."</p>
+            <div class="author">- Rajan Mehta, Managing Director</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Application Form Section -->
-  <section class="section bg-light" id="applicationForm">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Apply Now</span>
-        <h2 class="section-title">Submit Your <span class="text-primary">Application</span></h2>
-        <p class="section-subtitle">Fill out the form below and attach your resume</p>
-      </div>
-      
-      <div class="max-w-3xl mx-auto">
-        <div class="application-form">
-          <form id="careerForm" onsubmit="submitApplication(event)">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label class="form-label">Full Name <span class="text-red-500">*</span></label>
-                <input type="text" id="fullName" class="form-input" required placeholder="Enter your full name">
-              </div>
-              <div>
-                <label class="form-label">Email Address <span class="text-red-500">*</span></label>
-                <input type="email" id="email" class="form-input" required placeholder="your@email.com">
-              </div>
-              <div>
-                <label class="form-label">Phone Number <span class="text-red-500">*</span></label>
-                <input type="tel" id="phone" class="form-input" required placeholder="+91 XXXXX XXXXX">
-              </div>
-              <div>
-                <label class="form-label">Position Applying For <span class="text-red-500">*</span></label>
-                <select id="position" class="form-input" required>
-                  <option value="">Select Position</option>
-                  <option>Senior Project Engineer</option>
-                  <option>MEP Design Manager</option>
-                  <option>Safety Officer</option>
-                  <option>Quantity Surveyor</option>
-                  <option>Electrical Engineer</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="mt-4">
-              <label class="form-label">Years of Experience</label>
-              <input type="number" id="experience" class="form-input" placeholder="Years">
-            </div>
-            
-            <div class="mt-4">
-              <label class="form-label">Cover Letter / Message</label>
-              <textarea id="message" rows="4" class="form-input" placeholder="Tell us why you'd be a great fit..."></textarea>
-            </div>
-            
-            <div class="mt-4">
-              <label class="form-label">Upload Resume (PDF/DOC) <span class="text-red-500">*</span></label>
-              <input type="file" id="resume" class="form-input" accept=".pdf,.doc,.docx" required>
-              <p class="text-text text-xs mt-1">Max file size: 5MB. Accepted formats: PDF, DOC, DOCX</p>
-            </div>
-            
-            <div class="mt-6">
-              <button type="submit" class="btn-primary w-full justify-center">Submit Application <i class="fas fa-paper-plane"></i></button>
-            </div>
-            
-            <div id="formStatus" class="mt-4 text-center"></div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Walk-in Interviews -->
-  <section class="section">
-    <div class="container">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <i class="fas fa-calendar-alt text-4xl text-primary mb-4"></i>
-          <h2 class="text-3xl font-bold mb-4">Walk-in <span class="text-primary">Interviews</span></h2>
-          <p class="text-text mb-4">Every Wednesday between 10 AM - 4 PM at our Mumbai headquarters.</p>
-          <p class="text-text">Bring your updated resume and portfolio. No appointment needed!</p>
-          <div class="mt-6">
-            <p><i class="fas fa-map-marker-alt text-primary"></i> Jianan Engineering HQ, Worli, Mumbai - 400030</p>
-            <p class="mt-2"><i class="fas fa-phone text-primary"></i> +91 22 4567 8900</p>
-          </div>
-        </div>
-        <div class="bg-primary/10 p-8 rounded-2xl text-center">
-          <i class="fas fa-users text-5xl text-primary mb-4"></i>
-          <p class="text-lg font-semibold">"Great companies are built by great people."</p>
-          <p class="text-text mt-2">- Rajan Mehta, Managing Director</p>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- Footer Container -->
@@ -682,56 +1552,111 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
-  // Function to open application form with pre-selected position
-  function openApplication(position) {
-    const positionSelect = document.getElementById('position');
-    if (positionSelect) {
-      positionSelect.value = position;
+
+// Open Positions - Accordion Style JS
+
+  function toggleJobCompact(headerElement) {
+    const item = headerElement.closest('.job-item-compact');
+    if (!item) return;
+    
+    const body = item.querySelector('.job-body-compact');
+    const icon = item.querySelector('.toggle-icon-compact i');
+    const isActive = item.classList.contains('active-compact');
+    
+    document.querySelectorAll('.job-item-compact').forEach(job => {
+      if (job !== item) {
+        job.classList.remove('active-compact');
+        const otherBody = job.querySelector('.job-body-compact');
+        const otherIcon = job.querySelector('.toggle-icon-compact i');
+        if (otherBody) otherBody.style.maxHeight = '0';
+        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+        job.classList.remove('border-emerald-400');
+      }
+    });
+    
+    if (isActive) {
+      item.classList.remove('active-compact');
+      if (body) body.style.maxHeight = '0';
+      if (icon) icon.style.transform = 'rotate(0deg)';
+      item.classList.remove('border-emerald-400');
+    } else {
+      item.classList.add('active-compact');
+      if (body) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        setTimeout(() => {
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }, 10);
+      }
+      if (icon) icon.style.transform = 'rotate(180deg)';
+      item.classList.add('border-emerald-400');
     }
-    document.getElementById('applicationForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  
-  // Submit application
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.job-body-compact').forEach(body => {
+      body.style.maxHeight = '0';
+    });
+  });
+
+  // ============================================
+  // FORM SUBMISSION
+  // ============================================
+
   function submitApplication(event) {
     event.preventDefault();
     
-    const name = document.getElementById('fullName').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
     const position = document.getElementById('position').value;
     const resumeFile = document.getElementById('resume').files[0];
+    const statusDiv = document.getElementById('formStatus');
     
+    // Validation
     if (!name || !email || !phone || !position || !resumeFile) {
-      showStatus('Please fill all required fields', 'error');
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = '⚠️ Please fill all required fields and upload your resume.';
       return;
     }
     
-    const statusDiv = document.getElementById('formStatus');
-    statusDiv.innerHTML = '<span class="text-primary"><i class="fas fa-spinner fa-spin"></i> Submitting application...</span>';
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = '⚠️ Please enter a valid email address.';
+      return;
+    }
     
-    // Simulate form submission
+    // Phone validation (basic)
+    if (phone.length < 10) {
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = '⚠️ Please enter a valid phone number.';
+      return;
+    }
+    
+    // Simulate submission
+    statusDiv.className = 'form-status';
+    statusDiv.textContent = '⏳ Submitting your application...';
+    statusDiv.style.display = 'block';
+    statusDiv.style.background = 'rgba(30,136,229,0.1)';
+    statusDiv.style.color = '#1E88E5';
+    statusDiv.style.border = '1px solid rgba(30,136,229,0.2)';
+    
     setTimeout(() => {
-      statusDiv.innerHTML = '<span class="text-secondary"><i class="fas fa-check-circle"></i> Application submitted successfully! Our HR team will contact you soon.</span>';
+      statusDiv.className = 'form-status success';
+      statusDiv.textContent = '✅ Application submitted successfully! Our HR team will contact you soon.';
       document.getElementById('careerForm').reset();
       
       setTimeout(() => {
-        statusDiv.innerHTML = '';
-      }, 5000);
+        statusDiv.style.display = 'none';
+      }, 6000);
     }, 1500);
   }
-  
-  function showStatus(message, type) {
-    const statusDiv = document.getElementById('formStatus');
-    statusDiv.innerHTML = `<span class="${type === 'error' ? 'text-red-500' : 'text-secondary'}">${message}</span>`;
-    setTimeout(() => {
-      statusDiv.innerHTML = '';
-    }, 3000);
-  }
-  
+
   // ============================================
-  // LOAD COMPONENTS (navbar and footer)
+  // LOAD COMPONENTS
   // ============================================
-  
+
   async function loadComponent(elementId, componentPath) {
     try {
       const response = await fetch(componentPath);
@@ -744,12 +1669,12 @@
       return false;
     }
   }
-  
+
   function initNavbar() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
-    
+
     if (header) {
       window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
@@ -759,17 +1684,17 @@
         }
       });
     }
-    
+
     if (navToggle && navMenu) {
       const newToggle = navToggle.cloneNode(true);
       navToggle.parentNode.replaceChild(newToggle, navToggle);
-      
+
       const newMenu = navMenu.cloneNode(true);
       navMenu.parentNode.replaceChild(newMenu, navMenu);
-      
+
       const finalToggle = document.getElementById('navToggle');
       const finalMenu = document.getElementById('navMenu');
-      
+
       if (finalToggle && finalMenu) {
         finalToggle.addEventListener('click', function(e) {
           e.preventDefault();
@@ -780,7 +1705,7 @@
         });
       }
     }
-    
+
     document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
       link.addEventListener('click', function() {
         const mobileMenu = document.getElementById('navMenu');
@@ -790,7 +1715,7 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    
+
     document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
       dropdownLink.addEventListener('click', function(e) {
         if (window.innerWidth <= 1024) {
@@ -800,7 +1725,7 @@
         }
       });
     });
-    
+
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
       const href = link.getAttribute('href');
@@ -809,7 +1734,7 @@
       }
     });
   }
-  
+
   function initGlobalUI() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
@@ -820,7 +1745,7 @@
         scrollProgress.style.width = progress + '%';
       });
     }
-    
+
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
       window.addEventListener('scroll', function() {
@@ -830,27 +1755,27 @@
           backToTop.classList.remove('show');
         }
       });
-      
+
       backToTop.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
-  
+
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
-    
+
     initNavbar();
     initGlobalUI();
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadAllComponents);
   } else {
     loadAllComponents();
   }
-  
+
   window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
     if (loader) {
@@ -862,6 +1787,79 @@
       }, 1000);
     }
   });
+
+    // File name display
+  document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('resume');
+    const fileNameDisplay = document.getElementById('fileName');
+    
+    if (fileInput && fileNameDisplay) {
+      fileInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+          fileNameDisplay.textContent = '📄 ' + this.files[0].name;
+          fileNameDisplay.style.opacity = '1';
+        } else {
+          fileNameDisplay.textContent = 'No file selected';
+          fileNameDisplay.style.opacity = '0';
+        }
+      });
+    }
+  });
+
+  // Form Submission
+  function submitApplication(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const position = document.getElementById('position').value;
+    const resumeFile = document.getElementById('resume').files[0];
+    const statusDiv = document.getElementById('formStatus');
+    
+    // Validation
+    if (!name || !email || !phone || !position || !resumeFile) {
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = '⚠️ Please fill all required fields and upload your resume.';
+      return;
+    }
+    
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = '⚠️ Please enter a valid email address.';
+      return;
+    }
+    
+    // Phone validation
+    if (phone.length < 10) {
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = '⚠️ Please enter a valid phone number.';
+      return;
+    }
+    
+    // Simulate submission
+    statusDiv.className = 'form-status loading';
+    statusDiv.textContent = '⏳ Submitting your application...';
+    statusDiv.style.display = 'block';
+    
+    setTimeout(() => {
+      statusDiv.className = 'form-status success';
+      statusDiv.textContent = '✅ Application submitted successfully! Our HR team will contact you soon.';
+      document.getElementById('careerForm').reset();
+      
+      const fileNameDisplay = document.getElementById('fileName');
+      if (fileNameDisplay) {
+        fileNameDisplay.textContent = 'No file selected';
+        fileNameDisplay.style.opacity = '0';
+      }
+      
+      setTimeout(() => {
+        statusDiv.style.display = 'none';
+      }, 6000);
+    }, 1500);
+  }
 </script>
 </body>
 </html>

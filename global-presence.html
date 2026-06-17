@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Global Presence - Jianan Engineering | Worldwide Operations</title>
   <meta name="description" content="Jianan Engineering operates across India, Indonesia, and Bangladesh. Global EPC and MEP solutions with international footprint.">
-  
+  <link rel="icon" href="/assets/images/logo.png">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Centralized Theme Configuration -->
+
+  <!-- Centralized Theme Configuration (same tokens as the Gallery page — nothing renamed or removed) -->
   <script>
     tailwind.config = {
       theme: {
@@ -18,14 +19,23 @@
             primary: {
               DEFAULT: "#1E88E5",
               light: "#4AA3E9",
-              dark: "#0F5B99"
+              dark: "#0F5B99",
+              pale: "#EAF4FE",
+              xpale: "#F5FAFF"
             },
             secondary: {
               DEFAULT: "#28B463",
               light: "#4CC97E",
-              dark: "#1E7A43"
+              dark: "#1E7A43",
+              pale: "#EAFBF1",
+              xpale: "#F3FDF8"
             },
-            dark: "#0F172A",
+            dark: {
+              DEFAULT: "#0F172A",
+              800: "#16213A",
+              700: "#1C2942",
+              600: "#22334F"
+            },
             light: "#F8FAFC",
             text: "#475569",
             border: "#E2E8F0"
@@ -33,329 +43,264 @@
           fontFamily: {
             heading: ['Poppins', 'sans-serif'],
             body: ['Inter', 'sans-serif']
+          },
+          keyframes: {
+            fadeUp: { from: { opacity: 0, transform: 'translateY(24px)' }, to: { opacity: 1, transform: 'none' } }
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease forwards'
           }
         }
       }
     }
   </script>
-  
-  <!-- Google Fonts -->
+
+  <!-- Google Fonts (same as Gallery page) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+
   <style>
-    /* ========================================
-       GLOBAL STYLES
-       ======================================== */
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      overflow-x: hidden;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-    }
-    
-    /* Loader Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; font-family: 'Inter', sans-serif; background: #f8fafc; color: #475569; }
+    .font-heading { font-family: 'Poppins', sans-serif; }
+
+    /* ========== LOADER ========== */
     .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0F172A;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #0F172A; z-index: 10000;
+      display: flex; align-items: center; justify-content: center;
       transition: opacity 0.8s ease-out;
     }
-    
-    .loader-content {
-      text-align: center;
-    }
-    
+    .loader-content { text-align: center; }
     .loader-logo {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       background: linear-gradient(135deg, #1E88E5, #28B463);
-      border-radius: 20px;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: 800;
-      color: white;
+      border-radius: 20px; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 800; color: white;
       animation: pulse 1.5s infinite;
     }
-    
-    .loader-text {
-      color: white;
-      font-size: 14px;
-      letter-spacing: 4px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-    
-    .loader-bar {
-      width: 200px;
-      height: 2px;
-      background: rgba(255,255,255,0.2);
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    
+    .loader-text { color: white; font-size: 14px; letter-spacing: 4px; font-weight: 500; margin-bottom: 20px; }
+    .loader-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto; position: relative; overflow: hidden; }
     .loader-bar::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
       background: linear-gradient(90deg, #1E88E5, #28B463);
       animation: loading 1.5s infinite;
     }
-    
-    @keyframes loading {
-      100% { left: 100%; }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
-    }
-    
-    /* Scroll Progress */
+    @keyframes loading { 100% { left: 100%; } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
+
+    /* ========== SCROLL PROGRESS ========== */
     .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
+      position: fixed; top: 0; left: 0; width: 0%; height: 3px;
       background: linear-gradient(90deg, #1E88E5, #28B463);
-      z-index: 10001;
-      transition: width 0.1s ease-out;
+      z-index: 10001; transition: width 0.1s ease-out;
     }
-    
-    /* Back to Top Button */
+
+    /* ========== BACK TO TOP ========== */
     .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
+      position: fixed; bottom: 30px; right: 30px; z-index: 99;
+      opacity: 0; visibility: hidden; transition: all 0.3s ease;
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top-inner { position: relative; }
+    .back-to-top-img {
+      width: 56px; height: 56px; border-radius: 50%; object-fit: cover; display: block;
+      box-shadow: 0 10px 30px rgba(30,136,229,.35);
+      border: 2px solid rgba(255,255,255,.6);
+      transition: transform .3s, box-shadow .3s;
+      animation: spin-slow 18s linear infinite;
       cursor: pointer;
-      z-index: 99;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
-    
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
+    .back-to-top-inner:hover .back-to-top-img { transform: scale(1.08) translateY(-2px); box-shadow: 0 14px 36px rgba(40,180,99,.45); }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .btt-tip {
+      position: absolute; right: 100%; margin-right: 12px; top: 50%; transform: translateY(-50%);
+      background: rgba(15,23,42,.92); color: #fff; font-size: 11px; font-weight: 500;
+      padding: 6px 12px; border-radius: 8px; white-space: nowrap;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
     }
-    
-    .back-to-top:hover {
-      background: #28B463;
-      transform: translateY(-5px);
+    .back-to-top-inner:hover .btt-tip { opacity: 1; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    @media (max-width: 768px) { .section { padding: 50px 0; } }
+    .bg-light { background: #F8FAFC; }
+
+    /* ========== ACCENT DIVIDER ========== */
+    .accent-divider { height: 1px; background: linear-gradient(90deg, transparent, #28B463, #1E88E5, #28B463, transparent); opacity: .4; position: relative; }
+    .accent-divider::after {
+      content: '✦'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      color: #1E88E5; font-size: .75rem; background: #f8fafc; padding: 0 .7rem;
     }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
-    /* Container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
+
+    /* ========== REVEAL ON SCROLL ========== */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+
+    /* ========== HERO ========== */
+    .gp-hero { position: relative; background: #0F172A; padding: 170px 0 90px; overflow: hidden; }
+    .gp-hero::before {
+      content: ''; position: absolute; top: -40%; right: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(40,180,99,0.18) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
     }
-    
-    /* Section Styles */
-    .section {
-      padding: 100px 0;
+    .gp-hero::after {
+      content: ''; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(30,136,229,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
     }
-    
-    @media (max-width: 768px) {
-      .section {
-        padding: 60px 0;
-      }
+    .gp-hero-inner { position: relative; z-index: 2; }
+    .blink-dot { animation: blink 2.2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .animate-fade-in-down { animation: fadeInDown .6s ease-out forwards; }
+    .animate-fade-in-up { animation: fadeInUp .6s ease-out forwards; }
+    .anim-delay-200{animation-delay:.2s;opacity:0} .anim-delay-400{animation-delay:.4s;opacity:0} .anim-delay-600{animation-delay:.6s;opacity:0}
+
+    /* ========== SECTION HEADER (shared) ========== */
+    .head-eyebrow { display:flex; align-items:center; gap:.6rem; color:#1E88E5; font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; margin-bottom:.85rem; }
+    .head-eyebrow .ln { width:24px; height:1px; background:#1E88E5; }
+    .head-eyebrow.center { justify-content:center; }
+
+    /* ========== COUNTER BAR ========== */
+    .counter-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #E2E8F0; }
+    .counter-item { background: #fff; padding: 2rem 1rem; text-align: center; transition: background .3s; }
+    .counter-item:hover { background: #F5FAFF; }
+    .counter-num {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 2.4rem; line-height: 1.1;
+      background: linear-gradient(135deg,#1E88E5,#28B463); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
+    @media (min-width: 768px) { .counter-num { font-size: 2.9rem; } }
+    .counter-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-top: 4px; }
+
+    @media(max-width:900px){ .counter-bar{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:640px){ .counter-bar{grid-template-columns:repeat(2,1fr)} }
+
+    /* ========== LOCATION CARDS ========== */
+    .loc-card {
+      background: #fff; border-radius: 22px; padding: 0; overflow: hidden;
+      border: 1px solid #E2E8F0; position: relative;
+      transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s cubic-bezier(.4,0,.2,1), border-color .35s;
+      height: 100%; display: flex; flex-direction: column;
     }
-    
-    .section-tag {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 20px;
+    .loc-card:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(15,23,42,.12); border-color: rgba(30,136,229,.35); }
+    .loc-card-top {
+      padding: 30px 28px 24px; position: relative;
+      background: linear-gradient(135deg, var(--loc-c1, #1E88E5), var(--loc-c2, #28B463));
     }
-    
-    .section-title {
-      font-size: 42px;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
-      color: #0F172A;
-      margin-bottom: 16px;
+    .loc-card-top::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 85% 0%, rgba(255,255,255,.25), transparent 55%);
     }
-    
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 32px;
-      }
+    .loc-tag-pill {
+      display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35); backdrop-filter: blur(6px); color: #fff;
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 30px; position: relative; z-index: 1;
     }
-    
-    /* Location Card */
-    .location-card {
-      background: white;
-      border-radius: 24px;
-      padding: 35px 25px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid #E2E8F0;
-      height: 100%;
+    .loc-card-icon {
+      width: 58px; height: 58px; border-radius: 16px; background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.3); display: grid; place-items: center; margin-top: 16px;
+      position: relative; z-index: 1;
     }
-    
-    .location-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
+    .loc-card-icon i { font-size: 26px; color: #fff; }
+    .loc-card-title { font-family: 'Poppins', sans-serif; font-size: 1.55rem; font-weight: 700; color: #fff; margin-top: 14px; position: relative; z-index: 1; }
+    .loc-card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .loc-office-list { list-style: none; margin: 0 0 16px; display: flex; flex-direction: column; gap: 9px; }
+    .loc-office-list li { display: flex; align-items: center; gap: 10px; font-size: .85rem; color: #475569; font-weight: 500; }
+    .loc-office-list li i { color: var(--loc-c1, #1E88E5); font-size: .8rem; width: 14px; }
+    .loc-card-desc { font-size: .84rem; color: #64748b; line-height: 1.55; margin-top: auto; padding-top: 14px; border-top: 1px dashed #E2E8F0; }
+
+    /* ========== GLOBAL FOOTPRINT MAP CARD ========== */
+    .footprint-card {
+      background: linear-gradient(135deg, #0F172A, #16213A); border-radius: 28px; padding: 50px 40px;
+      position: relative; overflow: hidden; text-align: center;
     }
-    
-    .location-icon {
-      width: 80px;
-      height: 80px;
+    .footprint-card .orb { opacity: .8; }
+    .footprint-globe {
+      width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 22px; position: relative; z-index: 1;
+      background: linear-gradient(135deg, rgba(30,136,229,.25), rgba(40,180,99,.25));
+      border: 1px solid rgba(255,255,255,.15); display: grid; place-items: center;
+      animation: spin-slow 24s linear infinite;
+    }
+    .footprint-globe i { font-size: 40px; color: #4CC97E; animation: spin-slow 24s linear infinite reverse; }
+    .legend-pill {
+      display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12); padding: 7px 16px; border-radius: 30px; font-size: .8rem; color: rgba(255,255,255,.85);
+    }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+
+    /* ========== ROADMAP ========== */
+    .roadmap-track { position: relative; }
+    .roadmap-track::before {
+      content: ''; position: absolute; top: 26px; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, #CBD5E1 10%, #CBD5E1 90%, transparent);
+      display: none;
+    }
+    @media(min-width: 768px) { .roadmap-track::before { display: block; } }
+    .roadmap-card {
+      background: #fff; border-radius: 20px; padding: 30px 26px; border: 1px solid #E2E8F0; position: relative;
+      transition: transform .3s, box-shadow .3s, border-color .3s; height: 100%;
+    }
+    .roadmap-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(15,23,42,.1); border-color: rgba(40,180,99,.35); }
+    .roadmap-node {
+      width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #1E88E5;
+      position: absolute; top: -7px; left: 50%; transform: translateX(-50%); display: none; z-index: 2;
+    }
+    @media(min-width: 768px) { .roadmap-node { display: block; } }
+    .roadmap-year-badge {
+      display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 1.4rem; color: #fff; padding: 5px 18px; border-radius: 30px; margin-bottom: 16px;
       background: linear-gradient(135deg, #1E88E5, #28B463);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
     }
-    
-    .location-icon i {
-      font-size: 36px;
-      color: white;
+    .roadmap-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 14px; background: #EAF4FE; }
+    .roadmap-icon i { font-size: 19px; color: #1E88E5; }
+
+    /* ========== PROJECT STORIES ========== */
+    .story-card {
+      display: flex; gap: 18px; padding: 22px; border-radius: 18px; border: 1px solid #E2E8F0; background: #fff;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
     }
-    
-    .office-list {
-      list-style: none;
-      margin-top: 15px;
+    .story-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(15,23,42,.08); border-color: rgba(30,136,229,.3); }
+    .story-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0; background: linear-gradient(135deg, #EAF4FE, #EAFBF1); }
+    .story-icon i { font-size: 21px; color: #1E88E5; }
+    .story-meta { font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: #28B463; text-transform: uppercase; margin-top: 2px; }
+    .story-title { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.05rem; color: #0F172A; margin-top: 4px; }
+    .story-desc { font-size: .85rem; color: #64748b; margin-top: 6px; line-height: 1.55; }
+
+    /* ========== CTA ========== */
+    .cta-section {
+      text-align: center; padding: 70px 40px; background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);
+      border-radius: 24px; color: white; position: relative; overflow: hidden;
     }
-    
-    .office-list li {
-      padding: 5px 0;
-      color: #475569;
-      font-size: 14px;
+    .cta-section::before {
+      content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(40,180,99,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none;
     }
-    
-    /* Map Container */
-    .map-container {
-      background: linear-gradient(135deg, #1a2a3a, #0F172A);
-      border-radius: 30px;
-      padding: 40px;
-      text-align: center;
-      margin-top: 40px;
+    .cta-section h2 { position: relative; z-index: 1; font-size: 34px; font-weight: 700; margin-bottom: 12px; font-family:'Poppins',sans-serif; }
+    .cta-section p { position: relative; z-index: 1; color: rgba(255,255,255,0.8); font-size: 17px; margin-bottom: 24px; }
+    .cta-section .btn-cta {
+      position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 12px; background: white; color: #0F172A;
+      padding: 16px 36px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: all 0.3s ease;
     }
-    
-    .world-map-svg {
-      max-width: 100%;
-      height: auto;
-      margin: 20px 0;
+    .cta-section .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,255,255,0.2); }
+
+    /* ========== CONTACT FLOAT ========== */
+    .contact-float {
+      position: fixed; bottom: 24px; left: 24px; z-index: 500; width: 54px; height: 54px; border-radius: 50%;
+      background: #28B463; display:grid; place-items:center; box-shadow: 0 6px 24px rgba(40,180,99,.45);
+      text-decoration:none; transition: transform .3s, box-shadow .3s; animation: pulse-cf 2.5s ease-in-out infinite;
     }
-    
-    .map-marker {
-      fill: #1E88E5;
-      transition: all 0.3s;
-      cursor: pointer;
+    .contact-float:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(40,180,99,.6); animation: none; }
+    .contact-float i { color: #fff; font-size: 22px; }
+    @keyframes pulse-cf { 0%,100%{box-shadow:0 6px 24px rgba(40,180,99,.45)} 50%{box-shadow:0 6px 32px rgba(40,180,99,.8)} }
+    .cf-tip {
+      position:absolute; left:100%; margin-left:12px; top:50%; transform:translateY(-50%); background:rgba(15,23,42,.92);
+      color:#fff; font-size:11px; font-weight:500; padding:6px 12px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .3s;
     }
-    
-    .map-marker:hover {
-      fill: #28B463;
-      transform: scale(1.2);
-    }
-    
-    /* Stats Counter */
-    .stat-box {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid #E2E8F0;
-    }
-    
-    .stat-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    }
-    
-    .stat-number-lg {
-      font-size: 48px;
-      font-weight: 800;
-      color: #1E88E5;
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    /* Roadmap Timeline */
-    .roadmap-item {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid #E2E8F0;
-      position: relative;
-    }
-    
-    .roadmap-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
-    }
-    
-    .roadmap-year {
-      font-size: 28px;
-      font-weight: 800;
-      color: #1E88E5;
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 10px;
-    }
-    
-    .bg-light {
-      background: #F8FAFC;
-    }
-    
-    .text-primary {
-      color: #1E88E5;
-    }
-    
-    .text-secondary {
-      color: #28B463;
-    }
+    .contact-float:hover .cf-tip { opacity: 1; }
   </style>
 </head>
 <body>
@@ -374,281 +319,394 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <div class="back-to-top-inner">
+    <span class="btt-tip">Back to Top ↑</span>
+    <img src="assets/images/btt.png" alt="Back to Top" class="back-to-top-img">
+  </div>
 </div>
 
-<!-- Navbar Container -->
+<!-- Navbar -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Global Presence</h1>
-      <p class="text-xl max-w-2xl mx-auto">Delivering engineering excellence across three continents</p>
+
+  <!-- ══════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════ -->
+  <section class="gp-hero">
+    <div class="orb w-64 h-64 bg-primary/15 top-10 left-0"></div>
+    <div class="orb w-48 h-48 bg-secondary/15 bottom-10 right-0"></div>
+    <div class="container gp-hero-inner text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-xs font-medium text-primary-light tracking-widest uppercase mb-6 animate-fade-in-down">
+        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+        Worldwide Operations · Three Continents
+        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] tracking-tight mb-5 animate-fade-in-up">
+        Global<br/>
+        <span class="text-secondary-light relative inline-block">
+          Presence
+          <svg class="absolute -bottom-2 left-0 w-full h-1" viewBox="0 0 200 6" preserveAspectRatio="none">
+            <path d="M0,3 Q50,0 100,3 T200,3" stroke="#4CC97E" stroke-width="1.5" fill="none" opacity="0.6"/>
+          </svg>
+        </span>
+      </h1>
+
+      <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 animate-fade-in-up anim-delay-200">
+        Delivering engineering excellence across three continents — from our headquarters in India to
+        regional and project offices spanning Indonesia and Bangladesh, with new markets ahead.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center mb-8 animate-fade-in-up anim-delay-400">
+        <a href="#locations" class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-lg font-semibold text-sm shadow-lg shadow-secondary/30 hover:bg-secondary-light hover:-translate-y-0.5 transition-all duration-300">
+          <i class="fas fa-map-marker-alt text-sm"></i> View Locations
+        </a>
+        <a href="#roadmap" class="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-sm text-white/90 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-300">
+          <i class="fas fa-route text-sm"></i> Expansion Roadmap
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 animate-fade-in-up anim-delay-600">
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-globe-asia text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">3 Countries</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-building text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">8 Office Locations</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-users text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">500+ Employees</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
+          <i class="fas fa-handshake text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">100+ Global Partners</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/30 text-[9px] tracking-[0.2em] flex flex-col items-center gap-1.5 z-10">
+      <span>SCROLL</span>
+      <div class="w-px h-6 bg-white/30"></div>
     </div>
   </section>
 
-  <!-- Countries Section -->
-  <section class="section">
+  <!-- ══════════════════════════════════════════════
+       COUNTERS
+  ══════════════════════════════════════════════ -->
+  <div class="counter-bar border-y border-border">
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="3">0</span></div>
+      <div class="counter-label">Countries</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="8">0</span></div>
+      <div class="counter-label">Office Locations</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="500" data-suffix="+">0</span></div>
+      <div class="counter-label">Global Employees</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="100" data-suffix="+">0</span></div>
+      <div class="counter-label">Global Partners</div>
+    </div>
+  </div>
+
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       LOCATIONS
+  ══════════════════════════════════════════════ -->
+  <section class="section bg-light" id="locations">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Locations</span>
-        <h2 class="section-title">Where We <span class="text-primary">Operate</span></h2>
-        <p class="section-subtitle">Strategic presence in key markets across Asia</p>
+
+      <div class="mb-12 text-center reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Our Locations <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
+          Where We <span class="text-primary">Operate</span>
+        </h2>
+        <p class="text-text text-sm md:text-base mt-3 max-w-xl mx-auto">Strategic presence in key markets across Asia, anchored by a single corporate headquarters.</p>
       </div>
-      
+
       <div class="grid md:grid-cols-3 gap-8">
+
         <!-- India -->
-        <div class="location-card">
-          <div class="location-icon">
-            <i class="fas fa-flag-india"></i>
+        <div class="reveal" style="transition-delay:.05s">
+          <div class="loc-card" style="--loc-c1:#1E88E5; --loc-c2:#0F5B99;">
+            <div class="loc-card-top">
+              <span class="loc-tag-pill"><i class="fas fa-star"></i> Headquarters</span>
+              <div class="loc-card-icon"><i class="fas fa-landmark"></i></div>
+              <h3 class="loc-card-title">India</h3>
+            </div>
+            <div class="loc-card-body">
+              <ul class="loc-office-list">
+                <li><i class="fas fa-map-marker-alt"></i> Mumbai (Corporate HQ)</li>
+                <li><i class="fas fa-map-marker-alt"></i> Delhi NCR</li>
+                <li><i class="fas fa-map-marker-alt"></i> Bangalore</li>
+                <li><i class="fas fa-map-marker-alt"></i> Chennai</li>
+              </ul>
+              <p class="loc-card-desc">Global headquarters and largest operational base with 300+ employees.</p>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold mb-2">India</h3>
-          <p class="text-primary font-semibold mb-3">Headquarters</p>
-          <ul class="office-list">
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Mumbai (Corporate HQ)</li>
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Delhi NCR</li>
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Bangalore</li>
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Chennai</li>
-          </ul>
-          <p class="text-text mt-4 text-sm">Global headquarters and largest operational base with 300+ employees</p>
         </div>
-        
+
         <!-- Indonesia -->
-        <div class="location-card">
-          <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+        <div class="reveal" style="transition-delay:.15s">
+          <div class="loc-card" style="--loc-c1:#28B463; --loc-c2:#1E7A43;">
+            <div class="loc-card-top">
+              <span class="loc-tag-pill"><i class="fas fa-circle-nodes"></i> Regional Office</span>
+              <div class="loc-card-icon"><i class="fas fa-city"></i></div>
+              <h3 class="loc-card-title">Indonesia</h3>
+            </div>
+            <div class="loc-card-body">
+              <ul class="loc-office-list">
+                <li><i class="fas fa-map-marker-alt"></i> Jakarta</li>
+                <li><i class="fas fa-map-marker-alt"></i> Surabaya</li>
+              </ul>
+              <p class="loc-card-desc">Strategic hub for Southeast Asian operations, established in 2018.</p>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold mb-2">Indonesia</h3>
-          <p class="text-primary font-semibold mb-3">Regional Office</p>
-          <ul class="office-list">
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Jakarta</li>
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Surabaya</li>
-          </ul>
-          <p class="text-text mt-4 text-sm">Strategic hub for Southeast Asian operations established in 2018</p>
         </div>
-        
+
         <!-- Bangladesh -->
-        <div class="location-card">
-          <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+        <div class="reveal" style="transition-delay:.25s">
+          <div class="loc-card" style="--loc-c1:#4AA3E9; --loc-c2:#28B463;">
+            <div class="loc-card-top">
+              <span class="loc-tag-pill"><i class="fas fa-diagram-project"></i> Project Office</span>
+              <div class="loc-card-icon"><i class="fas fa-helmet-safety"></i></div>
+              <h3 class="loc-card-title">Bangladesh</h3>
+            </div>
+            <div class="loc-card-body">
+              <ul class="loc-office-list">
+                <li><i class="fas fa-map-marker-alt"></i> Dhaka</li>
+                <li><i class="fas fa-map-marker-alt"></i> Chittagong</li>
+              </ul>
+              <p class="loc-card-desc">Key market for infrastructure development since 2005.</p>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold mb-2">Bangladesh</h3>
-          <p class="text-primary font-semibold mb-3">Project Office</p>
-          <ul class="office-list">
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Dhaka</li>
-            <li><i class="fas fa-map-marker-alt text-primary mr-2"></i> Chittagong</li>
-          </ul>
-          <p class="text-text mt-4 text-sm">Key market for infrastructure development since 2005</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Global Stats -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="stat-box">
-          <i class="fas fa-globe-asia text-4xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="3">0</div>
-          <p class="font-semibold mt-2">Countries</p>
-        </div>
-        <div class="stat-box">
-          <i class="fas fa-building text-4xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="8">0</div>
-          <p class="font-semibold mt-2">Office Locations</p>
-        </div>
-        <div class="stat-box">
-          <i class="fas fa-users text-4xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="500">0</div>
-          <p class="font-semibold mt-2">Global Employees</p>
-        </div>
-        <div class="stat-box">
-          <i class="fas fa-handshake text-4xl text-primary mb-3"></i>
-          <div class="stat-number-lg" data-target="100">0</div>
-          <p class="font-semibold mt-2">Global Partners</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="accent-divider"></div>
 
-  <!-- World Map Visualization -->
+  <!-- ══════════════════════════════════════════════
+       GLOBAL FOOTPRINT
+  ══════════════════════════════════════════════ -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Interactive Map</span>
-        <h2 class="section-title">Global <span class="text-primary">Footprint</span></h2>
+      <div class="mb-10 text-center reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Worldwide Operations <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
+          Global <span class="text-secondary">Footprint</span>
+        </h2>
       </div>
-      
-      <div class="map-container">
-        <i class="fas fa-globe-asia text-6xl text-primary mb-6"></i>
-        <h3 class="text-2xl text-white mb-4">Worldwide Operations</h3>
-        <p class="text-gray-300 mb-8">Active operations in India, Indonesia, and Bangladesh</p>
-        
-        <div class="flex justify-center gap-6 flex-wrap mt-6">
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 bg-primary rounded-full"></div>
-            <span class="text-white">Active Operations</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
-            <span class="text-white">Future Expansion</span>
+
+      <div class="footprint-card reveal">
+        <div class="orb w-72 h-72 bg-primary/20 -top-20 -right-10"></div>
+        <div class="orb w-56 h-56 bg-secondary/20 -bottom-16 -left-10"></div>
+        <div class="relative z-10">
+          <div class="footprint-globe"><i class="fas fa-globe-asia"></i></div>
+          <h3 class="font-heading text-xl md:text-2xl text-white font-semibold mb-3">Active Across Three Markets</h3>
+          <p class="text-white/60 max-w-md mx-auto mb-8 text-sm md:text-base">India, Indonesia, and Bangladesh form our current operating footprint, with the Middle East, Africa, and Europe on the horizon.</p>
+
+          <div class="flex justify-center gap-4 flex-wrap">
+            <span class="legend-pill"><span class="legend-dot" style="background:#4AA3E9;"></span> Active Operations</span>
+            <span class="legend-pill"><span class="legend-dot" style="background:#64748b;"></span> Future Expansion</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Expansion Roadmap -->
-  <section class="section bg-light">
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       EXPANSION ROADMAP
+  ══════════════════════════════════════════════ -->
+  <section class="section bg-light" id="roadmap">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Future Growth</span>
-        <h2 class="section-title">Expansion <span class="text-primary">Roadmap</span></h2>
-        <p class="section-subtitle">Strategic growth plans for global reach</p>
+      <div class="mb-12 text-center reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Future Growth <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
+          Expansion <span class="text-primary">Roadmap</span>
+        </h2>
+        <p class="text-text text-sm md:text-base mt-3 max-w-xl mx-auto">Strategic growth plans charting our path to a broader global reach.</p>
       </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="roadmap-item">
-          <div class="roadmap-year">2025</div>
-          <i class="fas fa-flag-checkered text-3xl text-primary mb-3"></i>
-          <h3 class="text-xl font-bold mb-2">Middle East Entry</h3>
-          <p class="text-text">Establish regional office in Dubai, UAE to serve GCC markets</p>
+
+      <div class="grid md:grid-cols-3 gap-8 roadmap-track">
+
+        <div class="reveal" style="transition-delay:.05s">
+          <div class="roadmap-card text-center">
+            <span class="roadmap-node"></span>
+            <span class="roadmap-year-badge">2025</span>
+            <div class="roadmap-icon mx-auto"><i class="fas fa-flag-checkered"></i></div>
+            <h3 class="font-heading text-lg font-semibold text-dark mb-2">Middle East Entry</h3>
+            <p class="text-text text-sm">Establish a regional office in Dubai, UAE to serve GCC markets.</p>
+          </div>
         </div>
-        
-        <div class="roadmap-item">
-          <div class="roadmap-year">2026</div>
-          <i class="fas fa-chart-line text-3xl text-primary mb-3"></i>
-          <h3 class="text-xl font-bold mb-2">Africa Operations</h3>
-          <p class="text-text">Launch operations in Kenya and Nigeria for infrastructure projects</p>
+
+        <div class="reveal" style="transition-delay:.15s">
+          <div class="roadmap-card text-center">
+            <span class="roadmap-node"></span>
+            <span class="roadmap-year-badge">2026</span>
+            <div class="roadmap-icon mx-auto"><i class="fas fa-chart-line"></i></div>
+            <h3 class="font-heading text-lg font-semibold text-dark mb-2">Africa Operations</h3>
+            <p class="text-text text-sm">Launch operations in Kenya and Nigeria for infrastructure projects.</p>
+          </div>
         </div>
-        
-        <div class="roadmap-item">
-          <div class="roadmap-year">2027</div>
-          <i class="fas fa-handshake text-3xl text-primary mb-3"></i>
-          <h3 class="text-xl font-bold mb-2">European Partnership</h3>
-          <p class="text-text">Strategic partnership with European engineering firms</p>
+
+        <div class="reveal" style="transition-delay:.25s">
+          <div class="roadmap-card text-center">
+            <span class="roadmap-node"></span>
+            <span class="roadmap-year-badge">2027</span>
+            <div class="roadmap-icon mx-auto"><i class="fas fa-handshake"></i></div>
+            <h3 class="font-heading text-lg font-semibold text-dark mb-2">European Partnership</h3>
+            <p class="text-text text-sm">Strategic partnership with European engineering firms.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- International Projects -->
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       INTERNATIONAL SUCCESS STORIES
+  ══════════════════════════════════════════════ -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Global Projects</span>
-        <h2 class="section-title">International <span class="text-primary">Success Stories</span></h2>
+      <div class="mb-12 text-center reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Global Projects <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
+          International <span class="text-secondary">Success Stories</span>
+        </h2>
       </div>
-      
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
-          <i class="fas fa-industry text-3xl text-primary"></i>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="story-card reveal" style="transition-delay:.05s">
+          <div class="story-icon"><i class="fas fa-industry"></i></div>
           <div>
-            <h3 class="font-bold text-lg">Jakarta Industrial Park</h3>
-            <p class="text-text text-sm">Indonesia | 2022-2024</p>
-            <p class="text-text mt-2">Complete EPC infrastructure development for 200-acre industrial zone</p>
+            <p class="story-meta">Indonesia · 2022–2024</p>
+            <h3 class="story-title">Jakarta Industrial Park</h3>
+            <p class="story-desc">Complete EPC infrastructure development for a 200-acre industrial zone.</p>
           </div>
         </div>
-        
-        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
-          <i class="fas fa-bolt text-3xl text-primary"></i>
+
+        <div class="story-card reveal" style="transition-delay:.1s">
+          <div class="story-icon"><i class="fas fa-bolt"></i></div>
           <div>
-            <h3 class="font-bold text-lg">Dhaka Power Plant</h3>
-            <p class="text-text text-sm">Bangladesh | 2020-2023</p>
-            <p class="text-text mt-2">Electrical systems and fire safety for 500MW power facility</p>
+            <p class="story-meta">Bangladesh · 2020–2023</p>
+            <h3 class="story-title">Dhaka Power Plant</h3>
+            <p class="story-desc">Electrical systems and fire safety for a 500MW power facility.</p>
           </div>
         </div>
-        
-        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
-          <i class="fas fa-capsules text-3xl text-primary"></i>
+
+        <div class="story-card reveal" style="transition-delay:.15s">
+          <div class="story-icon"><i class="fas fa-capsules"></i></div>
           <div>
-            <h3 class="font-bold text-lg">Pharma SEZ Mumbai</h3>
-            <p class="text-text text-sm">India | 2021-2024</p>
-            <p class="text-text mt-2">Turnkey MEP and HVAC for GMP-certified pharmaceutical zone</p>
+            <p class="story-meta">India · 2021–2024</p>
+            <h3 class="story-title">Pharma SEZ Mumbai</h3>
+            <p class="story-desc">Turnkey MEP and HVAC for a GMP-certified pharmaceutical zone.</p>
           </div>
         </div>
-        
-        <div class="flex gap-4 p-6 border rounded-2xl hover:shadow-lg transition">
-          <i class="fas fa-subway text-3xl text-primary"></i>
+
+        <div class="story-card reveal" style="transition-delay:.2s">
+          <div class="story-icon"><i class="fas fa-subway"></i></div>
           <div>
-            <h3 class="font-bold text-lg">Jakarta MRT Extension</h3>
-            <p class="text-text text-sm">Indonesia | 2023-Present</p>
-            <p class="text-text mt-2">MEP systems for metro rail extension project</p>
+            <p class="story-meta">Indonesia · 2023–Present</p>
+            <h3 class="story-title">Jakarta MRT Extension</h3>
+            <p class="story-desc">MEP systems for the metro rail extension project.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <!-- ══════════════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════════ -->
+  <section class="section" style="padding: 0 0 80px;">
+    <div class="container">
+      <div class="cta-section reveal">
+        <h2>Looking to Build <span class="text-secondary-light">Together?</span></h2>
+        <p>Connect with our regional teams to discuss your next project</p>
+        <a href="contact.html" class="btn-cta">
+          Get in Touch <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<!-- Footer Container -->
+<!-- Footer -->
 <div id="footer-container"></div>
 
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Contact float -->
+<a href="contact.html" class="contact-float" aria-label="Contact us">
+  <span class="cf-tip">Need Help? Contact Us</span>
+  <i class="fas fa-comment-dots"></i>
+</a>
 
+<!-- Scripts -->
 <script>
-  // ============================================
-  // LOAD COMPONENTS (navbar and footer)
-  // ============================================
-  
+  /* ============================================
+     LOAD COMPONENTS
+  ============================================ */
   async function loadComponent(elementId, componentPath) {
     try {
       const response = await fetch(componentPath);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const html = await response.text();
-      document.getElementById(elementId).innerHTML = html;
+      document.getElementById(elementId).innerHTML = await response.text();
       return true;
     } catch (error) {
       console.error(`Error loading ${componentPath}:`, error);
       return false;
     }
   }
-  
+
   function initNavbar() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
-    
+
     if (header) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 100);
       });
     }
-    
+
     if (navToggle && navMenu) {
-      const newToggle = navToggle.cloneNode(true);
-      navToggle.parentNode.replaceChild(newToggle, navToggle);
-      
-      const newMenu = navMenu.cloneNode(true);
-      navMenu.parentNode.replaceChild(newMenu, navMenu);
-      
-      const finalToggle = document.getElementById('navToggle');
-      const finalMenu = document.getElementById('navMenu');
-      
-      if (finalToggle && finalMenu) {
-        finalToggle.addEventListener('click', function(e) {
+      const finalToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(finalToggle, navToggle);
+      const finalMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(finalMenu, navMenu);
+
+      const newToggle = document.getElementById('navToggle');
+      const newMenu = document.getElementById('navMenu');
+
+      if (newToggle && newMenu) {
+        newToggle.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          finalMenu.classList.toggle('active');
-          finalToggle.classList.toggle('active');
+          newMenu.classList.toggle('active');
+          newToggle.classList.toggle('active');
           document.body.classList.toggle('mobile-nav-active');
         });
       }
     }
-    
+
     document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', () => {
         const mobileMenu = document.getElementById('navMenu');
         const mobileToggle = document.getElementById('navToggle');
         if (mobileMenu) mobileMenu.classList.remove('active');
@@ -656,107 +714,97 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    
+
     document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
-      dropdownLink.addEventListener('click', function(e) {
+      dropdownLink.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
           e.preventDefault();
-          const dropdown = this.parentElement;
-          dropdown.classList.toggle('active');
+          dropdownLink.parentElement.classList.toggle('active');
         }
       });
     });
-    
+
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPage) {
+      if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
       }
     });
   }
-  
+
   function initGlobalUI() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
-      window.addEventListener('scroll', function() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
+      window.addEventListener('scroll', () => {
+        const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
         scrollProgress.style.width = progress + '%';
       });
     }
-    
+
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('show', window.scrollY > 300);
       });
-      
-      backToTop.addEventListener('click', function() {
+      backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
-  
-  function initCounters() {
-    const counters = document.querySelectorAll('.stat-number-lg');
-    if (counters.length === 0) return;
-    
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      if (isNaN(target)) return;
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                counter.innerText = target;
-                clearInterval(timer);
-              } else {
-                counter.innerText = Math.floor(current);
-              }
-            }, 30);
-            observer.unobserve(counter);
-          }
-        });
-      }, { threshold: 0.5 });
-      
-      observer.observe(counter);
-    });
+
+  /* ============================================
+     REVEAL ON SCROLL
+  ============================================ */
+  function initReveal() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   }
-  
+
+  /* ============================================
+     COUNTERS
+  ============================================ */
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target), suffix = el.dataset.suffix || '', duration = 1800, step = target / (duration / 16);
+    let cur = 0;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = Math.floor(cur).toLocaleString() + suffix;
+      if (cur >= target) clearInterval(t);
+    }, 16);
+  }
+  function initCounters() {
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } });
+    }, { threshold: .5 });
+    document.querySelectorAll('.counter-num [data-target]').forEach(c => counterObs.observe(c));
+  }
+
+  /* ============================================
+     INIT
+  ============================================ */
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
-    
     initNavbar();
     initGlobalUI();
+    initReveal();
     initCounters();
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadAllComponents);
   } else {
     loadAllComponents();
   }
-  
-  window.addEventListener('load', function() {
+
+  window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     if (loader) {
       setTimeout(() => {
         loader.style.opacity = '0';
-        setTimeout(() => {
-          loader.style.display = 'none';
-        }, 500);
+        setTimeout(() => { loader.style.display = 'none'; }, 500);
       }, 1000);
     }
   });

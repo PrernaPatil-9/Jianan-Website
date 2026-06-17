@@ -5,27 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Leadership Team - Jianan Engineering | Visionary Leaders</title>
   <meta name="description" content="Meet the visionary leadership team at Jianan Engineering driving engineering excellence across global operations.">
-  
+  <link rel="icon" href="/assets/images/logo.png">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Centralized Theme Configuration -->
+
+  <!-- Centralized Theme Configuration (same tokens as the rest of the site) -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: {
-              DEFAULT: "#1E88E5",
-              light: "#4AA3E9",
-              dark: "#0F5B99"
-            },
-            secondary: {
-              DEFAULT: "#28B463",
-              light: "#4CC97E",
-              dark: "#1E7A43"
-            },
-            dark: "#0F172A",
+            primary: { DEFAULT: "#1E88E5", light: "#4AA3E9", dark: "#0F5B99", pale: "#EAF4FE", xpale: "#F5FAFF" },
+            secondary: { DEFAULT: "#28B463", light: "#4CC97E", dark: "#1E7A43", pale: "#EAFBF1", xpale: "#F3FDF8" },
+            dark: { DEFAULT: "#0F172A", 800: "#16213A", 700: "#1C2942", 600: "#22334F" },
             light: "#F8FAFC",
             text: "#475569",
             border: "#E2E8F0"
@@ -38,334 +31,263 @@
       }
     }
   </script>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+
   <style>
-    /* ========================================
-       GLOBAL STYLES
-       ======================================== */
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; font-family: 'Inter', sans-serif; background-color: #ffffff; color: #475569; }
+    .font-heading { font-family: 'Poppins', sans-serif; }
+
+    /* ========== LOADER (unchanged) ========== */
+    .loader { position: fixed; top:0; left:0; width:100%; height:100%; background:#0F172A; z-index:10000; display:flex; align-items:center; justify-content:center; transition:opacity .8s ease-out; }
+    .loader-content { text-align: center; }
+    .loader-logo { width:80px; height:80px; background:linear-gradient(135deg,#1E88E5,#28B463); border-radius:20px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:800; color:#fff; animation:pulse 1.5s infinite; }
+    .loader-text { color:#fff; font-size:14px; letter-spacing:4px; font-weight:500; margin-bottom:20px; }
+    .loader-bar { width:200px; height:2px; background:rgba(255,255,255,.2); margin:0 auto; position:relative; overflow:hidden; }
+    .loader-bar::after { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,#1E88E5,#28B463); animation:loading 1.5s infinite; }
+    @keyframes loading { 100% { left:100%; } }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.05);opacity:.9} }
+
+    /* ========== SCROLL PROGRESS (unchanged) ========== */
+    .scroll-progress { position:fixed; top:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#1E88E5,#28B463); z-index:10001; transition:width .1s ease-out; }
+
+    /* ========== BACK TO TOP ========== */
+    .back-to-top { position:fixed; bottom:30px; right:30px; z-index:99; opacity:0; visibility:hidden; transition:all .3s ease; }
+    .back-to-top.show { opacity:1; visibility:visible; }
+    .back-to-top-inner { position:relative; }
+    .back-to-top-img {
+      width:56px; height:56px; border-radius:50%; object-fit:cover; display:block; cursor:pointer;
+      box-shadow:0 10px 30px rgba(30,136,229,.35); border:2px solid rgba(255,255,255,.6);
+      transition:transform .3s, box-shadow .3s; animation: spin-slow 18s linear infinite;
     }
-    
-    body {
-      overflow-x: hidden;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
+    .back-to-top-inner:hover .back-to-top-img { transform:scale(1.08) translateY(-2px); box-shadow:0 14px 36px rgba(40,180,99,.45); }
+    @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    .btt-tip {
+      position:absolute; right:100%; margin-right:12px; top:50%; transform:translateY(-50%);
+      background:rgba(15,23,42,.92); color:#fff; font-size:11px; font-weight:500; padding:6px 12px; border-radius:8px;
+      white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .3s;
     }
-    
-    /* Loader Styles */
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0F172A;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.8s ease-out;
+    .back-to-top-inner:hover .btt-tip { opacity: 1; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    @media (max-width:768px) { .section { padding: 60px 0; } }
+    .bg-light { background:#F8FAFC; }
+
+    /* ========== ACCENT DIVIDER ========== */
+    .accent-divider { height:1px; background:linear-gradient(90deg, transparent, #28B463, #1E88E5, #28B463, transparent); opacity:.4; position:relative; }
+    .accent-divider::after { content:'✦'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#1E88E5; font-size:.75rem; background:#fff; padding:0 .7rem; }
+    .accent-divider.on-light::after { background:#F8FAFC; }
+
+    /* ========== REVEAL ON SCROLL ========== */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+    .blink-dot { animation: blink 2.2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .animate-fade-in-up { animation: fadeInUp .6s ease-out forwards; }
+    .anim-delay-200{animation-delay:.2s;opacity:0} .anim-delay-400{animation-delay:.4s;opacity:0}
+
+    /* ========== UNIFIED SECTION HEADER ========== */
+    .head-eyebrow { display:flex; align-items:center; gap:.6rem; color:#1E88E5; font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; margin-bottom:.85rem; }
+    .head-eyebrow .ln { width:24px; height:1px; background:#1E88E5; }
+    .head-eyebrow.center { justify-content:center; }
+
+    /* ========================================================
+       HERO — animated mesh + floating particles
+    ======================================================== */
+    .leader-hero { position:relative; background:#0F172A; padding:170px 0 100px; overflow:hidden; }
+    .leader-hero-inner { position:relative; z-index:3; }
+
+    .mesh-layer {
+      position:absolute; inset:0; z-index:0;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 20%, rgba(30,136,229,.28), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 15%, rgba(40,180,99,.22), transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 100%, rgba(30,136,229,.18), transparent 60%);
+      animation: meshDrift 16s ease-in-out infinite alternate;
     }
-    
-    .loader-content {
-      text-align: center;
+    @keyframes meshDrift {
+      0%   { transform: translate(0,0) scale(1); }
+      50%  { transform: translate(-2%, 2%) scale(1.06); }
+      100% { transform: translate(2%, -1%) scale(1.02); }
     }
-    
-    .loader-logo {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, #1E88E5, #28B463);
-      border-radius: 20px;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: 800;
-      color: white;
-      animation: pulse 1.5s infinite;
+    .particle-field { position:absolute; inset:0; z-index:1; overflow:hidden; pointer-events:none; }
+    .particle {
+      position:absolute; border-radius:50%; background:rgba(76,201,126,.5);
+      animation: floatUp linear infinite;
     }
-    
-    .loader-text {
-      color: white;
-      font-size: 14px;
-      letter-spacing: 4px;
-      font-weight: 500;
-      margin-bottom: 20px;
+    @keyframes floatUp {
+      0%   { transform: translateY(0) translateX(0); opacity:0; }
+      10%  { opacity:.8; }
+      90%  { opacity:.5; }
+      100% { transform: translateY(-420px) translateX(20px); opacity:0; }
     }
-    
-    .loader-bar {
-      width: 200px;
-      height: 2px;
-      background: rgba(255,255,255,0.2);
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
+
+    .stat-chip {
+      display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.08); backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:.45rem 1.05rem;
+      transition: background .3s, transform .3s, border-color .3s;
     }
-    
-    .loader-bar::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, #1E88E5, #28B463);
-      animation: loading 1.5s infinite;
-    }
-    
-    @keyframes loading {
-      100% { left: 100%; }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
-    }
-    
-    /* Scroll Progress */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, #1E88E5, #28B463);
-      z-index: 10001;
-      transition: width 0.1s ease-out;
-    }
-    
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      cursor: pointer;
-      z-index: 99;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
-    
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background: #28B463;
-      transform: translateY(-5px);
-    }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
-    /* Container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    /* Section Styles */
-    .section {
-      padding: 100px 0;
-    }
-    
-    @media (max-width: 768px) {
-      .section {
-        padding: 60px 0;
-      }
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
-    .section-tag {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 20px;
-    }
-    
-    .section-title {
-      font-size: 42px;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
-      color: #0F172A;
-      margin-bottom: 16px;
-    }
-    
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 32px;
-      }
-    }
-    
-    /* Leader Card Styles */
+    .stat-chip:hover { background:rgba(255,255,255,.14); border-color:rgba(76,201,126,.4); transform:translateY(-3px); }
+    .stat-chip .chip-num { font-family:'Poppins',sans-serif; font-weight:700; color:#fff; }
+
+    .grain-divider { position:relative; height:60px; margin-top:-60px; z-index:2; background:linear-gradient(to bottom, transparent, #fff); }
+
+    /* ========================================================
+       LEADER CARD — tilt + shine sweep + gradient border draw
+    ======================================================== */
+    .leader-card-wrap { perspective: 1200px; }
     .leader-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      background:#fff; border-radius:22px; overflow:hidden; position:relative;
+      transform-style: preserve-3d; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+      box-shadow: 0 1px 2px rgba(15,23,42,.05);
       border: 1px solid #E2E8F0;
     }
-    
-    .leader-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    .leader-card-wrap:hover .leader-card { box-shadow: 0 30px 60px rgba(15,23,42,.18); border-color: transparent; }
+
+    .leader-card .glow-border {
+      position:absolute; inset:0; border-radius:22px; padding:2px; z-index:0;
+      background: linear-gradient(135deg,#1E88E5,#28B463); opacity:0; transition: opacity .4s;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;
     }
-    
-    .leader-image {
-      height: 320px;
-      overflow: hidden;
+    .leader-card-wrap:hover .glow-border { opacity:1; }
+
+    .leader-image { height:300px; overflow:hidden; position:relative; }
+    .leader-image img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+    .leader-card-wrap:hover .leader-image img { transform:scale(1.08); }
+    .leader-image::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(15,23,42,.55) 0%, transparent 50%); }
+
+    .shine-sweep {
+      position:absolute; top:0; left:-150%; width:60%; height:100%;
+      background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+      transform: skewX(-15deg); transition: left .8s ease; pointer-events:none; z-index:2;
     }
-    
-    .leader-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+    .leader-card-wrap:hover .shine-sweep { left:150%; }
+
+    .leader-num {
+      position:absolute; top:16px; left:16px; z-index:3; font-family:'Poppins',sans-serif; font-weight:800;
+      font-size:.95rem; color:rgba(255,255,255,.85); background:rgba(15,23,42,.45); backdrop-filter:blur(4px);
+      border:1px solid rgba(255,255,255,.25); width:32px; height:32px; border-radius:9px; display:grid; place-items:center;
     }
-    
-    .leader-card:hover .leader-image img {
-      transform: scale(1.05);
+
+    .role-pill { display:inline-block; background:#EAF4FE; color:#1E88E5; font-size:.72rem; font-weight:700; letter-spacing:.03em; padding:4px 14px; border-radius:999px; margin-bottom:.7rem; transition: background .3s, color .3s; }
+    .leader-card-wrap:hover .role-pill { background: linear-gradient(135deg,#1E88E5,#28B463); color:#fff; }
+
+    .leader-socials a {
+      display:inline-flex; width:34px; height:34px; background:#F8FAFC; border-radius:50%; align-items:center; justify-content:center;
+      color:#1E88E5; transition:all .3s; margin:0 4px; border:1px solid #E2E8F0;
+      opacity:0; transform: translateY(10px);
     }
-    
-    /* Management Card */
+    .leader-card-wrap:hover .leader-socials a { opacity:1; transform:translateY(0); }
+    .leader-socials a:nth-child(1) { transition-delay: .05s; }
+    .leader-socials a:nth-child(2) { transition-delay: .12s; }
+    .leader-socials a:hover { background:linear-gradient(135deg,#1E88E5,#28B463); color:#fff; transform:translateY(-3px) !important; border-color:transparent; }
+
+    /* ========================================================
+       MANAGEMENT CARD — wave reveal + spin ring + flip-lite
+    ======================================================== */
     .management-card {
-      background: white;
-      padding: 25px;
-      border-radius: 20px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid #E2E8F0;
+      background:#fff; padding:28px 20px; border-radius:20px; text-align:center; border:1px solid #E2E8F0;
+      transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s;
+      position:relative; overflow:hidden;
     }
-    
-    .management-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
+    .management-card::before {
+      content:''; position:absolute; top:-60%; left:-60%; width:220%; height:220%;
+      background: radial-gradient(circle, rgba(30,136,229,.07), transparent 60%);
+      opacity:0; transition: opacity .4s; pointer-events:none;
     }
-    
-    .management-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 0 auto 15px;
-      object-fit: cover;
-      border: 3px solid #1E88E5;
-      padding: 3px;
+    .management-card:hover::before { opacity:1; }
+    .management-card:hover { transform:translateY(-8px) scale(1.015); box-shadow:0 22px 44px rgba(15,23,42,.12); border-color:transparent; }
+
+    .avatar-ring {
+      width:104px; height:104px; border-radius:50%; margin:0 auto 16px; padding:3px;
+      background:linear-gradient(135deg,#1E88E5,#28B463); display:grid; place-items:center; position:relative;
+      animation: ringSpin 9s linear infinite paused;
     }
-    
-    /* Organization Chart */
-    .org-chart {
-      background: linear-gradient(135deg, #F8FAFC, #E2E8F0);
-      border-radius: 30px;
-      padding: 50px;
-      margin-top: 40px;
+    .management-card:hover .avatar-ring { animation-play-state: running; }
+    @keyframes ringSpin { from{ transform: rotate(0deg);} to{ transform: rotate(360deg);} }
+    .avatar-ring img { width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid #fff; display:block; transform: rotate(0deg); animation: ringSpinReverse 9s linear infinite paused; }
+    .management-card:hover .avatar-ring img { animation-play-state: running; }
+    @keyframes ringSpinReverse { from{ transform: rotate(0deg);} to{ transform: rotate(-360deg);} }
+
+    .mgmt-role {
+      display:inline-flex; align-items:center; gap:5px; color:#1E88E5; font-size:.85rem; font-weight:700;
     }
-    
-    .org-level {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-      position: relative;
+    .mgmt-role i { font-size:.6rem; color:#28B463; opacity:0; transform: translateX(-4px); transition: all .3s; }
+    .management-card:hover .mgmt-role i { opacity:1; transform: translateX(0); }
+
+    /* ========================================================
+       ORG CHART — animated connectors draw in
+    ======================================================== */
+    .org-chart { background:linear-gradient(135deg,#F8FAFC,#EEF2F7); border-radius:28px; padding:50px 30px; position:relative; overflow:hidden; }
+    @media (max-width:640px) { .org-chart { padding:36px 16px; } }
+    .org-chart .orb { opacity:.5; }
+    .org-level { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; position:relative; z-index:1; }
+    .org-connector { display:flex; justify-content:center; height:34px; position:relative; z-index:1; }
+    .org-connector .line {
+      width:2px; background:linear-gradient(#1E88E5,#28B463); height:0%;
+      transition: height 0.9s cubic-bezier(.2,.8,.2,1);
     }
-    
+    .org-chart.lines-in .org-connector .line { height:100%; }
+    .org-connector .dot {
+      width:7px; height:7px; border-radius:50%; background:#1E88E5; margin:0 auto; position:relative; top:-3px;
+      opacity:0; transition: opacity .3s .7s, transform .3s .7s; transform: scale(0);
+    }
+    .org-chart.lines-in .org-connector .dot { opacity:1; transform: scale(1); }
+    @media (max-width:640px) { .org-connector { display:none; } }
+
     .org-card {
-      background: white;
-      padding: 20px 30px;
-      border-radius: 16px;
-      text-align: center;
-      min-width: 180px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      border-bottom: 3px solid #1E88E5;
+      background:#fff; padding:22px 26px; border-radius:16px; text-align:center; min-width:172px;
+      box-shadow:0 5px 15px rgba(15,23,42,.06); transition:all .3s; border-bottom:3px solid #1E88E5;
+      position:relative;
     }
-    
-    .org-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    .org-card:hover { transform:translateY(-5px); box-shadow:0 14px 30px rgba(15,23,42,.16), 0 0 0 1px rgba(30,136,229,.18); }
+    .org-icon-circle { width:54px; height:54px; border-radius:50%; margin:0 auto 10px; display:grid; place-items:center; background:#EAF4FE; transition: transform .4s; }
+    .org-card:hover .org-icon-circle { transform: rotate(8deg) scale(1.08); }
+    .org-icon-circle i { font-size:22px; color:#1E88E5; }
+    .org-card h4 { font-size:16px; font-weight:700; margin-bottom:3px; color:#0F172A; font-family:'Poppins',sans-serif; }
+    .org-card p { font-size:12.5px; color:#475569; }
+    .org-card.tier-1 { border-bottom-color:#28B463; }
+    .org-card.tier-1 .org-icon-circle { background:#EAFBF1; }
+    .org-card.tier-1 .org-icon-circle i { color:#28B463; }
+
+    /* ========================================================
+       PHILOSOPHY CARD — rotating gradient ring on hover
+    ======================================================== */
+    .philosophy-card { background:#fff; border:1px solid #E2E8F0; border-radius:20px; padding:36px 28px; text-align:center; transition:all .35s; position:relative; overflow:hidden; }
+    .philosophy-card:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(15,23,42,.1); border-color:transparent; }
+    .philosophy-icon-circle {
+      width:64px; height:64px; border-radius:50%; margin:0 auto 18px; display:grid; place-items:center;
+      background:linear-gradient(135deg,#EAF4FE,#EAFBF1); position:relative;
     }
-    
-    .org-card i {
-      font-size: 40px;
-      color: #1E88E5;
-      margin-bottom: 10px;
+    .philosophy-icon-circle::before {
+      content:''; position:absolute; inset:-4px; border-radius:50%;
+      background: conic-gradient(from 0deg, #1E88E5, #28B463, #1E88E5);
+      opacity:0; transition: opacity .4s; animation: spin-slow 4s linear infinite paused;
+      z-index:-1;
     }
-    
-    .org-card h4 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 5px;
+    .philosophy-card:hover .philosophy-icon-circle::before { opacity:.25; animation-play-state: running; }
+    .philosophy-icon-circle i { font-size:26px; background:linear-gradient(135deg,#1E88E5,#28B463); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; position:relative; z-index:1; }
+
+    /* ========================================================
+       COUNTER STRIP (Leadership in Numbers)
+    ======================================================== */
+    .counter-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #E2E8F0; }
+    .counter-item { background: #fff; padding: 2rem 1rem; text-align: center; transition: background .3s; }
+    .counter-item:hover { background: #F5FAFF; }
+    .counter-num {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 2.4rem; line-height: 1.1;
+      background: linear-gradient(135deg,#1E88E5,#28B463); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    
-    .org-card p {
-      font-size: 13px;
-      color: #475569;
-    }
-    
-    /* Social Links */
-    .social-links a {
-      display: inline-flex;
-      width: 35px;
-      height: 35px;
-      background: #F8FAFC;
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-      color: #1E88E5;
-      transition: all 0.3s;
-      margin: 0 5px;
-    }
-    
-    .social-links a:hover {
-      background: #1E88E5;
-      color: white;
-      transform: translateY(-3px);
-    }
-    
-    .bg-light {
-      background: #F8FAFC;
-    }
-    
-    .text-primary {
-      color: #1E88E5;
-    }
-    
-    .text-secondary {
-      color: #28B463;
-    }
+    @media (min-width: 768px) { .counter-num { font-size: 2.9rem; } }
+    .counter-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-top: 4px; }
+    @media(max-width:900px){ .counter-bar{grid-template-columns:repeat(2,1fr)} }
   </style>
 </head>
 <body>
@@ -384,313 +306,411 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <div class="back-to-top-inner">
+    <span class="btt-tip">Back to Top ↑</span>
+    <img src="assets/images/btt.png" alt="Back to Top" class="back-to-top-img">
+  </div>
 </div>
 
 <!-- Navbar Container -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Our Leadership</h1>
-      <p class="text-xl max-w-2xl mx-auto">Visionary leaders driving engineering excellence globally</p>
+
+  <!-- ══════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════ -->
+  <section class="leader-hero">
+    <div class="mesh-layer"></div>
+    <div class="particle-field" id="particleField"></div>
+    <div class="orb w-64 h-64 bg-primary/15 top-10 left-0"></div>
+    <div class="orb w-48 h-48 bg-secondary/15 bottom-10 right-0"></div>
+
+    <div class="container leader-hero-inner text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-xs font-medium text-primary-light tracking-widest uppercase mb-6 animate-fade-in-up">
+        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+        Leadership · Global Team
+        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] tracking-tight mb-5 animate-fade-in-up anim-delay-200">
+        Our <span class="text-secondary-light relative inline-block">
+          Leadership
+          <svg class="absolute -bottom-2 left-0 w-full h-1" viewBox="0 0 200 6" preserveAspectRatio="none">
+            <path d="M0,3 Q50,0 100,3 T200,3" stroke="#4CC97E" stroke-width="1.5" fill="none" opacity="0.6"/>
+          </svg>
+        </span>
+      </h1>
+
+      <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 animate-fade-in-up anim-delay-400">
+        Visionary leaders driving engineering excellence across our global operations — from project conception
+        to delivery, our team brings decades of combined expertise to every engagement.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 animate-fade-in-up anim-delay-400">
+        <div class="stat-chip"><i class="fas fa-users text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">11</span> Leadership Members</span></div>
+        <div class="stat-chip"><i class="fas fa-project-diagram text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">200+</span> Projects Led</span></div>
+        <div class="stat-chip"><i class="fas fa-globe text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">12</span> Countries</span></div>
+        <div class="stat-chip"><i class="fas fa-award text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">150+</span> Years Combined Experience</span></div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/30 text-[9px] tracking-[0.2em] flex flex-col items-center gap-1.5 z-10">
+      <span>SCROLL</span>
+      <div class="w-px h-6 bg-white/30"></div>
     </div>
   </section>
 
-  <!-- Board of Directors -->
+  <!-- ══════════════════════════════════════════════
+       LEADERSHIP IN NUMBERS
+  ══════════════════════════════════════════════ -->
+  <div class="counter-bar border-y border-border">
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="11">0</span></div>
+      <div class="counter-label">Leadership Members</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="200" data-suffix="+">0</span></div>
+      <div class="counter-label">Projects Led</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="12">0</span></div>
+      <div class="counter-label">Countries</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num"><span data-target="150" data-suffix="+">0</span></div>
+      <div class="counter-label">Years Combined Exp.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       BOARD OF DIRECTORS
+  ══════════════════════════════════════════════ -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Board of Directors</span>
-        <h2 class="section-title">Meet Our <span class="text-primary">Leadership Team</span></h2>
-        <p class="section-subtitle">Decades of experience driving innovation and growth</p>
+      <div class="text-center mb-12 reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Board of Directors <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
+          Meet Our <span class="text-primary">Leadership Team</span>
+        </h2>
+        <p class="text-text text-sm md:text-base max-w-xl mx-auto">Decades of experience driving innovation and growth</p>
       </div>
-      
+
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Managing Director -->
-        <div class="leader-card">
-          <div class="leader-image">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajan Mehta - Managing Director">
-          </div>
-          <div class="p-6 text-center">
-            <h3 class="text-2xl font-bold">Rajan Mehta</h3>
-            <p class="text-primary font-semibold mb-2">Managing Director</p>
-            <p class="text-text text-sm">30+ years of experience in EPC and infrastructure development. Former senior executive at L&T. Led 200+ major projects across Asia.</p>
-            <div class="social-links mt-4">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <div class="leader-card-wrap reveal tilt-card" style="transition-delay:.05s">
+          <div class="leader-card">
+            <span class="glow-border"></span>
+            <div class="leader-image">
+              <span class="leader-num">01</span>
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajan Mehta - Managing Director">
+              <span class="shine-sweep"></span>
+            </div>
+            <div class="p-6 text-center">
+              <span class="role-pill">Managing Director</span>
+              <h3 class="font-heading text-2xl font-bold text-dark">Rajan Mehta</h3>
+              <p class="text-text text-sm mt-3">30+ years of experience in EPC and infrastructure development. Former senior executive at L&amp;T. Led 200+ major projects across Asia.</p>
+              <div class="leader-socials mt-4">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
             </div>
           </div>
         </div>
-        
-        <!-- Chief Operating Officer -->
-        <div class="leader-card">
-          <div class="leader-image">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neha Sharma - COO">
-          </div>
-          <div class="p-6 text-center">
-            <h3 class="text-2xl font-bold">Neha Sharma</h3>
-            <p class="text-primary font-semibold mb-2">Chief Operating Officer</p>
-            <p class="text-text text-sm">Expert in project management and operational excellence. MBA from IIM Ahmedabad. Previously with Bechtel for 15 years.</p>
-            <div class="social-links mt-4">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <div class="leader-card-wrap reveal tilt-card" style="transition-delay:.15s">
+          <div class="leader-card">
+            <span class="glow-border"></span>
+            <div class="leader-image">
+              <span class="leader-num">02</span>
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neha Sharma - COO">
+              <span class="shine-sweep"></span>
+            </div>
+            <div class="p-6 text-center">
+              <span class="role-pill">Chief Operating Officer</span>
+              <h3 class="font-heading text-2xl font-bold text-dark">Neha Sharma</h3>
+              <p class="text-text text-sm mt-3">Expert in project management and operational excellence. MBA from IIM Ahmedabad. Previously with Bechtel for 15 years.</p>
+              <div class="leader-socials mt-4">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
             </div>
           </div>
         </div>
-        
-        <!-- Director International Operations -->
-        <div class="leader-card">
-          <div class="leader-image">
-            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Vikram Singh - Director">
-          </div>
-          <div class="p-6 text-center">
-            <h3 class="text-2xl font-bold">Vikram Singh</h3>
-            <p class="text-primary font-semibold mb-2">Director, International Operations</p>
-            <p class="text-text text-sm">Leading expansion in Southeast Asia. 25+ years in global engineering projects across 12 countries.</p>
-            <div class="social-links mt-4">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <div class="leader-card-wrap reveal tilt-card" style="transition-delay:.25s">
+          <div class="leader-card">
+            <span class="glow-border"></span>
+            <div class="leader-image">
+              <span class="leader-num">03</span>
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Vikram Singh - Director">
+              <span class="shine-sweep"></span>
+            </div>
+            <div class="p-6 text-center">
+              <span class="role-pill">Director, International Operations</span>
+              <h3 class="font-heading text-2xl font-bold text-dark">Vikram Singh</h3>
+              <p class="text-text text-sm mt-3">Leading expansion in Southeast Asia. 25+ years in global engineering projects across 12 countries.</p>
+              <div class="leader-socials mt-4">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Management Team -->
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       MANAGEMENT TEAM
+  ══════════════════════════════════════════════ -->
   <section class="section bg-light">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Executive Team</span>
-        <h2 class="section-title">Management <span class="text-primary">Team</span></h2>
+      <div class="text-center mb-12 reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Executive Team <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
+          Management <span class="text-primary">Team</span>
+        </h2>
+        <p class="text-text text-sm md:text-base max-w-xl mx-auto">The experts leading execution across engineering, operations, and quality</p>
       </div>
-      
+
       <div class="grid md:grid-cols-4 gap-6">
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Anil Desai" class="management-img">
-          <h4 class="font-bold text-lg">Anil Desai</h4>
-          <p class="text-primary text-sm font-semibold">VP Engineering</p>
+
+        <div class="management-card reveal" style="transition-delay:.03s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Anil Desai"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Anil Desai</h4>
+          <p class="mgmt-role">VP Engineering <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">20+ years in civil engineering</p>
         </div>
-        
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Nair" class="management-img">
-          <h4 class="font-bold text-lg">Priya Nair</h4>
-          <p class="text-primary text-sm font-semibold">Head of MEP</p>
+
+        <div class="management-card reveal" style="transition-delay:.08s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Nair"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Priya Nair</h4>
+          <p class="mgmt-role">Head of MEP <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">18+ years in MEP design</p>
         </div>
-        
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Suresh Reddy" class="management-img">
-          <h4 class="font-bold text-lg">Suresh Reddy</h4>
-          <p class="text-primary text-sm font-semibold">Project Director</p>
+
+        <div class="management-card reveal" style="transition-delay:.13s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Suresh Reddy"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Suresh Reddy</h4>
+          <p class="mgmt-role">Project Director <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">25+ years in EPC delivery</p>
         </div>
-        
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Kavita Joshi" class="management-img">
-          <h4 class="font-bold text-lg">Kavita Joshi</h4>
-          <p class="text-primary text-sm font-semibold">Head HSE</p>
+
+        <div class="management-card reveal" style="transition-delay:.18s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Kavita Joshi"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Kavita Joshi</h4>
+          <p class="mgmt-role">Head HSE <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">15+ years in safety management</p>
         </div>
-        
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Amit Kapoor" class="management-img">
-          <h4 class="font-bold text-lg">Amit Kapoor</h4>
-          <p class="text-primary text-sm font-semibold">CFO</p>
+
+        <div class="management-card reveal" style="transition-delay:.23s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Amit Kapoor"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Amit Kapoor</h4>
+          <p class="mgmt-role">CFO <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">22+ years in finance</p>
         </div>
-        
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Sunita Menon" class="management-img">
-          <h4 class="font-bold text-lg">Sunita Menon</h4>
-          <p class="text-primary text-sm font-semibold">HR Director</p>
+
+        <div class="management-card reveal" style="transition-delay:.28s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Sunita Menon"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Sunita Menon</h4>
+          <p class="mgmt-role">HR Director <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">18+ years in talent management</p>
         </div>
-        
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Ramesh Gupta" class="management-img">
-          <h4 class="font-bold text-lg">Ramesh Gupta</h4>
-          <p class="text-primary text-sm font-semibold">Procurement Head</p>
+
+        <div class="management-card reveal" style="transition-delay:.33s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Ramesh Gupta"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Ramesh Gupta</h4>
+          <p class="mgmt-role">Procurement Head <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">20+ years in supply chain</p>
         </div>
-        
-        <div class="management-card">
-          <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Meera Iyer" class="management-img">
-          <h4 class="font-bold text-lg">Meera Iyer</h4>
-          <p class="text-primary text-sm font-semibold">Quality Director</p>
+
+        <div class="management-card reveal" style="transition-delay:.38s">
+          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Meera Iyer"></div>
+          <h4 class="font-heading font-bold text-base text-dark">Meera Iyer</h4>
+          <p class="mgmt-role">Quality Director <i class="fas fa-circle"></i></p>
           <p class="text-text text-xs mt-2">16+ years in QA/QC</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Organization Structure -->
+  <div class="accent-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       ORGANIZATION STRUCTURE
+  ══════════════════════════════════════════════ -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Structure</span>
-        <h2 class="section-title">Organization <span class="text-primary">Structure</span></h2>
+      <div class="text-center mb-10 reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Structure <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
+          Organization <span class="text-primary">Structure</span>
+        </h2>
+        <p class="text-text text-sm md:text-base max-w-xl mx-auto">A clear chain of accountability from strategic oversight to on-site execution</p>
       </div>
-      
-      <div class="org-chart">
-        <!-- Level 1: Board -->
+
+      <div class="org-chart reveal" id="orgChart">
+        <div class="orb w-56 h-56 bg-primary/10 -top-10 -left-10"></div>
+        <div class="orb w-56 h-56 bg-secondary/10 -bottom-10 -right-10"></div>
+
         <div class="org-level">
-          <div class="org-card">
-            <i class="fas fa-user-tie"></i>
+          <div class="org-card tier-1">
+            <div class="org-icon-circle"><i class="fas fa-user-tie"></i></div>
             <h4>Board of Directors</h4>
             <p>Strategic Oversight</p>
           </div>
         </div>
-        
-        <!-- Level 2: MD -->
+
+        <div class="org-connector"><span class="line"></span><span class="dot"></span></div>
+
         <div class="org-level">
-          <div class="org-card">
-            <i class="fas fa-chart-line"></i>
+          <div class="org-card tier-1">
+            <div class="org-icon-circle"><i class="fas fa-chart-line"></i></div>
             <h4>Managing Director</h4>
             <p>Rajan Mehta</p>
           </div>
         </div>
-        
-        <!-- Level 3: Executive Leadership -->
+
+        <div class="org-connector"><span class="line"></span><span class="dot"></span></div>
+
         <div class="org-level">
           <div class="org-card">
-            <i class="fas fa-cogs"></i>
+            <div class="org-icon-circle"><i class="fas fa-cogs"></i></div>
             <h4>Chief Operating Officer</h4>
             <p>Neha Sharma</p>
           </div>
           <div class="org-card">
-            <i class="fas fa-globe"></i>
+            <div class="org-icon-circle"><i class="fas fa-globe"></i></div>
             <h4>Director Intl. Ops</h4>
             <p>Vikram Singh</p>
           </div>
           <div class="org-card">
-            <i class="fas fa-chart-bar"></i>
+            <div class="org-icon-circle"><i class="fas fa-chart-bar"></i></div>
             <h4>Chief Financial Officer</h4>
             <p>Amit Kapoor</p>
           </div>
         </div>
-        
-        <!-- Level 4: Department Heads -->
+
+        <div class="org-connector"><span class="line"></span><span class="dot"></span></div>
+
         <div class="org-level">
           <div class="org-card">
-            <i class="fas fa-hard-hat"></i>
+            <div class="org-icon-circle"><i class="fas fa-hard-hat"></i></div>
             <h4>Engineering</h4>
             <p>Anil Desai</p>
           </div>
           <div class="org-card">
-            <i class="fas fa-plug"></i>
+            <div class="org-icon-circle"><i class="fas fa-plug"></i></div>
             <h4>MEP</h4>
             <p>Priya Nair</p>
           </div>
           <div class="org-card">
-            <i class="fas fa-tasks"></i>
+            <div class="org-icon-circle"><i class="fas fa-tasks"></i></div>
             <h4>Projects</h4>
             <p>Suresh Reddy</p>
           </div>
           <div class="org-card">
-            <i class="fas fa-shield-alt"></i>
+            <div class="org-icon-circle"><i class="fas fa-shield-alt"></i></div>
             <h4>HSE</h4>
             <p>Kavita Joshi</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
-  
-  <!-- Leadership Philosophy -->
+
+  <div class="accent-divider on-light"></div>
+
+  <!-- ══════════════════════════════════════════════
+       LEADERSHIP PHILOSOPHY
+  ══════════════════════════════════════════════ -->
   <section class="section bg-light">
     <div class="container">
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div class="p-6">
-          <i class="fas fa-lightbulb text-4xl text-primary mb-4"></i>
-          <h3 class="text-xl font-bold mb-2">Visionary Leadership</h3>
-          <p class="text-text">Anticipating industry trends and positioning for future growth</p>
+      <div class="text-center mb-12 reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Our Philosophy <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
+          Leadership <span class="text-primary">Philosophy</span>
+        </h2>
+        <p class="text-text text-sm md:text-base max-w-xl mx-auto">The principles that guide how we lead, build, and deliver</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="philosophy-card reveal" style="transition-delay:.05s">
+          <div class="philosophy-icon-circle"><i class="fas fa-lightbulb"></i></div>
+          <h3 class="font-heading text-xl font-bold text-dark mb-2">Visionary Leadership</h3>
+          <p class="text-text text-sm">Anticipating industry trends and positioning for future growth</p>
         </div>
-        <div class="p-6">
-          <i class="fas fa-handshake text-4xl text-primary mb-4"></i>
-          <h3 class="text-xl font-bold mb-2">Empowered Teams</h3>
-          <p class="text-text">Fostering innovation and ownership at every level</p>
+        <div class="philosophy-card reveal" style="transition-delay:.15s">
+          <div class="philosophy-icon-circle"><i class="fas fa-handshake"></i></div>
+          <h3 class="font-heading text-xl font-bold text-dark mb-2">Empowered Teams</h3>
+          <p class="text-text text-sm">Fostering innovation and ownership at every level</p>
         </div>
-        <div class="p-6">
-          <i class="fas fa-chart-line text-4xl text-primary mb-4"></i>
-          <h3 class="text-xl font-bold mb-2">Results Driven</h3>
-          <p class="text-text">Commitment to excellence and measurable outcomes</p>
+        <div class="philosophy-card reveal" style="transition-delay:.25s">
+          <div class="philosophy-icon-circle"><i class="fas fa-bullseye"></i></div>
+          <h3 class="font-heading text-xl font-bold text-dark mb-2">Results Driven</h3>
+          <p class="text-text text-sm">Commitment to excellence and measurable outcomes</p>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 
 <!-- Footer Container -->
 <div id="footer-container"></div>
 
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 <script>
-  // ============================================
-  // LOAD COMPONENTS (navbar and footer)
-  // ============================================
-  
+  /* ============================================
+     LOAD COMPONENTS (unchanged)
+  ============================================ */
   async function loadComponent(elementId, componentPath) {
     try {
       const response = await fetch(componentPath);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const html = await response.text();
-      document.getElementById(elementId).innerHTML = html;
+      document.getElementById(elementId).innerHTML = await response.text();
       return true;
     } catch (error) {
       console.error(`Error loading ${componentPath}:`, error);
       return false;
     }
   }
-  
-  // Initialize navbar after it's loaded
+
   function initNavbar() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
-    
+
     if (header) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      });
+      window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 100));
     }
-    
+
     if (navToggle && navMenu) {
-      const newToggle = navToggle.cloneNode(true);
-      navToggle.parentNode.replaceChild(newToggle, navToggle);
-      
-      const newMenu = navMenu.cloneNode(true);
-      navMenu.parentNode.replaceChild(newMenu, navMenu);
-      
-      const finalToggle = document.getElementById('navToggle');
-      const finalMenu = document.getElementById('navMenu');
-      
-      if (finalToggle && finalMenu) {
-        finalToggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          finalMenu.classList.toggle('active');
-          finalToggle.classList.toggle('active');
+      const finalToggle = navToggle.cloneNode(true);
+      navToggle.parentNode.replaceChild(finalToggle, navToggle);
+      const finalMenu = navMenu.cloneNode(true);
+      navMenu.parentNode.replaceChild(finalMenu, navMenu);
+
+      const newToggle = document.getElementById('navToggle');
+      const newMenu = document.getElementById('navMenu');
+      if (newToggle && newMenu) {
+        newToggle.addEventListener('click', (e) => {
+          e.preventDefault(); e.stopPropagation();
+          newMenu.classList.toggle('active');
+          newToggle.classList.toggle('active');
           document.body.classList.toggle('mobile-nav-active');
         });
       }
     }
-    
+
     document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', () => {
         const mobileMenu = document.getElementById('navMenu');
         const mobileToggle = document.getElementById('navToggle');
         if (mobileMenu) mobileMenu.classList.remove('active');
@@ -698,75 +718,151 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    
+
     document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
-      dropdownLink.addEventListener('click', function(e) {
-        if (window.innerWidth <= 1024) {
-          e.preventDefault();
-          const dropdown = this.parentElement;
-          dropdown.classList.toggle('active');
-        }
+      dropdownLink.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1024) { e.preventDefault(); dropdownLink.parentElement.classList.toggle('active'); }
       });
     });
-    
+
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPage) {
-        link.classList.add('active');
-      }
+      if (link.getAttribute('href') === currentPage) link.classList.add('active');
     });
   }
-  
+
   function initGlobalUI() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
-      window.addEventListener('scroll', function() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
+      window.addEventListener('scroll', () => {
+        const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
         scrollProgress.style.width = progress + '%';
       });
     }
-    
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
-      });
-      
-      backToTop.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 300));
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
   }
-  
+
+  /* ============================================
+     REVEAL ON SCROLL
+  ============================================ */
+  function initReveal() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  }
+
+  /* ============================================
+     COUNTERS
+  ============================================ */
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target), suffix = el.dataset.suffix || '', duration = 1800, step = target / (duration / 16);
+    let cur = 0;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = Math.floor(cur).toLocaleString() + suffix;
+      if (cur >= target) clearInterval(t);
+    }, 16);
+  }
+  function initCounters() {
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } });
+    }, { threshold: .5 });
+    document.querySelectorAll('.counter-num [data-target]').forEach(c => counterObs.observe(c));
+  }
+
+  /* ============================================
+     HERO PARTICLES
+  ============================================ */
+  function initParticles() {
+    const field = document.getElementById('particleField');
+    if (!field) return;
+    const count = 26;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('span');
+      p.className = 'particle';
+      const size = 2 + Math.random() * 3;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.bottom = (Math.random() * 20) + 'px';
+      p.style.animationDuration = (8 + Math.random() * 10) + 's';
+      p.style.animationDelay = (Math.random() * 10) + 's';
+      field.appendChild(p);
+    }
+  }
+
+  /* ============================================
+     LEADER CARD 3D TILT
+  ============================================ */
+  function initTilt() {
+    const cards = document.querySelectorAll('.tilt-card');
+    cards.forEach(wrap => {
+      const card = wrap.querySelector('.leader-card');
+      if (!card) return;
+      wrap.addEventListener('mousemove', (e) => {
+        const rect = wrap.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2, cy = rect.height / 2;
+        const rotateY = ((x - cx) / cx) * 6;
+        const rotateX = -((y - cy) / cy) * 6;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      wrap.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  }
+
+  /* ============================================
+     ORG CHART CONNECTOR DRAW-IN
+  ============================================ */
+  function initOrgChart() {
+    const chart = document.getElementById('orgChart');
+    if (!chart) return;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          chart.classList.add('lines-in');
+          obs.unobserve(chart);
+        }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(chart);
+  }
+
+  /* ============================================
+     INIT
+  ============================================ */
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
-    
     initNavbar();
     initGlobalUI();
+    initReveal();
+    initCounters();
+    initParticles();
+    initTilt();
+    initOrgChart();
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadAllComponents);
   } else {
     loadAllComponents();
   }
-  
-  window.addEventListener('load', function() {
+
+  window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     if (loader) {
       setTimeout(() => {
         loader.style.opacity = '0';
-        setTimeout(() => {
-          loader.style.display = 'none';
-        }, 500);
+        setTimeout(() => { loader.style.display = 'none'; }, 500);
       }, 1000);
     }
   });

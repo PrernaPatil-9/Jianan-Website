@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Contact Us - Jianan Engineering | Get In Touch</title>
   <meta name="description" content="Contact Jianan Engineering for EPC, MEP, and industrial infrastructure solutions. Reach us at our Mumbai headquarters or via phone, email, or contact form.">
+  <link rel="icon" href="/assets/images/logo.png">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,22 +45,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
-    /* ========================================
-       GLOBAL STYLES
-       ======================================== */
-    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       overflow-x: hidden;
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
     }
-    
+
     /* Loader Styles */
     .loader {
       position: fixed;
@@ -74,11 +71,9 @@
       justify-content: center;
       transition: opacity 0.8s ease-out;
     }
-    
-    .loader-content {
-      text-align: center;
-    }
-    
+
+    .loader-content { text-align: center; }
+
     .loader-logo {
       width: 80px;
       height: 80px;
@@ -93,7 +88,7 @@
       color: white;
       animation: pulse 1.5s infinite;
     }
-    
+
     .loader-text {
       color: white;
       font-size: 14px;
@@ -101,7 +96,7 @@
       font-weight: 500;
       margin-bottom: 20px;
     }
-    
+
     .loader-bar {
       width: 200px;
       height: 2px;
@@ -110,7 +105,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .loader-bar::after {
       content: '';
       position: absolute;
@@ -121,16 +116,13 @@
       background: linear-gradient(90deg, #1E88E5, #28B463);
       animation: loading 1.5s infinite;
     }
-    
-    @keyframes loading {
-      100% { left: 100%; }
-    }
-    
+
+    @keyframes loading { 100% { left: 100%; } }
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.9; }
     }
-    
+
     /* Scroll Progress */
     .scroll-progress {
       position: fixed;
@@ -142,7 +134,7 @@
       z-index: 10001;
       transition: width 0.1s ease-out;
     }
-    
+
     /* Back to Top Button */
     .back-to-top {
       position: fixed;
@@ -150,8 +142,6 @@
       right: 30px;
       width: 50px;
       height: 50px;
-      /* background: #1E88E5;
-      border-radius: 50%; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -161,59 +151,43 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      background: transparent !important;
+      box-shadow: none;
+      padding: 0;
     }
-    
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    .back-to-top {
-    background: transparent !important;
-    box-shadow: none;
-    padding: 0;
-}
-    .back-to-top:hover {
-      background: #28B463;
-      transform: translateY(-5px);
-    }
-    
+
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-5px); }
+
     /* Container */
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 24px;
     }
-    
+
     /* Section Styles */
-    .section {
-      padding: 100px 0;
-    }
-    
+    .section { padding: 100px 0; }
+
     @media (max-width: 768px) {
-      .section {
-        padding: 60px 0;
-      }
+      .section { padding: 60px 0; }
     }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
+
+    .section-header { text-align: center; margin-bottom: 60px; }
+
     .section-tag {
       display: inline-block;
       font-size: 14px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.1);
+      color: #28B463;
+      background: rgba(40,180,99,0.1);
       padding: 6px 16px;
       border-radius: 50px;
       margin-bottom: 20px;
     }
-    
+
     .section-title {
       font-size: 42px;
       font-weight: 700;
@@ -221,224 +195,472 @@
       color: #0F172A;
       margin-bottom: 16px;
     }
-    
+
     @media (max-width: 768px) {
-      .section-title {
-        font-size: 32px;
-      }
+      .section-title { font-size: 32px; }
     }
-    
+
     .section-subtitle {
       font-size: 18px;
       color: #475569;
       max-width: 600px;
       margin: 0 auto;
     }
-    
-    /* Button Styles */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #1E88E5;
-      color: white;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
-      cursor: pointer;
-      border: none;
+
+    .bg-light { background: #F8FAFC; }
+    .text-primary { color: #1E88E5; }
+    .text-secondary { color: #28B463; }
+
+    /* ============ HERO ============ */
+    .contact-hero {
+      position: relative;
+      background: #0b1a2e;
+      padding: 170px 0 90px;
+      overflow: hidden;
     }
-    
-    .btn-primary:hover {
-      background: #0F5B99;
-      transform: translateY(-2px);
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(40,180,99,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
-    
-    /* Contact Info Card */
-    .contact-info-card {
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(30,136,229,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .contact-hero-inner { position: relative; z-index: 2; }
+
+    /* ============ CONTACT CARDS ============ */
+    .contact-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .contact-card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .contact-card-grid { grid-template-columns: 1fr; }
+    }
+
+    .contact-card-modern {
       background: white;
-      border-radius: 24px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 32px 24px;
       border: 1px solid #E2E8F0;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       height: 100%;
+      position: relative;
+      overflow: hidden;
     }
-    
-    .contact-info-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
+
+    .contact-card-modern::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1E88E5, #28B463);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
-    
-    .contact-icon {
+
+    .contact-card-modern:hover::after {
+      transform: scaleX(1);
+    }
+
+    .contact-card-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+
+    .contact-card-modern .icon-circle {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, #1E88E5, #28B463);
+      background: linear-gradient(135deg, rgba(30,136,229,0.08), rgba(40,180,99,0.08));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      font-size: 26px;
+      color: #1E88E5;
+      transition: all 0.3s;
     }
-    
-    .contact-icon i {
-      font-size: 28px;
+
+    .contact-card-modern:hover .icon-circle {
+      background: linear-gradient(135deg, #1E88E5, #28B463);
       color: white;
+      transform: scale(1.05);
     }
-    
-    /* Contact Form */
-    .contact-form {
+
+    .contact-card-modern h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+
+    .contact-card-modern p {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .contact-card-modern .link-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #475569;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 4px 0;
+      transition: color 0.3s;
+    }
+
+    .contact-card-modern .link-item:hover {
+      color: #28B463;
+    }
+
+    .contact-card-modern .link-item i {
+      color: #28B463;
+      width: 18px;
+    }
+
+    /* ============ FORM & MAP ============ */
+    .form-map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .form-map-grid { grid-template-columns: 1fr; }
+    }
+
+    .form-modern {
       background: white;
       border-radius: 24px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       border: 1px solid #E2E8F0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     }
-    
-    .form-input {
+
+    .form-modern .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-modern label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #0F172A;
+      margin-bottom: 6px;
+    }
+
+    .form-modern label .required {
+      color: #EF4444;
+    }
+
+    .form-modern input,
+    .form-modern select,
+    .form-modern textarea {
       width: 100%;
-      padding: 14px 18px;
+      padding: 12px 16px;
       border: 1px solid #E2E8F0;
       border-radius: 12px;
       font-family: 'Inter', sans-serif;
+      font-size: 14px;
       transition: all 0.3s;
+      background: #FAFBFC;
+    }
+
+    .form-modern input:focus,
+    .form-modern select:focus,
+    .form-modern textarea:focus {
+      outline: none;
+      border-color: #28B463;
+      box-shadow: 0 0 0 3px rgba(40,180,99,0.1);
       background: white;
     }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: #1E88E5;
-      box-shadow: 0 0 0 3px rgba(30,136,229,0.1);
-    }
-    
-    .form-label {
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: block;
-      color: #0F172A;
-    }
-    
-    /* Map Container */
-    .map-container {
+
+    .form-modern .submit-btn {
       width: 100%;
-      height: 400px;
+      padding: 14px;
+      background: linear-gradient(135deg, #28B463, #1E7A43);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-modern .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40,180,99,0.3);
+    }
+
+    .map-wrap {
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    
-    /* Office Location Card */
-    .office-card {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       border: 1px solid #E2E8F0;
       height: 100%;
+      min-height: 400px;
     }
-    
-    .office-card:hover {
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      border: none;
+      display: block;
+    }
+
+    /* ============ OFFICE CARDS ============ */
+    .office-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    @media (max-width: 1024px) {
+      .office-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .office-grid { grid-template-columns: 1fr; }
+    }
+
+    .office-card-modern {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 24px;
+      border: 1px solid #E2E8F0;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .office-card-modern:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      border-color: #1E88E5;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+      border-color: #28B463;
     }
-    
-    .office-icon {
-      width: 50px;
-      height: 50px;
-      background: rgba(30,136,229,0.1);
+
+    .office-card-modern .flag-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(40,180,99,0.08);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
+      font-size: 22px;
+      color: #28B463;
     }
-    
-    .office-icon i {
-      font-size: 24px;
+
+    .office-card-modern h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    .office-card-modern .location {
+      color: #28B463;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .office-card-modern .address {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .office-card-modern .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #475569;
+      margin-top: 4px;
+    }
+
+    .office-card-modern .contact-item i {
       color: #1E88E5;
+      width: 16px;
     }
-    
-    /* Social Links */
-    .social-link {
-      display: inline-flex;
-      width: 45px;
-      height: 45px;
-      background: #F8FAFC;
+
+    .office-card-modern .future-badge {
+      display: inline-block;
+      background: rgba(40,180,99,0.1);
+      color: #28B463;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* ============ SOCIAL ============ */
+    .social-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .social-link-modern {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
+      background: white;
+      border: 1px solid #E2E8F0;
+      display: flex;
       align-items: center;
       justify-content: center;
       color: #1E88E5;
-      transition: all 0.3s;
-      margin-right: 10px;
+      font-size: 20px;
       text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
-    .social-link:hover {
-      background: #1E88E5;
+
+    .social-link-modern:hover {
+      background: linear-gradient(135deg, #1E88E5, #28B463);
       color: white;
-      transform: translateY(-3px);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(30,136,229,0.25);
+      border-color: transparent;
     }
-    
-    /* FAQ Item */
-    .faq-item {
+
+    /* ============ FAQ ============ */
+    .faq-item-modern {
       background: white;
       border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 15px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
       border: 1px solid #E2E8F0;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
-    
-    .faq-item:hover {
-      border-color: #1E88E5;
+
+    .faq-item-modern:hover {
+      border-color: #28B463;
     }
-    
-    .faq-question {
+
+    .faq-item-modern.active {
+      border-color: #28B463;
+      box-shadow: 0 8px 25px rgba(40,180,99,0.06);
+    }
+
+    .faq-item-modern .question {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-weight: 600;
+      font-size: 15px;
       color: #0F172A;
     }
-    
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      color: #475569;
-      margin-top: 0;
+
+    .faq-item-modern .question i {
+      color: #28B463;
+      transition: transform 0.3s;
+      font-size: 14px;
     }
-    
-    .faq-item.active .faq-answer {
-      max-height: 200px;
-      margin-top: 15px;
-    }
-    
-    .faq-item.active .faq-question i {
+
+    .faq-item-modern.active .question i {
       transform: rotate(180deg);
     }
-    
-    .bg-light {
-      background: #F8FAFC;
+
+    .faq-item-modern .answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
     }
-    
-    .text-primary {
-      color: #1E88E5;
+
+    .faq-item-modern.active .answer {
+      max-height: 200px;
+      padding-top: 14px;
     }
-    
-    .text-secondary {
-      color: #28B463;
+
+    /* ============ EMERGENCY CTA ============ */
+    .emergency-cta {
+      background: linear-gradient(135deg, #0F172A, #1a3c34);
+      border-radius: 24px;
+      padding: 40px 50px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emergency-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(40,180,99,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .emergency-cta .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .emergency-cta .btn-emergency {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: #0F172A;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-top: 12px;
+    }
+
+    .emergency-cta .btn-emergency:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+    }
+
+    /* Hero animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
     }
   </style>
 </head>
@@ -458,65 +680,73 @@
 
 <!-- Back to Top -->
 <div id="backToTop" class="back-to-top">
-    <img src="assets/images/btt.png"
-         alt="Back to Top"
-         class="w-16 h-auto animate-bounce">
+  <img src="assets/images/btt.png" alt="Back to Top" class="w-16 h-auto animate-bounce">
 </div>
 
 <!-- Navbar Container -->
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero Section -->
-  <section style="background: linear-gradient(135deg, #0F172A, #1E88E5); padding: 160px 0 80px;">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">Contact Us</h1>
-      <p class="text-xl max-w-2xl mx-auto">Let's discuss how Jianan Engineering can support your next project</p>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container contact-hero-inner text-center">
+      <span class="inline-flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400 text-xs font-semibold tracking-wider uppercase rounded-full px-4 py-1.5 mb-5 border border-emerald-500/30">
+        <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+        Get In Touch
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white leading-tight mb-5">
+        Let's <span class="text-emerald-400">Connect</span>
+      </h1>
+      <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">Have a project in mind? Reach out to us and let's discuss how we can bring your vision to life.</p>
     </div>
   </section>
 
   <!-- Contact Information Cards -->
-  <section class="section">
+  <section class="section" style="padding-top: 60px;">
     <div class="container">
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="contact-card-grid">
         <!-- Address Card -->
-        <div class="contact-info-card">
-          <div class="contact-icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Corporate Headquarters</h3>
-          <p class="text-text">Worli, Mumbai - 400030</p>
+        <div class="contact-card-modern">
+          <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Corporate Headquarters</h3>
+          <p class="font-semibold text-dark">Worli, Mumbai - 400030</p>
           <p class="text-text">Maharashtra, India</p>
-          <div class="mt-4 pt-4 border-t">
-            <p class="text-text"><i class="fas fa-building text-primary mr-2"></i> 7th Floor, Business Park</p>
-            <p class="text-text"><i class="fas fa-road text-primary mr-2"></i> Dr. Annie Besant Road</p>
+          <div class="mt-4 pt-4 border-t border-E2E8F0">
+            <div class="link-item"><i class="fas fa-building"></i> 7th Floor, Business Park</div>
+            <div class="link-item"><i class="fas fa-road"></i> Dr. Annie Besant Road</div>
+            <div class="link-item"><i class="fas fa-map-pin"></i> Landmark: Near Worli Sea Face</div>
           </div>
         </div>
-        
+
         <!-- Phone & Email Card -->
-        <div class="contact-info-card">
-          <div class="contact-icon">
-            <i class="fas fa-phone-alt"></i>
+        <div class="contact-card-modern">
+          <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+          <h3>Phone & Email</h3>
+          <div class="mt-2">
+            <div class="link-item"><i class="fas fa-phone"></i> +91 22 4567 8900</div>
+            <div class="link-item"><i class="fas fa-phone"></i> +91 22 4567 8901</div>
+            <div class="link-item"><i class="fas fa-envelope"></i> contact@jianan.in</div>
+            <div class="link-item"><i class="fas fa-envelope"></i> projects@jianan.in</div>
+            <div class="link-item"><i class="fas fa-envelope"></i> careers@jianan.in</div>
           </div>
-          <h3 class="text-xl font-bold mb-3">Phone & Email</h3>
-          <p class="text-text"><i class="fas fa-phone text-primary mr-2"></i> +91 22 4567 8900</p>
-          <p class="text-text"><i class="fas fa-phone text-primary mr-2"></i> +91 22 4567 8901 (Emergency)</p>
-          <p class="text-text mt-3"><i class="fas fa-envelope text-primary mr-2"></i> contact@jianan.in</p>
-          <p class="text-text"><i class="fas fa-envelope text-primary mr-2"></i> projects@jianan.in</p>
-          <p class="text-text"><i class="fas fa-envelope text-primary mr-2"></i> careers@jianan.in</p>
+          <div class="mt-4 pt-4 border-t border-E2E8F0">
+            <div class="link-item text-secondary"><i class="fab fa-whatsapp"></i> +91 98765 43210</div>
+          </div>
         </div>
-        
+
         <!-- Business Hours Card -->
-        <div class="contact-info-card">
-          <div class="contact-icon">
-            <i class="fas fa-clock"></i>
+        <div class="contact-card-modern">
+          <div class="icon-circle"><i class="fas fa-clock"></i></div>
+          <h3>Business Hours</h3>
+          <div class="mt-2">
+            <div class="link-item"><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</div>
+            <div class="link-item"><strong>Saturday:</strong> 9:00 AM - 2:00 PM</div>
+            <div class="link-item"><strong>Sunday:</strong> <span class="text-secondary">Closed</span></div>
           </div>
-          <h3 class="text-xl font-bold mb-3">Business Hours</h3>
-          <p class="text-text"><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</p>
-          <p class="text-text"><strong>Saturday:</strong> 9:00 AM - 2:00 PM</p>
-          <p class="text-text"><strong>Sunday:</strong> Closed</p>
-          <div class="mt-4 pt-4 border-t">
-            <p class="text-text"><i class="fab fa-whatsapp text-secondary mr-2"></i> WhatsApp: +91 98765 43210</p>
+          <div class="mt-4 pt-4 border-t border-E2E8F0">
+            <div class="link-item"><i class="fas fa-globe"></i> GMT +5:30 (IST)</div>
+            <div class="link-item"><i class="fas fa-clock"></i> 24/7 Emergency Support</div>
           </div>
         </div>
       </div>
@@ -526,32 +756,35 @@
   <!-- Contact Form & Map Section -->
   <section class="section bg-light">
     <div class="container">
-      <div class="grid md:grid-cols-2 gap-12">
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <h2 class="text-2xl font-bold mb-6">Send Us a <span class="text-primary">Message</span></h2>
-          <p class="text-text mb-6">Fill out the form below and our team will get back to you within 24 hours.</p>
-          
+      <div class="section-header">
+        <span class="section-tag">Send Message</span>
+        <h2 class="section-title">Get In <span class="text-secondary">Touch</span></h2>
+        <p class="section-subtitle">Fill out the form below and our team will get back to you within 24 hours</p>
+      </div>
+
+      <div class="form-map-grid">
+        <!-- Form -->
+        <div class="form-modern">
           <form id="contactForm">
             <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="form-label">Full Name <span class="text-red-500">*</span></label>
-                <input type="text" id="fullName" class="form-input" required placeholder="Enter your full name">
+              <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" required placeholder="Enter your full name">
               </div>
-              <div>
-                <label class="form-label">Email Address <span class="text-red-500">*</span></label>
-                <input type="email" id="email" class="form-input" required placeholder="your@email.com">
+              <div class="form-group">
+                <label>Email Address <span class="required">*</span></label>
+                <input type="email" id="email" required placeholder="your@email.com">
               </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-4 mt-4">
-              <div>
-                <label class="form-label">Phone Number</label>
-                <input type="tel" id="phone" class="form-input" placeholder="+91 XXXXX XXXXX">
+
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
               </div>
-              <div>
-                <label class="form-label">Subject <span class="text-red-500">*</span></label>
-                <select id="subject" class="form-input" required>
+              <div class="form-group">
+                <label>Subject <span class="required">*</span></label>
+                <select id="subject" required>
                   <option value="">Select Subject</option>
                   <option>Project Inquiry</option>
                   <option>EPC Services</option>
@@ -562,33 +795,28 @@
                 </select>
               </div>
             </div>
-            
-            <div class="mt-4">
-              <label class="form-label">Message <span class="text-red-500">*</span></label>
-              <textarea id="message" rows="5" class="form-input" required placeholder="Tell us about your project or inquiry..."></textarea>
+
+            <div class="form-group">
+              <label>Message <span class="required">*</span></label>
+              <textarea id="message" rows="5" required placeholder="Tell us about your project or inquiry..."></textarea>
             </div>
-            
-            <div class="mt-6">
-              <button type="submit" class="btn-primary w-full justify-center">Send Message <i class="fas fa-paper-plane"></i></button>
-            </div>
-            
-            <div id="formStatus" class="mt-4 text-center"></div>
+
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+
+            <div id="formStatus" class="mt-4 text-center" style="font-size:14px;"></div>
           </form>
         </div>
-        
-        <!-- Google Map -->
-        <div>
-          <div class="map-container">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.102630603607!2d72.819682!3d19.019951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ced6424816f3%3A0x8d5b8e5c5e8b5e8b!2sWorli%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-          <div class="mt-4 text-center">
-            <p class="text-text"><i class="fas fa-location-dot text-primary"></i> View on Google Maps</p>
-          </div>
+
+        <!-- Map -->
+        <div class="map-wrap">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.102630603607!2d72.819682!3d19.019951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ced6424816f3%3A0x8d5b8e5c5e8b5e8b!2sWorli%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
@@ -599,69 +827,68 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Global Presence</span>
-        <h2 class="section-title">Our <span class="text-primary">International Offices</span></h2>
-        <p class="section-subtitle">Serving clients across three countries</p>
+        <h2 class="section-title">Our <span class="text-secondary">International Offices</span></h2>
+        <p class="section-subtitle">Serving clients across three countries with strategic expansion plans</p>
       </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="office-grid">
+        <!-- India Office -->
+        <div class="office-card-modern">
+          <div class="flag-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>India</h4>
+          <div class="location">Mumbai Headquarters</div>
+          <div class="address">
+            7th Floor, Business Park<br>
+            Dr. Annie Besant Road, Worli<br>
+            Mumbai - 400030, Maharashtra
+          </div>
+          <div class="contact-item"><i class="fas fa-phone"></i> +91 22 4567 8900</div>
+          <div class="contact-item"><i class="fas fa-envelope"></i> india@jianan.in</div>
+        </div>
+
         <!-- Indonesia Office -->
-        <div class="office-card">
-          <div class="office-icon">
-            <i class="fas fa-map-marker-alt"></i>
+        <div class="office-card-modern">
+          <div class="flag-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Indonesia</h4>
+          <div class="location">Jakarta Office</div>
+          <div class="address">
+            Sudirman Central Business District<br>
+            Jakarta Selatan, 12190<br>
+            Indonesia
           </div>
-          <h3 class="text-xl font-bold mb-2">Indonesia</h3>
-          <p class="text-primary font-semibold mb-2">Jakarta Office</p>
-          <p class="text-text">Sudirman Central Business District</p>
-          <p class="text-text">Jakarta Selatan, 12190</p>
-          <p class="text-text mt-3"><i class="fas fa-phone text-primary"></i> +62 21 1234 5678</p>
-          <p class="text-text"><i class="fas fa-envelope text-primary"></i> indonesia@jianan.in</p>
+          <div class="contact-item"><i class="fas fa-phone"></i> +62 21 1234 5678</div>
+          <div class="contact-item"><i class="fas fa-envelope"></i> indonesia@jianan.in</div>
         </div>
-        
+
         <!-- Bangladesh Office -->
-        <div class="office-card">
-          <div class="office-icon">
-            <i class="fas fa-map-marker-alt"></i>
+        <div class="office-card-modern">
+          <div class="flag-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Bangladesh</h4>
+          <div class="location">Dhaka Office</div>
+          <div class="address">
+            Gulshan Avenue, Dhaka 1212<br>
+            Bangladesh
           </div>
-          <h3 class="text-xl font-bold mb-2">Bangladesh</h3>
-          <p class="text-primary font-semibold mb-2">Dhaka Office</p>
-          <p class="text-text">Gulshan Avenue, Dhaka 1212</p>
-          <p class="text-text">Bangladesh</p>
-          <p class="text-text mt-3"><i class="fas fa-phone text-primary"></i> +880 2 1234 567</p>
-          <p class="text-text"><i class="fas fa-envelope text-primary"></i> bangladesh@jianan.in</p>
-        </div>
-        
-        <!-- UAE Office (Future) -->
-        <div class="office-card">
-          <div class="office-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">United Arab Emirates</h3>
-          <p class="text-primary font-semibold mb-2">Coming Soon - 2025</p>
-          <p class="text-text">Dubai, UAE</p>
-          <p class="text-text">Strategic expansion planned for Middle East operations</p>
-          <div class="mt-3">
-            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs">Future Office</span>
-          </div>
+          <div class="contact-item"><i class="fas fa-phone"></i> +880 2 1234 567</div>
+          <div class="contact-item"><i class="fas fa-envelope"></i> bangladesh@jianan.in</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social Media & Connect -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-4">Connect With <span class="text-primary">Us</span></h2>
-        <p class="text-text mb-8">Follow us on social media for updates, project highlights, and industry insights</p>
-        
-        <div class="flex justify-center gap-4 flex-wrap">
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in fa-lg"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-twitter fa-lg"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-facebook-f fa-lg"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram fa-lg"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-youtube fa-lg"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-whatsapp fa-lg"></i></a>
-        </div>
+  <!-- Social Media -->
+  <section class="section bg-light" style="padding: 60px 0;">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold mb-3">Connect With <span class="text-secondary">Us</span></h2>
+      <p class="text-text mb-8">Follow us on social media for updates, project highlights, and industry insights</p>
+
+      <div class="social-grid">
+        <a href="#" class="social-link-modern"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-link-modern"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link-modern"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link-modern"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link-modern"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link-modern"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </section>
@@ -671,75 +898,72 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">FAQs</span>
-        <h2 class="section-title">Frequently Asked <span class="text-primary">Questions</span></h2>
+        <h2 class="section-title">Frequently Asked <span class="text-secondary">Questions</span></h2>
       </div>
-      
+
       <div class="max-w-3xl mx-auto">
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
+        <div class="faq-item-modern" onclick="toggleFaq(this)">
+          <div class="question">
             <span>What services does Jianan Engineering offer?</span>
-            <i class="fas fa-chevron-down text-primary"></i>
+            <i class="fas fa-chevron-down"></i>
           </div>
-          <div class="faq-answer">
-            We offer comprehensive engineering services including Civil & Structural Engineering, MEP Systems, HVAC & Fire Safety, Electrical Systems, Turnkey EPC Solutions, and Project Management.
-          </div>
+          <div class="answer">We offer comprehensive engineering services including Civil & Structural Engineering, MEP Systems, HVAC & Fire Safety, Electrical Systems, Turnkey EPC Solutions, and Project Management.</div>
         </div>
-        
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
+
+        <div class="faq-item-modern" onclick="toggleFaq(this)">
+          <div class="question">
             <span>Which industries do you serve?</span>
-            <i class="fas fa-chevron-down text-primary"></i>
+            <i class="fas fa-chevron-down"></i>
           </div>
-          <div class="faq-answer">
-            We serve pharmaceutical, infrastructure, renewable energy, electronics, manufacturing, automotive, commercial, chemicals, and food & beverage industries.
-          </div>
+          <div class="answer">We serve pharmaceutical, infrastructure, renewable energy, electronics, manufacturing, automotive, commercial, chemicals, and food & beverage industries.</div>
         </div>
-        
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
+
+        <div class="faq-item-modern" onclick="toggleFaq(this)">
+          <div class="question">
             <span>Do you operate internationally?</span>
-            <i class="fas fa-chevron-down text-primary"></i>
+            <i class="fas fa-chevron-down"></i>
           </div>
-          <div class="faq-answer">
-            Yes, we have successfully executed projects in India, Indonesia, and Bangladesh, with plans to expand to the Middle East by 2025.
-          </div>
+          <div class="answer">Yes, we have successfully executed projects in India, Indonesia, and Bangladesh, with plans to expand to the Middle East by 2025.</div>
         </div>
-        
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
+
+        <div class="faq-item-modern" onclick="toggleFaq(this)">
+          <div class="question">
             <span>How can I get a quote for my project?</span>
-            <i class="fas fa-chevron-down text-primary"></i>
+            <i class="fas fa-chevron-down"></i>
           </div>
-          <div class="faq-answer">
-            You can fill out the contact form on this page, email us at projects@jianan.in, or call our office directly. Our team will respond within 24 hours.
-          </div>
+          <div class="answer">You can fill out the contact form on this page, email us at projects@jianan.in, or call our office directly. Our team will respond within 24 hours.</div>
         </div>
-        
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
+
+        <div class="faq-item-modern" onclick="toggleFaq(this)">
+          <div class="question">
             <span>Is Jianan Engineering ISO certified?</span>
-            <i class="fas fa-chevron-down text-primary"></i>
+            <i class="fas fa-chevron-down"></i>
           </div>
-          <div class="faq-answer">
-            Yes, we are ISO 9001:2025 (Quality Management), ISO 14001:2025 (Environmental Management), and ISO 45001:2025 (Occupational Health & Safety) certified.
-          </div>
+          <div class="answer">Yes, we are ISO 9001:2025 (Quality Management), ISO 14001:2025 (Environmental Management), and ISO 45001:2025 (Occupational Health & Safety) certified.</div>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Emergency Contact CTA -->
-  <section class="section bg-light" style="padding: 60px 0;">
+  <section class="section" style="padding: 60px 0;">
     <div class="container">
-      <div class="bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-8 text-center text-white">
-        <h3 class="text-2xl font-bold mb-3">24/7 Emergency Support</h3>
-        <p class="mb-4 opacity-90">For urgent technical assistance or emergency site support</p>
-        <a href="tel:+912245678901" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-3 rounded-full font-semibold hover:shadow-lg transition">
-          <i class="fas fa-phone-alt"></i> +91 22 4567 8901
-        </a>
+      <div class="emergency-cta">
+        <div class="content">
+          <div class="inline-flex items-center gap-2 bg-emerald-500/20 rounded-full px-4 py-1.5 mb-4 border border-emerald-500/30">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            <span class="text-emerald-400 text-xs font-semibold tracking-wider">24/7 Support</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Emergency Support</h3>
+          <p class="text-white/80 mb-4">For urgent technical assistance or emergency site support</p>
+          <a href="tel:+912245678901" class="btn-emergency">
+            <i class="fas fa-phone-alt"></i> +91 22 4567 8901
+          </a>
+        </div>
       </div>
     </div>
   </section>
+
 </main>
 
 <!-- Footer Container -->
@@ -750,59 +974,62 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
-  // Toggle FAQ items
+  // ============================================
+  // FAQ TOGGLE
+  // ============================================
+
   function toggleFaq(element) {
     element.classList.toggle('active');
   }
-  
-  // Submit contact form
-  function submitContactForm(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('fullName').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    if (!name || !email || !subject || !message) {
-      showFormStatus('Please fill all required fields', 'error');
-      return;
-    }
-    
-    const statusDiv = document.getElementById('formStatus');
-    statusDiv.innerHTML = '<span class="text-primary"><i class="fas fa-spinner fa-spin"></i> Sending message...</span>';
-    
-    // Simulate form submission
-    setTimeout(() => {
-      statusDiv.innerHTML = '<span class="text-secondary"><i class="fas fa-check-circle"></i> Thank you! Our team will contact you within 24 hours.</span>';
-      document.getElementById('contactForm').reset();
-      
-      setTimeout(() => {
-        statusDiv.innerHTML = '';
-      }, 5000);
-    }, 1500);
-  }
-  
-  function showFormStatus(message, type) {
-    const statusDiv = document.getElementById('formStatus');
-    statusDiv.innerHTML = `<span class="${type === 'error' ? 'text-red-500' : 'text-secondary'}">${message}</span>`;
-    setTimeout(() => {
-      statusDiv.innerHTML = '';
-    }, 3000);
-  }
-  
-  // Attach form submit handler
+
+  // ============================================
+  // FORM SUBMISSION
+  // ============================================
+
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     if (form) {
-      form.addEventListener('submit', submitContactForm);
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
+        const statusDiv = document.getElementById('formStatus');
+
+        // Validation
+        if (!name || !email || !subject || !message) {
+          statusDiv.innerHTML = '<span style="color:#EF4444;">⚠️ Please fill all required fields.</span>';
+          return;
+        }
+
+        // Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          statusDiv.innerHTML = '<span style="color:#EF4444;">⚠️ Please enter a valid email address.</span>';
+          return;
+        }
+
+        // Simulate submission
+        statusDiv.innerHTML = '<span style="color:#1E88E5;"><i class="fas fa-spinner fa-spin"></i> Sending message...</span>';
+
+        setTimeout(() => {
+          statusDiv.innerHTML = '<span style="color:#28B463;"><i class="fas fa-check-circle"></i> Thank you! Our team will contact you within 24 hours.</span>';
+          form.reset();
+
+          setTimeout(() => {
+            statusDiv.innerHTML = '';
+          }, 5000);
+        }, 1500);
+      });
     }
   });
-  
+
   // ============================================
-  // LOAD COMPONENTS (navbar and footer)
+  // LOAD COMPONENTS
   // ============================================
-  
+
   async function loadComponent(elementId, componentPath) {
     try {
       const response = await fetch(componentPath);
@@ -815,12 +1042,12 @@
       return false;
     }
   }
-  
+
   function initNavbar() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
-    
+
     if (header) {
       window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
@@ -830,17 +1057,17 @@
         }
       });
     }
-    
+
     if (navToggle && navMenu) {
       const newToggle = navToggle.cloneNode(true);
       navToggle.parentNode.replaceChild(newToggle, navToggle);
-      
+
       const newMenu = navMenu.cloneNode(true);
       navMenu.parentNode.replaceChild(newMenu, navMenu);
-      
+
       const finalToggle = document.getElementById('navToggle');
       const finalMenu = document.getElementById('navMenu');
-      
+
       if (finalToggle && finalMenu) {
         finalToggle.addEventListener('click', function(e) {
           e.preventDefault();
@@ -851,7 +1078,7 @@
         });
       }
     }
-    
+
     document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
       link.addEventListener('click', function() {
         const mobileMenu = document.getElementById('navMenu');
@@ -861,7 +1088,7 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    
+
     document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
       dropdownLink.addEventListener('click', function(e) {
         if (window.innerWidth <= 1024) {
@@ -871,7 +1098,7 @@
         }
       });
     });
-    
+
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
       const href = link.getAttribute('href');
@@ -880,7 +1107,7 @@
       }
     });
   }
-  
+
   function initGlobalUI() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
@@ -891,7 +1118,7 @@
         scrollProgress.style.width = progress + '%';
       });
     }
-    
+
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
       window.addEventListener('scroll', function() {
@@ -901,27 +1128,27 @@
           backToTop.classList.remove('show');
         }
       });
-      
+
       backToTop.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
-  
+
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
-    
+
     initNavbar();
     initGlobalUI();
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadAllComponents);
   } else {
     loadAllComponents();
   }
-  
+
   window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
     if (loader) {
