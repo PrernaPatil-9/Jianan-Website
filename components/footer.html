@@ -6,12 +6,12 @@
       <!-- Brand -->
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="logo-icon">
-            <span class="material-icons">precision_manufacturing</span>
-          </div>
+         <div class="logo-icon">
+    <img src="/assets/images/logo.png" alt="Jianan Engineering Logo">
+</div>
           <div class="logo-text">Jianan <span>Engineering</span></div>
         </div>
-        <p>Delivering world-class engineering, EPC, and MEP solutions since 1998.</p>
+        <p>Delivering world-class engineering, EPC, and MEP solutions.</p>
         <div class="brand-social">
           <a href="#" aria-label="LinkedIn"><span class="material-icons">business_center</span></a>
           <a href="#" aria-label="Twitter"><span class="material-icons">alternate_email</span></a>
@@ -89,7 +89,7 @@
       <p>&copy; 2026 Jianan Engineering Pvt. Ltd. All rights reserved.</p>
       <div class="bottom-links">
         <a href="https://kunashmedia.com/" target="_blank" rel="noopener noreferrer" class="developed-by">
-          <span class="material-icons">code</span> Developed by Kunash Media
+          ~ Developed by <span class="orange-text">Kunash Media</span>
         </a>
       </div>
     </div>
@@ -150,21 +150,30 @@
   gap: 10px;
 }
 
+  .logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #1E88E5, #28B463);
-  border-radius: 10px;
+  width: 60px;   /* Increased from 40px */
+  height: 60px;  /* Increased from 40px */
+  background: transparent;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.2);
+  box-shadow: none;
 }
 
-.logo-icon .material-icons {
-  font-size: 22px;
-  color: #FFFFFF;
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .logo-text {
@@ -350,30 +359,27 @@
 
 .developed-by {
   font-size: 13px;
-  color: #FF8C00 !important;
+  color: #94A3B8;
   text-decoration: none;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(255, 140, 0, 0.08);
-  border: 1px solid rgba(255, 140, 0, 0.15);
+  gap: 4px;
 }
 
-.developed-by .material-icons {
-  font-size: 16px;
+.developed-by .orange-text {
   color: #FF8C00;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.developed-by:hover .orange-text {
+  color: #FFA500;
+  text-decoration: underline;
 }
 
 .developed-by:hover {
-  color: #FFA500 !important;
-  background: rgba(255, 140, 0, 0.15);
-  border-color: rgba(255, 140, 0, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(255, 140, 0, 0.15);
+  color: #FFFFFF;
 }
 
 /* ============================================
@@ -431,7 +437,6 @@
   
   .developed-by {
     font-size: 12px;
-    padding: 3px 8px;
   }
 }
 </style>
