@@ -830,7 +830,7 @@
 
     /* About Section Styles */
 .about-section {
-  padding: 80px 0;
+  padding: 20px 0;
   background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   position: relative;
   overflow: hidden;
@@ -1281,6 +1281,81 @@
     width: 100%;
   }
 }
+
+  /* Clients Section - Compact height, pauses on hover */
+  .clients-section {
+    padding: 16px 0;  /* Reduced from 40px to 16px */
+    background: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+    overflow: hidden;
+  }
+
+  .clients-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .clients-track {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+    transition: filter 0.3s ease;
+  }
+
+  /* PAUSE ANIMATION ON HOVER */
+  .clients-marquee:hover .clients-track {
+    animation-play-state: paused;
+  }
+
+  /* Permanent logo styling - smaller height */
+  .clients-track img {
+    display: inline-block;
+    margin: 0 30px;
+    height: 36px;  /* Reduced from 50px to 36px */
+    width: auto;
+    filter: none;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    vertical-align: middle;
+  }
+
+  /* Subtle effect on hover - logos become more visible */
+  .clients-marquee:hover .clients-track img {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  /* Individual logo hover (optional) */
+  .clients-track img:hover {
+    opacity: 1 !important;
+    transform: scale(1.1) !important;
+    filter: none !important;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 768px) {
+    .clients-section {
+      padding: 12px 0;
+    }
+    .clients-track img {
+      height: 30px;
+      margin: 0 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .clients-section {
+      padding: 10px 0;
+    }
+    .clients-track img {
+      height: 24px;
+      margin: 0 15px;
+    }
+  }
   </style>
 
   <style>
@@ -1387,7 +1462,7 @@
 <main>
 
 <!-- Hero Banner -->
-<section class="relative h-[85vh] min-h-[550px] w-full overflow-hidden flex items-center justify-center" id="home">
+<section class="relative h-[85vh] min-h-[570px] w-full overflow-hidden flex items-center justify-center" id="home">
   
   <!-- Sliding Banners -->
   <div class="absolute inset-0 z-0">
@@ -1442,38 +1517,57 @@
   </div>
 </section>
 
-  <!-- Client Logos Marquee -->
-  <section class="clients-section">
-    <div class="container">
-      <div class="clients-marquee">
-        <div class="clients-track">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-            <img src="/assets/images/logo.png" alt="Client">
-        </div>
+  <!-- Client Logos Marquee - Pauses on hover with smooth effect - Compact -->
+<section class="clients-section">
+  <div class="container">
+    <div class="clients-marquee">
+      <div class="clients-track">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
+        <img src="/assets/images/logo.png" alt="Client">
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Gold Divider -->
+<div class="relative py-5">
+  <div class="flex items-center justify-center gap-4">
+    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-amber-300/40 relative">
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
+    </div>
+    
+    <div class="flex items-center gap-3 px-4">
+      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
+      <span class="text-amber-500 text-[10px] font-semibold tracking-[0.2em] uppercase">About Jianan</span>
+      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
+    </div>
+    
+    <div class="flex-1 h-px bg-gradient-to-l from-transparent via-amber-400/80 to-amber-300/40 relative">
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
+    </div>
+  </div>
+</div>
 
  <!-- Company Overview - Redesigned -->
 <section class="about-section" id="about">
   <div class="container">
     <!-- Section Header -->
     <div class="section-header">
-      <span class="section-tag">About Jianan</span>
+      <!-- <span class="section-tag">About Jianan</span> -->
       <h2 class="section-title">Global Leader in <span class="text-primary">Engineering & Construction</span></h2>
       <p class="section-subtitle">World-class infrastructure solutions since 1998</p>
     </div>
@@ -1571,6 +1665,25 @@
     </div>
   </div>
 </section>
+
+<!-- Gold Divider -->
+<div class="relative py-5">
+  <div class="flex items-center justify-center gap-4">
+    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-amber-300/40 relative">
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
+    </div>
+    
+    <div class="flex items-center gap-3 px-4">
+      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
+      <span class="text-amber-500 text-[10px] font-semibold tracking-[0.2em] uppercase"></span>
+      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
+    </div>
+    
+    <div class="flex-1 h-px bg-gradient-to-l from-transparent via-amber-400/80 to-amber-300/40 relative">
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
+    </div>
+  </div>
+</div>
 
 <!-- Why Jianan - Redesigned to match Elite Endeavor style with images -->
 <section class="pt-8 pb-16 bg-[#e8f5e9]">
@@ -1766,7 +1879,7 @@
   </div>
 </section>
 
-<!-- Featured Projects - Compact Section -->
+<!-- Featured Projects - Compact Section with Proper Image Fitting -->
 <section class="section" id="projects" style="padding: 2rem 0;">
   <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
     <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
@@ -1781,11 +1894,10 @@
       
       <!-- Card 1 -->
       <div class="project-card" style="background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column;">
-        <div class="project-image" style="position: relative; line-height: 0;">
-          <!-- ✅ FIX: Removed fixed height → full image shows -->
-          <img src="/assets/images/pharma_prj.jpg" alt="Project" style="width: 100%; height: auto; display: block;">
+        <div class="project-image" style="position: relative; overflow: hidden; height: 200px; background: #f0f0f0;">
+          <img src="/assets/images/pharma_prj.jpg" alt="Pharma SEZ Project" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
-        <div class="project-info" style="padding: 0.8rem 1rem 1rem;">
+        <div class="project-info" style="padding: 0.8rem 1rem 1rem; flex: 1;">
           <h3 style="font-size: 1rem; font-weight: 700; margin: 0 0 0.1rem;">Pharma SEZ, India</h3>
           <p style="font-size: 0.8rem; color: #555; margin: 0 0 0.15rem;"><i class="fas fa-map-marker-alt" style="margin-right: 4px; color: #28B463;"></i> Mumbai, India</p>
           <p style="font-size: 0.8rem; color: #555; margin: 0;">Turnkey MEP + HVAC for GMP facility</p>
@@ -1794,10 +1906,10 @@
 
       <!-- Card 2 -->
       <div class="project-card" style="background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column;">
-        <div class="project-image" style="position: relative; line-height: 0;">
-          <img src="/assets/images/industrial_park_prj.jpg" alt="Project" style="width: 100%; height: auto; display: block;">
+        <div class="project-image" style="position: relative; overflow: hidden; height: 200px; background: #f0f0f0;">
+          <img src="/assets/images/industrial_park_prj.jpg" alt="Jakarta Industrial Park" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
-        <div class="project-info" style="padding: 0.8rem 1rem 1rem;">
+        <div class="project-info" style="padding: 0.8rem 1rem 1rem; flex: 1;">
           <h3 style="font-size: 1rem; font-weight: 700; margin: 0 0 0.1rem;">Jakarta Industrial Park</h3>
           <p style="font-size: 0.8rem; color: #555; margin: 0 0 0.15rem;"><i class="fas fa-map-marker-alt" style="margin-right: 4px; color: #28B463;"></i> Jakarta, Indonesia</p>
           <p style="font-size: 0.8rem; color: #555; margin: 0;">EPC infrastructure & civil works</p>
@@ -1806,10 +1918,10 @@
 
       <!-- Card 3 -->
       <div class="project-card" style="background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column;">
-        <div class="project-image" style="position: relative; line-height: 0;">
-          <img src="/assets/images/power_plant_prj.jpg" alt="Project" style="width: 100%; height: auto; display: block;">
+        <div class="project-image" style="position: relative; overflow: hidden; height: 200px; background: #f0f0f0;">
+          <img src="/assets/images/power_plant_prj.jpg" alt="Bangladesh Power Plant" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
-        <div class="project-info" style="padding: 0.8rem 1rem 1rem;">
+        <div class="project-info" style="padding: 0.8rem 1rem 1rem; flex: 1;">
           <h3 style="font-size: 1rem; font-weight: 700; margin: 0 0 0.1rem;">Bangladesh Power Plant</h3>
           <p style="font-size: 0.8rem; color: #555; margin: 0 0 0.15rem;"><i class="fas fa-map-marker-alt" style="margin-right: 4px; color: #28B463;"></i> Dhaka, Bangladesh</p>
           <p style="font-size: 0.8rem; color: #555; margin: 0;">Electrical & fire safety systems</p>
@@ -1934,9 +2046,9 @@
 </section>
 
   <!-- Contact CTA -->
-  <section class="section contact-cta" id="contact">
+ <section class="section contact-cta" id="contact">
     <div class="container">
-      <div class="cta-card">
+      <div class="cta-card" style="background-image: url('/assets/images/cta_bg.jfif'); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: 12px; padding: 60px 40px;">
         <div class="cta-content">
           <h2>Ready to Start Your <span class="text-primary">Engineering Project?</span></h2>
           <p>Let's discuss how Jianan Engineering can bring your vision to life.</p>
