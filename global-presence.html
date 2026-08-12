@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Global Presence - Jianan Engineering | Worldwide Operations</title>
-  <meta name="description" content="Jianan Engineering operates across India, Indonesia, and Bangladesh. Global EPC and MEP solutions with international footprint.">
-  <link rel="icon" href="/assets/images/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Global Presence – Jianan Engineering | Worldwide Operations</title>
+  <meta name="description" content="Jianan Engineering operates across India, Indonesia, and Bangladesh. Global EPC and MEP solutions with international footprint. 20+ projects, 2.5M+ sqm built." />
+  <link rel="icon" href="/assets/images/logo.png" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Centralized Theme Configuration (same tokens as the Gallery page — nothing renamed or removed) -->
+  <!-- Centralized Theme Configuration -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: {
-              DEFAULT: "#1E88E5",
-              light: "#4AA3E9",
-              dark: "#0F5B99",
-              pale: "#EAF4FE",
-              xpale: "#F5FAFF"
-            },
-            secondary: {
-              DEFAULT: "#28B463",
-              light: "#4CC97E",
-              dark: "#1E7A43",
-              pale: "#EAFBF1",
-              xpale: "#F3FDF8"
-            },
-            dark: {
-              DEFAULT: "#0F172A",
-              800: "#16213A",
-              700: "#1C2942",
-              600: "#22334F"
-            },
+            primary: { DEFAULT: "#1E88E5", light: "#4AA3E9", dark: "#0F5B99", pale: "#EAF4FE", xpale: "#F5FAFF" },
+            secondary: { DEFAULT: "#28B463", light: "#4CC97E", dark: "#1E7A43", pale: "#EAFBF1", xpale: "#F3FDF8" },
+            dark: { DEFAULT: "#0F172A", 800: "#16213A", 700: "#1C2942", 600: "#22334F" },
             light: "#F8FAFC",
             text: "#475569",
             border: "#E2E8F0"
@@ -55,9 +38,9 @@
     }
   </script>
 
-  <!-- Google Fonts (same as Gallery page) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -159,7 +142,7 @@
     .animate-fade-in-up { animation: fadeInUp .6s ease-out forwards; }
     .anim-delay-200{animation-delay:.2s;opacity:0} .anim-delay-400{animation-delay:.4s;opacity:0} .anim-delay-600{animation-delay:.6s;opacity:0}
 
-    /* ========== SECTION HEADER (shared) ========== */
+    /* ========== SECTION HEADER ========== */
     .head-eyebrow { display:flex; align-items:center; gap:.6rem; color:#1E88E5; font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; margin-bottom:.85rem; }
     .head-eyebrow .ln { width:24px; height:1px; background:#1E88E5; }
     .head-eyebrow.center { justify-content:center; }
@@ -174,9 +157,7 @@
     }
     @media (min-width: 768px) { .counter-num { font-size: 2.9rem; } }
     .counter-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-top: 4px; }
-
     @media(max-width:900px){ .counter-bar{grid-template-columns:repeat(2,1fr)} }
-    @media(max-width:640px){ .counter-bar{grid-template-columns:repeat(2,1fr)} }
 
     /* ========== LOCATION CARDS ========== */
     .loc-card {
@@ -200,11 +181,7 @@
       font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
       padding: 4px 14px; border-radius: 30px; position: relative; z-index: 1;
     }
-    .loc-card-icon {
-      width: 58px; height: 58px; border-radius: 16px; background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.3); display: grid; place-items: center; margin-top: 16px;
-      position: relative; z-index: 1;
-    }
+    .loc-card-icon { width: 58px; height: 58px; border-radius: 16px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); display: grid; place-items: center; margin-top: 16px; position: relative; z-index: 1; }
     .loc-card-icon i { font-size: 26px; color: #fff; }
     .loc-card-title { font-family: 'Poppins', sans-serif; font-size: 1.55rem; font-weight: 700; color: #fff; margin-top: 14px; position: relative; z-index: 1; }
     .loc-card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
@@ -232,7 +209,7 @@
     }
     .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
 
-    /* ========== ROADMAP ========== */
+    /* ========== ROADMAP (from PPT: 2022 Indonesia, 2023 Bangladesh, 2023 India, 2024 Malaysia) ========== */
     .roadmap-track { position: relative; }
     .roadmap-track::before {
       content: ''; position: absolute; top: 26px; left: 0; right: 0; height: 1px;
@@ -258,7 +235,7 @@
     .roadmap-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 14px; background: #EAF4FE; }
     .roadmap-icon i { font-size: 19px; color: #1E88E5; }
 
-    /* ========== PROJECT STORIES ========== */
+    /* ========== PROJECT STORIES (from PPT: India, Indonesia projects) ========== */
     .story-card {
       display: flex; gap: 18px; padding: 22px; border-radius: 18px; border: 1px solid #E2E8F0; background: #fff;
       transition: transform .3s, box-shadow .3s, border-color .3s;
@@ -287,7 +264,6 @@
     }
     .cta-section .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,255,255,0.2); }
 
-    /* ========== CONTACT FLOAT ========== */
     .contact-float {
       position: fixed; bottom: 24px; left: 24px; z-index: 500; width: 54px; height: 54px; border-radius: 50%;
       background: #28B463; display:grid; place-items:center; box-shadow: 0 6px 24px rgba(40,180,99,.45);
@@ -339,7 +315,7 @@
     <div class="container gp-hero-inner text-center">
       <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-xs font-medium text-primary-light tracking-widest uppercase mb-6 animate-fade-in-down">
         <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
-        Worldwide Operations · Three Continents
+        Worldwide Operations · 3 Countries
         <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
       </div>
 
@@ -354,8 +330,8 @@
       </h1>
 
       <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 animate-fade-in-up anim-delay-200">
-        Delivering engineering excellence across three continents — from our headquarters in India to
-        regional and project offices spanning Indonesia and Bangladesh, with new markets ahead.
+        Delivering engineering excellence across India, Indonesia, and Bangladesh — with 20+ projects,
+        2.5M+ sq. meters built, and a growing presence in Southeast Asia.
       </p>
 
       <div class="flex flex-wrap gap-4 justify-center mb-8 animate-fade-in-up anim-delay-400">
@@ -374,15 +350,15 @@
         </div>
         <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
           <i class="fas fa-building text-secondary-light text-xs"></i>
-          <span class="text-white/80 text-xs tracking-wide">8 Office Locations</span>
+          <span class="text-white/80 text-xs tracking-wide">20+ Projects</span>
         </div>
         <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
-          <i class="fas fa-users text-secondary-light text-xs"></i>
-          <span class="text-white/80 text-xs tracking-wide">500+ Employees</span>
+          <i class="fas fa-ruler-combined text-secondary-light text-xs"></i>
+          <span class="text-white/80 text-xs tracking-wide">2.5M+ sqm</span>
         </div>
         <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
           <i class="fas fa-handshake text-secondary-light text-xs"></i>
-          <span class="text-white/80 text-xs tracking-wide">100+ Global Partners</span>
+          <span class="text-white/80 text-xs tracking-wide">6 Key Qualifications</span>
         </div>
       </div>
     </div>
@@ -402,23 +378,23 @@
       <div class="counter-label">Countries</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="8">0</span></div>
-      <div class="counter-label">Office Locations</div>
+      <div class="counter-num"><span data-target="20" data-suffix="+">0</span></div>
+      <div class="counter-label">Total Projects</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="500" data-suffix="+">0</span></div>
-      <div class="counter-label">Global Employees</div>
+      <div class="counter-num"><span data-target="2.5" data-suffix="M+">0</span></div>
+      <div class="counter-label">Sq. Meters Built</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="100" data-suffix="+">0</span></div>
-      <div class="counter-label">Global Partners</div>
+      <div class="counter-num"><span data-target="94">0</span></div>
+      <div class="counter-label">Professionals</div>
     </div>
   </div>
 
   <div class="accent-divider"></div>
 
   <!-- ══════════════════════════════════════════════
-       LOCATIONS
+       LOCATIONS (PPT: India, Bangladesh, Indonesia)
   ══════════════════════════════════════════════ -->
   <section class="section bg-light" id="locations">
     <div class="container">
@@ -428,7 +404,7 @@
         <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
           Where We <span class="text-primary">Operate</span>
         </h2>
-        <p class="text-text text-sm md:text-base mt-3 max-w-xl mx-auto">Strategic presence in key markets across Asia, anchored by a single corporate headquarters.</p>
+        <p class="text-text text-sm md:text-base mt-3 max-w-xl mx-auto">Strategic presence across South and Southeast Asia</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -437,46 +413,27 @@
         <div class="reveal" style="transition-delay:.05s">
           <div class="loc-card" style="--loc-c1:#1E88E5; --loc-c2:#0F5B99;">
             <div class="loc-card-top">
-              <span class="loc-tag-pill"><i class="fas fa-star"></i> Headquarters</span>
+              <span class="loc-tag-pill"><i class="fas fa-star"></i> India</span>
               <div class="loc-card-icon"><i class="fas fa-landmark"></i></div>
               <h3 class="loc-card-title">India</h3>
             </div>
             <div class="loc-card-body">
               <ul class="loc-office-list">
-                <li><i class="fas fa-map-marker-alt"></i> Mumbai (Corporate HQ)</li>
-                <li><i class="fas fa-map-marker-alt"></i> Delhi NCR</li>
-                <li><i class="fas fa-map-marker-alt"></i> Bangalore</li>
-                <li><i class="fas fa-map-marker-alt"></i> Chennai</li>
+                <li><i class="fas fa-map-marker-alt"></i> Noida (Corporate HQ)</li>
+                <li><i class="fas fa-map-marker-alt"></i> Greater Noida · Lucknow · Bhiwadi</li>
+                <li><i class="fas fa-map-marker-alt"></i> Karur, TN · Bengaluru · Gorakhpur · Goa</li>
               </ul>
-              <p class="loc-card-desc">Global headquarters and largest operational base with 300+ employees.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Indonesia -->
-        <div class="reveal" style="transition-delay:.15s">
-          <div class="loc-card" style="--loc-c1:#28B463; --loc-c2:#1E7A43;">
-            <div class="loc-card-top">
-              <span class="loc-tag-pill"><i class="fas fa-circle-nodes"></i> Regional Office</span>
-              <div class="loc-card-icon"><i class="fas fa-city"></i></div>
-              <h3 class="loc-card-title">Indonesia</h3>
-            </div>
-            <div class="loc-card-body">
-              <ul class="loc-office-list">
-                <li><i class="fas fa-map-marker-alt"></i> Jakarta</li>
-                <li><i class="fas fa-map-marker-alt"></i> Surabaya</li>
-              </ul>
-              <p class="loc-card-desc">Strategic hub for Southeast Asian operations, established in 2018.</p>
+              <p class="loc-card-desc">7 landmark industrial projects across India's manufacturing corridors.</p>
             </div>
           </div>
         </div>
 
         <!-- Bangladesh -->
-        <div class="reveal" style="transition-delay:.25s">
-          <div class="loc-card" style="--loc-c1:#4AA3E9; --loc-c2:#28B463;">
+        <div class="reveal" style="transition-delay:.15s">
+          <div class="loc-card" style="--loc-c1:#28B463; --loc-c2:#1E7A43;">
             <div class="loc-card-top">
-              <span class="loc-tag-pill"><i class="fas fa-diagram-project"></i> Project Office</span>
-              <div class="loc-card-icon"><i class="fas fa-helmet-safety"></i></div>
+              <span class="loc-tag-pill"><i class="fas fa-circle-nodes"></i> Bangladesh</span>
+              <div class="loc-card-icon"><i class="fas fa-city"></i></div>
               <h3 class="loc-card-title">Bangladesh</h3>
             </div>
             <div class="loc-card-body">
@@ -484,7 +441,25 @@
                 <li><i class="fas fa-map-marker-alt"></i> Dhaka</li>
                 <li><i class="fas fa-map-marker-alt"></i> Chittagong</li>
               </ul>
-              <p class="loc-card-desc">Key market for infrastructure development since 2005.</p>
+              <p class="loc-card-desc">Jianan Engineering Co. Ltd. established in 2023.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indonesia -->
+        <div class="reveal" style="transition-delay:.25s">
+          <div class="loc-card" style="--loc-c1:#4AA3E9; --loc-c2:#28B463;">
+            <div class="loc-card-top">
+              <span class="loc-tag-pill"><i class="fas fa-diagram-project"></i> Indonesia</span>
+              <div class="loc-card-icon"><i class="fas fa-helmet-safety"></i></div>
+              <h3 class="loc-card-title">Indonesia</h3>
+            </div>
+            <div class="loc-card-body">
+              <ul class="loc-office-list">
+                <li><i class="fas fa-map-marker-alt"></i> Jakarta</li>
+                <li><i class="fas fa-map-marker-alt"></i> Surabaya · Medan · Batam</li>
+              </ul>
+              <p class="loc-card-desc">PT. Jianan Engineering Indonesia established in 2022. 13 diverse projects driving industrial growth.</p>
             </div>
           </div>
         </div>
@@ -512,8 +487,8 @@
         <div class="orb w-56 h-56 bg-secondary/20 -bottom-16 -left-10"></div>
         <div class="relative z-10">
           <div class="footprint-globe"><i class="fas fa-globe-asia"></i></div>
-          <h3 class="font-heading text-xl md:text-2xl text-white font-semibold mb-3">Active Across Three Markets</h3>
-          <p class="text-white/60 max-w-md mx-auto mb-8 text-sm md:text-base">India, Indonesia, and Bangladesh form our current operating footprint, with the Middle East, Africa, and Europe on the horizon.</p>
+          <h3 class="font-heading text-xl md:text-2xl text-white font-semibold mb-3">Active Across Three Nations</h3>
+          <p class="text-white/60 max-w-md mx-auto mb-8 text-sm md:text-base">India, Bangladesh, and Indonesia form our current operating footprint, with Malaysia as the next frontier.</p>
 
           <div class="flex justify-center gap-4 flex-wrap">
             <span class="legend-pill"><span class="legend-dot" style="background:#4AA3E9;"></span> Active Operations</span>
@@ -527,47 +502,57 @@
   <div class="accent-divider"></div>
 
   <!-- ══════════════════════════════════════════════
-       EXPANSION ROADMAP
+       EXPANSION ROADMAP (from PPT: 2022 Indonesia, 2023 Bangladesh, 2023 India, 2024 Malaysia)
   ══════════════════════════════════════════════ -->
   <section class="section bg-light" id="roadmap">
     <div class="container">
       <div class="mb-12 text-center reveal">
-        <div class="head-eyebrow center"><span class="ln"></span> Future Growth <span class="ln"></span></div>
+        <div class="head-eyebrow center"><span class="ln"></span> Our Journey <span class="ln"></span></div>
         <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
-          Expansion <span class="text-primary">Roadmap</span>
+          Strategic <span class="text-primary">Expansion</span>
         </h2>
-        <p class="text-text text-sm md:text-base mt-3 max-w-xl mx-auto">Strategic growth plans charting our path to a broader global reach.</p>
+        <p class="text-text text-sm md:text-base mt-3 max-w-xl mx-auto">Key milestones across South and Southeast Asian markets</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 roadmap-track">
+      <div class="grid md:grid-cols-4 gap-8 roadmap-track">
 
         <div class="reveal" style="transition-delay:.05s">
           <div class="roadmap-card text-center">
             <span class="roadmap-node"></span>
-            <span class="roadmap-year-badge">2025</span>
+            <span class="roadmap-year-badge">2022</span>
             <div class="roadmap-icon mx-auto"><i class="fas fa-flag-checkered"></i></div>
-            <h3 class="font-heading text-lg font-semibold text-dark mb-2">Middle East Entry</h3>
-            <p class="text-text text-sm">Establish a regional office in Dubai, UAE to serve GCC markets.</p>
+            <h3 class="font-heading text-lg font-semibold text-dark mb-2">Indonesia</h3>
+            <p class="text-text text-sm">PT. Jianan Engineering Indonesia established.</p>
           </div>
         </div>
 
         <div class="reveal" style="transition-delay:.15s">
           <div class="roadmap-card text-center">
             <span class="roadmap-node"></span>
-            <span class="roadmap-year-badge">2026</span>
+            <span class="roadmap-year-badge">2023</span>
             <div class="roadmap-icon mx-auto"><i class="fas fa-chart-line"></i></div>
-            <h3 class="font-heading text-lg font-semibold text-dark mb-2">Africa Operations</h3>
-            <p class="text-text text-sm">Launch operations in Kenya and Nigeria for infrastructure projects.</p>
+            <h3 class="font-heading text-lg font-semibold text-dark mb-2">Bangladesh</h3>
+            <p class="text-text text-sm">Jianan Engineering Co. Ltd. established.</p>
           </div>
         </div>
 
         <div class="reveal" style="transition-delay:.25s">
           <div class="roadmap-card text-center">
             <span class="roadmap-node"></span>
-            <span class="roadmap-year-badge">2027</span>
+            <span class="roadmap-year-badge">2023</span>
             <div class="roadmap-icon mx-auto"><i class="fas fa-handshake"></i></div>
-            <h3 class="font-heading text-lg font-semibold text-dark mb-2">European Partnership</h3>
-            <p class="text-text text-sm">Strategic partnership with European engineering firms.</p>
+            <h3 class="font-heading text-lg font-semibold text-dark mb-2">India</h3>
+            <p class="text-text text-sm">Jianan Engineering Pvt. Ltd. incorporated under Companies Act, 2013.</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay:.35s">
+          <div class="roadmap-card text-center">
+            <span class="roadmap-node"></span>
+            <span class="roadmap-year-badge">2024</span>
+            <div class="roadmap-icon mx-auto"><i class="fas fa-rocket"></i></div>
+            <h3 class="font-heading text-lg font-semibold text-dark mb-2">Malaysia</h3>
+            <p class="text-text text-sm">Expanding our ASEAN footprint.</p>
           </div>
         </div>
 
@@ -578,15 +563,16 @@
   <div class="accent-divider"></div>
 
   <!-- ══════════════════════════════════════════════
-       INTERNATIONAL SUCCESS STORIES
+       PROJECT HIGHLIGHTS (from PPT: India & Indonesia projects)
   ══════════════════════════════════════════════ -->
   <section class="section">
     <div class="container">
       <div class="mb-12 text-center reveal">
-        <div class="head-eyebrow center"><span class="ln"></span> Global Projects <span class="ln"></span></div>
+        <div class="head-eyebrow center"><span class="ln"></span> Project Highlights <span class="ln"></span></div>
         <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark">
-          International <span class="text-secondary">Success Stories</span>
+          International <span class="text-secondary">Projects</span>
         </h2>
+        <p class="text-text text-sm md:text-base mt-3 max-w-xl mx-auto">20+ projects across India and Indonesia, 2.5M+ sq. meters built</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
@@ -594,36 +580,36 @@
         <div class="story-card reveal" style="transition-delay:.05s">
           <div class="story-icon"><i class="fas fa-industry"></i></div>
           <div>
-            <p class="story-meta">Indonesia · 2022–2024</p>
-            <h3 class="story-title">Jakarta Industrial Park</h3>
-            <p class="story-desc">Complete EPC infrastructure development for a 200-acre industrial zone.</p>
+            <p class="story-meta">India · 7 Projects</p>
+            <h3 class="story-title">India Manufacturing Hubs</h3>
+            <p class="story-desc">1.89M sqm built across Pune, Gurgaon, Greater Noida, Bawal, Chennai. Clients: Hengtong, OPPO, Haier, VIVO, Foxconn.</p>
           </div>
         </div>
 
         <div class="story-card reveal" style="transition-delay:.1s">
           <div class="story-icon"><i class="fas fa-bolt"></i></div>
           <div>
-            <p class="story-meta">Bangladesh · 2020–2023</p>
-            <h3 class="story-title">Dhaka Power Plant</h3>
-            <p class="story-desc">Electrical systems and fire safety for a 500MW power facility.</p>
+            <p class="story-meta">Indonesia · 13 Projects</p>
+            <h3 class="story-title">Industrial Growth in Indonesia</h3>
+            <p class="story-desc">1.26M+ sqm built. Sectors: New Energy, Solar PV, Automotive, Medical, Electronics. Locations: Kendal, Semarang, Batang, Batam, Bekasi.</p>
           </div>
         </div>
 
         <div class="story-card reveal" style="transition-delay:.15s">
           <div class="story-icon"><i class="fas fa-capsules"></i></div>
           <div>
-            <p class="story-meta">India · 2021–2024</p>
-            <h3 class="story-title">Pharma SEZ Mumbai</h3>
-            <p class="story-desc">Turnkey MEP and HVAC for a GMP-certified pharmaceutical zone.</p>
+            <p class="story-meta">Pharma · India</p>
+            <h3 class="story-title">Shreeji Cyclotron Pharma</h3>
+            <p class="story-desc">Rs 13.25 Cr. Building works, Finishing, MEP, External Works. Lucknow, India (June 2024).</p>
           </div>
         </div>
 
         <div class="story-card reveal" style="transition-delay:.2s">
-          <div class="story-icon"><i class="fas fa-subway"></i></div>
+          <div class="story-icon"><i class="fas fa-solar-panel"></i></div>
           <div>
-            <p class="story-meta">Indonesia · 2023–Present</p>
-            <h3 class="story-title">Jakarta MRT Extension</h3>
-            <p class="story-desc">MEP systems for the metro rail extension project.</p>
+            <p class="story-meta">New Energy · Indonesia</p>
+            <h3 class="story-title">REC Solar & BTR Projects</h3>
+            <p class="story-desc">REC Solar Photovoltaic Plant (86,574 sqm), BTR Indonesia KIP (143,070 sqm) – WSD, Electrical, Fire Protection, HVAC.</p>
           </div>
         </div>
 
@@ -766,11 +752,18 @@
      COUNTERS
   ============================================ */
   function animateCounter(el) {
-    const target = parseInt(el.dataset.target), suffix = el.dataset.suffix || '', duration = 1800, step = target / (duration / 16);
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const step = target / (duration / 16);
     let cur = 0;
     const t = setInterval(() => {
       cur = Math.min(cur + step, target);
-      el.textContent = Math.floor(cur).toLocaleString() + suffix;
+      if (target % 1 !== 0) {
+        el.textContent = cur.toFixed(1) + suffix;
+      } else {
+        el.textContent = Math.floor(cur).toLocaleString() + suffix;
+      }
       if (cur >= target) clearInterval(t);
     }, 16);
   }

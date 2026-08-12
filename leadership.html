@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Leadership Team - Jianan Engineering | Visionary Leaders</title>
-  <meta name="description" content="Meet the visionary leadership team at Jianan Engineering driving engineering excellence across global operations.">
+  <title>Leadership Team – Jianan Engineering</title>
+  <meta name="description" content="Meet the leadership team at Jianan Engineering – Shrikant Giri, Ravikant Giri, Ashwani Kumar and experienced professionals driving global engineering excellence.">
   <link rel="icon" href="/assets/images/logo.png">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Centralized Theme Configuration (same tokens as the rest of the site) -->
+  <!-- Centralized Theme Configuration -->
   <script>
     tailwind.config = {
       theme: {
@@ -41,7 +41,7 @@
     body { overflow-x: hidden; font-family: 'Inter', sans-serif; background-color: #ffffff; color: #475569; }
     .font-heading { font-family: 'Poppins', sans-serif; }
 
-    /* ========== LOADER (unchanged) ========== */
+    /* ========== LOADER ========== */
     .loader { position: fixed; top:0; left:0; width:100%; height:100%; background:#0F172A; z-index:10000; display:flex; align-items:center; justify-content:center; transition:opacity .8s ease-out; }
     .loader-content { text-align: center; }
     .loader-logo { width:80px; height:80px; background:linear-gradient(135deg,#1E88E5,#28B463); border-radius:20px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:800; color:#fff; animation:pulse 1.5s infinite; }
@@ -51,7 +51,7 @@
     @keyframes loading { 100% { left:100%; } }
     @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.05);opacity:.9} }
 
-    /* ========== SCROLL PROGRESS (unchanged) ========== */
+    /* ========== SCROLL PROGRESS ========== */
     .scroll-progress { position:fixed; top:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#1E88E5,#28B463); z-index:10001; transition:width .1s ease-out; }
 
     /* ========== BACK TO TOP ========== */
@@ -98,11 +98,10 @@
     .head-eyebrow.center { justify-content:center; }
 
     /* ========================================================
-       HERO — animated mesh + floating particles
+       HERO
     ======================================================== */
     .leader-hero { position:relative; background:#0F172A; padding:170px 0 100px; overflow:hidden; }
     .leader-hero-inner { position:relative; z-index:3; }
-
     .mesh-layer {
       position:absolute; inset:0; z-index:0;
       background:
@@ -111,35 +110,16 @@
         radial-gradient(ellipse 50% 60% at 50% 100%, rgba(30,136,229,.18), transparent 60%);
       animation: meshDrift 16s ease-in-out infinite alternate;
     }
-    @keyframes meshDrift {
-      0%   { transform: translate(0,0) scale(1); }
-      50%  { transform: translate(-2%, 2%) scale(1.06); }
-      100% { transform: translate(2%, -1%) scale(1.02); }
-    }
+    @keyframes meshDrift { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-2%, 2%) scale(1.06); } 100% { transform: translate(2%, -1%) scale(1.02); } }
     .particle-field { position:absolute; inset:0; z-index:1; overflow:hidden; pointer-events:none; }
-    .particle {
-      position:absolute; border-radius:50%; background:rgba(76,201,126,.5);
-      animation: floatUp linear infinite;
-    }
-    @keyframes floatUp {
-      0%   { transform: translateY(0) translateX(0); opacity:0; }
-      10%  { opacity:.8; }
-      90%  { opacity:.5; }
-      100% { transform: translateY(-420px) translateX(20px); opacity:0; }
-    }
-
-    .stat-chip {
-      display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.08); backdrop-filter:blur(6px);
-      border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:.45rem 1.05rem;
-      transition: background .3s, transform .3s, border-color .3s;
-    }
+    .particle { position:absolute; border-radius:50%; background:rgba(76,201,126,.5); animation:floatUp linear infinite; }
+    @keyframes floatUp { 0% { transform: translateY(0) translateX(0); opacity:0; } 10% { opacity:.8; } 90% { opacity:.5; } 100% { transform: translateY(-420px) translateX(20px); opacity:0; } }
+    .stat-chip { display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.08); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:.45rem 1.05rem; transition: background .3s, transform .3s, border-color .3s; }
     .stat-chip:hover { background:rgba(255,255,255,.14); border-color:rgba(76,201,126,.4); transform:translateY(-3px); }
     .stat-chip .chip-num { font-family:'Poppins',sans-serif; font-weight:700; color:#fff; }
 
-    .grain-divider { position:relative; height:60px; margin-top:-60px; z-index:2; background:linear-gradient(to bottom, transparent, #fff); }
-
     /* ========================================================
-       LEADER CARD — tilt + shine sweep + gradient border draw
+       LEADER CARD
     ======================================================== */
     .leader-card-wrap { perspective: 1200px; }
     .leader-card {
@@ -149,7 +129,6 @@
       border: 1px solid #E2E8F0;
     }
     .leader-card-wrap:hover .leader-card { box-shadow: 0 30px 60px rgba(15,23,42,.18); border-color: transparent; }
-
     .leader-card .glow-border {
       position:absolute; inset:0; border-radius:22px; padding:2px; z-index:0;
       background: linear-gradient(135deg,#1E88E5,#28B463); opacity:0; transition: opacity .4s;
@@ -157,96 +136,52 @@
       -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;
     }
     .leader-card-wrap:hover .glow-border { opacity:1; }
-
     .leader-image { height:300px; overflow:hidden; position:relative; }
     .leader-image img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
     .leader-card-wrap:hover .leader-image img { transform:scale(1.08); }
     .leader-image::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(15,23,42,.55) 0%, transparent 50%); }
-
-    .shine-sweep {
-      position:absolute; top:0; left:-150%; width:60%; height:100%;
-      background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
-      transform: skewX(-15deg); transition: left .8s ease; pointer-events:none; z-index:2;
-    }
+    .shine-sweep { position:absolute; top:0; left:-150%; width:60%; height:100%; background:linear-gradient(115deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%); transform:skewX(-15deg); transition:left .8s ease; pointer-events:none; z-index:2; }
     .leader-card-wrap:hover .shine-sweep { left:150%; }
-
-    .leader-num {
-      position:absolute; top:16px; left:16px; z-index:3; font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:.95rem; color:rgba(255,255,255,.85); background:rgba(15,23,42,.45); backdrop-filter:blur(4px);
-      border:1px solid rgba(255,255,255,.25); width:32px; height:32px; border-radius:9px; display:grid; place-items:center;
-    }
-
+    .leader-num { position:absolute; top:16px; left:16px; z-index:3; font-family:'Poppins',sans-serif; font-weight:800; font-size:.95rem; color:rgba(255,255,255,.85); background:rgba(15,23,42,.45); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,.25); width:32px; height:32px; border-radius:9px; display:grid; place-items:center; }
     .role-pill { display:inline-block; background:#EAF4FE; color:#1E88E5; font-size:.72rem; font-weight:700; letter-spacing:.03em; padding:4px 14px; border-radius:999px; margin-bottom:.7rem; transition: background .3s, color .3s; }
     .leader-card-wrap:hover .role-pill { background: linear-gradient(135deg,#1E88E5,#28B463); color:#fff; }
-
-    .leader-socials a {
-      display:inline-flex; width:34px; height:34px; background:#F8FAFC; border-radius:50%; align-items:center; justify-content:center;
-      color:#1E88E5; transition:all .3s; margin:0 4px; border:1px solid #E2E8F0;
-      opacity:0; transform: translateY(10px);
-    }
+    .leader-socials a { display:inline-flex; width:34px; height:34px; background:#F8FAFC; border-radius:50%; align-items:center; justify-content:center; color:#1E88E5; transition:all .3s; margin:0 4px; border:1px solid #E2E8F0; opacity:0; transform: translateY(10px); }
     .leader-card-wrap:hover .leader-socials a { opacity:1; transform:translateY(0); }
     .leader-socials a:nth-child(1) { transition-delay: .05s; }
     .leader-socials a:nth-child(2) { transition-delay: .12s; }
     .leader-socials a:hover { background:linear-gradient(135deg,#1E88E5,#28B463); color:#fff; transform:translateY(-3px) !important; border-color:transparent; }
 
     /* ========================================================
-       MANAGEMENT CARD — wave reveal + spin ring + flip-lite
+       MANAGEMENT CARD
     ======================================================== */
-    .management-card {
-      background:#fff; padding:28px 20px; border-radius:20px; text-align:center; border:1px solid #E2E8F0;
-      transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s;
-      position:relative; overflow:hidden;
-    }
-    .management-card::before {
-      content:''; position:absolute; top:-60%; left:-60%; width:220%; height:220%;
-      background: radial-gradient(circle, rgba(30,136,229,.07), transparent 60%);
-      opacity:0; transition: opacity .4s; pointer-events:none;
-    }
+    .management-card { background:#fff; padding:28px 20px; border-radius:20px; text-align:center; border:1px solid #E2E8F0; transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s; position:relative; overflow:hidden; }
+    .management-card::before { content:''; position:absolute; top:-60%; left:-60%; width:220%; height:220%; background: radial-gradient(circle, rgba(30,136,229,.07), transparent 60%); opacity:0; transition: opacity .4s; pointer-events:none; }
     .management-card:hover::before { opacity:1; }
     .management-card:hover { transform:translateY(-8px) scale(1.015); box-shadow:0 22px 44px rgba(15,23,42,.12); border-color:transparent; }
-
-    .avatar-ring {
-      width:104px; height:104px; border-radius:50%; margin:0 auto 16px; padding:3px;
-      background:linear-gradient(135deg,#1E88E5,#28B463); display:grid; place-items:center; position:relative;
-      animation: ringSpin 9s linear infinite paused;
-    }
+    .avatar-ring { width:104px; height:104px; border-radius:50%; margin:0 auto 16px; padding:3px; background:linear-gradient(135deg,#1E88E5,#28B463); display:grid; place-items:center; position:relative; animation: ringSpin 9s linear infinite paused; }
     .management-card:hover .avatar-ring { animation-play-state: running; }
     @keyframes ringSpin { from{ transform: rotate(0deg);} to{ transform: rotate(360deg);} }
     .avatar-ring img { width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid #fff; display:block; transform: rotate(0deg); animation: ringSpinReverse 9s linear infinite paused; }
     .management-card:hover .avatar-ring img { animation-play-state: running; }
     @keyframes ringSpinReverse { from{ transform: rotate(0deg);} to{ transform: rotate(-360deg);} }
-
-    .mgmt-role {
-      display:inline-flex; align-items:center; gap:5px; color:#1E88E5; font-size:.85rem; font-weight:700;
-    }
+    .mgmt-role { display:inline-flex; align-items:center; gap:5px; color:#1E88E5; font-size:.85rem; font-weight:700; }
     .mgmt-role i { font-size:.6rem; color:#28B463; opacity:0; transform: translateX(-4px); transition: all .3s; }
     .management-card:hover .mgmt-role i { opacity:1; transform: translateX(0); }
 
     /* ========================================================
-       ORG CHART — animated connectors draw in
+       ORG CHART
     ======================================================== */
     .org-chart { background:linear-gradient(135deg,#F8FAFC,#EEF2F7); border-radius:28px; padding:50px 30px; position:relative; overflow:hidden; }
     @media (max-width:640px) { .org-chart { padding:36px 16px; } }
     .org-chart .orb { opacity:.5; }
     .org-level { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; position:relative; z-index:1; }
     .org-connector { display:flex; justify-content:center; height:34px; position:relative; z-index:1; }
-    .org-connector .line {
-      width:2px; background:linear-gradient(#1E88E5,#28B463); height:0%;
-      transition: height 0.9s cubic-bezier(.2,.8,.2,1);
-    }
+    .org-connector .line { width:2px; background:linear-gradient(#1E88E5,#28B463); height:0%; transition: height 0.9s cubic-bezier(.2,.8,.2,1); }
     .org-chart.lines-in .org-connector .line { height:100%; }
-    .org-connector .dot {
-      width:7px; height:7px; border-radius:50%; background:#1E88E5; margin:0 auto; position:relative; top:-3px;
-      opacity:0; transition: opacity .3s .7s, transform .3s .7s; transform: scale(0);
-    }
+    .org-connector .dot { width:7px; height:7px; border-radius:50%; background:#1E88E5; margin:0 auto; position:relative; top:-3px; opacity:0; transition: opacity .3s .7s, transform .3s .7s; transform: scale(0); }
     .org-chart.lines-in .org-connector .dot { opacity:1; transform: scale(1); }
     @media (max-width:640px) { .org-connector { display:none; } }
-
-    .org-card {
-      background:#fff; padding:22px 26px; border-radius:16px; text-align:center; min-width:172px;
-      box-shadow:0 5px 15px rgba(15,23,42,.06); transition:all .3s; border-bottom:3px solid #1E88E5;
-      position:relative;
-    }
+    .org-card { background:#fff; padding:22px 26px; border-radius:16px; text-align:center; min-width:172px; box-shadow:0 5px 15px rgba(15,23,42,.06); transition:all .3s; border-bottom:3px solid #1E88E5; position:relative; }
     .org-card:hover { transform:translateY(-5px); box-shadow:0 14px 30px rgba(15,23,42,.16), 0 0 0 1px rgba(30,136,229,.18); }
     .org-icon-circle { width:54px; height:54px; border-radius:50%; margin:0 auto 10px; display:grid; place-items:center; background:#EAF4FE; transition: transform .4s; }
     .org-card:hover .org-icon-circle { transform: rotate(8deg) scale(1.08); }
@@ -258,33 +193,22 @@
     .org-card.tier-1 .org-icon-circle i { color:#28B463; }
 
     /* ========================================================
-       PHILOSOPHY CARD — rotating gradient ring on hover
+       PHILOSOPHY CARD
     ======================================================== */
     .philosophy-card { background:#fff; border:1px solid #E2E8F0; border-radius:20px; padding:36px 28px; text-align:center; transition:all .35s; position:relative; overflow:hidden; }
     .philosophy-card:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(15,23,42,.1); border-color:transparent; }
-    .philosophy-icon-circle {
-      width:64px; height:64px; border-radius:50%; margin:0 auto 18px; display:grid; place-items:center;
-      background:linear-gradient(135deg,#EAF4FE,#EAFBF1); position:relative;
-    }
-    .philosophy-icon-circle::before {
-      content:''; position:absolute; inset:-4px; border-radius:50%;
-      background: conic-gradient(from 0deg, #1E88E5, #28B463, #1E88E5);
-      opacity:0; transition: opacity .4s; animation: spin-slow 4s linear infinite paused;
-      z-index:-1;
-    }
+    .philosophy-icon-circle { width:64px; height:64px; border-radius:50%; margin:0 auto 18px; display:grid; place-items:center; background:linear-gradient(135deg,#EAF4FE,#EAFBF1); position:relative; }
+    .philosophy-icon-circle::before { content:''; position:absolute; inset:-4px; border-radius:50%; background: conic-gradient(from 0deg, #1E88E5, #28B463, #1E88E5); opacity:0; transition: opacity .4s; animation: spin-slow 4s linear infinite paused; z-index:-1; }
     .philosophy-card:hover .philosophy-icon-circle::before { opacity:.25; animation-play-state: running; }
     .philosophy-icon-circle i { font-size:26px; background:linear-gradient(135deg,#1E88E5,#28B463); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; position:relative; z-index:1; }
 
     /* ========================================================
-       COUNTER STRIP (Leadership in Numbers)
+       COUNTER STRIP
     ======================================================== */
     .counter-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #E2E8F0; }
     .counter-item { background: #fff; padding: 2rem 1rem; text-align: center; transition: background .3s; }
     .counter-item:hover { background: #F5FAFF; }
-    .counter-num {
-      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 2.4rem; line-height: 1.1;
-      background: linear-gradient(135deg,#1E88E5,#28B463); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
+    .counter-num { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 2.4rem; line-height: 1.1; background: linear-gradient(135deg,#1E88E5,#28B463); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     @media (min-width: 768px) { .counter-num { font-size: 2.9rem; } }
     .counter-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-top: 4px; }
     @media(max-width:900px){ .counter-bar{grid-template-columns:repeat(2,1fr)} }
@@ -343,15 +267,14 @@
       </h1>
 
       <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 animate-fade-in-up anim-delay-400">
-        Visionary leaders driving engineering excellence across our global operations — from project conception
-        to delivery, our team brings decades of combined expertise to every engagement.
+        Seasoned leaders driving operational excellence, strategic growth, and international expertise — from project conception to delivery, our team brings decades of combined experience.
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-3 animate-fade-in-up anim-delay-400">
-        <div class="stat-chip"><i class="fas fa-users text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">11</span> Leadership Members</span></div>
-        <div class="stat-chip"><i class="fas fa-project-diagram text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">200+</span> Projects Led</span></div>
-        <div class="stat-chip"><i class="fas fa-globe text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">12</span> Countries</span></div>
-        <div class="stat-chip"><i class="fas fa-award text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">150+</span> Years Combined Experience</span></div>
+        <div class="stat-chip"><i class="fas fa-users text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">94</span> Professionals</span></div>
+        <div class="stat-chip"><i class="fas fa-project-diagram text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">20+</span> Projects</span></div>
+        <div class="stat-chip"><i class="fas fa-globe text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">4</span> Countries</span></div>
+        <div class="stat-chip"><i class="fas fa-trophy text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">6</span> Key Qualifications</span></div>
       </div>
     </div>
 
@@ -366,25 +289,25 @@
   ══════════════════════════════════════════════ -->
   <div class="counter-bar border-y border-border">
     <div class="counter-item">
-      <div class="counter-num"><span data-target="11">0</span></div>
-      <div class="counter-label">Leadership Members</div>
+      <div class="counter-num"><span data-target="94">0</span></div>
+      <div class="counter-label">Total Professionals</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="200" data-suffix="+">0</span></div>
-      <div class="counter-label">Projects Led</div>
+      <div class="counter-num"><span data-target="8">0</span></div>
+      <div class="counter-label">Specialized Engineers</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="12">0</span></div>
-      <div class="counter-label">Countries</div>
+      <div class="counter-num"><span data-target="9">0</span></div>
+      <div class="counter-label">Management Professionals</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="150" data-suffix="+">0</span></div>
-      <div class="counter-label">Years Combined Exp.</div>
+      <div class="counter-num"><span data-target="68">0</span></div>
+      <div class="counter-label">Local Engineers</div>
     </div>
   </div>
 
   <!-- ══════════════════════════════════════════════
-       BOARD OF DIRECTORS
+       BOARD OF DIRECTORS (from PPT)
   ══════════════════════════════════════════════ -->
   <section class="section">
     <div class="container">
@@ -393,23 +316,25 @@
         <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
           Meet Our <span class="text-primary">Leadership Team</span>
         </h2>
-        <p class="text-text text-sm md:text-base max-w-xl mx-auto">Decades of experience driving innovation and growth</p>
+        <p class="text-text text-sm md:text-base max-w-xl mx-auto">Visionary leaders driving operational excellence, strategic growth, and international expertise</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
 
+        <!-- Shrikant Giri -->
         <div class="leader-card-wrap reveal tilt-card" style="transition-delay:.05s">
           <div class="leader-card">
             <span class="glow-border"></span>
             <div class="leader-image">
               <span class="leader-num">01</span>
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajan Mehta - Managing Director">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Shrikant Giri - Managing Director">
               <span class="shine-sweep"></span>
             </div>
             <div class="p-6 text-center">
               <span class="role-pill">Managing Director</span>
-              <h3 class="font-heading text-2xl font-bold text-dark">Rajan Mehta</h3>
-              <p class="text-text text-sm mt-3">30+ years of experience in EPC and infrastructure development. Former senior executive at L&amp;T. Led 200+ major projects across Asia.</p>
+              <h3 class="font-heading text-2xl font-bold text-dark">Shrikant Giri</h3>
+              <p class="text-text text-sm mt-3">Proficient Electrical Engineer with close to a decade of rich field experience. Deep technical insight and on-ground project execution capabilities in electrical, mechanical, and integrated services.</p>
+              <p class="text-xs text-primary font-semibold mt-2"><i class="fas fa-bullseye"></i> Focus: Operational Excellence</p>
               <div class="leader-socials mt-4">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -418,18 +343,20 @@
           </div>
         </div>
 
+        <!-- Ravikant Giri -->
         <div class="leader-card-wrap reveal tilt-card" style="transition-delay:.15s">
           <div class="leader-card">
             <span class="glow-border"></span>
             <div class="leader-image">
               <span class="leader-num">02</span>
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neha Sharma - COO">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ravikant Giri - Managing Director">
               <span class="shine-sweep"></span>
             </div>
             <div class="p-6 text-center">
-              <span class="role-pill">Chief Operating Officer</span>
-              <h3 class="font-heading text-2xl font-bold text-dark">Neha Sharma</h3>
-              <p class="text-text text-sm mt-3">Expert in project management and operational excellence. MBA from IIM Ahmedabad. Previously with Bechtel for 15 years.</p>
+              <span class="role-pill">Managing Director</span>
+              <h3 class="font-heading text-2xl font-bold text-dark">Ravikant Giri</h3>
+              <p class="text-text text-sm mt-3">Visionary leader driving strategic growth and business development. Committed to delivering outcomes that strengthen partnerships and uphold trust with clients and stakeholders.</p>
+              <p class="text-xs text-primary font-semibold mt-2"><i class="fas fa-chart-line"></i> Focus: Strategic Growth</p>
               <div class="leader-socials mt-4">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -438,18 +365,20 @@
           </div>
         </div>
 
+        <!-- Ashwani Kumar -->
         <div class="leader-card-wrap reveal tilt-card" style="transition-delay:.25s">
           <div class="leader-card">
             <span class="glow-border"></span>
             <div class="leader-image">
               <span class="leader-num">03</span>
-              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Vikram Singh - Director">
+              <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Ashwani Kumar - Chief Operating Officer">
               <span class="shine-sweep"></span>
             </div>
             <div class="p-6 text-center">
-              <span class="role-pill">Director, International Operations</span>
-              <h3 class="font-heading text-2xl font-bold text-dark">Vikram Singh</h3>
-              <p class="text-text text-sm mt-3">Leading expansion in Southeast Asia. 25+ years in global engineering projects across 12 countries.</p>
+              <span class="role-pill">Chief Operating Officer</span>
+              <h3 class="font-heading text-2xl font-bold text-dark">Ashwani Kumar</h3>
+              <p class="text-text text-sm mt-3">Highly accomplished Civil Engineer with 35+ years of experience, including 12 years of distinguished international experience. Led landmark projects including Greenfield Expressway Oman, 800×3 MW Power Project Kuwait, and Muscat International Airport.</p>
+              <p class="text-xs text-primary font-semibold mt-2"><i class="fas fa-globe"></i> Focus: International Expertise</p>
               <div class="leader-socials mt-4">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -464,8 +393,8 @@
 
   <div class="accent-divider"></div>
 
-  <!-- ══════════════════════════════════════════════
-       MANAGEMENT TEAM
+<!-- ══════════════════════════════════════════════
+       MANAGEMENT TEAM (from PPT: Sr. Project Manager, Site Engineers, EHS, QC)
   ══════════════════════════════════════════════ -->
   <section class="section bg-light">
     <div class="container">
@@ -474,65 +403,58 @@
         <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
           Management <span class="text-primary">Team</span>
         </h2>
-        <p class="text-text text-sm md:text-base max-w-xl mx-auto">The experts leading execution across engineering, operations, and quality</p>
+        <p class="text-text text-sm md:text-base max-w-xl mx-auto">A balanced team of Chinese expertise and local talent — 94 professionals across all subsidiaries</p>
       </div>
 
       <div class="grid md:grid-cols-4 gap-6">
 
         <div class="management-card reveal" style="transition-delay:.03s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Anil Desai"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Anil Desai</h4>
-          <p class="mgmt-role">VP Engineering <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">20+ years in civil engineering</p>
+          <!-- Avatar ring removed — keeping card content only -->
+          <h4 class="font-heading font-bold text-base text-dark">Sr. Project Manager</h4>
+          <p class="mgmt-role">30+ Years Experience <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">Civil & MEP Projects</p>
         </div>
 
         <div class="management-card reveal" style="transition-delay:.08s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Nair"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Priya Nair</h4>
-          <p class="mgmt-role">Head of MEP <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">18+ years in MEP design</p>
+          <h4 class="font-heading font-bold text-base text-dark">Site Engineers</h4>
+          <p class="mgmt-role">8-20 Years Exp. <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">Electrical, HVAC, Fire Protection</p>
         </div>
 
         <div class="management-card reveal" style="transition-delay:.13s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Suresh Reddy"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Suresh Reddy</h4>
-          <p class="mgmt-role">Project Director <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">25+ years in EPC delivery</p>
+          <h4 class="font-heading font-bold text-base text-dark">EHS Officers</h4>
+          <p class="mgmt-role">Safety First <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">Zero LTI record</p>
         </div>
 
         <div class="management-card reveal" style="transition-delay:.18s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Kavita Joshi"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Kavita Joshi</h4>
-          <p class="mgmt-role">Head HSE <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">15+ years in safety management</p>
+          <h4 class="font-heading font-bold text-base text-dark">QC Team</h4>
+          <p class="mgmt-role">Quality Assurance <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">ISO 9001:2015 certified</p>
         </div>
 
         <div class="management-card reveal" style="transition-delay:.23s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Amit Kapoor"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Amit Kapoor</h4>
-          <p class="mgmt-role">CFO <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">22+ years in finance</p>
+          <h4 class="font-heading font-bold text-base text-dark">Technical Leads</h4>
+          <p class="mgmt-role">9 Professionals <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">Project Managers, Production Managers</p>
         </div>
 
         <div class="management-card reveal" style="transition-delay:.28s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Sunita Menon"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Sunita Menon</h4>
-          <p class="mgmt-role">HR Director <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">18+ years in talent management</p>
+          <h4 class="font-heading font-bold text-base text-dark">Technical Staff</h4>
+          <p class="mgmt-role">9 Staff <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">Cost Engineers, Document Controllers</p>
         </div>
 
         <div class="management-card reveal" style="transition-delay:.33s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Ramesh Gupta"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Ramesh Gupta</h4>
-          <p class="mgmt-role">Procurement Head <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">20+ years in supply chain</p>
+          <h4 class="font-heading font-bold text-base text-dark">Local Engineers</h4>
+          <p class="mgmt-role">68 Trained <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">Regulatory compliance & cultural alignment</p>
         </div>
 
         <div class="management-card reveal" style="transition-delay:.38s">
-          <div class="avatar-ring"><img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Meera Iyer"></div>
-          <h4 class="font-heading font-bold text-base text-dark">Meera Iyer</h4>
-          <p class="mgmt-role">Quality Director <i class="fas fa-circle"></i></p>
-          <p class="text-text text-xs mt-2">16+ years in QA/QC</p>
+          <h4 class="font-heading font-bold text-base text-dark">Chinese Expertise</h4>
+          <p class="mgmt-role">Technical Leadership <i class="fas fa-circle"></i></p>
+          <p class="text-text text-xs mt-2">Management & technical personnel</p>
         </div>
 
       </div>
@@ -541,120 +463,37 @@
 
   <div class="accent-divider"></div>
 
-  <!-- ══════════════════════════════════════════════
-       ORGANIZATION STRUCTURE
-  ══════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center mb-10 reveal">
-        <div class="head-eyebrow center"><span class="ln"></span> Structure <span class="ln"></span></div>
-        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
-          Organization <span class="text-primary">Structure</span>
-        </h2>
-        <p class="text-text text-sm md:text-base max-w-xl mx-auto">A clear chain of accountability from strategic oversight to on-site execution</p>
-      </div>
-
-      <div class="org-chart reveal" id="orgChart">
-        <div class="orb w-56 h-56 bg-primary/10 -top-10 -left-10"></div>
-        <div class="orb w-56 h-56 bg-secondary/10 -bottom-10 -right-10"></div>
-
-        <div class="org-level">
-          <div class="org-card tier-1">
-            <div class="org-icon-circle"><i class="fas fa-user-tie"></i></div>
-            <h4>Board of Directors</h4>
-            <p>Strategic Oversight</p>
-          </div>
-        </div>
-
-        <div class="org-connector"><span class="line"></span><span class="dot"></span></div>
-
-        <div class="org-level">
-          <div class="org-card tier-1">
-            <div class="org-icon-circle"><i class="fas fa-chart-line"></i></div>
-            <h4>Managing Director</h4>
-            <p>Rajan Mehta</p>
-          </div>
-        </div>
-
-        <div class="org-connector"><span class="line"></span><span class="dot"></span></div>
-
-        <div class="org-level">
-          <div class="org-card">
-            <div class="org-icon-circle"><i class="fas fa-cogs"></i></div>
-            <h4>Chief Operating Officer</h4>
-            <p>Neha Sharma</p>
-          </div>
-          <div class="org-card">
-            <div class="org-icon-circle"><i class="fas fa-globe"></i></div>
-            <h4>Director Intl. Ops</h4>
-            <p>Vikram Singh</p>
-          </div>
-          <div class="org-card">
-            <div class="org-icon-circle"><i class="fas fa-chart-bar"></i></div>
-            <h4>Chief Financial Officer</h4>
-            <p>Amit Kapoor</p>
-          </div>
-        </div>
-
-        <div class="org-connector"><span class="line"></span><span class="dot"></span></div>
-
-        <div class="org-level">
-          <div class="org-card">
-            <div class="org-icon-circle"><i class="fas fa-hard-hat"></i></div>
-            <h4>Engineering</h4>
-            <p>Anil Desai</p>
-          </div>
-          <div class="org-card">
-            <div class="org-icon-circle"><i class="fas fa-plug"></i></div>
-            <h4>MEP</h4>
-            <p>Priya Nair</p>
-          </div>
-          <div class="org-card">
-            <div class="org-icon-circle"><i class="fas fa-tasks"></i></div>
-            <h4>Projects</h4>
-            <p>Suresh Reddy</p>
-          </div>
-          <div class="org-card">
-            <div class="org-icon-circle"><i class="fas fa-shield-alt"></i></div>
-            <h4>HSE</h4>
-            <p>Kavita Joshi</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <div class="accent-divider on-light"></div>
 
   <!-- ══════════════════════════════════════════════
-       LEADERSHIP PHILOSOPHY
+       TALENT ADVANTAGE (from PPT)
   ══════════════════════════════════════════════ -->
   <section class="section bg-light">
     <div class="container">
       <div class="text-center mb-12 reveal">
-        <div class="head-eyebrow center"><span class="ln"></span> Our Philosophy <span class="ln"></span></div>
+        <div class="head-eyebrow center"><span class="ln"></span> Talent Advantage <span class="ln"></span></div>
         <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
-          Leadership <span class="text-primary">Philosophy</span>
+          Global Team <span class="text-primary">Approach</span>
         </h2>
-        <p class="text-text text-sm md:text-base max-w-xl mx-auto">The principles that guide how we lead, build, and deliver</p>
+        <p class="text-text text-sm md:text-base max-w-xl mx-auto">Chinese management and technical personnel combined with localized management at project sites</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <div class="philosophy-card reveal" style="transition-delay:.05s">
-          <div class="philosophy-icon-circle"><i class="fas fa-lightbulb"></i></div>
-          <h3 class="font-heading text-xl font-bold text-dark mb-2">Visionary Leadership</h3>
-          <p class="text-text text-sm">Anticipating industry trends and positioning for future growth</p>
+          <div class="philosophy-icon-circle"><i class="fas fa-users-cog"></i></div>
+          <h3 class="font-heading text-xl font-bold text-dark mb-2">Localized Management</h3>
+          <p class="text-text text-sm">Cultivating local engineers and excellent labor teams at project sites. Deep market understanding, regulatory compliance, and cultural alignment.</p>
         </div>
         <div class="philosophy-card reveal" style="transition-delay:.15s">
           <div class="philosophy-icon-circle"><i class="fas fa-handshake"></i></div>
-          <h3 class="font-heading text-xl font-bold text-dark mb-2">Empowered Teams</h3>
-          <p class="text-text text-sm">Fostering innovation and ownership at every level</p>
+          <h3 class="font-heading text-xl font-bold text-dark mb-2">Balanced Team</h3>
+          <p class="text-text text-sm">Chinese technical expertise combined with local market knowledge. 68 local engineers trained across 4 countries.</p>
         </div>
         <div class="philosophy-card reveal" style="transition-delay:.25s">
-          <div class="philosophy-icon-circle"><i class="fas fa-bullseye"></i></div>
-          <h3 class="font-heading text-xl font-bold text-dark mb-2">Results Driven</h3>
-          <p class="text-text text-sm">Commitment to excellence and measurable outcomes</p>
+          <div class="philosophy-icon-circle"><i class="fas fa-chart-simple"></i></div>
+          <h3 class="font-heading text-xl font-bold text-dark mb-2">Localization Impact</h3>
+          <p class="text-text text-sm">100% project sites localized. Sustainable workforce development, cost-effective local labor utilization, and long-term community relationships.</p>
         </div>
       </div>
     </div>
@@ -668,7 +507,7 @@
 <!-- Scripts -->
 <script>
   /* ============================================
-     LOAD COMPONENTS (unchanged)
+     LOAD COMPONENTS
   ============================================ */
   async function loadComponent(elementId, componentPath) {
     try {
@@ -760,11 +599,13 @@
      COUNTERS
   ============================================ */
   function animateCounter(el) {
-    const target = parseInt(el.dataset.target), suffix = el.dataset.suffix || '', duration = 1800, step = target / (duration / 16);
+    const target = parseInt(el.dataset.target);
+    if (isNaN(target)) return;
+    const duration = 1800, step = target / (duration / 16);
     let cur = 0;
     const t = setInterval(() => {
       cur = Math.min(cur + step, target);
-      el.textContent = Math.floor(cur).toLocaleString() + suffix;
+      el.textContent = Math.floor(cur).toLocaleString();
       if (cur >= target) clearInterval(t);
     }, 16);
   }

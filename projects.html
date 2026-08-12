@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Projects - Jianan Engineering | Project Portfolio</title>
-  <meta name="description" content="Explore Jianan Engineering's portfolio of successful EPC, MEP, and industrial infrastructure projects across India, Indonesia, and Bangladesh.">
-  <link rel="icon" href="/assets/images/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Projects – Jianan Engineering | Project Portfolio</title>
+  <meta name="description" content="Explore Jianan Engineering's portfolio of successful EPC, MEP, and industrial infrastructure projects across India, Indonesia, and Bangladesh. 20+ projects, 2.5M+ sqm built." />
+  <link rel="icon" href="/assets/images/logo.png" />
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,16 +16,8 @@
       theme: {
         extend: {
           colors: {
-            primary: {
-              DEFAULT: "#1E88E5",
-              light: "#4AA3E9",
-              dark: "#0F5B99"
-            },
-            secondary: {
-              DEFAULT: "#28B463",
-              light: "#4CC97E",
-              dark: "#1E7A43"
-            },
+            primary: { DEFAULT: "#1E88E5", light: "#4AA3E9", dark: "#0F5B99" },
+            secondary: { DEFAULT: "#28B463", light: "#4CC97E", dark: "#1E7A43" },
             dark: "#0F172A",
             light: "#F8FAFC",
             text: "#475569",
@@ -41,470 +33,158 @@
   </script>
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
   <style>
-    /* ========================================
-       GLOBAL STYLES
-       ======================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; font-family: 'Inter', sans-serif; background-color: #ffffff; }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      overflow-x: hidden;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-    }
-    
-    /* Loader Styles */
+    /* Loader */
     .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0F172A;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #0F172A; z-index: 10000;
+      display: flex; align-items: center; justify-content: center;
       transition: opacity 0.8s ease-out;
     }
-    
-    .loader-content {
-      text-align: center;
-    }
-    
+    .loader-content { text-align: center; }
     .loader-logo {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       background: linear-gradient(135deg, #1E88E5, #28B463);
-      border-radius: 20px;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: 800;
-      color: white;
+      border-radius: 20px; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 800; color: white;
       animation: pulse 1.5s infinite;
     }
-    
-    .loader-text {
-      color: white;
-      font-size: 14px;
-      letter-spacing: 4px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-    
-    .loader-bar {
-      width: 200px;
-      height: 2px;
-      background: rgba(255,255,255,0.2);
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    
+    .loader-text { color: white; font-size: 14px; letter-spacing: 4px; font-weight: 500; margin-bottom: 20px; }
+    .loader-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto; position: relative; overflow: hidden; }
     .loader-bar::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
       background: linear-gradient(90deg, #1E88E5, #28B463);
       animation: loading 1.5s infinite;
     }
-    
-    @keyframes loading {
-      100% { left: 100%; }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
-    }
-    
+    @keyframes loading { 100% { left: 100%; } }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.05);opacity:.9} }
+
     /* Scroll Progress */
     .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
+      position: fixed; top: 0; left: 0; width: 0%; height: 3px;
       background: linear-gradient(90deg, #1E88E5, #28B463);
-      z-index: 10001;
-      transition: width 0.1s ease-out;
-    }
-    
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      cursor: pointer;
-      z-index: 99;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
-    
-    .back-to-top {
-      background: transparent !important;
-      box-shadow: none;
-      padding: 0;
-    }
-    
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      transform: translateY(-5px);
-    }
-    
-    /* Container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    /* Section Styles */
-    .section {
-      padding: 100px 0;
-    }
-    
-    @media (max-width: 768px) {
-      .section {
-        padding: 60px 0;
-      }
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
-    .section-tag {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #28B463;
-      background: rgba(40, 180, 99, 0.1);
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 20px;
-    }
-    
-    .section-title {
-      font-size: 42px;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
-      color: #0F172A;
-      margin-bottom: 16px;
-    }
-    
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 32px;
-      }
-    }
-    
-    .section-subtitle {
-      font-size: 18px;
-      color: #475569;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    /* ============================================
-       NEW PROJECT CARD LAYOUT - Modern Grid Style
-       ============================================ */
-    
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-    
-    @media (max-width: 1024px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (max-width: 640px) {
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    /* Modern Project Card - matches index page style */
-    .project-card-modern {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border: 1px solid #E2E8F0;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .project-card-modern:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-      border-color: #28B463;
-    }
-    
-    .project-card-modern .project-image-wrap {
-      position: relative;
-      overflow: hidden;
-      padding-top: 65%;
-      background: #f0f4f8;
-    }
-    
-    .project-card-modern .project-image-wrap img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .project-card-modern:hover .project-image-wrap img {
-      transform: scale(1.05);
-    }
-    
-    .project-card-modern .project-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #28B463;
-      color: white;
-      padding: 5px 14px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 600;
-      z-index: 2;
-    }
-    
-    .project-card-modern .project-body {
-      padding: 20px 24px 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .project-card-modern .project-title {
-      font-size: 19px;
-      font-weight: 700;
-      color: #0F172A;
-      margin-bottom: 6px;
-    }
-    
-    .project-card-modern .project-location {
-      color: #28B463;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    
-    .project-card-modern .project-location i {
-      margin-right: 6px;
-    }
-    
-    .project-card-modern .project-desc {
-      color: #475569;
-      font-size: 14px;
-      line-height: 1.6;
-      flex: 1;
-    }
-    
-    .project-card-modern .project-footer {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid #E2E8F0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .project-card-modern .project-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #1E88E5;
-      background: rgba(30, 136, 229, 0.08);
-      padding: 4px 12px;
-      border-radius: 50px;
-    }
-    
-    .project-card-modern .project-link {
-      color: #28B463;
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.3s;
-    }
-    
-    .project-card-modern .project-link:hover {
-      gap: 10px;
-    }
-    
-    /* Filter Buttons - styled like index page */
-    .filter-btn {
-      padding: 10px 28px;
-      border-radius: 50px;
-      border: 1px solid #E2E8F0;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      margin: 5px;
-    }
-    
-    .filter-btn:hover {
-      background: #28B463;
-      border-color: #28B463;
-      color: white;
-      transform: translateY(-2px);
-    }
-    
-    .filter-btn.active {
-      background: #28B463;
-      border-color: #28B463;
-      color: white;
-    }
-    
-    /* Stats Card - matches index page */
-    .stat-card {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid #E2E8F0;
-    }
-    
-    .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    }
-    
-    .stat-number-lg {
-      font-size: 42px;
-      font-weight: 800;
-      color: #28B463;
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    .bg-light {
-      background: #F8FAFC;
-    }
-    
-    .text-primary {
-      color: #1E88E5;
-    }
-    
-    .text-secondary {
-      color: #28B463;
-    }
-    
-    /* Button Primary - matches index */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #28B463;
-      color: white;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(40, 180, 99, 0.3);
-      border: none;
-      cursor: pointer;
-    }
-    
-    .btn-primary:hover {
-      background: #1E7A43;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(40, 180, 99, 0.4);
-    }
-    
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: transparent;
-      border: 2px solid #28B463;
-      color: #28B463;
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-outline:hover {
-      background: #28B463;
-      color: white;
+      z-index: 10001; transition: width 0.1s ease-out;
     }
 
-    /* Gradient background for cards - from index */
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; bottom: 30px; right: 30px; z-index: 99;
+      opacity: 0; visibility: hidden; transition: all 0.3s ease;
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top img { width: 60px; height: auto; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    @media (max-width: 768px) { .section { padding: 60px 0; } }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-tag {
+      display: inline-block; font-size: 14px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 2px; color: #28B463; background: rgba(40,180,99,0.1);
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 42px; font-weight: 700; font-family: 'Poppins', sans-serif;
+      color: #0F172A; margin-bottom: 16px;
+    }
+    @media (max-width: 768px) { .section-title { font-size: 32px; } }
+    .section-subtitle {
+      font-size: 18px; color: #475569; max-width: 600px; margin: 0 auto;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+    }
+    @media (max-width: 1024px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .projects-grid { grid-template-columns: 1fr; } }
+
+    /* Project Card */
+    .project-card-modern {
+      background: white; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;
+      border: 1px solid #E2E8F0; height: 100%; display: flex; flex-direction: column;
+    }
+    .project-card-modern:hover {
+      transform: translateY(-8px); box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+      border-color: #28B463;
+    }
+    .project-card-modern .project-image-wrap {
+      position: relative; overflow: hidden; padding-top: 65%; background: #f0f4f8;
+    }
+    .project-card-modern .project-image-wrap img {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; transition: transform 0.5s ease;
+    }
+    .project-card-modern:hover .project-image-wrap img { transform: scale(1.05); }
+    .project-card-modern .project-badge {
+      position: absolute; top: 15px; right: 15px;
+      background: #28B463; color: white; padding: 5px 14px;
+      border-radius: 50px; font-size: 12px; font-weight: 600; z-index: 2;
+    }
+    .project-card-modern .project-body { padding: 20px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+    .project-card-modern .project-title {
+      font-size: 19px; font-weight: 700; color: #0F172A; margin-bottom: 6px;
+    }
+    .project-card-modern .project-location {
+      color: #28B463; font-size: 14px; font-weight: 500; margin-bottom: 10px;
+    }
+    .project-card-modern .project-location i { margin-right: 6px; }
+    .project-card-modern .project-desc {
+      color: #475569; font-size: 14px; line-height: 1.6; flex: 1;
+    }
+    .project-card-modern .project-footer {
+      margin-top: 16px; padding-top: 16px; border-top: 1px solid #E2E8F0;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .project-card-modern .project-tag {
+      display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.5px; color: #1E88E5; background: rgba(30,136,229,0.08);
+      padding: 4px 12px; border-radius: 50px;
+    }
+    .project-card-modern .project-link {
+      color: #28B463; font-weight: 600; font-size: 14px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px; transition: gap 0.3s;
+      cursor: pointer;
+    }
+    .project-card-modern .project-link:hover { gap: 10px; }
+
+    /* Filter Buttons */
+    .filter-btn {
+      padding: 10px 28px; border-radius: 50px; border: 1px solid #E2E8F0;
+      background: transparent; cursor: pointer; transition: all 0.3s ease;
+      font-weight: 500; margin: 5px;
+    }
+    .filter-btn:hover { background: #28B463; border-color: #28B463; color: white; transform: translateY(-2px); }
+    .filter-btn.active { background: #28B463; border-color: #28B463; color: white; }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #28B463; color: white; padding: 14px 32px;
+      border-radius: 50px; font-weight: 600; text-decoration: none;
+      transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(40,180,99,0.3);
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #1E7A43; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(40,180,99,0.4); }
+
     .gradient-bg {
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      opacity: 0.6;
-      pointer-events: none;
-      transition: opacity 0.6s ease;
+      position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      opacity: 0.6; pointer-events: none; transition: opacity 0.6s ease;
     }
-    
-    .group:hover .gradient-bg {
-      opacity: 1;
-    }
-    
+    .group:hover .gradient-bg { opacity: 1; }
     .gradient-all-colors {
-      background: linear-gradient(45deg, 
-        #e0f2fe, #bae6fd, #7dd3fc, 
-        #d1fae5, #6ee7b7, #34d399, 
-        #fef3c7, #e0f2fe
-      );
-      background-size: 400% 400%;
-      animation: gradientMove 20s ease-in-out infinite;
+      background: linear-gradient(45deg, #e0f2fe, #bae6fd, #7dd3fc, #d1fae5, #6ee7b7, #34d399, #fef3c7, #e0f2fe);
+      background-size: 400% 400%; animation: gradientMove 20s ease-in-out infinite;
     }
-    
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       25% { background-position: 100% 0%; }
@@ -512,36 +192,390 @@
       75% { background-position: 0% 100%; }
       100% { background-position: 0% 50%; }
     }
+    .group:hover { border-color: #34d399; box-shadow: 0 20px 25px -5px rgba(52,211,153,0.25), 0 10px 10px -5px rgba(52,211,153,0.08); }
 
-    .group:hover {
-      border-color: #34d399;
-      box-shadow: 0 20px 25px -5px rgba(52, 211, 153, 0.25), 0 10px 10px -5px rgba(52, 211, 153, 0.08);
-    }
-
-    /* Hero banner animation */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+
+    .filter-btn:hover:not(.active) { background: #f0fdf4; border-color: #00b894; }
+    .filter-btn.active { background: #00b894 !important; color: white !important; border-color: #00b894 !important; }
+    .btn-primary:hover { background: #059669 !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,184,148,0.3); }
+
+    /* Status Badge Colors */
+    .status-completed { background: #28B463; }
+    .status-progress { background: #F59E0B; }
+    .status-suspended { background: #EF4444; }
+
+    /* ===== MODAL / OVERLAY CARD STYLES (from YS Interiors) ===== */
+    .project-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      animation: modalFadeIn 0.4s ease;
     }
 
-    /*  */
-    .filter-btn:hover:not(.active) {
-    background: #f0fdf4;
-    border-color: #00b894;
-  }
-  .filter-btn.active {
-    background: #00b894 !important;
-    color: white !important;
-    border-color: #00b894 !important;
-  }
-  .btn-primary:hover {
-    background: #059669 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
-  }
+    .project-modal.active {
+      display: flex;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-content {
+      background: #fff;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      border-radius: 12px;
+      overflow-y: auto;
+      position: relative;
+      padding: 40px 45px 45px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: #555;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+    }
+    .modal-close:hover {
+      background: #f0f0f0;
+      color: #1F1F1F;
+      transform: rotate(90deg);
+    }
+
+    .modal-content .modal-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1E88E5;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .modal-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      color: #0F172A;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .modal-content .modal-location {
+      color: #777;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .modal-content .modal-description {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* ===== MODAL GALLERY CAROUSEL ===== */
+    .modal-gallery-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-gallery-viewport {
+      overflow: hidden;
+      flex: 1;
+      border-radius: 8px;
+    }
+
+    .modal-gallery-track {
+      display: flex;
+      gap: 16px;
+      transition: transform 0.4s ease;
+    }
+
+    .modal-gallery-track img {
+      flex: 0 0 calc((100% - 32px) / 3);
+      width: calc((100% - 32px) / 3);
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-gallery-track img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    .gallery-nav {
+      flex: 0 0 auto;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #EAEAEA;
+      background: #fff;
+      color: #1E88E5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .gallery-nav:hover {
+      background: #1E88E5;
+      color: #fff;
+      border-color: #1E88E5;
+    }
+
+    .gallery-nav:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .modal-gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .modal-gallery-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #EAEAEA;
+      transition: all 0.3s ease;
+    }
+
+    .modal-gallery-dots span.active-dot {
+      background: #1E88E5;
+      width: 18px;
+      border-radius: 3px;
+    }
+
+    .modal-cta {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid #EAEAEA;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .modal-cta .btn-modal {
+      padding: 12px 30px;
+      background: #28B463;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-cta .btn-modal:hover {
+      background: #1E7A43;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40,180,99,0.3);
+    }
+
+    .modal-cta .btn-modal-outline {
+      padding: 12px 30px;
+      background: transparent;
+      color: #28B463;
+      border: 2px solid #28B463;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-cta .btn-modal-outline:hover {
+      background: #28B463;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40,180,99,0.15);
+    }
+
+    .modal-content::-webkit-scrollbar {
+      width: 6px;
+    }
+    .modal-content::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    .modal-content::-webkit-scrollbar-thumb {
+      background: #1E88E5;
+      border-radius: 10px;
+    }
+
+    /* ===== FULLSCREEN LIGHTBOX ===== */
+    .fullscreen-lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10001;
+      background: rgba(0,0,0,0.95);
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    .fullscreen-lightbox.active {
+      display: flex;
+    }
+
+    .fullscreen-lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 22px;
+      right: 28px;
+      font-size: 1.8rem;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-close:hover {
+      background: #1E88E5;
+      transform: rotate(90deg);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .lightbox-nav:hover {
+      background: #1E88E5;
+    }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        padding: 30px 22px 32px;
+        max-height: 95vh;
+      }
+      .modal-content h2 {
+        font-size: 1.6rem;
+      }
+      .modal-gallery-track img {
+        flex: 0 0 calc((100% - 16px) / 2);
+        width: calc((100% - 16px) / 2);
+        height: 160px;
+      }
+      .gallery-nav {
+        width: 34px;
+        height: 34px;
+      }
+      .lightbox-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+      }
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .modal-gallery-track img {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 220px;
+      }
+      .modal-cta {
+        flex-direction: column;
+      }
+      .modal-cta .btn-modal,
+      .modal-cta .btn-modal-outline {
+        text-align: center;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -569,216 +603,225 @@
 <main>
 <!-- Page Hero Section with Stats Integrated & Counters -->
 <section class="relative min-h-[635px] w-full overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);">
-  <!-- Video Background -->
   <div class="absolute inset-0 z-0">
     <video autoplay muted loop playsinline class="w-full h-full object-cover">
       <source src="/assets/images/bg_v2.mp4" type="video/mp4">
     </video>
   </div>
-  
-  <!-- Darker overlay for better text visibility -->
   <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-10"></div>
   
-  <!-- Content Wrapper -->
   <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- Hero Content -->
     <div class="text-center mb-8 animate-fade-in-up">
       <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/40 rounded-full px-4 py-1.5 mb-5">
         <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
         <span class="text-emerald-400 text-xs font-semibold tracking-wider uppercase">Our Portfolio</span>
       </div>
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
-        Project <span class="text-emerald-400" style="text-shadow: 0 0 30px rgba(16, 185, 129, 0.5), 0 0 60px rgba(16, 185, 129, 0.2);">Portfolio</span>
+        Project <span class="text-emerald-400" style="text-shadow: 0 0 30px rgba(16,185,129,0.5), 0 0 60px rgba(16,185,129,0.2);">Portfolio</span>
       </h1>
       <p class="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
-        Delivering excellence across industries and geographies
+        20+ projects across India and Indonesia · 2.5M+ sq. meters built
       </p>
     </div>
 
-    <!-- Stats Cards - Integrated in Hero with Counters -->
+    <!-- Stats Cards -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mt-6">
-      
-      <!-- Card 1 -->
       <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
         <i class="fas fa-chart-line text-xl text-emerald-400 mb-1 inline-block"></i>
-        <div class="text-2xl font-bold text-white stat-number" data-target="500">0</div>
-        <p class="font-semibold text-xs text-gray-300">Projects Completed</p>
+        <div class="text-2xl font-bold text-white stat-number" data-target="20">0</div>
+        <p class="font-semibold text-xs text-gray-300">Total Projects</p>
       </div>
-
-      <!-- Card 2 -->
       <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
-        <i class="fas fa-smile text-xl text-emerald-400 mb-1 inline-block"></i>
-        <div class="text-2xl font-bold text-white stat-number" data-target="100">0</div>
-        <p class="font-semibold text-xs text-gray-300">Happy Clients</p>
+        <i class="fas fa-ruler-combined text-xl text-emerald-400 mb-1 inline-block"></i>
+        <div class="text-2xl font-bold text-white stat-number" data-target="2.5">0</div>
+        <p class="font-semibold text-xs text-gray-300">M+ Sq. Meters Built</p>
       </div>
-
-      <!-- Card 3 -->
+      <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-check-circle text-xl text-emerald-400 mb-1 inline-block"></i>
+        <div class="text-2xl font-bold text-white stat-number" data-target="15">0</div>
+        <p class="font-semibold text-xs text-gray-300">Completed</p>
+      </div>
       <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
         <i class="fas fa-globe text-xl text-emerald-400 mb-1 inline-block"></i>
-        <div class="text-2xl font-bold text-white stat-number" data-target="3">0</div>
+        <div class="text-2xl font-bold text-white stat-number" data-target="4">0</div>
         <p class="font-semibold text-xs text-gray-300">Countries</p>
       </div>
-
-      <!-- Card 4 -->
-      <div class="bg-black/40 backdrop-blur-md rounded-xl py-4 px-3 text-center border border-white/20 hover:border-emerald-400/60 hover:bg-black/60 hover:-translate-y-1 transition-all duration-300">
-        <i class="fas fa-trophy text-xl text-emerald-400 mb-1 inline-block"></i>
-        <div class="text-2xl font-bold text-white stat-number" data-target="25">0</div>
-        <p class="font-semibold text-xs text-gray-300">Years Excellence</p>
-      </div>
-
     </div>
   </div>
 </section>
 
-<style>
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-</style>
-
 <script>
 (function() {
-  // Counter Animation Function
   function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
-    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const counter = entry.target;
-          const target = parseInt(counter.getAttribute('data-target'));
+          const target = parseFloat(counter.getAttribute('data-target'));
           let current = 0;
-          const increment = Math.ceil(target / 50);
           const duration = 2000;
-          const stepTime = Math.floor(duration / 50);
-          
+          const steps = 50;
+          const increment = target / steps;
+          const stepTime = duration / steps;
           const updateCounter = () => {
             current += increment;
             if (current < target) {
-              counter.textContent = current;
+              if (target % 1 !== 0) { counter.textContent = current.toFixed(1); } 
+              else { counter.textContent = Math.floor(current); }
               setTimeout(updateCounter, stepTime);
             } else {
-              counter.textContent = target + '+';
+              if (target % 1 !== 0) { counter.textContent = target.toFixed(1); } 
+              else { counter.textContent = target; }
             }
           };
-          
           updateCounter();
           observer.unobserve(counter);
         }
       });
     }, { threshold: 0.3 });
-    
     counters.forEach(counter => observer.observe(counter));
   }
-  
-  // Run counter on page load
   document.addEventListener('DOMContentLoaded', animateCounters);
 })();
 </script>
 
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
- <!-- Projects Gallery with New Card Layout -->
+<!-- Projects Gallery -->
 <section class="section" style="padding-top: 1.5rem; padding-bottom: 3rem;">
   <div class="container">
-    <!-- Compact header with minimal spacing -->
     <div class="section-header" style="margin-bottom: 1.25rem;">
       <span class="section-tag" style="font-size: 0.7rem; display: inline-block; margin-bottom: 0.15rem; letter-spacing: 1px; font-weight: 600; color: #00b894; text-transform: uppercase;">Our Work</span>
       <h2 class="section-title" style="font-size: 1.6rem; margin: 0; line-height: 1.2; font-weight: 700;">Featured <span style="color: #00b894;">Projects</span></h2>
-      <p class="section-subtitle" style="font-size: 0.85rem; margin-top: 0.2rem; margin-bottom: 0; color: #64748b;">Explore our successful project deliveries across various sectors</p>
+      <p class="section-subtitle" style="font-size: 0.85rem; margin-top: 0.2rem; margin-bottom: 0; color: #64748b;">20+ projects across India and Indonesia · 2.5M+ sq. meters built</p>
     </div>
     
-    <!-- Filter Buttons - ultra compact with original colors -->
+    <!-- Filter Buttons -->
     <div class="flex justify-center flex-wrap gap-1.5 mb-5">
       <button class="filter-btn active" data-filter="all" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #00b894; background: #00b894; color: white; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">All Projects</button>
       <button class="filter-btn" data-filter="pharmaceutical" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Pharmaceutical</button>
       <button class="filter-btn" data-filter="industrial" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Industrial</button>
       <button class="filter-btn" data-filter="infrastructure" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Infrastructure</button>
       <button class="filter-btn" data-filter="commercial" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Commercial</button>
+      <button class="filter-btn" data-filter="new-energy" style="padding: 0.3rem 0.9rem; font-size: 0.75rem; border-radius: 20px; border: 1.5px solid #e2e8f0; background: transparent; color: #475569; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">New Energy</button>
     </div>
     
     <!-- Projects Grid -->
     <div class="projects-grid" id="projectsGrid"></div>
     
-    <!-- Load More Button - compact with original colors -->
+    <!-- Load More Button -->
     <div class="text-center mt-5">
       <button id="loadMoreBtn" class="btn-primary" style="padding: 0.4rem 1.4rem; font-size: 0.8rem; border-radius: 25px; background: #00b894; color: white; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: 500;">Load More Projects <i class="fas fa-arrow-down" style="margin-left: 0.3rem;"></i></button>
     </div>
   </div>
 </section>
-
-  <!-- Testimonial + CTA - matches index page -->
-  <!-- <section class="section bg-light">
-    <div class="container">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <i class="fas fa-quote-left text-5xl text-secondary opacity-30 mb-4"></i>
-          <p class="text-2xl font-medium text-dark leading-relaxed">"Jianan Engineering delivered our pharmaceutical facility ahead of schedule with exceptional quality standards. Their MEP expertise is truly unmatched."</p>
-          <div class="flex items-center gap-4 mt-6">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
-            <div>
-              <h4 class="font-bold text-lg">Rajiv Mehta</h4>
-              <p class="text-secondary">CEO, PharmaCorp India</p>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-8 rounded-2xl shadow-lg border border-E2E8F0">
-          <h3 class="text-2xl font-bold mb-4">Start Your Project</h3>
-          <p class="text-text mb-6">Ready to bring your engineering project to life? Let's discuss how Jianan Engineering can help.</p>
-          <a href="contact.html" class="btn-primary">Request a Quote <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section> -->
 </main>
 
 <!-- Footer Container -->
 <div id="footer-container"></div>
 
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- ===== PROJECT MODAL (from YS Interiors) ===== -->
+<div id="projectModal" class="project-modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <span class="modal-badge" id="modalBadge">Industrial</span>
+    <h2 id="modalTitle">Project Title</h2>
+    <p class="modal-location" id="modalLocation">📍 Location</p>
+    <p class="modal-description" id="modalDescription">Project description goes here.</p>
+
+    <div class="modal-gallery-wrapper">
+      <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous images">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="modal-gallery-viewport">
+        <div class="modal-gallery-track" id="modalGalleryTrack"></div>
+      </div>
+      <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Next images">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="modal-gallery-dots" id="modalGalleryDots"></div>
+
+    <div class="modal-cta">
+      <a href="contact.html" class="btn-modal">
+        <i class="fa-solid fa-envelope"></i> Get a Quote
+      </a>
+      <a href="services.html" class="btn-modal-outline">
+        <i class="fa-solid fa-arrow-right"></i> Explore Services
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FULLSCREEN LIGHTBOX ===== -->
+<div id="fullscreenLightbox" class="fullscreen-lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close fullscreen">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <img id="lightboxImage" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+  <div class="lightbox-counter" id="lightboxCounter">1 / 10</div>
+</div>
 
 <script>
-  // Projects Data
+  // ============================================================
+  // PROJECT DATA (with images for modal)
+  // Each project now has an "images" array (can be 1 or more)
+  // ============================================================
   const allProjects = [
-    { id: 1, title: "Pharma SEZ, Mumbai", category: "pharmaceutical", location: "Mumbai, India", desc: "Turnkey MEP + HVAC for GMP-certified pharmaceutical facility. Complete cleanroom installation with HEPA filtration.", img: "/assets/images/P__1.jpg" },
-    { id: 2, title: "Jakarta Industrial Park", category: "industrial", location: "Jakarta, Indonesia", desc: "Complete EPC infrastructure development for 200-acre industrial zone including roads, utilities, and buildings.", img: "/assets/images/p_2.jpg" },
-    { id: 3, title: "Bangladesh Power Plant", category: "industrial", location: "Dhaka, Bangladesh", desc: "Electrical systems and fire safety for 500MW combined cycle power plant.", img: "/assets/images/P_3.avif" },
-    { id: 4, title: "Pharma Cleanroom Facility", category: "pharmaceutical", location: "Hyderabad, India", desc: "Class 100 cleanroom with HEPA filtration, HVAC, and environmental monitoring systems.", img: "/assets/images/P__1.jpg" },
-    { id: 5, title: "Auto Manufacturing Plant", category: "infrastructure", location: "Chennai, India", desc: "Complete electrical systems, automation, and robotics integration for automotive assembly line.", img: "/assets/images/P_5.jpg" },
-    { id: 6, title: "Commercial Complex MEP", category: "commercial", location: "Delhi, India", desc: "HVAC, fire safety, and electrical systems for 40-story corporate tower.", img: "/assets/images/P_6.jpg" },
-    { id: 7, title: "Solar Power Project", category: "industrial", location: "Gujarat, India", desc: "Engineering and installation of 100MW solar photovoltaic plant.", img: "/assets/images/P_7.jpeg" },
-    { id: 8, title: "Food Processing Unit", category: "infrastructure", location: "Pune, India", desc: "Hygienic MEP design and installation for food processing facility.", img: "/assets/images/P_8.jpg" },
-    { id: 9, title: "Metro Rail Project", category: "industrial", location: "Jakarta, Indonesia", desc: "MEP systems for metro rail extension project including ventilation and fire safety.", img: "/assets/images/P_9.jpg" }
+    { id: 1, title: "Shreeji Cyclotron Pharma Project", category: "pharmaceutical", location: "Lucknow, India", desc: "₹13.25 Cr · Building works, Finishing Work, MEP Works, External Works", status: "Completed", img: "/assets/images/Shreeji 12.png", images: ["/assets/images/Shreeji 12.png", "/assets/images/P_6.jpg", "/assets/images/P_7.jpeg", "/assets/images/P_8.jpg"] },
+    { id: 2, title: "YingTong India - New Factory", category: "industrial", location: "India", desc: "₹77.50 Cr · Building works, PEB Building, Finishing Work, MEP Works, External Works · 15 Months", status: "Completed", img: "/assets/images/YingTong14.png", images: ["/assets/images/YingTong14.png", "/assets/images/P_9.jpg", "/assets/images/P__1.jpg"] },
+    { id: 3, title: "Evervon Kothari Footware", category: "industrial", location: "Karur, Tamil Nadu", desc: "₹120.00 Cr · Building works, PEB Buildings, Finishing Work, MEP Works, External Works · 18 Months", status: "In Progress", img: "/assets/images/Evervon1.png", images: ["/assets/images/Evervon1.png", "/assets/images/P_5.jpg", "/assets/images/P_6.jpg"] },
+    { id: 4, title: "Gorakhpur Railway Station (RLDA)", category: "infrastructure", location: "Gorakhpur, Uttar Pradesh", desc: "₹45.00 Cr · Building works · 12 Months", status: "In Progress", img: "/assets/images/Gorakhpur2.png", images: ["/assets/images/Gorakhpur2.png", "/assets/images/P_7.jpeg", "/assets/images/P_8.jpg"] },
+    { id: 5, title: "ATL Battery Factory - Sohna", category: "industrial", location: "Sohna, Haryana", desc: "₹55.50 Cr · Building works, Finishing Work, MEP Works, External Works", status: "Completed", img: "/assets/images/ATL8.png", images: ["/assets/images/ATL8.png", "/assets/images/P_9.jpg", "/assets/images/P__1.jpg"] },
+    { id: 6, title: "Foxconn India - Bengaluru", category: "industrial", location: "Bengaluru, India", desc: "₹25.00 Cr · Building works, Finishing Work, External Work · Electronics Manufacturing", status: "In Progress", img: "/assets/images/P_6.jpg", images: ["/assets/images/P_6.jpg", "/assets/images/P_5.jpg", "/assets/images/P_6.jpg"] },
+    { id: 7, title: "International Airport Jewar", category: "infrastructure", location: "Jewar, Uttar Pradesh", desc: "₹15.00 Cr · Airport infrastructure works", status: "In Progress", img: "/assets/images/P_7.jpeg", images: ["/assets/images/P_7.jpeg", "/assets/images/P_8.jpg", "/assets/images/P_9.jpg"] },
+    { id: 8, title: "Talcher Fertilizers - Odisha", category: "industrial", location: "Odisha, India", desc: "₹30.70 Cr · Fertilizer plant infrastructure", status: "In Progress", img: "/assets/images/P_8.jpg", images: ["/assets/images/P_8.jpg", "/assets/images/P__1.jpg", "/assets/images/P_5.jpg"] },
+    { id: 9, title: "Goa Project - Bicholin", category: "commercial", location: "North Goa, India", desc: "Residential Building works · 12 Months", status: "In Progress", img: "/assets/images/Goa1.png", images: ["/assets/images/Goa1.png", "/assets/images/P_6.jpg", "/assets/images/P_7.jpeg"] },
+    { id: 10, title: "BTR Indonesia KIP Industrial Park", category: "new-energy", location: "Kendal, Central Java", desc: "143,070 sqm · WSD, Electrical, Fire Protection, HVAC, Telecom, Outdoor MEP · 80,000-ton/year lithium battery anode materials", status: "Completed", img: "/assets/images/P_7.jpeg", images: ["/assets/images/P_7.jpeg", "/assets/images/P_8.jpg", "/assets/images/P_9.jpg"] },
+    { id: 11, title: "Zhongce Indonesia Factory", category: "industrial", location: "Kendal, Central Java", desc: "426,866 sqm · WSD, Electrical, Fire Protection, Smoke Control · Large-scale tire manufacturing on 492,061 sqm site", status: "Completed", img: "/assets/images/P_8.jpg", images: ["/assets/images/P_8.jpg", "/assets/images/P__1.jpg", "/assets/images/P_5.jpg"] },
+    { id: 12, title: "REC Solar Photovoltaic Plant", category: "new-energy", location: "Batam Island, Sumatra", desc: "86,574 sqm · Electrical Systems, HVAC, Interior Decoration · Solar energy facility for PT. REC Solar Energy Indonesia", status: "Completed", img: "/assets/images/P_9.jpg", images: ["/assets/images/P_9.jpg", "/assets/images/P_6.jpg", "/assets/images/P_7.jpeg"] },
+    { id: 13, title: "Haitai New Energy Photovoltaic", category: "new-energy", location: "Batam Island, Sumatra", desc: "58,785 sqm · WSD, Electrical, Fire Protection, HVAC", status: "In Progress", img: "/assets/images/P__1.jpg", images: ["/assets/images/P__1.jpg", "/assets/images/P_5.jpg", "/assets/images/P_6.jpg"] },
+    { id: 14, title: "Batang SEG Solar Project", category: "new-energy", location: "Batang Industrial Park", desc: "65,875 sqm · WSD, Electrical, Fire Protection, HVAC", status: "In Progress", img: "/assets/images/P_5.jpg", images: ["/assets/images/P_5.jpg", "/assets/images/P_6.jpg", "/assets/images/P_7.jpeg"] },
+    { id: 15, title: "East Magnetic 110 & 111", category: "industrial", location: "Batam Island, Sumatra", desc: "Two factory buildings for magnetic component manufacturing · WSD, Electrical, Fire Protection, HVAC", status: "In Progress", img: "/assets/images/P_6.jpg", images: ["/assets/images/P_6.jpg", "/assets/images/P_8.jpg", "/assets/images/P_9.jpg"] },
+    { id: 16, title: "Asthana Apartment", category: "commercial", location: "South Jakarta", desc: "90,101 sqm · Monitoring, Access Control, Broadcasting, Cable TV, Fire Protection, HVAC · High-rise residential (suspended & rebuilt)", status: "Suspended", img: "/assets/images/P_7.jpeg", images: ["/assets/images/P_7.jpeg", "/assets/images/P__1.jpg", "/assets/images/P_5.jpg"] },
+    { id: 17, title: "Semarang Eastern Tech Project", category: "industrial", location: "NUSA Industrial Park, Semarang", desc: "78,984 sqm · Decoration & Renovation, Structure, Architectural Engineering", status: "Completed", img: "/assets/images/P_8.jpg", images: ["/assets/images/P_8.jpg", "/assets/images/P_6.jpg", "/assets/images/P_7.jpeg"] },
+    { id: 18, title: "Medan Inco Medical Project", category: "commercial", location: "Medan, North Sumatra", desc: "135,875 sqm · Structure, Building Engineering · Large-scale medical facility construction", status: "Completed", img: "/assets/images/P_9.jpg", images: ["/assets/images/P_9.jpg", "/assets/images/P_8.jpg", "/assets/images/P__1.jpg"] },
+    { id: 19, title: "Semarang Indonesia Racing Project", category: "industrial", location: "NUSA Industrial Park, Semarang", desc: "85,487 sqm · WSD, Electrical, Fire Protection, HVAC", status: "In Progress", img: "/assets/images/P__1.jpg", images: ["/assets/images/P__1.jpg", "/assets/images/P_5.jpg", "/assets/images/P_6.jpg"] },
+    { id: 20, title: "Bekalu Surabaya Star Project", category: "commercial", location: "Bekasi, Java", desc: "78,785 sqm · WSD, Electrical, Fire Protection, HVAC", status: "In Progress", img: "/assets/images/P_5.jpg", images: ["/assets/images/P_5.jpg", "/assets/images/P_6.jpg", "/assets/images/P_7.jpeg"] },
+    { id: 21, title: "Bekasi Haitian Project", category: "industrial", location: "Bekasi, Java", desc: "4,854 sqm · WSD, Electrical, Fire Protection, HVAC", status: "Completed", img: "/assets/images/P_6.jpg", images: ["/assets/images/P_6.jpg", "/assets/images/P_8.jpg", "/assets/images/P_9.jpg"] }
   ];
-  
+
+  // Status color mapping
+  function getStatusClass(status) {
+    const map = {
+      'Completed': 'status-completed',
+      'In Progress': 'status-progress',
+      'Suspended': 'status-suspended'
+    };
+    return map[status] || 'status-progress';
+  }
+
   let visibleProjects = 6;
   
-  // Get category display name
   function getCategoryDisplay(category) {
     const map = {
       pharmaceutical: 'Pharma',
       industrial: 'Industrial',
-      infrastructure: 'Infra',
-      commercial: 'Commercial'
+      infrastructure: 'Infrastructure',
+      commercial: 'Commercial',
+      'new-energy': 'New Energy'
     };
     return map[category] || category.charAt(0).toUpperCase() + category.slice(1);
   }
   
-  // Render projects with new card layout
   function renderProjects() {
     const grid = document.getElementById('projectsGrid');
     if (!grid) return;
@@ -788,11 +831,11 @@
     const visible = filtered.slice(0, visibleProjects);
     
     grid.innerHTML = visible.map(project => `
-      <div class="project-card-modern group relative overflow-hidden" data-category="${project.category}">
+      <div class="project-card-modern group relative overflow-hidden" data-category="${project.category}" data-project-id="${project.id}">
         <div class="gradient-bg gradient-all-colors"></div>
         <div class="project-image-wrap relative">
           <img src="${project.img}" alt="${project.title}" loading="lazy">
-          <span class="project-badge">${getCategoryDisplay(project.category)}</span>
+          <span class="project-badge ${getStatusClass(project.status)}">${project.status}</span>
         </div>
         <div class="project-body relative z-10">
           <h3 class="project-title">${project.title}</h3>
@@ -800,24 +843,28 @@
           <p class="project-desc">${project.desc}</p>
           <div class="project-footer">
             <span class="project-tag"><i class="fas fa-folder-open mr-1"></i> ${getCategoryDisplay(project.category)}</span>
-            <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="project-link view-detail-link" data-project-id="${project.id}">View Details <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
     `).join('');
     
-    // Hide load more button if no more projects
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (loadMoreBtn) {
-      if (visibleProjects >= filtered.length) {
-        loadMoreBtn.style.display = 'none';
-      } else {
-        loadMoreBtn.style.display = 'inline-flex';
-      }
+      loadMoreBtn.style.display = visibleProjects >= filtered.length ? 'none' : 'inline-flex';
     }
+
+    // Re-bind view detail links after render
+    document.querySelectorAll('.view-detail-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const projectId = parseInt(this.getAttribute('data-project-id'));
+        const project = allProjects.find(p => p.id === projectId);
+        if (project) openModal(project);
+      });
+    });
   }
   
-  // Initialize filters
   function initFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
@@ -830,7 +877,6 @@
     });
   }
   
-  // Load more projects
   function initLoadMore() {
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (loadMoreBtn) {
@@ -840,11 +886,163 @@
       });
     }
   }
-  
-  // ============================================
+
+  // ============================================================
+  // MODAL LOGIC (copied from YS Interiors with adaptations)
+  // ============================================================
+  const modal = document.getElementById('projectModal');
+  const modalClose = document.getElementById('modalClose');
+  const galleryTrack = document.getElementById('modalGalleryTrack');
+  const galleryDots = document.getElementById('modalGalleryDots');
+  const galleryPrevBtn = document.getElementById('galleryPrev');
+  const galleryNextBtn = document.getElementById('galleryNext');
+
+  const lightbox = document.getElementById('fullscreenLightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrevBtn = document.getElementById('lightboxPrev');
+  const lightboxNextBtn = document.getElementById('lightboxNext');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+
+  let currentImages = [];
+  let visibleCount = 3;
+  let carouselIndex = 0;
+  let lightboxIndex = 0;
+
+  function getVisibleCount() {
+    if (window.innerWidth <= 480) return 1;
+    if (window.innerWidth <= 768) return 2;
+    return 3;
+  }
+
+  function renderGallery() {
+    galleryTrack.innerHTML = '';
+    currentImages.forEach((src, idx) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = document.getElementById('modalTitle').textContent + ' photo ' + (idx + 1);
+      img.loading = 'lazy';
+      img.dataset.index = idx;
+      img.addEventListener('click', () => openLightbox(idx));
+      galleryTrack.appendChild(img);
+    });
+
+    galleryDots.innerHTML = '';
+    const maxIndex = Math.max(0, currentImages.length - visibleCount);
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active-dot');
+      galleryDots.appendChild(dot);
+    }
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    visibleCount = getVisibleCount();
+    const maxIndex = Math.max(0, currentImages.length - visibleCount);
+    carouselIndex = Math.min(carouselIndex, maxIndex);
+
+    const thumb = galleryTrack.children[0];
+    if (thumb) {
+      const gap = 16;
+      const step = thumb.getBoundingClientRect().width + gap;
+      galleryTrack.style.transform = `translateX(-${carouselIndex * step}px)`;
+    }
+
+    galleryPrevBtn.disabled = carouselIndex <= 0;
+    galleryNextBtn.disabled = carouselIndex >= maxIndex;
+
+    const dots = galleryDots.querySelectorAll('span');
+    dots.forEach((d, i) => d.classList.toggle('active-dot', i === carouselIndex));
+  }
+
+  galleryPrevBtn.addEventListener('click', () => {
+    carouselIndex = Math.max(0, carouselIndex - 1);
+    updateCarousel();
+  });
+
+  galleryNextBtn.addEventListener('click', () => {
+    const maxIndex = Math.max(0, currentImages.length - visibleCount);
+    carouselIndex = Math.min(maxIndex, carouselIndex + 1);
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', () => {
+    if (modal.classList.contains('active')) updateCarousel();
+  });
+
+  function openModal(project) {
+    document.getElementById('modalBadge').textContent = getCategoryDisplay(project.category);
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalLocation').textContent = '📍 ' + project.location;
+    document.getElementById('modalDescription').textContent = project.desc;
+
+    // Ensure images array exists, fallback to single img
+    currentImages = project.images && project.images.length > 0 ? project.images : [project.img];
+    carouselIndex = 0;
+    renderGallery();
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Lightbox functions
+  function openLightbox(index) {
+    lightboxIndex = index;
+    showLightboxImage();
+    lightbox.classList.add('active');
+  }
+
+  function showLightboxImage() {
+    lightboxImage.src = currentImages[lightboxIndex];
+    lightboxImage.alt = document.getElementById('modalTitle').textContent + ' — fullscreen photo ' + (lightboxIndex + 1);
+    lightboxCounter.textContent = (lightboxIndex + 1) + ' / ' + currentImages.length;
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+  }
+
+  function showNextImage() {
+    lightboxIndex = (lightboxIndex + 1) % currentImages.length;
+    showLightboxImage();
+  }
+
+  function showPrevImage() {
+    lightboxIndex = (lightboxIndex - 1 + currentImages.length) % currentImages.length;
+    showLightboxImage();
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxNextBtn.addEventListener('click', showNextImage);
+  lightboxPrevBtn.addEventListener('click', showPrevImage);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (lightbox.classList.contains('active')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNextImage();
+      if (e.key === 'ArrowLeft') showPrevImage();
+    } else if (modal.classList.contains('active')) {
+      if (e.key === 'Escape') closeModal();
+    }
+  });
+
+  // ============================================================
   // LOAD COMPONENTS (navbar and footer)
-  // ============================================
-  
+  // ============================================================
   async function loadComponent(elementId, componentPath) {
     try {
       const response = await fetch(componentPath);
@@ -865,28 +1063,21 @@
     
     if (header) {
       window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
+        if (window.scrollY > 100) { header.classList.add('scrolled'); } 
+        else { header.classList.remove('scrolled'); }
       });
     }
     
     if (navToggle && navMenu) {
       const newToggle = navToggle.cloneNode(true);
       navToggle.parentNode.replaceChild(newToggle, navToggle);
-      
       const newMenu = navMenu.cloneNode(true);
       navMenu.parentNode.replaceChild(newMenu, navMenu);
-      
       const finalToggle = document.getElementById('navToggle');
       const finalMenu = document.getElementById('navMenu');
-      
       if (finalToggle && finalMenu) {
         finalToggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
+          e.preventDefault(); e.stopPropagation();
           finalMenu.classList.toggle('active');
           finalToggle.classList.toggle('active');
           document.body.classList.toggle('mobile-nav-active');
@@ -917,9 +1108,7 @@
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
       const href = link.getAttribute('href');
-      if (href === currentPage) {
-        link.classList.add('active');
-      }
+      if (href === currentPage) { link.classList.add('active'); }
     });
   }
   
@@ -937,57 +1126,20 @@
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
       window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
+        if (window.scrollY > 300) { backToTop.classList.add('show'); } 
+        else { backToTop.classList.remove('show'); }
       });
-      
       backToTop.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
   
-  function initCounters() {
-    const counters = document.querySelectorAll('.stat-number-lg');
-    if (counters.length === 0) return;
-    
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      if (isNaN(target)) return;
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                counter.innerText = target;
-                clearInterval(timer);
-              } else {
-                counter.innerText = Math.floor(current);
-              }
-            }, 30);
-            observer.unobserve(counter);
-          }
-        });
-      }, { threshold: 0.5 });
-      
-      observer.observe(counter);
-    });
-  }
-  
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
-    
     initNavbar();
     initGlobalUI();
-    initCounters();
     renderProjects();
     initFilters();
     initLoadMore();
@@ -1004,9 +1156,7 @@
     if (loader) {
       setTimeout(() => {
         loader.style.opacity = '0';
-        setTimeout(() => {
-          loader.style.display = 'none';
-        }, 500);
+        setTimeout(() => { loader.style.display = 'none'; }, 500);
       }, 1000);
     }
   });

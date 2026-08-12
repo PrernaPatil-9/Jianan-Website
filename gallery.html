@@ -10,7 +10,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Centralized Theme Configuration (extends the existing Jianan palette/fonts — nothing renamed or removed) -->
+  <!-- Centralized Theme Configuration -->
   <script>
     tailwind.config = {
       theme: {
@@ -55,7 +55,7 @@
     }
   </script>
 
-  <!-- Google Fonts (same as current Jianan pages) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -64,7 +64,7 @@
     body { overflow-x: hidden; font-family: 'Inter', sans-serif; background: #f8fafc; color: #475569; }
     .font-heading { font-family: 'Poppins', sans-serif; }
 
-    /* ========== LOADER (unchanged from current site) ========== */
+    /* ========== LOADER ========== */
     .loader {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: #0F172A; z-index: 10000;
@@ -90,7 +90,7 @@
     @keyframes loading { 100% { left: 100%; } }
     @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
 
-    /* ========== SCROLL PROGRESS (unchanged) ========== */
+    /* ========== SCROLL PROGRESS ========== */
     .scroll-progress {
       position: fixed; top: 0; left: 0; width: 0%; height: 3px;
       background: linear-gradient(90deg, #1E88E5, #28B463);
@@ -127,7 +127,7 @@
     @media (max-width: 768px) { .section { padding: 50px 0; } }
     .bg-light { background: #F8FAFC; }
 
-    /* ========== ACCENT DIVIDER (replaces "gold-divider" — same idea, on-brand colors) ========== */
+    /* ========== ACCENT DIVIDER ========== */
     .accent-divider { height: 1px; background: linear-gradient(90deg, transparent, #28B463, #1E88E5, #28B463, transparent); opacity: .4; position: relative; }
     .accent-divider::after {
       content: '✦'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -170,12 +170,11 @@
     @media (min-width: 768px) { .counter-num { font-size: 2.9rem; } }
     .counter-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-top: 4px; }
 
-    /* ========== SECTION HEADER (shared by Gallery / Certifications) ========== */
+    /* ========== SECTION HEADER ========== */
     .head-eyebrow { display:flex; align-items:center; gap:.6rem; color:#1E88E5; font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; margin-bottom:.85rem; }
     .head-eyebrow .ln { width:24px; height:1px; background:#1E88E5; }
     .head-eyebrow.center { justify-content:center; }
 
-    /* legacy section header (kept for Video Tour + CTA bonus sections, unchanged) */
     .section-header { text-align: center; margin-bottom: 50px; }
     .section-tag {
       display: inline-block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
@@ -283,7 +282,7 @@
     .contact-float:hover .cf-tip { opacity: 1; }
 
     /* ========== LIGHTBOX ========== */
-    .lightbox-pane { position: fixed; inset:0; z-index:9999; background:rgba(15,23,42,.96); backdrop-filter: blur(18px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .28s; }
+    .lightbox-pane { position: fixed; inset:0; z-index:9999; background:rgba(15,23,42,.96); backdrop-filter:blur(18px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .28s; }
     .lightbox-pane.open { opacity: 1; pointer-events: all; }
     .lb-container { position: relative; max-width: min(92vw, 860px); width: 100%; }
     .lb-img-frame { border-radius: 14px; overflow: hidden; border: 1px solid rgba(30,136,229,.3); box-shadow: 0 0 0 1px rgba(40,180,99,.18), 0 40px 100px rgba(0,0,0,.7); }
@@ -307,7 +306,7 @@
     .lb-prev { left: -56px; } .lb-next { right: -56px; }
     @media(max-width:640px){ .lb-prev{left:0} .lb-next{right:0} }
 
-    /* ========== VIDEO SHOWCASE (kept from current site, bonus section) ========== */
+    /* ========== VIDEO SHOWCASE ========== */
     .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
     @media (max-width: 768px) { .video-grid { grid-template-columns: 1fr; } }
     .video-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #E2E8F0; transition: all 0.4s ease; }
@@ -318,7 +317,7 @@
     .video-card .info p { font-size: 14px; color: #475569; margin-top: 2px; }
     .video-card .info p i { color: #28B463; margin-right: 4px; }
 
-    /* ========== CTA (kept from current site, bonus section) ========== */
+    /* ========== CTA ========== */
     .cta-section {
       text-align: center; padding: 70px 40px; background: linear-gradient(135deg, #0F172A 0%, #1a3c34 100%);
       border-radius: 24px; color: white; position: relative; overflow: hidden;
@@ -339,13 +338,13 @@
 <body>
 
 <!-- Loader -->
-<div class="loader" id="loader">
+<!-- <div class="loader" id="loader">
   <div class="loader-content">
     <div class="loader-logo">J</div>
     <div class="loader-text">JIANAN ENGINEERING</div>
     <div class="loader-bar"></div>
   </div>
-</div>
+</div> -->
 
 <!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -358,7 +357,7 @@
   </div>
 </div>
 
-<!-- Navbar (unchanged component loader) -->
+<!-- Navbar -->
 <div id="navbar-container"></div>
 
 <main>
@@ -403,19 +402,19 @@
       <div class="flex flex-wrap items-center justify-center gap-3 animate-fade-in-up anim-delay-600">
         <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
           <i class="fas fa-images text-secondary-light text-xs"></i>
-          <span class="text-white/80 text-xs tracking-wide">500+ Photos</span>
+          <span class="text-white/80 text-xs tracking-wide">20+ Projects</span>
         </div>
         <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
           <i class="fas fa-project-diagram text-secondary-light text-xs"></i>
-          <span class="text-white/80 text-xs tracking-wide">200+ Projects Covered</span>
+          <span class="text-white/80 text-xs tracking-wide">2.5M+ Sq. Meters</span>
         </div>
         <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
           <i class="fas fa-industry text-secondary-light text-xs"></i>
-          <span class="text-white/80 text-xs tracking-wide">15 Industries Served</span>
+          <span class="text-white/80 text-xs tracking-wide">7+ Industries</span>
         </div>
         <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
           <i class="fas fa-map-marker-alt text-secondary-light text-xs"></i>
-          <span class="text-white/80 text-xs tracking-wide">8 Global Locations</span>
+          <span class="text-white/80 text-xs tracking-wide">4 Countries</span>
         </div>
       </div>
     </div>
@@ -427,31 +426,31 @@
   </section>
 
   <!-- ══════════════════════════════════════════════
-       COUNTERS
+       COUNTERS - Updated with PPT Data
   ══════════════════════════════════════════════ -->
   <div class="counter-bar border-y border-border">
     <div class="counter-item">
-      <div class="counter-num"><span data-target="500" data-suffix="+">0</span></div>
-      <div class="counter-label">Photos</div>
+      <div class="counter-num"><span data-target="20" data-suffix="+">0</span></div>
+      <div class="counter-label">Total Projects</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="200" data-suffix="+">0</span></div>
-      <div class="counter-label">Projects Covered</div>
+      <div class="counter-num"><span data-target="4">0</span></div>
+      <div class="counter-label">Countries</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="15">0</span></div>
-      <div class="counter-label">Industries</div>
+      <div class="counter-num"><span data-target="94">0</span></div>
+      <div class="counter-label">Professionals</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span data-target="8" data-suffix="+">0</span></div>
-      <div class="counter-label">Locations</div>
+      <div class="counter-num"><span data-target="6">0</span></div>
+      <div class="counter-label">Business Disciplines</div>
     </div>
   </div>
 
   <div class="accent-divider"></div>
 
   <!-- ══════════════════════════════════════════════
-       GALLERY
+       GALLERY - Updated with PPT Project Data
   ══════════════════════════════════════════════ -->
   <section class="py-10 md:py-14 bg-light" id="gallery">
     <div class="container">
@@ -469,162 +468,336 @@
         <button class="filter-btn" data-filter="industrial">Industrial</button>
         <button class="filter-btn" data-filter="pharma">Pharmaceutical</button>
         <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-        <button class="filter-btn" data-filter="corporate">Corporate</button>
-        <button class="filter-btn" data-filter="construction">Construction</button>
+        <button class="filter-btn" data-filter="renewable">Renewable Energy</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
       </div>
 
       <!-- Masonry Grid -->
       <div class="masonry" id="masonryGrid">
 
-        <div class="m-card" data-cat="industrial" data-title="Industrial Construction" data-location="Mumbai, India">
+        <!-- Project 1 - Zhongce Indonesia Factory -->
+        <!-- <div class="m-card" data-cat="industrial" data-title="Zhongce Indonesia Factory" data-location="Kendal, Central Java, Indonesia">
           <span class="m-badge">Industrial</span>
-          <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Industrial Construction" loading="lazy"/>
+          <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Zhongce Indonesia Factory" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Industrial Construction</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+            <p class="m-overlay-title">Zhongce Indonesia Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Kendal, Central Java, Indonesia</p>
           </div>
-        </div>
+        </div> -->
 
-        <div class="m-card" data-cat="pharma" data-title="Pharmaceutical Facility" data-location="Hyderabad, India">
+        <!-- Project 2 - BTR Indonesia KIP Industrial Park -->
+        <!-- <div class="m-card" data-cat="industrial" data-title="BTR Indonesia KIP Industrial Park" data-location="Kendal, Central Java, Indonesia">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600" alt="BTR Indonesia KIP Industrial Park" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">BTR Indonesia KIP Industrial Park</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Kendal, Central Java, Indonesia</p>
+          </div>
+        </div> -->
+
+        <!-- Project 3 - REC Solar Photovoltaic Plant -->
+        <!-- <div class="m-card" data-cat="renewable" data-title="REC Solar Photovoltaic Plant" data-location="Batam Island, Sumatra, Indonesia">
+          <span class="m-badge">Renewable Energy</span>
+          <img src="https://images.pexels.com/photos/159397/pexels-photo-159397.jpeg?auto=compress&cs=tinysrgb&w=600" alt="REC Solar Photovoltaic Plant" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">REC Solar Photovoltaic Plant</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Batam Island, Sumatra, Indonesia</p>
+          </div>
+        </div> -->
+
+        <!-- Project 4 - Shreeji Cyclotron Pharma Project -->
+        <div class="m-card" data-cat="pharma" data-title="Shreeji Cyclotron Pharma Project" data-location="Lucknow, India">
           <span class="m-badge">Pharmaceutical</span>
-          <img src="https://images.pexels.com/photos/7419537/pexels-photo-7419537.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pharmaceutical Facility" loading="lazy"/>
+          <img src="/assets/images/Shreeji 7.png" alt="Shreeji Cyclotron Pharma Project" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Pharmaceutical Facility</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+            <p class="m-overlay-title">Shreeji Cyclotron Pharma Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Lucknow, India</p>
           </div>
         </div>
 
-        <div class="m-card" data-cat="industrial" data-title="Industrial Park Development" data-location="Jakarta, Indonesia">
+        <!-- Project 5 - YingTong India New Factory -->
+        <div class="m-card" data-cat="industrial" data-title="YingTong India New Factory" data-location="India">
           <span class="m-badge">Industrial</span>
-          <img src="https://images.pexels.com/photos/1476376/pexels-photo-1476376.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Industrial Park Development" loading="lazy"/>
+          <img src="/assets/images/YingTong14.png" alt="YingTong India New Factory" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Industrial Park Development</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+            <p class="m-overlay-title">YingTong India New Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> India</p>
           </div>
         </div>
 
-        <div class="m-card" data-cat="corporate" data-title="Corporate Tower MEP" data-location="Delhi, India">
-          <span class="m-badge">Corporate</span>
-          <img src="https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Corporate Tower MEP" loading="lazy"/>
+        
+        <!-- Project 12 - Goa Project -->
+        <div class="m-card" data-cat="commercial" data-title="One Goa Project" data-location="Bicholin, North Goa, India">
+          <span class="m-badge">Commercial</span>
+          <img src="/assets/images/Goa2.png" alt="One Goa Project" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Corporate Tower MEP</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+            <p class="m-overlay-title">Goa Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Bicholin, North Goa, India</p>
           </div>
         </div>
 
-        <div class="m-card" data-cat="pharma" data-title="Cleanroom Installation" data-location="Mumbai, India">
+        <!-- Project 6 - Evervon Kothari Footware -->
+        <div class="m-card" data-cat="industrial" data-title="Evervon Kothari Footware" data-location="Karur, Tamil Nadu, India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/Evervon1.png" alt="Evervon Kothari Footware" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Evervon Kothari Footware</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Karur, Tamil Nadu, India</p>
+          </div>
+        </div>
+
+
+                <!-- Project 4 - Shreeji Cyclotron Pharma Project -->
+        <div class="m-card" data-cat="pharma" data-title="Shreeji Cyclotron Pharma Project" data-location="Lucknow, India">
           <span class="m-badge">Pharmaceutical</span>
-          <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cleanroom Installation" loading="lazy"/>
+          <img src="/assets/images/Shreeji 8.png" alt="Shreeji Cyclotron Pharma Project" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Cleanroom Installation</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+            <p class="m-overlay-title">Shreeji Cyclotron Pharma Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Lucknow, India</p>
           </div>
         </div>
 
-        <div class="m-card" data-cat="industrial" data-title="Manufacturing Plant" data-location="Chennai, India">
+
+                <!-- Project 5 - YingTong India New Factory -->
+        <div class="m-card" data-cat="industrial" data-title="YingTong India New Factory" data-location="India">
           <span class="m-badge">Industrial</span>
-          <img src="https://images.pexels.com/photos/1416531/pexels-photo-1416531.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Manufacturing Plant" loading="lazy"/>
+          <img src="/assets/images/YingTong11.png" alt="YingTong India New Factory" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Manufacturing Plant</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Chennai, India</p>
+            <p class="m-overlay-title">YingTong India New Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> India</p>
+          </div>
+        </div>
+        
+        <!-- Project 12 - Goa Project -->
+        <div class="m-card" data-cat="commercial" data-title="One Goa Project" data-location="Bicholin, North Goa, India">
+          <span class="m-badge">Commercial</span>
+          <img src="/assets/images/Goa3.png" alt="One Goa Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Goa Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Bicholin, North Goa, India</p>
           </div>
         </div>
 
-        <div class="m-card" data-cat="infrastructure" data-title="Solar Power Project" data-location="Gujarat, India">
-          <span class="m-badge">Infrastructure</span>
-          <img src="https://images.pexels.com/photos/159397/pexels-photo-159397.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Solar Power Project" loading="lazy"/>
-          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
-          <div class="m-overlay">
-            <p class="m-overlay-title">Solar Power Project</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Gujarat, India</p>
-          </div>
-        </div>
 
-        <div class="m-card" data-cat="industrial" data-title="Food Processing Unit" data-location="Pune, India">
+                <!-- Project 9 - ATL Battery Factory Sohna -->
+        <div class="m-card" data-cat="industrial" data-title="ATL Battery Factory" data-location="Sohna, Haryana, India">
           <span class="m-badge">Industrial</span>
-          <img src="https://images.pexels.com/photos/4434246/pexels-photo-4434246.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Food Processing Unit" loading="lazy"/>
+          <img src="/assets/images/ATL5.png" alt="ATL Battery Factory" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Food Processing Unit</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+            <p class="m-overlay-title">ATL Battery Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Sohna, Haryana, India</p>
           </div>
         </div>
 
-        <div class="m-card" data-cat="infrastructure" data-title="Metro Rail Project" data-location="Jakarta, Indonesia">
-          <span class="m-badge">Infrastructure</span>
-          <img src="https://images.pexels.com/photos/109558/pexels-photo-109558.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Metro Rail Project" loading="lazy"/>
-          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
-          <div class="m-overlay">
-            <p class="m-overlay-title">Metro Rail Project</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
-          </div>
-        </div>
-
-        <div class="m-card" data-cat="construction" data-title="Structural Steel Work" data-location="Bangalore, India">
-          <span class="m-badge">Construction</span>
-          <img src="https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Structural Steel Work" loading="lazy"/>
-          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
-          <div class="m-overlay">
-            <p class="m-overlay-title">Structural Steel Work</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
-          </div>
-        </div>
-
-        <div class="m-card" data-cat="construction" data-title="Foundation Work" data-location="Dhaka, Bangladesh">
-          <span class="m-badge">Construction</span>
-          <img src="https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Foundation Work" loading="lazy"/>
-          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
-          <div class="m-overlay">
-            <p class="m-overlay-title">Foundation Work</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
-          </div>
-        </div>
-
-        <div class="m-card" data-cat="corporate" data-title="Office Building HVAC" data-location="Mumbai, India">
-          <span class="m-badge">Corporate</span>
-          <img src="https://images.pexels.com/photos/258429/pexels-photo-258429.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Office Building HVAC" loading="lazy"/>
-          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
-          <div class="m-overlay">
-            <p class="m-overlay-title">Office Building HVAC</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
-          </div>
-        </div>
-
-        <div class="m-card" data-cat="industrial" data-title="Factory Floor" data-location="Pune, India">
+                <!-- Project 6 - Evervon Kothari Footware -->
+        <div class="m-card" data-cat="industrial" data-title="Evervon Kothari Footware" data-location="Karur, Tamil Nadu, India">
           <span class="m-badge">Industrial</span>
-          <img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Factory Floor" loading="lazy"/>
+          <img src="/assets/images/Evervon3.png" alt="Evervon Kothari Footware" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Factory Floor</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+            <p class="m-overlay-title">Evervon Kothari Footware</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Karur, Tamil Nadu, India</p>
           </div>
         </div>
 
-        <div class="m-card" data-cat="construction" data-title="High-Rise Construction" data-location="Mumbai, India">
-          <span class="m-badge">Construction</span>
-          <img src="https://images.pexels.com/photos/2882171/pexels-photo-2882171.jpeg?auto=compress&cs=tinysrgb&w=600" alt="High-Rise Construction" loading="lazy"/>
-          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
-          <div class="m-overlay">
-            <p class="m-overlay-title">High-Rise Construction</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
-          </div>
-        </div>
-
-        <div class="m-card" data-cat="infrastructure" data-title="Bridge Construction" data-location="Jakarta, Indonesia">
+        <!-- Project 7 - Gorakhpur Railway Station (RLDA) -->
+        <div class="m-card" data-cat="infrastructure" data-title="Gorakhpur Railway Station" data-location="Gorakhpur, Uttar Pradesh, India">
           <span class="m-badge">Infrastructure</span>
-          <img src="https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bridge Construction" loading="lazy"/>
+          <img src="/assets/images/Gorakhpur1.png" alt="Gorakhpur Railway Station" loading="lazy"/>
           <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
           <div class="m-overlay">
-            <p class="m-overlay-title">Bridge Construction</p>
-            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+            <p class="m-overlay-title">Gorakhpur Railway Station (RLDA)</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Gorakhpur, Uttar Pradesh, India</p>
           </div>
         </div>
+
+
+                <!-- Project 9 - ATL Battery Factory Sohna -->
+        <div class="m-card" data-cat="industrial" data-title="ATL Battery Factory" data-location="Sohna, Haryana, India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/ATL1.png" alt="ATL Battery Factory" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">ATL Battery Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Sohna, Haryana, India</p>
+          </div>
+        </div>
+
+                <!-- Project 5 - YingTong India New Factory -->
+        <div class="m-card" data-cat="industrial" data-title="YingTong India New Factory" data-location="India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/YingTong15.png" alt="YingTong India New Factory" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">YingTong India New Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> India</p>
+          </div>
+        </div>
+        <!-- Project 8 - Foxconn India Bengaluru -->
+        <!-- <div class="m-card" data-cat="industrial" data-title="Foxconn India" data-location="Bengaluru, India">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Foxconn India" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Foxconn India</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Bengaluru, India</p>
+          </div>
+        </div> -->
+
+        <!-- Project 9 - ATL Battery Factory Sohna -->
+        <div class="m-card" data-cat="industrial" data-title="ATL Battery Factory" data-location="Sohna, Haryana, India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/ATL8.png" alt="ATL Battery Factory" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">ATL Battery Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Sohna, Haryana, India</p>
+          </div>
+        </div>
+
+
+                <!-- Project 4 - Shreeji Cyclotron Pharma Project -->
+        <div class="m-card" data-cat="pharma" data-title="Shreeji Cyclotron Pharma Project" data-location="Lucknow, India">
+          <span class="m-badge">Pharmaceutical</span>
+          <img src="/assets/images/Shreeji 12.png" alt="Shreeji Cyclotron Pharma Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Shreeji Cyclotron Pharma Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Lucknow, India</p>
+          </div>
+        </div>
+
+                <!-- Project 9 - ATL Battery Factory Sohna -->
+        <div class="m-card" data-cat="industrial" data-title="ATL Battery Factory" data-location="Sohna, Haryana, India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/ATL3.png" alt="ATL Battery Factory" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">ATL Battery Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Sohna, Haryana, India</p>
+          </div>
+        </div>
+
+                <!-- Project 5 - YingTong India New Factory -->
+        <div class="m-card" data-cat="industrial" data-title="YingTong India New Factory" data-location="India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/YingTong17.png" alt="YingTong India New Factory" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">YingTong India New Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> India</p>
+          </div>
+        </div>
+
+        <!-- Project 10 - Asthana Apartment Jakarta -->
+        <!-- <div class="m-card" data-cat="commercial" data-title="Asthana Apartment" data-location="South Jakarta, Indonesia">
+          <span class="m-badge">Commercial</span>
+          <img src="https://images.pexels.com/photos/258429/pexels-photo-258429.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Asthana Apartment" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Asthana Apartment</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> South Jakarta, Indonesia</p>
+          </div>
+        </div> -->
+
+        <!-- Project 11 - Medan Inco Medical Project -->
+        <!-- <div class="m-card" data-cat="commercial" data-title="Medan Inco Medical Project" data-location="Medan, North Sumatra, Indonesia">
+          <span class="m-badge">Commercial</span>
+          <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Medan Inco Medical Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Medan Inco Medical Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Medan, North Sumatra, Indonesia</p>
+          </div>
+        </div> -->
+
+        <!-- Project 12 - Goa Project -->
+        <div class="m-card" data-cat="commercial" data-title="One Goa Project" data-location="Bicholin, North Goa, India">
+          <span class="m-badge">Commercial</span>
+          <img src="/assets/images/Goa1.png" alt="One Goa Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Goa Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Bicholin, North Goa, India</p>
+          </div>
+        </div>
+
+                <!-- Project 9 - ATL Battery Factory Sohna -->
+        <div class="m-card" data-cat="industrial" data-title="ATL Battery Factory" data-location="Sohna, Haryana, India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/ATL2.png" alt="ATL Battery Factory" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">ATL Battery Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Sohna, Haryana, India</p>
+          </div>
+        </div>
+
+                <!-- Project 4 - Shreeji Cyclotron Pharma Project -->
+        <div class="m-card" data-cat="pharma" data-title="Shreeji Cyclotron Pharma Project" data-location="Lucknow, India">
+          <span class="m-badge">Pharmaceutical</span>
+          <img src="/assets/images/Shreeji 6.png" alt="Shreeji Cyclotron Pharma Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Shreeji Cyclotron Pharma Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Lucknow, India</p>
+          </div>
+        </div>
+
+                <!-- Project 9 - ATL Battery Factory Sohna -->
+        <div class="m-card" data-cat="industrial" data-title="ATL Battery Factory" data-location="Sohna, Haryana, India">
+          <span class="m-badge">Industrial</span>
+          <img src="/assets/images/ATL6.png" alt="ATL Battery Factory" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">ATL Battery Factory</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Sohna, Haryana, India</p>
+          </div>
+        </div>
+
+        <!-- Project 13 - Talcher Fertilizers Odisha -->
+        <!-- <div class="m-card" data-cat="industrial" data-title="Talcher Fertilizers Project" data-location="Odisha, India">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Talcher Fertilizers Project" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Talcher Fertilizers Project</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Odisha, India</p>
+          </div>
+        </div> -->
+
+        <!-- Project 14 - International Airport Jewar -->
+        <!-- <div class="m-card" data-cat="infrastructure" data-title="International Airport Jewar" data-location="Jewar, Uttar Pradesh, India">
+          <span class="m-badge">Infrastructure</span>
+          <img src="https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?auto=compress&cs=tinysrgb&w=600" alt="International Airport Jewar" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">International Airport Jewar</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Jewar, Uttar Pradesh, India</p>
+          </div>
+        </div> -->
+
+        <!-- Project 15 - Semarang Eastern Tech Project -->
+        <!-- <div class="m-card" data-cat="industrial" data-title="Semarang Eastern Tech" data-location="Semarang, Indonesia">
+          <span class="m-badge">Industrial</span>
+          <img src="https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Semarang Eastern Tech" loading="lazy"/>
+          <span class="m-zoom-btn"><i class="fas fa-search-plus"></i></span>
+          <div class="m-overlay">
+            <p class="m-overlay-title">Semarang Eastern Tech</p>
+            <p class="m-overlay-caption"><i class="fas fa-map-marker-alt"></i> Semarang, Indonesia</p>
+          </div>
+        </div> -->
 
       </div>
     </div>
@@ -632,8 +805,8 @@
 
   <div class="accent-divider"></div>
 
-  <!-- ══════════════════════════════════════════════
-       CERTIFICATIONS & RECOGNITIONS
+<!-- ══════════════════════════════════════════════
+       CERTIFICATIONS & RECOGNITIONS - Fixed Height Certificate Images
   ══════════════════════════════════════════════ -->
   <section class="pt-4 md:pt-6 pb-16 md:pb-20 bg-gradient-to-br from-primary-pale via-white to-secondary-pale overflow-hidden" id="certifications">
     <div class="w-full px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
@@ -653,153 +826,162 @@
             <i class="fas fa-hard-hat text-white text-3xl"></i>
           </div>
         </div>
-        <p class="text-text max-w-2xl mx-auto mt-4 sm:mt-5 px-3 text-sm sm:text-base">Recognized for engineering excellence, quality systems, and safety performance across our project portfolio.</p>
+        <p class="text-text max-w-2xl mx-auto mt-4 sm:mt-5 px-3 text-sm sm:text-base">
+          International certifications that validate our commitment to quality, safety, and environmental responsibility.
+        </p>
       </div>
 
-      <div class="relative w-full">
-        <div class="w-full overflow-x-auto overflow-y-visible pb-5 hide-scrollbar" id="certTrack" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
-          <div class="flex gap-4 sm:gap-5 md:gap-6" style="width: max-content;">
-
-            <div class="cert-card" style="scroll-snap-align:start;">
-              <div class="cert-icon-area bg-gradient-to-br from-primary-pale to-primary-xpale">
-                <div class="cert-icon-circle"><i class="fas fa-certificate text-primary"></i></div>
+      <!-- Certificate Cards - Fixed Height Images -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        
+        <!-- ISO 9001:2015 -->
+        <div class="group">
+          <div class="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-border overflow-hidden h-full flex flex-col">
+            <!-- Certificate Document Style Header -->
+            <div class="bg-gradient-to-r from-primary/10 to-primary/5 px-5 py-4 border-b border-border flex items-center justify-between flex-shrink-0">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <i class="fas fa-certificate text-primary text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-primary uppercase tracking-wider">ISO 9001:2015</p>
+                  <p class="text-[10px] text-slate-400">Quality Management</p>
+                </div>
               </div>
-              <div class="p-4 md:p-5 text-center">
-                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">ISO 9001:2015</h3>
-                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Quality Management Certification</p>
-                <span class="text-[11px] text-slate-400">Issued by: International Organization for Standardization</span>
+              <span class="text-[10px] font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">✓ Valid</span>
+            </div>
+            
+            <!-- Certificate Image Area - Fixed Height -->
+            <div class="relative p-4 bg-gradient-to-b from-slate-50 to-white flex-1">
+              <div class="relative rounded-lg overflow-hidden border border-border/50 shadow-inner bg-white h-[320px] md:h-[380px] flex items-center justify-center">
+                <img 
+                  src="/assets/images/c_1.jpeg"
+                  alt="ISO 9001:2015 Certificate"
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                />
               </div>
             </div>
-
-            <div class="cert-card" style="scroll-snap-align:start;">
-              <div class="cert-icon-area bg-gradient-to-br from-secondary-pale to-secondary-xpale">
-                <div class="cert-icon-circle"><i class="fas fa-shield-alt text-secondary"></i></div>
+            
+            <!-- Certificate Footer -->
+            <div class="px-5 py-3 bg-slate-50 border-t border-border flex items-center justify-between flex-shrink-0">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                <span class="text-[10px] text-slate-500">Issued by Royal Assessments</span>
               </div>
-              <div class="p-4 md:p-5 text-center">
-                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">ISO 45001:2018</h3>
-                <p class="text-[11px] text-secondary font-semibold uppercase tracking-wide mb-1">Occupational Health &amp; Safety</p>
-                <span class="text-[11px] text-slate-400">Issued by: International Organization for Standardization</span>
-              </div>
+              <span class="text-[10px] font-medium text-primary">Construction &amp; Manpower</span>
             </div>
-
-            <div class="cert-card" style="scroll-snap-align:start;">
-              <div class="cert-icon-area bg-gradient-to-br from-primary-pale to-secondary-pale">
-                <div class="cert-icon-circle"><i class="fas fa-globe text-primary"></i></div>
-              </div>
-              <div class="p-4 md:p-5 text-center">
-                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">ISO 14001:2015</h3>
-                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Environmental Management</p>
-                <span class="text-[11px] text-slate-400">Issued by: International Organization for Standardization</span>
-              </div>
-            </div>
-
-            <div class="cert-card" style="scroll-snap-align:start;">
-              <div class="cert-icon-area bg-gradient-to-br from-secondary-pale to-primary-xpale">
-                <div class="cert-icon-circle"><i class="fas fa-hard-hat text-secondary"></i></div>
-              </div>
-              <div class="p-4 md:p-5 text-center">
-                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Safety Excellence Award</h3>
-                <p class="text-[11px] text-secondary font-semibold uppercase tracking-wide mb-1">Site Safety Performance</p>
-                <span class="text-[11px] text-slate-400">Issued by: National Safety Council</span>
-              </div>
-            </div>
-
-            <div class="cert-card" style="scroll-snap-align:start;">
-              <div class="cert-icon-area bg-gradient-to-br from-primary-xpale to-primary-pale">
-                <div class="cert-icon-circle"><i class="fas fa-trophy text-primary"></i></div>
-              </div>
-              <div class="p-4 md:p-5 text-center">
-                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Engineering Excellence Award</h3>
-                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Project Delivery Excellence</p>
-                <span class="text-[11px] text-slate-400">Issued by: Federation of Indian Chambers of Commerce</span>
-              </div>
-            </div>
-
-            <div class="cert-card" style="scroll-snap-align:start;">
-              <div class="cert-icon-area bg-gradient-to-br from-secondary-xpale to-secondary-pale">
-                <div class="cert-icon-circle"><i class="fas fa-award text-secondary"></i></div>
-              </div>
-              <div class="p-4 md:p-5 text-center">
-                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Best EPC Contractor</h3>
-                <p class="text-[11px] text-secondary font-semibold uppercase tracking-wide mb-1">Industry Recognition</p>
-                <span class="text-[11px] text-slate-400">Issued by: Construction Industry Development Council</span>
-              </div>
-            </div>
-
-            <div class="cert-card" style="scroll-snap-align:start;">
-              <div class="cert-icon-area bg-gradient-to-br from-primary-pale to-primary-xpale">
-                <div class="cert-icon-circle"><i class="fas fa-stamp text-primary"></i></div>
-              </div>
-              <div class="p-4 md:p-5 text-center">
-                <h3 class="font-heading text-base md:text-lg font-semibold text-dark mb-1 px-1">Quality Assurance Recognition</h3>
-                <p class="text-[11px] text-primary font-semibold uppercase tracking-wide mb-1">Process &amp; Materials Compliance</p>
-                <span class="text-[11px] text-slate-400">Issued by: Bureau of Indian Standards</span>
-              </div>
-            </div>
-
           </div>
         </div>
 
-        <button id="certPrev" class="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-9 md:h-9 rounded-full bg-white shadow-md flex items-center justify-center text-slate-500 hover:text-primary transition-all z-10 border border-border">
-          <i class="fas fa-chevron-left text-xs sm:text-sm"></i>
-        </button>
-        <button id="certNext" class="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-9 md:h-9 rounded-full bg-white shadow-md flex items-center justify-center text-slate-500 hover:text-primary transition-all z-10 border border-border">
-          <i class="fas fa-chevron-right text-xs sm:text-sm"></i>
-        </button>
+        <!-- ISO 45001:2018 -->
+        <div class="group">
+          <div class="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-border overflow-hidden h-full flex flex-col">
+            <!-- Certificate Document Style Header -->
+            <div class="bg-gradient-to-r from-secondary/10 to-secondary/5 px-5 py-4 border-b border-border flex items-center justify-between flex-shrink-0">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                  <i class="fas fa-shield-alt text-secondary text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-secondary uppercase tracking-wider">ISO 45001:2018</p>
+                  <p class="text-[10px] text-slate-400">Health &amp; Safety</p>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full">✓ Valid</span>
+            </div>
+            
+            <!-- Certificate Image Area - Fixed Height -->
+            <div class="relative p-4 bg-gradient-to-b from-slate-50 to-white flex-1">
+              <div class="relative rounded-lg overflow-hidden border border-border/50 shadow-inner bg-white h-[320px] md:h-[380px] flex items-center justify-center">
+                <img 
+                  src="/assets/images/c_2.jpeg"
+                  alt="ISO 45001:2018 Certificate"
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            
+            <!-- Certificate Footer -->
+            <div class="px-5 py-3 bg-slate-50 border-t border-border flex items-center justify-between flex-shrink-0">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                <span class="text-[10px] text-slate-500">Issued by Royal Assessments</span>
+              </div>
+              <span class="text-[10px] font-medium text-secondary">Construction &amp; Manpower</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ISO 14001:2015 -->
+        <div class="group">
+          <div class="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-border overflow-hidden h-full flex flex-col">
+            <!-- Certificate Document Style Header -->
+            <div class="bg-gradient-to-r from-emerald-500/10 to-emerald-400/5 px-5 py-4 border-b border-border flex items-center justify-between flex-shrink-0">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                  <i class="fas fa-globe-asia text-emerald-600 text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">ISO 14001:2015</p>
+                  <p class="text-[10px] text-slate-400">Environmental Management</p>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-emerald-600 bg-emerald-500/10 px-3 py-1 rounded-full">✓ Valid</span>
+            </div>
+            
+            <!-- Certificate Image Area - Fixed Height -->
+            <div class="relative p-4 bg-gradient-to-b from-slate-50 to-white flex-1">
+              <div class="relative rounded-lg overflow-hidden border border-border/50 shadow-inner bg-white h-[320px] md:h-[380px] flex items-center justify-center">
+                <img 
+                  src="/assets/images/c_3.jpeg"
+                  alt="ISO 14001:2015 Certificate"
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            
+            <!-- Certificate Footer -->
+            <div class="px-5 py-3 bg-slate-50 border-t border-border flex items-center justify-between flex-shrink-0">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-[10px] text-slate-500">Issued by Royal Assessments</span>
+              </div>
+              <span class="text-[10px] font-medium text-emerald-600">Construction &amp; Manpower</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="flex justify-center gap-2 mt-6 md:mt-8" id="certDots">
-        <span class="w-2 h-2 rounded-full bg-primary-light transition-all cursor-pointer" data-dot="0"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="1"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="2"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="3"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="4"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="5"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-300 transition-all cursor-pointer" data-dot="6"></span>
+      <!-- Accreditation & Verification Badge -->
+      <div class="text-center mt-8 md:mt-10">
+        <div class="inline-flex flex-wrap items-center justify-center gap-3 bg-white/80 backdrop-blur-sm border border-border rounded-full px-5 py-2.5 shadow-sm">
+          <span class="text-xs font-medium text-slate-500">Accredited by</span>
+          <span class="w-px h-5 bg-border hidden sm:block"></span>
+          <span class="text-xs font-semibold text-slate-700">IAF</span>
+          <span class="w-px h-5 bg-border hidden sm:block"></span>
+          <span class="text-xs font-semibold text-slate-700">EGAC</span>
+          <span class="w-px h-5 bg-border hidden sm:block"></span>
+          <span class="text-xs font-semibold text-slate-700">Royal Assessments</span>
+          <span class="w-px h-5 bg-border hidden sm:block"></span>
+          <span class="text-[10px] text-slate-400">✓ Verified</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-3 max-w-xl mx-auto">
+          Certificates verified by Royal Assessments Pvt. Ltd. · Valid until 27 December 2026 · Subject to surveillance audits
+        </p>
       </div>
+
+
     </div>
   </section>
 
   <div class="accent-divider"></div>
 
   <!-- ══════════════════════════════════════════════
-       VIDEO SHOWCASE (bonus section, kept from current site)
-  ══════════════════════════════════════════════ -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Video Tour</span>
-        <h2 class="section-title">Engineering in <span class="highlight">Action</span></h2>
-        <p class="section-subtitle">Watch our projects come to life</p>
-      </div>
-
-      <div class="video-grid">
-        <div class="video-card">
-          <video controls class="w-full">
-            <source src="https://videos.pexels.com/video-files/854873/854873-hd_1920_1080_30fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="info">
-            <h4>Industrial Construction Time-lapse</h4>
-            <p><i class="fas fa-map-marker-alt"></i> Jakarta Industrial Park Project</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <video controls class="w-full">
-            <source src="https://videos.pexels.com/video-files/3195396/3195396-uhd_2560_1440_25fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="info">
-            <h4>MEP Installation Process</h4>
-            <p><i class="fas fa-map-marker-alt"></i> Pharma Facility, Mumbai</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════
-       CTA (bonus section, kept from current site)
+       CTA - KEPT
   ══════════════════════════════════════════════ -->
   <section class="section" style="padding: 50px 0;">
     <div class="container">
@@ -815,10 +997,10 @@
 
 </main>
 
-<!-- Footer (unchanged component loader) -->
+<!-- Footer -->
 <div id="footer-container"></div>
 
-<!-- Contact float (swap href for a wa.me link once you have a WhatsApp number) -->
+<!-- Contact float -->
 <a href="contact.html" class="contact-float" aria-label="Contact us">
   <span class="cf-tip">Need Help? Contact Us</span>
   <i class="fas fa-comment-dots"></i>
@@ -845,7 +1027,7 @@
 <!-- Scripts -->
 <script>
   /* ============================================
-     LOAD COMPONENTS (unchanged from current site)
+     LOAD COMPONENTS
   ============================================ */
   async function loadComponent(elementId, componentPath) {
     try {

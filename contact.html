@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Contact Us — Jianan Engineering</title>
-  <meta name="description" content="Contact Jianan Engineering for EPC, MEP, and industrial infrastructure solutions. Reach us at our Greater Noida headquarters or via phone, email, or contact form." />
+  <meta name="description" content="Contact Jianan Engineering for EPC, MEP, and industrial infrastructure solutions. Reach us at our Noida headquarters or via phone, email, or contact form." />
   <link rel="icon" href="/assets/images/logo.png" />
 
   <!-- Tailwind + custom theme -->
@@ -21,20 +21,21 @@
             text: "#475569",
             border: "#E2E8F0"
           },
-          fontFamily: { heading: ['Poppins', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+          fontFamily: { heading: ['Poppins', 'sans-serif'], body: ['Inter', 'sans-serif'], mono: ['"IBM Plex Mono"', 'monospace'] }
         }
       }
     }
   </script>
 
   <!-- Google Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { overflow-x: hidden; font-family: 'Inter', sans-serif; background: #ffffff; color: #475569; }
     .font-heading { font-family: 'Poppins', sans-serif; }
+    .font-mono { font-family: 'IBM Plex Mono', monospace; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     .section { padding: 80px 0; }
     @media (max-width: 768px) { .section { padding: 50px 0; } }
@@ -64,38 +65,73 @@
     .reveal.visible { opacity:1; transform:none; }
 
     /* Section header */
-    .head-eyebrow { display:flex; align-items:center; gap:.6rem; color:#1E88E5; font-size:.7rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:.8rem; }
+    .head-eyebrow { display:flex; align-items:center; gap:.6rem; color:#1E88E5; font-size:.7rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:.8rem; font-family:'IBM Plex Mono', monospace; }
     .head-eyebrow .ln { width:28px; height:2px; background:#1E88E5; border-radius:4px; }
     .head-eyebrow.center { justify-content:center; }
 
-    /* ===== HERO ===== */
+    /* ===================================================================
+       HERO — "drawing sheet" concept: the hero is framed like a technical
+       drawing / EPC blueprint sheet, with the contact panel styled as a
+       real engineering title block. This is the signature element.
+       =================================================================== */
     .contact-hero { background:#0F172A; padding-top:150px; padding-bottom:0; position:relative; overflow:hidden; }
-    .mesh-bg { position:absolute; inset:0; background: radial-gradient(ellipse 70% 50% at 20% 20%, rgba(30,136,229,.25), transparent 60%), radial-gradient(ellipse 50% 50% at 90% 80%, rgba(40,180,99,.18), transparent 60%); animation:meshFloat 18s ease-in-out infinite alternate; }
-    @keyframes meshFloat { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-2%,3%) scale(1.04)} }
-    .particles { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
-    .part { position:absolute; border-radius:50%; background:rgba(76,201,126,.4); animation:rise linear infinite; }
-    @keyframes rise { 0%{transform:translateY(0) translateX(0); opacity:0} 10%{opacity:.7} 90%{opacity:.5} 100%{transform:translateY(-500px) translateX(30px); opacity:0} }
 
-    .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; padding-bottom:60px; }
-    @media (max-width:1024px) { .hero-grid { grid-template-columns:1fr; text-align:center; } }
+    /* fine blueprint grid */
+    .blueprint-grid {
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(74,163,233,.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,163,233,.09) 1px, transparent 1px),
+        linear-gradient(rgba(74,163,233,.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,163,233,.16) 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 30%, #000 40%, transparent 88%);
+      mask-image: radial-gradient(ellipse 85% 70% at 50% 30%, #000 40%, transparent 88%);
+    }
+    .glow-orb { position:absolute; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(40,180,99,.16), transparent 65%); top:-140px; right:-120px; pointer-events:none; }
 
-    .quick-card { background:rgba(255,255,255,.97); border-radius:28px; padding:8px; box-shadow:0 40px 80px rgba(0,0,0,.4); backdrop-filter:blur(2px); border:1px solid rgba(255,255,255,.4); }
-    .q-row { display:flex; align-items:flex-start; gap:14px; padding:14px 16px; border-radius:16px; transition:background .2s; }
-    .q-row:hover { background:#F5FAFF; }
-    .q-row + .q-row { border-top:1px dashed #E2E8F0; }
-    .q-icon { width:42px; height:42px; border-radius:14px; display:grid; place-items:center; background:linear-gradient(135deg,#EAF4FE,#EAFBF1); color:#1E88E5; font-size:17px; flex-shrink:0; }
-    .q-label { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#94a3b8; }
-    .q-value { font-size:14px; font-weight:600; color:#0F172A; }
-    .q-sub { font-size:12.5px; color:#64748b; }
+    /* sheet frame + crop marks, like a drawing border */
+    .sheet-frame { position:absolute; inset:22px; border:1px solid rgba(255,255,255,.08); pointer-events:none; }
+    .crop { position:absolute; width:16px; height:16px; border-color:rgba(76,201,126,.55); }
+    .crop-tl { top:22px; left:22px; border-top:2px solid; border-left:2px solid; }
+    .crop-tr { top:22px; right:22px; border-top:2px solid; border-right:2px solid; }
+    .crop-bl { bottom:22px; left:22px; border-bottom:2px solid; border-left:2px solid; }
+    .crop-br { bottom:22px; right:22px; border-bottom:2px solid; border-right:2px solid; }
 
-    .hero-cta-group { display:flex; flex-wrap:wrap; gap:14px; margin-top:24px; }
-    @media (max-width:1024px) { .hero-cta-group { justify-content:center; } }
+    /* plotter sweep — a single deliberate load-in animation instead of ambient particles */
+    .plotter-line { position:absolute; left:22px; right:22px; top:22px; height:1px; background:linear-gradient(90deg, transparent, #4CC97E, #1E88E5, transparent); opacity:.9; animation: plot 2.4s cubic-bezier(.65,0,.35,1) 1 both; pointer-events:none; }
+    @keyframes plot { 0%{ top:22px; opacity:0 } 8%{ opacity:1 } 92%{ opacity:1 } 100%{ top:calc(100% - 22px); opacity:0 } }
+
+    .dwg-eyebrow { display:inline-flex; align-items:center; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#4CC97E; background:rgba(76,201,126,.08); border:1px solid rgba(76,201,126,.25); padding:7px 14px; border-radius:4px; margin-bottom:22px; }
+    .dwg-eyebrow .sep { color:rgba(255,255,255,.25); }
+    .dwg-eyebrow .dot { width:6px; height:6px; border-radius:50%; background:#4CC97E; animation:blink 2.2s infinite; flex-shrink:0; }
+
+    .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; padding-bottom:60px; position:relative; z-index:2; }
+    @media (max-width:1024px) { .hero-grid { grid-template-columns:1fr; text-align:left; } }
+
+    .hero-scale-note { display:flex; align-items:center; gap:10px; margin-top:30px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.05em; color:rgba(255,255,255,.35); }
+    .hero-scale-note::before { content:''; width:26px; height:1px; background:rgba(255,255,255,.25); }
+
+    /* ---- title block (right panel) ---- */
+    .title-block { background:rgba(255,255,255,.98); border-radius:6px; overflow:hidden; box-shadow:0 40px 80px rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.5); }
+    .tb-head { display:flex; align-items:center; gap:14px; padding:20px 22px; background:linear-gradient(135deg,#0F172A,#16213A); }
+    .tb-logo { width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,#1E88E5,#28B463); display:grid; place-items:center; font-family:'Poppins',sans-serif; font-weight:800; color:#fff; font-size:19px; flex-shrink:0; }
+    .tb-company { color:#fff; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; letter-spacing:.02em; }
+    .tb-sub { color:rgba(255,255,255,.5); font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; margin-top:2px; }
+
+    .tb-row { display:grid; grid-template-columns:96px 1fr; gap:4px 16px; padding:15px 22px; border-top:1px solid #EEF2F7; }
+    .tb-label { grid-row:1/3; font-family:'IBM Plex Mono', monospace; font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#94a3b8; padding-top:2px; }
+    .tb-value { font-family:'Poppins',sans-serif; font-weight:600; font-size:14.5px; color:#0F172A; }
+    .tb-sub2 { font-size:12.5px; color:#64748b; line-height:1.5; }
+
+    .hero-cta-group { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
     .btn-primary { background:linear-gradient(135deg,#28B463,#1E7A43); color:#fff; padding:13px 30px; border-radius:60px; font-weight:600; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; box-shadow:0 12px 28px rgba(40,180,99,.3); transition:all .3s; }
     .btn-primary:hover { transform:translateY(-4px); box-shadow:0 18px 36px rgba(40,180,99,.4); }
-    .btn-ghost { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(6px); color:#fff; padding:13px 30px; border-radius:60px; font-weight:600; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:all .3s; }
-    .btn-ghost:hover { background:rgba(255,255,255,.16); transform:translateY(-4px); }
+    .btn-ghost { background:rgba(255,255,255,.04); border:1px dashed rgba(255,255,255,.3); color:#fff; padding:13px 30px; border-radius:60px; font-weight:600; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:all .3s; }
+    .btn-ghost:hover { background:rgba(255,255,255,.1); border-color:rgba(76,201,126,.6); transform:translateY(-4px); }
 
-    .hero-fade { height:60px; background:linear-gradient(to bottom, transparent, #ffffff); margin-top:-60px; position:relative; z-index:2; }
+    /* REMOVED: the blur effect at the bottom of hero */
+    /* .hero-fade was removed, no more gradient blur */
 
     /* ===== CONTACT HUB ===== */
     .hub-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:36px; align-items:start; }
@@ -124,7 +160,7 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
     .meta-card { background:#fff; border:1px solid #E2E8F0; border-radius:20px; padding:20px; }
-    .meta-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#94a3b8; margin-bottom:10px; }
+    .meta-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#94a3b8; margin-bottom:10px; font-family:'IBM Plex Mono', monospace; }
     .hours-line { display:flex; justify-content:space-between; font-size:13.5px; color:#475569; padding:4px 0; }
     .hours-line strong { color:#0F172A; }
 
@@ -172,6 +208,22 @@
     .es-icon i { color:#4CC97E; font-size:18px; }
     .btn-emergency { background:#fff; color:#0F172A; padding:11px 32px; border-radius:60px; font-weight:700; text-decoration:none; transition:all .3s; display:inline-flex; align-items:center; gap:10px; flex-shrink:0; position:relative; z-index:1; }
     .btn-emergency:hover { transform:translateY(-4px); box-shadow:0 14px 30px rgba(255,255,255,.2); }
+
+    /* Redesigned Footer Contact Info */
+    .footer-contact-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px; background:#F8FAFC; border-radius:20px; padding:30px; border:1px solid #E2E8F0; }
+    .footer-contact-item { display:flex; align-items:flex-start; gap:14px; }
+    .footer-contact-item .icon-box { width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,#EAF4FE,#EAFBF1); display:grid; place-items:center; color:#1E88E5; font-size:16px; flex-shrink:0; }
+    .footer-contact-item .info .label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#94a3b8; font-family:'IBM Plex Mono', monospace; }
+    .footer-contact-item .info .value { font-size:14px; font-weight:600; color:#0F172A; }
+
+    .accent-divider { height:1px; background:linear-gradient(90deg, transparent, #28B463, #1E88E5, #28B463, transparent); opacity:.4; position:relative; }
+    .accent-divider::after { content:'✦'; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#1E88E5; font-size:.75rem; background:#f8fafc; padding:0 .7rem; }
+
+    .blink-dot { animation:blink 2.2s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .plotter-line, .blink-dot, .loader-logo, .es-icon, .emergency-strip::before { animation:none !important; }
+    }
   </style>
 </head>
 <body>
@@ -202,19 +254,21 @@
 
   <!-- HERO -->
   <section class="contact-hero">
-    <div class="mesh-bg"></div>
-    <div class="particles" id="particles"></div>
+    <div class="blueprint-grid"></div>
+    <div class="glow-orb"></div>
+    <div class="sheet-frame">
+      <span class="crop crop-tl"></span><span class="crop crop-tr"></span><span class="crop crop-bl"></span><span class="crop crop-br"></span>
+      <div class="plotter-line"></div>
+    </div>
 
     <div class="container relative z-10">
       <div class="hero-grid">
 
         <!-- Left copy -->
         <div>
-          <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-1.5 text-xs font-medium text-primary-light tracking-[.2em] uppercase mb-6">
-            <span class="w-2 h-2 bg-secondary-light rounded-full blink-dot inline-block"></span> Get in touch
-          </div>
+          <div class="dwg-eyebrow"><span class="dot"></span> DWG NO. JE‑CT‑01 <span class="sep">/</span> REV A <span class="sep">/</span> CONTACT SHEET</div>
           <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-5">
-            Let’s <span class="text-secondary-light relative">Connect
+            Let's <span class="text-secondary-light relative">Connect
               <svg class="absolute -bottom-2 left-0 w-full h-1" viewBox="0 0 200 6"><path d="M0,3 Q50,0 100,3 T200,3" stroke="#4CC97E" stroke-width="2" fill="none" opacity=".6"/></svg>
             </span>
           </h1>
@@ -225,33 +279,45 @@
             <a href="#contact-hub" class="btn-primary"><i class="fas fa-paper-plane"></i> Send message</a>
             <a href="tel:+917310544030" class="btn-ghost"><i class="fas fa-phone-alt"></i> Call HQ</a>
           </div>
+          <div class="hero-scale-note">SCALE N.T.S. · ALL DIMENSIONS IN mm · SEE TITLE BLOCK FOR DETAILS</div>
         </div>
 
-        <!-- Right: quick info panel -->
+        <!-- Right: title block -->
         <div>
-          <div class="quick-card">
-            <div class="q-row">
-              <div class="q-icon"><i class="fas fa-map-pin"></i></div>
-              <div><div class="q-label">Headquarters</div><div class="q-value">Greater Noida</div><div class="q-sub">503, Nicolas-1, Supertech Cezr, Greater Noida</div></div>
+          <div class="title-block">
+            <div class="tb-head">
+              <div class="tb-logo">J</div>
+              <div>
+                <div class="tb-company">JIANAN ENGINEERING</div>
+                <div class="tb-sub">Title Block · Corporate Contact</div>
+              </div>
             </div>
-            <div class="q-row">
-              <div class="q-icon"><i class="fas fa-phone"></i></div>
-              <div><div class="q-label">Phone</div><div class="q-value">+91 7310544030</div><div class="q-sub">+91 8650231231 (Alt)</div></div>
+            <div class="tb-row">
+              <div class="tb-label">Office</div>
+              <div class="tb-value">Noida, Uttar Pradesh</div>
+              <div class="tb-sub2">A-511, ATS Bouquet, Sector 132, Noida - 201304</div>
             </div>
-            <div class="q-row">
-              <div class="q-icon"><i class="fas fa-envelope"></i></div>
-              <div><div class="q-label">Email</div><div class="q-value">contact@jianan.in</div><div class="q-sub">projects@jianan.in · careers@jianan.in</div></div>
+            <div class="tb-row">
+              <div class="tb-label">Tel</div>
+              <div class="tb-value">+91 73105 44030</div>
+              <div class="tb-sub2">+91 98715 31530 (Alt)</div>
             </div>
-            <div class="q-row">
-              <div class="q-icon"><i class="fas fa-clock"></i></div>
-              <div><div class="q-label">Working hours</div><div class="q-value">Mon–Fri 9am–6pm</div><div class="q-sub">Sat 9am–2pm · Sun closed · 24/7 emergency</div></div>
+            <div class="tb-row">
+              <div class="tb-label">Email</div>
+              <div class="tb-value">info@jianan.in</div>
+              <div class="tb-sub2">projects@jianan.in</div>
+            </div>
+            <div class="tb-row">
+              <div class="tb-label">Reg. No.</div>
+              <div class="tb-value">U46599UP2023PTC189322</div>
+              <div class="tb-sub2">Established 2023</div>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-    <div class="hero-fade"></div>
+    <!-- hero-fade removed — no blur effect at bottom -->
   </section>
 
   <!-- CONTACT HUB -->
@@ -262,7 +328,7 @@
         <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-3">
           Send us a <span class="text-secondary">message</span>
         </h2>
-        <p class="text-text max-w-xl mx-auto text-base">Pick your nearest office, check the map, or fill out the form — we’ll take it from there.</p>
+        <p class="text-text max-w-xl mx-auto text-base">Pick your nearest office, check the map, or fill out the form — we'll take it from there.</p>
       </div>
 
       <div class="hub-grid">
@@ -278,21 +344,51 @@
           </div>
 
           <div class="office-panel">
+            <!-- India Office -->
             <div class="office-content active" data-office-content="india">
-              <div class="office-header"><div class="office-flag"><i class="fas fa-landmark"></i></div><div><h4 class="font-heading font-bold text-dark">Greater Noida HQ</h4><span class="text-xs text-secondary font-semibold">● Primary</span></div></div>
-              <div class="office-detail"><i class="fas fa-building"></i> 503, Nicolas-1, Supertech Cezr, Greater Noida</div>
-              <div class="office-detail"><i class="fas fa-phone"></i> +91 7310544030 , +91 8650231231</div>
-              <div class="office-detail"><i class="fas fa-envelope"></i> india@jianan.in</div>
+              <div class="office-header"><div class="office-flag"><i class="fas fa-landmark"></i></div><div><h4 class="font-heading font-bold text-dark">Noida — Corporate Office</h4><span class="text-xs text-secondary font-semibold">● Headquarters</span></div></div>
+              <div class="office-detail"><i class="fas fa-building"></i> A-511, ATS Bouquet, Sector 132, Noida - 201304, Uttar Pradesh</div>
+              <div class="office-detail"><i class="fas fa-phone"></i> +91 73105 44030 , +91 98715 31530</div>
+              <div class="office-detail"><i class="fas fa-envelope"></i> info@jianan.in</div>
+              <div class="office-detail"><i class="fas fa-id-card"></i> CIN: U46599UP2023PTC189322</div>
+              <div style="margin-top:12px;padding-top:12px;border-top:1px dashed #E2E8F0;">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider font-mono">Branch & Project Offices</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Greater Noida</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Lucknow</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Bhiwadi</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Karur, TN</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Bengaluru</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Gorakhpur</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Goa</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Indonesia Office -->
             <div class="office-content" data-office-content="indonesia">
-              <div class="office-header"><div class="office-flag"><i class="fas fa-city"></i></div><div><h4 class="font-heading font-bold text-dark">Jakarta Office</h4><span class="text-xs text-secondary font-semibold">● Regional</span></div></div>
-              <div class="office-detail"><i class="fas fa-building"></i> Sudirman CBD, Jakarta Selatan 12190, Indonesia</div>
+              <div class="office-header"><div class="office-flag"><i class="fas fa-city"></i></div><div><h4 class="font-heading font-bold text-dark">Jakarta — Regional Office</h4><span class="text-xs text-secondary font-semibold">● PT. Jianan Engineering Indonesia</span></div></div>
+              <div class="office-detail"><i class="fas fa-building"></i> Jakarta, Indonesia</div>
               <div class="office-detail"><i class="fas fa-phone"></i> +62 21 1234 5678</div>
               <div class="office-detail"><i class="fas fa-envelope"></i> indonesia@jianan.in</div>
+              <div style="margin-top:12px;padding-top:12px;border-top:1px dashed #E2E8F0;">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider font-mono">Project Locations</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Kendal</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Semarang</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Batang</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Batam</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Bekasi</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Medan</span>
+                  <span class="text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600">Surabaya</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Bangladesh Office -->
             <div class="office-content" data-office-content="bangladesh">
-              <div class="office-header"><div class="office-flag"><i class="fas fa-helmet-safety"></i></div><div><h4 class="font-heading font-bold text-dark">Dhaka Office</h4><span class="text-xs text-secondary font-semibold">● Project</span></div></div>
-              <div class="office-detail"><i class="fas fa-building"></i> Gulshan Avenue, Dhaka 1212, Bangladesh</div>
+              <div class="office-header"><div class="office-flag"><i class="fas fa-helmet-safety"></i></div><div><h4 class="font-heading font-bold text-dark">Dhaka — Regional Office</h4><span class="text-xs text-secondary font-semibold">● Jianan Engineering Co. Ltd.</span></div></div>
+              <div class="office-detail"><i class="fas fa-building"></i> Dhaka, Bangladesh</div>
               <div class="office-detail"><i class="fas fa-phone"></i> +880 2 1234 567</div>
               <div class="office-detail"><i class="fas fa-envelope"></i> bangladesh@jianan.in</div>
             </div>
@@ -300,8 +396,8 @@
 
           <!-- Mini map -->
           <div class="mini-map">
-            <div class="map-badge"><span class="dot"></span> Live location</div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.102630603607!2d72.819682!3d19.019951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ced6424816f3%3A0x8d5b8e5c5e8b5e8b!2sWorli%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+            <div class="map-badge"><span class="dot"></span> Noida HQ</div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.293175209878!2d77.4023!3d28.5812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef7e9b1a5b6b%3A0x8d5b8e5c5e8b5e8b!2sSector%20132%2C%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
           </div>
 
           <!-- Hours + social -->
@@ -335,8 +431,14 @@
               <div class="form-group"><label>Subject <span class="req">*</span></label>
                 <select id="subject" required>
                   <option value="">Select subject</option>
-                  <option>Project Inquiry</option><option>EPC Services</option><option>MEP Services</option>
-                  <option>Partnership</option><option>Career</option><option>General</option>
+                  <option>Project Inquiry</option>
+                  <option>EPC Services</option>
+                  <option>MEP Services</option>
+                  <option>Civil & Structural</option>
+                  <option>HVAC & Fire Protection</option>
+                  <option>Partnership</option>
+                  <option>Career</option>
+                  <option>General</option>
                 </select>
               </div>
             </div>
@@ -355,7 +457,66 @@
     </div>
   </section>
 
-  <div class="accent-divider max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent"></div>
+  <!-- ACCENT DIVIDER -->
+  <div class="accent-divider max-w-6xl mx-auto"></div>
+
+  <!-- FOOTER CONTACT INFO -->
+  <section class="py-12 bg-white">
+    <div class="container">
+      <div class="text-center mb-10 reveal">
+        <div class="head-eyebrow center"><span class="ln"></span> Connect with us <span class="ln"></span></div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-dark mb-3">
+          All <span class="text-secondary">Contact</span> Details
+        </h2>
+        <p class="text-text max-w-xl mx-auto text-base">Multiple ways to reach us — we're here to help.</p>
+      </div>
+
+      <div class="footer-contact-grid reveal">
+        <!-- Corporate Office -->
+        <div class="footer-contact-item">
+          <div class="icon-box"><i class="fas fa-building"></i></div>
+          <div class="info">
+            <div class="label">Corporate Office</div>
+            <div class="value">A-511, ATS Bouquet, Sector 132, Noida - 201304</div>
+            <div class="text-xs text-gray-400 mt-1">Uttar Pradesh, India</div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="footer-contact-item">
+          <div class="icon-box"><i class="fas fa-phone"></i></div>
+          <div class="info">
+            <div class="label">Phone</div>
+            <div class="value">+91 73105 44030</div>
+            <div class="text-xs text-gray-400 mt-1">+91 98715 31530 (Alt)</div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="footer-contact-item">
+          <div class="icon-box"><i class="fas fa-envelope"></i></div>
+          <div class="info">
+            <div class="label">Email</div>
+            <div class="value">info@jianan.in</div>
+            <div class="text-xs text-gray-400 mt-1">projects@jianan.in</div>
+          </div>
+        </div>
+
+        <!-- CIN -->
+        <div class="footer-contact-item">
+          <div class="icon-box"><i class="fas fa-id-card"></i></div>
+          <div class="info">
+            <div class="label">CIN</div>
+            <div class="value">U46599UP2023PTC189322</div>
+            <div class="text-xs text-gray-400 mt-1">Established 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCENT DIVIDER -->
+  <div class="accent-divider max-w-6xl mx-auto"></div>
 
   <!-- FAQ -->
   <section class="section bg-light">
@@ -367,11 +528,11 @@
         </h2>
       </div>
       <div class="faq-grid max-w-5xl mx-auto reveal">
-        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>What services do you offer?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Civil & Structural, MEP, HVAC, Fire Safety, Electrical, Turnkey EPC, and Project Management.</div></div>
-        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>Which industries do you serve?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Pharma, infrastructure, renewable energy, electronics, manufacturing, automotive, chemicals, F&B.</div></div>
-        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>Do you work internationally?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Yes — India, Indonesia, Bangladesh, and expanding to the Middle East in 2025.</div></div>
-        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>How do I get a quote?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Fill the form, email projects@jianan.in, or call us. We reply within 24 hours.</div></div>
-        <div class="faq-item" style="grid-column:1/-1; max-width:calc(50% - 8px); margin:0 auto;" onclick="toggleFaq(this)"><div class="faq-q"><span>Are you ISO certified?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Yes — ISO 9001:2025, ISO 14001:2025, and ISO 45001:2025.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>What services do you offer?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Civil & Structural, MEP (Mechanical, Electrical, Plumbing), HVAC, Fire Protection, Electrical Systems, Turnkey EPC, and Project Management.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>Which industries do you serve?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Pharmaceutical, Infrastructure, Renewable Energy (Solar/New Energy), Electronics (OPPO, VIVO, Haier, Foxconn), Manufacturing, Automotive, Food & Beverage, Chemicals, and Commercial.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>Do you work internationally?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Yes — we operate in India, Indonesia, Bangladesh, with 94 professionals across 4 countries. We're also expanding to Malaysia (2024) and the Middle East.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>How do I get a quote?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Fill the form, email info@jianan.in, or call us. We reply within 24 hours.</div></div>
+        <div class="faq-item" style="grid-column:1/-1; max-width:calc(50% - 8px); margin:0 auto;" onclick="toggleFaq(this)"><div class="faq-q"><span>Are you ISO certified?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a">Yes — ISO 9001:2015 (Quality Management), ISO 14001:2015 (Environmental Management), and ISO 45001:2018 (Occupational Health & Safety).</div></div>
       </div>
     </div>
   </section>
@@ -381,7 +542,7 @@
     <div class="container">
       <div class="emergency-strip reveal">
         <div class="es-left"><div class="es-icon"><i class="fas fa-headset"></i></div><div><h3 class="font-heading font-bold text-lg">Urgent technical support?</h3><p class="text-white/60 text-sm">Our emergency line is available 24/7 for on‑site issues.</p></div></div>
-        <a href="tel:+917310544030" class="btn-emergency"><i class="fas fa-phone-alt"></i> +91 7310544030</a>
+        <a href="tel:+917310544030" class="btn-emergency"><i class="fas fa-phone-alt"></i> +91 73105 44030</a>
       </div>
     </div>
   </section>
@@ -424,7 +585,7 @@
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.innerHTML = '<span class="text-red-500">⚠️ Enter a valid email.</span>'; return; }
         status.innerHTML = '<span class="text-primary"><i class="fas fa-spinner fa-spin"></i> Sending…</span>';
         setTimeout(() => {
-          status.innerHTML = '<span class="text-secondary"><i class="fas fa-check-circle"></i> Thank you! We’ll get back within 24h.</span>';
+          status.innerHTML = '<span class="text-secondary"><i class="fas fa-check-circle"></i> Thank you! We\'ll get back within 24h.</span>';
           form.reset();
           setTimeout(() => status.innerHTML = '', 5000);
         }, 1500);
@@ -460,7 +621,6 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    // highlight current page
     const page = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(a => { if (a.getAttribute('href') === page) a.classList.add('active'); });
   }
@@ -478,29 +638,12 @@
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   }
 
-  function initParticles() {
-    const field = document.getElementById('particles');
-    if (!field) return;
-    for (let i = 0; i < 25; i++) {
-      const p = document.createElement('span');
-      p.className = 'part';
-      const s = 2 + Math.random() * 4;
-      p.style.width = s + 'px'; p.style.height = s + 'px';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.bottom = Math.random() * 30 + 'px';
-      p.style.animationDuration = (7 + Math.random() * 12) + 's';
-      p.style.animationDelay = (Math.random() * 12) + 's';
-      field.appendChild(p);
-    }
-  }
-
   async function loadAll() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
     initNavbar();
     initGlobalUI();
     initReveal();
-    initParticles();
     initOfficeTabs();
   }
 
