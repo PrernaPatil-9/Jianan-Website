@@ -232,48 +232,109 @@
 
 <main>
 
-  <!-- ══════════════════════════════════════════════
-       HERO
+<!-- ══════════════════════════════════════════════
+       HERO - Leadership (Compact with BG Image)
   ══════════════════════════════════════════════ -->
-  <section class="leader-hero">
-    <div class="mesh-layer"></div>
-    <div class="particle-field" id="particleField"></div>
-    <div class="orb w-64 h-64 bg-primary/15 top-10 left-0"></div>
-    <div class="orb w-48 h-48 bg-secondary/15 bottom-10 right-0"></div>
+  <section class="leader-hero relative flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, rgba(15,23,42,0.88), rgba(26,60,52,0.85)), url('assets/images/Hero_b_2.png'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 400px; padding: 80px 0 50px;">
+    <!-- Mesh Layer -->
+    <div class="mesh-layer absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
+    
+    <!-- Particle Field -->
+    <div class="particle-field absolute inset-0 pointer-events-none" id="particleField"></div>
+    
+    <!-- Orbs -->
+    <div class="orb absolute w-56 h-56 bg-emerald-500/10 top-10 left-0 rounded-full blur-3xl"></div>
+    <div class="orb absolute w-48 h-48 bg-blue-500/10 bottom-10 right-0 rounded-full blur-3xl"></div>
 
-    <div class="container leader-hero-inner text-center">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-xs font-medium text-primary-light tracking-widest uppercase mb-6 animate-fade-in-up">
-        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+    <div class="container relative z-10 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 text-[9px] sm:text-[10px] font-medium text-emerald-300 tracking-widest uppercase mb-3 animate-fade-in-up">
+        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full blink-dot inline-block"></span>
         Leadership · Global Team
-        <span class="w-1.5 h-1.5 bg-secondary-light rounded-full blink-dot inline-block"></span>
+        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full blink-dot inline-block"></span>
       </div>
 
-      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] tracking-tight mb-5 animate-fade-in-up anim-delay-200">
-        Our <span class="text-secondary-light relative inline-block">
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-2.5 animate-fade-in-up anim-delay-200" style="text-shadow: 0 2px 20px rgba(0,0,0,0.4);">
+        Our <span class="text-emerald-400 relative inline-block" style="text-shadow: 0 0 30px rgba(16,185,129,0.3);">
           Leadership
-          <svg class="absolute -bottom-2 left-0 w-full h-1" viewBox="0 0 200 6" preserveAspectRatio="none">
+          <svg class="absolute -bottom-1.5 left-0 w-full h-1" viewBox="0 0 200 6" preserveAspectRatio="none">
             <path d="M0,3 Q50,0 100,3 T200,3" stroke="#4CC97E" stroke-width="1.5" fill="none" opacity="0.6"/>
           </svg>
         </span>
       </h1>
 
-      <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 animate-fade-in-up anim-delay-400">
+      <p class="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-4 animate-fade-in-up anim-delay-400" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
         Seasoned leaders driving operational excellence, strategic growth, and international expertise — from project conception to delivery, our team brings decades of combined experience.
       </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-3 animate-fade-in-up anim-delay-400">
-        <div class="stat-chip"><i class="fas fa-users text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">94</span> Professionals</span></div>
-        <div class="stat-chip"><i class="fas fa-project-diagram text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">20+</span> Projects</span></div>
-        <div class="stat-chip"><i class="fas fa-globe text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">4</span> Countries</span></div>
-        <div class="stat-chip"><i class="fas fa-trophy text-secondary-light text-xs"></i><span class="text-white/80 text-xs tracking-wide"><span class="chip-num">6</span> Key Qualifications</span></div>
+      <div class="flex flex-wrap items-center justify-center gap-2 animate-fade-in-up anim-delay-400">
+        <div class="stat-chip inline-flex items-center gap-1.5 bg-black/30 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1">
+          <i class="fas fa-users text-emerald-400 text-[9px]"></i>
+          <span class="text-white/80 text-[9px] sm:text-[10px] tracking-wide"><span class="chip-num font-semibold text-white">94</span> Professionals</span>
+        </div>
+        <div class="stat-chip inline-flex items-center gap-1.5 bg-black/30 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1">
+          <i class="fas fa-project-diagram text-emerald-400 text-[9px]"></i>
+          <span class="text-white/80 text-[9px] sm:text-[10px] tracking-wide"><span class="chip-num font-semibold text-white">20+</span> Projects</span>
+        </div>
+        <div class="stat-chip inline-flex items-center gap-1.5 bg-black/30 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1">
+          <i class="fas fa-globe text-emerald-400 text-[9px]"></i>
+          <span class="text-white/80 text-[9px] sm:text-[10px] tracking-wide"><span class="chip-num font-semibold text-white">4</span> Countries</span>
+        </div>
+        <div class="stat-chip inline-flex items-center gap-1.5 bg-black/30 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1">
+          <i class="fas fa-trophy text-emerald-400 text-[9px]"></i>
+          <span class="text-white/80 text-[9px] sm:text-[10px] tracking-wide"><span class="chip-num font-semibold text-white">6</span> Key Qualifications</span>
+        </div>
       </div>
     </div>
 
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/30 text-[9px] tracking-[0.2em] flex flex-col items-center gap-1.5 z-10">
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/30 text-[8px] tracking-[0.2em] flex flex-col items-center gap-1 z-10">
       <span>SCROLL</span>
-      <div class="w-px h-6 bg-white/30"></div>
+      <div class="w-px h-5 bg-white/30"></div>
     </div>
   </section>
+
+  <style>
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.6s ease-out both;
+    }
+    .anim-delay-200 { animation-delay: 0.2s; }
+    .anim-delay-400 { animation-delay: 0.4s; }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .blink-dot {
+      animation: blink 1.4s ease-in-out infinite;
+    }
+  </style>
+
+  <script>
+    // Simple particle effect (optional)
+    document.addEventListener('DOMContentLoaded', function() {
+      const field = document.getElementById('particleField');
+      if (field) {
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement('div');
+          const size = Math.random() * 3 + 1;
+          particle.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(76, 201, 126, ${Math.random() * 0.3 + 0.1});
+            border-radius: 50%;
+            top: ${Math.random() * 100}%;
+            left: ${Math.random() * 100}%;
+            animation: float ${Math.random() * 10 + 10}s linear infinite;
+            animation-delay: ${Math.random() * 5}s;
+          `;
+          field.appendChild(particle);
+        }
+      }
+    });
+  </script>
 
   <!-- ══════════════════════════════════════════════
        LEADERSHIP IN NUMBERS

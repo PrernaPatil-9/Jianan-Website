@@ -6,10 +6,10 @@
   <title>About Us – Jianan Engineering | Engineering Excellence Since 2023</title>
   <meta name="description" content="Learn about Jianan Engineering's expertise in EPC, MEP, and industrial infrastructure projects across India, Indonesia, and Bangladesh. Incorporated in 2023, we deliver turnkey solutions with a global approach.">
   <link rel="icon" href="/assets/images/logo.png">
-  
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Centralized Theme Configuration -->
   <script>
     tailwind.config = {
@@ -26,6 +26,26 @@
               light: "#4CC97E",
               dark: "#1E7A43"
             },
+            amber: {
+              DEFAULT: "#F5A623",
+              light: "#FFC670",
+              dark: "#C77D0A"
+            },
+            copper: {
+              DEFAULT: "#C2622D",
+              light: "#DE8A57",
+              dark: "#8F4520"
+            },
+            teal: {
+              DEFAULT: "#0D9488",
+              light: "#3FBDB0",
+              dark: "#08655C"
+            },
+            indigo: {
+              DEFAULT: "#6366F1",
+              light: "#9092F7",
+              dark: "#4547C4"
+            },
             dark: "#0F172A",
             light: "#F8FAFC",
             text: "#475569",
@@ -39,28 +59,28 @@
       }
     }
   </script>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+
   <style>
     /* ========================================
        GLOBAL STYLES - Shared across all pages
        ======================================== */
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       overflow-x: hidden;
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
     }
-    
+
     /* Loader Styles */
     .loader {
       position: fixed;
@@ -75,11 +95,9 @@
       justify-content: center;
       transition: opacity 0.8s ease-out;
     }
-    
-    .loader-content {
-      text-align: center;
-    }
-    
+
+    .loader-content { text-align: center; }
+
     .loader-logo {
       width: 80px;
       height: 80px;
@@ -94,7 +112,7 @@
       color: white;
       animation: pulse 1.5s infinite;
     }
-    
+
     .loader-text {
       color: white;
       font-size: 14px;
@@ -102,7 +120,7 @@
       font-weight: 500;
       margin-bottom: 20px;
     }
-    
+
     .loader-bar {
       width: 200px;
       height: 2px;
@@ -111,7 +129,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .loader-bar::after {
       content: '';
       position: absolute;
@@ -122,16 +140,13 @@
       background: linear-gradient(90deg, #1E88E5, #28B463);
       animation: loading 1.5s infinite;
     }
-    
-    @keyframes loading {
-      100% { left: 100%; }
-    }
-    
+
+    @keyframes loading { 100% { left: 100%; } }
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.9; }
     }
-    
+
     /* Scroll Progress */
     .scroll-progress {
       position: fixed;
@@ -143,7 +158,7 @@
       z-index: 10001;
       transition: width 0.1s ease-out;
     }
-    
+
     /* Back to Top Button */
     .back-to-top {
       position: fixed;
@@ -160,52 +175,26 @@
       visibility: hidden;
       transition: all 0.3s ease;
     }
-    
-    .back-to-top {
-      background: transparent !important;
-      box-shadow: none;
-      padding: 0;
-    }
-    
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top img {
-      width: 60px;
-      height: auto;
-      animation: bounce 2s infinite;
-    }
-    
+
+    .back-to-top { background: transparent !important; box-shadow: none; padding: 0; }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top img { width: 60px; height: auto; animation: bounce 2s infinite; }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    
+
     /* Container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
     /* Section Styles */
-    .section {
-      padding: 80px 0;
-    }
-    
-    @media (max-width: 768px) {
-      .section {
-        padding: 50px 0;
-      }
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    
+    .section { padding: 80px 0; }
+
+    @media (max-width: 768px) { .section { padding: 50px 0; } }
+
+    .section-header { text-align: center; margin-bottom: 50px; }
+
     .section-tag {
       display: inline-block;
       font-size: 14px;
@@ -218,7 +207,7 @@
       border-radius: 50px;
       margin-bottom: 15px;
     }
-    
+
     .section-title {
       font-size: 38px;
       font-weight: 700;
@@ -226,27 +215,12 @@
       color: #0F172A;
       margin-bottom: 12px;
     }
-    
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 28px;
-      }
-    }
-    
-    .section-subtitle {
-      font-size: 17px;
-      color: #475569;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .text-primary {
-      color: #28B463;
-    }
-    
-    .bg-light {
-      background: #F8FAFC;
-    }
+
+    @media (max-width: 768px) { .section-title { font-size: 28px; } }
+
+    .section-subtitle { font-size: 17px; color: #475569; max-width: 600px; margin: 0 auto; }
+    .text-primary { color: #28B463; }
+    .bg-light { background: #F8FAFC; }
 
     /* Page Hero */
     .page-hero {
@@ -255,7 +229,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .page-hero::before {
       content: '';
       position: absolute;
@@ -266,7 +240,7 @@
       background: radial-gradient(circle, rgba(40,180,99,0.08) 0%, transparent 70%);
       border-radius: 50%;
     }
-    
+
     .page-hero::after {
       content: '';
       position: absolute;
@@ -285,27 +259,20 @@
       gap: 50px;
       align-items: center;
     }
-    
+
     @media (max-width: 768px) {
-      .about-overview-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
+      .about-overview-grid { grid-template-columns: 1fr; gap: 35px; }
     }
-    
+
     .about-features-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin: 20px 0 30px;
     }
-    
-    @media (max-width: 480px) {
-      .about-features-list {
-        grid-template-columns: 1fr;
-      }
-    }
-    
+
+    @media (max-width: 480px) { .about-features-list { grid-template-columns: 1fr; } }
+
     .about-features-list .feature-item {
       display: flex;
       align-items: center;
@@ -313,246 +280,295 @@
       font-size: 15px;
       color: #334155;
     }
-    
-    .about-features-list .feature-item i {
-      color: #28B463;
-      font-size: 16px;
-    }
-    
-    /* Stats Cards */
+
+    .about-features-list .feature-item i { color: #28B463; font-size: 16px; }
+
+    /* ===== Stats Cards — colored, one hue per metric ===== */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
-    
-    @media (max-width: 768px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
+
+    @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
     .stat-card {
-      background: white;
-      padding: 25px 20px;
-      border-radius: 16px;
+      position: relative;
+      padding: 28px 20px;
+      border-radius: 18px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      border: 1px solid #E2E8F0;
+      overflow: hidden;
+      background: linear-gradient(150deg, var(--accent-light) 0%, var(--accent) 100%);
+      box-shadow: 0 10px 25px -8px var(--accent-shadow);
       transition: all 0.3s ease;
     }
-    
-    .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(40,180,99,0.12);
-      border-color: #28B463;
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
     }
-    
+
+    .stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px -8px var(--accent-shadow);
+    }
+
     .stat-number {
-      font-size: 36px;
+      position: relative;
+      font-size: 38px;
       font-weight: 800;
-      color: #28B463;
+      color: #ffffff;
       font-family: 'Poppins', sans-serif;
       line-height: 1;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    
+
     .stat-label {
+      position: relative;
       font-size: 13px;
-      color: #64748B;
-      font-weight: 500;
+      color: rgba(255,255,255,0.92);
+      font-weight: 600;
       letter-spacing: 0.5px;
     }
 
-    /* Value Cards */
+    /* ===== Value Cards — cycling engineering-discipline palette ===== */
     .values-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 25px;
     }
-    
-    @media (max-width: 1024px) {
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
+
+    @media (max-width: 1024px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .values-grid { grid-template-columns: 1fr; } }
+
     .value-card {
-      background: white;
-      padding: 30px 25px;
+      position: relative;
+      background: var(--accent-tint);
+      padding: 32px 25px 26px;
       border-radius: 20px;
       text-align: center;
-      border: 1px solid #E2E8F0;
+      border: 1px solid var(--accent-border);
+      border-top: 4px solid var(--accent);
       transition: all 0.3s ease;
     }
-    
+
     .value-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-      border-color: #28B463;
+      box-shadow: 0 18px 35px -10px var(--accent-shadow);
+      border-color: var(--accent);
     }
-    
+
     .value-icon {
       width: 65px;
       height: 65px;
-      background: linear-gradient(135deg, rgba(40,180,99,0.1), rgba(30,136,229,0.05));
+      background: var(--accent);
       border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 18px;
-    }
-    
-    .value-icon i {
-      font-size: 30px;
-      color: #28B463;
-    }
-    
-    .value-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #0F172A;
-    }
-    
-    .value-card p {
-      color: #475569;
-      font-size: 14px;
-      line-height: 1.5;
+      box-shadow: 0 8px 18px -6px var(--accent-shadow);
     }
 
-    /* Journey Timeline */
+    .value-icon i { font-size: 28px; color: #ffffff; }
+    .value-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #0F172A; }
+    .value-card p { color: #475569; font-size: 14px; line-height: 1.5; }
+
+    /* ===== Journey Timeline — colored per market/country ===== */
     .timeline {
       position: relative;
       max-width: 1000px;
       margin: 0 auto;
       padding: 20px 0;
     }
-    
+
     .timeline::after {
       content: '';
       position: absolute;
       width: 2px;
-      background: linear-gradient(180deg, #28B463, #1E88E5);
+      background: linear-gradient(180deg, #F5A623, #0D9488, #1E88E5, #6366F1, #28B463);
       top: 0;
       bottom: 0;
       left: 50%;
       margin-left: -1px;
     }
-    
-    .timeline-item {
-      padding: 10px 40px;
-      position: relative;
-      width: 50%;
-    }
-    
-    .timeline-item:nth-child(odd) {
-      left: 0;
-    }
-    
-    .timeline-item:nth-child(even) {
-      left: 50%;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content {
-      text-align: right;
-      padding-right: 40px;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content {
-      text-align: left;
-      padding-left: 40px;
-    }
-    
+
+    .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item:nth-child(odd) .timeline-content { text-align: right; padding-right: 40px; }
+    .timeline-item:nth-child(even) .timeline-content { text-align: left; padding-left: 40px; }
+
     .timeline-dot {
       position: absolute;
       width: 18px;
       height: 18px;
-      background: #28B463;
+      background: var(--accent);
       border: 3px solid white;
       border-radius: 50%;
       top: 18px;
       z-index: 1;
-      box-shadow: 0 0 0 4px rgba(40,180,99,0.15);
+      box-shadow: 0 0 0 4px var(--accent-shadow);
     }
-    
-    .timeline-item:nth-child(odd) .timeline-dot {
-      right: -9px;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-dot {
-      left: -9px;
-    }
-    
+
+    .timeline-item:nth-child(odd) .timeline-dot { right: -9px; }
+    .timeline-item:nth-child(even) .timeline-dot { left: -9px; }
+
     .timeline-content {
       padding: 20px 25px;
-      background: white;
+      background: var(--accent-tint);
       border-radius: 16px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      border: 1px solid #E2E8F0;
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
       transition: all 0.3s ease;
     }
-    
+
+    .timeline-item:nth-child(odd) .timeline-content { border-left: none; border-right: 4px solid var(--accent); }
+
     .timeline-content:hover {
-      box-shadow: 0 10px 30px rgba(40,180,99,0.1);
-      border-color: #28B463;
+      box-shadow: 0 12px 30px -8px var(--accent-shadow);
+      border-color: var(--accent);
+      transform: translateY(-2px);
     }
-    
+
     .timeline-year {
       font-size: 22px;
       font-weight: 800;
-      color: #28B463;
+      color: var(--accent);
       margin-bottom: 5px;
       font-family: 'Poppins', sans-serif;
     }
-    
-    .timeline-content h3 {
-      font-size: 18px;
+
+    .timeline-content h3 { font-size: 18px; font-weight: 700; color: #0F172A; margin-bottom: 5px; }
+    .timeline-content p { color: #475569; font-size: 14px; line-height: 1.5; }
+
+    .timeline-market-tag {
+      display: inline-block;
+      font-size: 11px;
       font-weight: 700;
-      color: #0F172A;
-      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 8px;
     }
-    
-    .timeline-content p {
-      color: #475569;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    
+
     @media (max-width: 768px) {
-      .timeline::after {
-        left: 25px;
-      }
-      .timeline-item {
-        width: 100%;
-        padding-left: 60px;
-        padding-right: 20px;
-      }
-      .timeline-item:nth-child(odd) {
-        left: 0;
-      }
-      .timeline-item:nth-child(even) {
-        left: 0;
-      }
-      .timeline-item:nth-child(odd) .timeline-content {
-        text-align: left;
-        padding-right: 20px;
-        padding-left: 0;
-      }
-      .timeline-item:nth-child(even) .timeline-content {
-        padding-left: 0;
-      }
-      .timeline-dot {
-        left: 16px !important;
-        right: auto !important;
-      }
+      .timeline::after { left: 25px; }
+      .timeline-item { width: 100%; padding-left: 60px; padding-right: 20px; }
+      .timeline-item:nth-child(odd) { left: 0; }
+      .timeline-item:nth-child(even) { left: 0; }
+      .timeline-item:nth-child(odd) .timeline-content { text-align: left; padding-right: 20px; padding-left: 0; border-right: none; border-left: 4px solid var(--accent); }
+      .timeline-item:nth-child(even) .timeline-content { padding-left: 0; }
+      .timeline-dot { left: 16px !important; right: auto !important; }
     }
+
+    /* ===== Leadership Cards — colored top bar per focus area ===== */
+    .leader-card {
+      position: relative;
+      background: #fff;
+      padding: 30px 24px 26px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #E2E8F0;
+      border-top: 5px solid var(--accent);
+      box-shadow: 0 8px 24px -12px rgba(15,23,42,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px -10px var(--accent-shadow);
+    }
+
+    .leader-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      background: linear-gradient(150deg, var(--accent-light), var(--accent));
+      box-shadow: 0 8px 18px -6px var(--accent-shadow);
+    }
+
+    .leader-avatar i { font-size: 32px; color: #fff; }
+    .leader-card h4 { font-size: 20px; font-weight: 700; color: #0F172A; }
+    .leader-card .leader-role { color: var(--accent); font-weight: 700; }
+    .leader-card .leader-focus {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--accent-dark);
+      background: var(--accent-tint);
+      border: 1px solid var(--accent-border);
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-top: 12px;
+    }
+
+    /* ===== Vision & Mission Cards ===== */
+    .pillar-card {
+      position: relative;
+      padding: 44px 36px;
+      border-radius: 22px;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(150deg, var(--accent-light) 0%, var(--accent-dark) 100%);
+      box-shadow: 0 16px 40px -14px var(--accent-shadow);
+      overflow: hidden;
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .pillar-icon {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+
+    .pillar-icon i { font-size: 30px; color: #fff; }
+    .pillar-card h3 { position: relative; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .pillar-card p { position: relative; color: rgba(255,255,255,0.92); }
 
     /* CTA Buttons */
     .btn-primary {
@@ -568,14 +584,14 @@
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(40,180,99,0.3);
     }
-    
+
     .btn-primary:hover {
       background: #1E7A43;
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(40,180,99,0.4);
       gap: 14px;
     }
-    
+
     .btn-outline {
       display: inline-flex;
       align-items: center;
@@ -589,12 +605,8 @@
       text-decoration: none;
       transition: all 0.3s ease;
     }
-    
-    .btn-outline:hover {
-      background: #28B463;
-      color: white;
-      transform: translateY(-2px);
-    }
+
+    .btn-outline:hover { background: #28B463; color: white; transform: translateY(-2px); }
   </style>
 </head>
 <body>
@@ -611,18 +623,41 @@
 <div id="navbar-container"></div>
 
 <main>
-  <!-- Page Hero -->
-  <section class="page-hero">
+  
+<!-- Page Hero - About Us (Larger with Background Image) -->
+<section class="page-hero relative flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, rgba(15,23,42,0.88), rgba(26,60,52,0.85)), url('assets/images/Hero_b_1.png'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 480px; padding: 120px 0 80px;">
+    <!-- Decorative background elements -->
+    <div class="absolute top-20 right-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
+    
     <div class="container relative z-10">
-      <div class="text-center text-white">
-        <span class="inline-block text-emerald-400 font-semibold text-sm tracking-widest uppercase bg-white/10 px-4 py-1.5 rounded-full mb-4">✦ About Us</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4">Engineering <span class="text-emerald-400">Excellence</span> Since 2023</h1>
-        <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">Global M&E engineering, turnkey solutions, and trusted partnerships across Asia</p>
-      </div>
+        <div class="text-center text-white">
+            <!-- Badge -->
+            <span class="inline-block text-emerald-400 font-semibold text-sm sm:text-base tracking-widest uppercase bg-white/10 backdrop-blur-sm px-5 py-2 rounded-full mb-5 border border-white/10">✦ About Us</span>
+            
+            <!-- Heading -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-4 leading-tight" style="text-shadow: 0 2px 20px rgba(0,0,0,0.4);">
+                Engineering <span class="text-emerald-400" style="text-shadow: 0 0 40px rgba(16,185,129,0.3);">Excellence</span> <br class="hidden sm:block"/>Since 2023
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Global M&E engineering, turnkey solutions, and trusted partnerships across Asia</p>
+            
+            <!-- CTA Buttons -->
+            <div class="mt-6 flex flex-wrap gap-3.5 justify-center">
+                <a href="#contact" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-7 py-2.5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/30 text-sm sm:text-base">
+                    Get in Touch <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#team" class="inline-flex items-center gap-2 border-2 border-white/60 hover:bg-white/10 text-white font-semibold px-7 py-2.5 rounded-full transition-all duration-300 backdrop-blur-sm text-sm sm:text-base">
+                    Meet Our Team <i class="fas fa-users text-xs"></i>
+                </a>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Company Overview – updated from PPT -->
+  <!-- Company Overview -->
   <section class="section">
     <div class="container">
       <div class="about-overview-grid">
@@ -632,7 +667,7 @@
           <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Global Expertise, <span class="text-primary">Local Execution</span></h2>
           <p class="text-text leading-relaxed mb-4"><strong>Jianan Engineering Pvt. Ltd.</strong> is an Indian company incorporated under the Companies Act, 2013, with its corporate office in Noida, Uttar Pradesh. As an associate of Jianan Engineering Co., we bring international engineering expertise to the Indian market.</p>
           <p class="text-text leading-relaxed mb-4">We deliver turnkey, EPC and EPCM projects with a strong focus on good engineering practices, disciplined execution and quality assurance. Our design and engineering capabilities are supported by modern computer-aided tools, enabling reliable delivery and lasting client satisfaction.</p>
-          
+
           <div class="about-features-list">
             <div class="feature-item"><i class="fas fa-check-circle"></i> CIN: U46599UP2023PTC189322</div>
             <div class="feature-item"><i class="fas fa-check-circle"></i> ISO 9001:2015, 14001:2015, 45001:2018</div>
@@ -641,13 +676,13 @@
             <div class="feature-item"><i class="fas fa-check-circle"></i> 94+ Professionals</div>
             <div class="feature-item"><i class="fas fa-check-circle"></i> 6 Key Qualifications</div>
           </div>
-          
+
           <div class="flex flex-wrap gap-4">
             <a href="contact.html" class="btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
             <a href="projects.html" class="btn-outline">View Our Work</a>
           </div>
         </div>
-        
+
         <!-- Right Image -->
         <div>
           <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Jianan Engineering Global Projects" class="rounded-2xl shadow-2xl w-full h-[400px] object-cover">
@@ -656,29 +691,25 @@
     </div>
   </section>
 
-  <!-- Vision & Mission – from PPT -->
+  <!-- Vision & Mission -->
   <section class="section bg-light">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-10 rounded-2xl shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow">
-          <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-eye text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Our Vision</h3>
-          <p class="text-text">To become a pioneer in Turnkey engineering, servicing the manufacturing and resources sector. We deliver complete Engineering Solutions – from designing to completion.</p>
+        <div class="pillar-card" style="--accent-light:#4AA3E9; --accent-dark:#0F5B99; --accent-shadow:rgba(30,136,229,0.35);">
+          <div class="pillar-icon"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p>To become a pioneer in Turnkey engineering, servicing the manufacturing and resources sector. We deliver complete Engineering Solutions – from designing to completion.</p>
         </div>
-        <div class="bg-white p-10 rounded-2xl shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow">
-          <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-bullseye text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Our Mission</h3>
-          <p class="text-text">To inspire customer confidence through the delivery of excellent service, becoming the most trusted source of advice on process engineering and employing the most highly respected, well-trained engineers and consultants.</p>
+        <div class="pillar-card" style="--accent-light:#4CC97E; --accent-dark:#1E7A43; --accent-shadow:rgba(40,180,99,0.35);">
+          <div class="pillar-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p>To inspire customer confidence through the delivery of excellent service, becoming the most trusted source of advice on process engineering and employing the most highly respected, well-trained engineers and consultants.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Company Stats – from PPT: 20 projects, 2.5M+ sqm, 94 professionals, 4 countries -->
+  <!-- Company Stats -->
   <section class="section" style="padding: 60px 0;">
     <div class="container">
       <div class="text-center mb-12">
@@ -686,19 +717,19 @@
         <p class="section-subtitle">Delivering excellence across Asia</p>
       </div>
       <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card" style="--accent-light:#4AA3E9; --accent:#1E88E5; --accent-shadow:rgba(30,136,229,0.45);">
           <div class="stat-number" data-target="20">0</div>
           <div class="stat-label">Total Projects</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" style="--accent-light:#F5A623; --accent:#C77D0A; --accent-shadow:rgba(197,125,10,0.45);">
           <div class="stat-number" data-target="2.5">0M+</div>
           <div class="stat-label">Sq. Meters Built</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" style="--accent-light:#4CC97E; --accent:#1E7A43; --accent-shadow:rgba(30,122,67,0.45);">
           <div class="stat-number" data-target="94">0</div>
           <div class="stat-label">Professionals</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" style="--accent-light:#9092F7; --accent:#6366F1; --accent-shadow:rgba(99,102,241,0.45);">
           <div class="stat-number" data-target="4">0</div>
           <div class="stat-label">Countries</div>
         </div>
@@ -706,7 +737,7 @@
     </div>
   </section>
 
-  <!-- Core Values – from PPT -->
+  <!-- Core Values -->
   <section class="section bg-light">
     <div class="container">
       <div class="text-center mb-12">
@@ -715,32 +746,32 @@
         <p class="section-subtitle">The principles that guide everything we do</p>
       </div>
       <div class="values-grid">
-        <div class="value-card">
+        <div class="value-card" style="--accent:#1E88E5; --accent-tint:#EAF4FD; --accent-border:#BFDEFA; --accent-shadow:rgba(30,136,229,0.3);">
           <div class="value-icon"><i class="fas fa-users"></i></div>
           <h3>Customer Focus</h3>
           <p>Understanding and exceeding client expectations</p>
         </div>
-        <div class="value-card">
+        <div class="value-card" style="--accent:#28B463; --accent-tint:#EAFAF1; --accent-border:#BEEBD1; --accent-shadow:rgba(40,180,99,0.3);">
           <div class="value-icon"><i class="fas fa-cogs"></i></div>
           <h3>Process Driven</h3>
           <p>Systematic execution with quality controls</p>
         </div>
-        <div class="value-card">
+        <div class="value-card" style="--accent:#C77D0A; --accent-tint:#FDF3E4; --accent-border:#F6DBAE; --accent-shadow:rgba(199,125,10,0.3);">
           <div class="value-icon"><i class="fas fa-handshake"></i></div>
           <h3>Employee Commitment</h3>
           <p>Investing in our team's growth and development</p>
         </div>
-        <div class="value-card">
+        <div class="value-card" style="--accent:#0D9488; --accent-tint:#E6F7F5; --accent-border:#B7E7E1; --accent-shadow:rgba(13,148,136,0.3);">
           <div class="value-icon"><i class="fas fa-chart-line"></i></div>
           <h3>Continual Improvement</h3>
           <p>Always learning and evolving our practices</p>
         </div>
-        <div class="value-card">
+        <div class="value-card" style="--accent:#6366F1; --accent-tint:#EFEFFE; --accent-border:#CBCCFB; --accent-shadow:rgba(99,102,241,0.3);">
           <div class="value-icon"><i class="fas fa-rocket"></i></div>
           <h3>Passion for Growth</h3>
           <p>Driving innovation and expansion</p>
         </div>
-        <div class="value-card">
+        <div class="value-card" style="--accent:#C2622D; --accent-tint:#FBEEE6; --accent-border:#EFC9AF; --accent-shadow:rgba(194,98,45,0.3);">
           <div class="value-icon"><i class="fas fa-heart"></i></div>
           <h3>Respect to All</h3>
           <p>Valuing every individual's contribution</p>
@@ -749,7 +780,7 @@
     </div>
   </section>
 
-  <!-- Journey Timeline – updated with PPT milestones -->
+  <!-- Journey Timeline — color-coded by market -->
   <section class="section">
     <div class="container">
       <div class="text-center mb-12">
@@ -757,49 +788,54 @@
         <h2 class="section-title">The <span class="text-primary">Jianan</span> Story</h2>
         <p class="section-subtitle">Strategic expansion across key South and Southeast Asian markets</p>
       </div>
-      
+
       <div class="timeline">
-        <div class="timeline-item">
+        <div class="timeline-item" style="--accent:#F5A623; --accent-tint:#FEF8ED; --accent-border:#FBE3B4; --accent-shadow:rgba(245,166,35,0.35);">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
+            <span class="timeline-market-tag">Indonesia</span>
             <div class="timeline-year">2022</div>
-            <h3>Indonesia – PT. Jianan Engineering</h3>
+            <h3>PT. Jianan Engineering</h3>
             <p>PT. Jianan Engineering Indonesia established to serve the growing Southeast Asian market.</p>
           </div>
         </div>
-        
-        <div class="timeline-item">
+
+        <div class="timeline-item" style="--accent:#0D9488; --accent-tint:#EAF8F6; --accent-border:#BEE6E0; --accent-shadow:rgba(13,148,136,0.35);">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
+            <span class="timeline-market-tag">Bangladesh</span>
             <div class="timeline-year">2023</div>
-            <h3>Bangladesh – Jianan Engineering Co. Ltd.</h3>
+            <h3>Jianan Engineering Co. Ltd.</h3>
             <p>Established in Bangladesh, expanding our footprint in South Asia.</p>
           </div>
         </div>
-        
-        <div class="timeline-item">
+
+        <div class="timeline-item" style="--accent:#1E88E5; --accent-tint:#EAF4FD; --accent-border:#BFDEFA; --accent-shadow:rgba(30,136,229,0.35);">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
+            <span class="timeline-market-tag">India</span>
             <div class="timeline-year">2023</div>
-            <h3>India – Jianan Engineering Pvt. Ltd.</h3>
+            <h3>Jianan Engineering Pvt. Ltd.</h3>
             <p>Incorporated under the Companies Act, 2013, with corporate office in Noida, Uttar Pradesh. CIN: U46599UP2023PTC189322</p>
           </div>
         </div>
-        
-        <div class="timeline-item">
+
+        <div class="timeline-item" style="--accent:#6366F1; --accent-tint:#F0F0FE; --accent-border:#D0D1FB; --accent-shadow:rgba(99,102,241,0.35);">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
+            <span class="timeline-market-tag">Malaysia</span>
             <div class="timeline-year">2024</div>
-            <h3>Malaysia – Expanding ASEAN footprint</h3>
+            <h3>Expanding ASEAN Footprint</h3>
             <p>Strategic entry into Malaysia, reinforcing our presence in the ASEAN region.</p>
           </div>
         </div>
-        
-        <div class="timeline-item">
+
+        <div class="timeline-item" style="--accent:#28B463; --accent-tint:#EAFAF1; --accent-border:#BEEBD1; --accent-shadow:rgba(40,180,99,0.35);">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
+            <span class="timeline-market-tag">Milestone</span>
             <div class="timeline-year">2025</div>
-            <h3>20+ Projects & 2.5M+ sqm built</h3>
+            <h3>20+ Projects &amp; 2.5M+ sqm Built</h3>
             <p>Completed 20+ projects across India and Indonesia, with 2.5M+ sq. meters of industrial infrastructure delivered.</p>
           </div>
         </div>
@@ -807,7 +843,7 @@
     </div>
   </section>
 
-  <!-- Leadership Team – from PPT -->
+  <!-- Leadership Team -->
   <section class="section bg-light">
     <div class="container">
       <div class="text-center mb-12">
@@ -816,32 +852,26 @@
         <p class="section-subtitle">Seasoned leaders driving operational excellence and strategic growth</p>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
-          <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-user-tie text-3xl text-primary"></i>
-          </div>
-          <h4 class="text-xl font-bold">Shrikant Giri</h4>
-          <p class="text-primary font-semibold">Managing Director</p>
+        <div class="leader-card" style="--accent:#1E88E5; --accent-light:#4AA3E9; --accent-dark:#0F5B99; --accent-tint:#EAF4FD; --accent-border:#BFDEFA; --accent-shadow:rgba(30,136,229,0.35);">
+          <div class="leader-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Shrikant Giri</h4>
+          <p class="leader-role">Managing Director</p>
           <p class="text-sm text-text mt-2">Proficient Electrical Engineer with close to a decade of rich field experience. Deep technical insight and on-ground project execution capabilities.</p>
-          <p class="text-xs text-gray-500 mt-2"><i class="fas fa-bullseye text-primary"></i> Focus: Operational Excellence</p>
+          <span class="leader-focus"><i class="fas fa-bullseye"></i> Operational Excellence</span>
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
-          <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-user-tie text-3xl text-primary"></i>
-          </div>
-          <h4 class="text-xl font-bold">Ravikant Giri</h4>
-          <p class="text-primary font-semibold">Managing Director</p>
+        <div class="leader-card" style="--accent:#28B463; --accent-light:#4CC97E; --accent-dark:#1E7A43; --accent-tint:#EAFAF1; --accent-border:#BEEBD1; --accent-shadow:rgba(40,180,99,0.35);">
+          <div class="leader-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Ravikant Giri</h4>
+          <p class="leader-role">Managing Director</p>
           <p class="text-sm text-text mt-2">Visionary leader driving strategic growth and business development. Committed to delivering outcomes that strengthen partnerships.</p>
-          <p class="text-xs text-gray-500 mt-2"><i class="fas fa-chart-line text-primary"></i> Focus: Strategic Growth</p>
+          <span class="leader-focus"><i class="fas fa-chart-line"></i> Strategic Growth</span>
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
-          <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-user-tie text-3xl text-primary"></i>
-          </div>
-          <h4 class="text-xl font-bold">Ashwani Kumar</h4>
-          <p class="text-primary font-semibold">Chief Operating Officer</p>
+        <div class="leader-card" style="--accent:#C77D0A; --accent-light:#F5A623; --accent-dark:#8F5C08; --accent-tint:#FDF3E4; --accent-border:#F6DBAE; --accent-shadow:rgba(199,125,10,0.35);">
+          <div class="leader-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Ashwani Kumar</h4>
+          <p class="leader-role">Chief Operating Officer</p>
           <p class="text-sm text-text mt-2">Highly accomplished Civil Engineer with 35+ years of experience, including 12 years of distinguished international experience.</p>
-          <p class="text-xs text-gray-500 mt-2"><i class="fas fa-globe text-primary"></i> Focus: International Expertise</p>
+          <span class="leader-focus"><i class="fas fa-globe"></i> International Expertise</span>
         </div>
       </div>
     </div>
@@ -871,7 +901,7 @@
   // ============================================
   // LOAD COMPONENTS (navbar and footer)
   // ============================================
-  
+
   async function loadComponent(elementId, componentPath) {
     try {
       const response = await fetch(componentPath);
@@ -884,21 +914,21 @@
       return false;
     }
   }
-  
+
   // Initialize after components are loaded
   function initGlobalFunctions() {
     // Sticky Header & Scroll Progress
     const header = document.querySelector('.header');
     const scrollProgress = document.getElementById('scrollProgress');
     const backToTop = document.getElementById('backToTop');
-    
+
     window.addEventListener('scroll', function() {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
-      
+
       if (scrollProgress) scrollProgress.style.width = progress + '%';
-      
+
       if (header) {
         if (scrollTop > 100) {
           header.classList.add('scrolled');
@@ -906,7 +936,7 @@
           header.classList.remove('scrolled');
         }
       }
-      
+
       if (backToTop) {
         if (scrollTop > 300) {
           backToTop.classList.add('show');
@@ -915,18 +945,18 @@
         }
       }
     });
-    
+
     // Back to Top
     if (backToTop) {
       backToTop.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
-    
+
     // Mobile Menu Toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    
+
     if (navToggle && navMenu) {
       navToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
@@ -934,7 +964,7 @@
         document.body.classList.toggle('mobile-nav-active');
       });
     }
-    
+
     // Close mobile menu on link click
     document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
       link.addEventListener('click', function() {
@@ -945,10 +975,10 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    
+
     // Counter Animation
     const statNumbers = document.querySelectorAll('.stat-number');
-    
+
     const animateCounter = (element) => {
       const target = element.getAttribute('data-target');
       // Handle values with '+' suffix (e.g., "2.5M+")
@@ -958,10 +988,10 @@
       } else if (target.includes('+')) {
         numericTarget = parseFloat(target);
       }
-      
+
       let current = 0;
       const increment = numericTarget / 50;
-      
+
       const updateCounter = () => {
         if (current < numericTarget) {
           current += increment;
@@ -981,7 +1011,7 @@
       };
       updateCounter();
     };
-    
+
     // Intersection Observer for counters
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -991,9 +1021,9 @@
         }
       });
     }, { threshold: 0.5 });
-    
+
     statNumbers.forEach(stat => observer.observe(stat));
-    
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -1008,21 +1038,21 @@
       });
     });
   }
-  
+
   // Load all components
   async function loadAllComponents() {
     await loadComponent('navbar-container', 'components/navbar.html');
     await loadComponent('footer-container', 'components/footer.html');
     initGlobalFunctions();
   }
-  
+
   // Start loading
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadAllComponents);
   } else {
     loadAllComponents();
   }
-  
+
   // Hide loader
   window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
