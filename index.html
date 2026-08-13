@@ -1433,15 +1433,6 @@
 </head>
 <body>
 
-<!-- Loader -->
-<!-- <div class="loader" id="loader">
-  <div class="loader-content">
-    <div class="loader-logo">J</div>
-    <div class="loader-text">JIANAN ENGINEERING</div>
-    <div class="loader-bar"></div>
-  </div>
-</div> -->
-
 <!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -1459,61 +1450,282 @@
 
 <main>
 
-<!-- Hero Banner -->
-<section class="relative h-[85vh] min-h-[570px] w-full overflow-hidden flex items-center justify-center" id="home">
+<!-- Hero Banner - Centered with Reduced Font Sizes -->
+<section class="relative h-[68vh] min-h-[460px] w-full overflow-hidden flex items-center justify-center" id="home">
   
-  <!-- Sliding Banners -->
-  <div class="absolute inset-0 z-0">
-    <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');"></div>
-    <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');"></div>
-    <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');"></div>
-    <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');"></div>
+  <div class="absolute inset-0 z-0" id="hero-slider">
+    
+    <!-- Slide 1 -->
+    <div class="slice-slide group active absolute inset-0 flex pointer-events-none z-10 [&.active]:z-20" data-img="./assets/images/Hero_b_1.png">
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:0%_0] opacity-0 -translate-y-full transition-all duration-500 ease-out delay-[0ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:33.33%_0] opacity-0 -translate-y-full transition-all duration-500 ease-out delay-[60ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:66.66%_0] opacity-0 -translate-y-full transition-all duration-500 ease-out delay-[120ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:100%_0] opacity-0 -translate-y-full transition-all duration-500 ease-out delay-[180ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slice-slide group absolute inset-0 flex pointer-events-none z-10 [&.active]:z-20" data-img="./assets/images/Hero_b_2.png">
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:0%_0] opacity-0 scale-y-0 origin-center transition-all duration-500 ease-out delay-[0ms] group-[.active]:opacity-100 group-[.active]:scale-y-100"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:33.33%_0] opacity-0 scale-y-0 origin-center transition-all duration-500 ease-out delay-[60ms] group-[.active]:opacity-100 group-[.active]:scale-y-100"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:66.66%_0] opacity-0 scale-y-0 origin-center transition-all duration-500 ease-out delay-[120ms] group-[.active]:opacity-100 group-[.active]:scale-y-100"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:100%_0] opacity-0 scale-y-0 origin-center transition-all duration-500 ease-out delay-[180ms] group-[.active]:opacity-100 group-[.active]:scale-y-100"></div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slice-slide group absolute inset-0 flex pointer-events-none z-10 [&.active]:z-20" data-img="./assets/images/Hero_b_3.png">
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:0%_0] opacity-0 -translate-x-full transition-all duration-500 ease-out delay-[0ms] group-[.active]:opacity-100 group-[.active]:translate-x-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:33.33%_0] opacity-0 translate-x-full transition-all duration-500 ease-out delay-[60ms] group-[.active]:opacity-100 group-[.active]:translate-x-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:66.66%_0] opacity-0 -translate-x-full transition-all duration-500 ease-out delay-[120ms] group-[.active]:opacity-100 group-[.active]:translate-x-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:100%_0] opacity-0 translate-x-full transition-all duration-500 ease-out delay-[180ms] group-[.active]:opacity-100 group-[.active]:translate-x-0"></div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slice-slide group absolute inset-0 flex pointer-events-none z-10 [&.active]:z-20" data-img="./assets/images/Hero_b_4.png">
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:0%_0] opacity-0 translate-y-full transition-all duration-500 ease-out delay-[180ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:33.33%_0] opacity-0 translate-y-full transition-all duration-500 ease-out delay-[120ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:66.66%_0] opacity-0 translate-y-full transition-all duration-500 ease-out delay-[60ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+      <div class="slice-panel flex-1 h-full bg-no-repeat [background-size:100vw_100%] [background-position:100%_0] opacity-0 translate-y-full transition-all duration-500 ease-out delay-[0ms] group-[.active]:opacity-100 group-[.active]:translate-y-0"></div>
+    </div>
+
   </div>
 
   <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-10"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-black/70 z-10"></div>
 
-  <!-- Hero Content -->
- <!-- Hero Content - FIXED CENTERING with MORE TOP PADDING -->
-<div class="absolute inset-0 z-20 flex items-center justify-center">
-  <div class="text-center px-4 max-w-4xl mx-auto animate-fade-in-up" style="padding-top: 120px;">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/40 rounded-full px-4 py-1.5 mb-5">
-      <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-      <span class="text-emerald-400 text-xs font-semibold tracking-wider uppercase">Build Smart. Build Strong.</span>
-    </div>
+  <!-- Hero Content - Perfectly Centered -->
+  <div class="absolute inset-0 z-20 flex items-center justify-center">
+    <div class="text-center px-4 max-w-4xl mx-auto">
 
-    <!-- Title -->
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
-      Engineering <span class="text-emerald-400">Tomorrow's</span><br />
-      Industrial Infrastructure
-    </h1>
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/40 rounded-full px-3 py-1 mb-3">
+        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+        <span class="text-emerald-400 text-[9px] sm:text-[10px] font-semibold tracking-[0.12em] uppercase font-body">
+          Build Smart. Build Strong.
+        </span>
+      </div>
 
-    <!-- Subtitle -->
-    <p class="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-      Global EPC • MEP • Turnkey Solutions — Delivering Excellence Across Continents
-    </p>
+      <!-- Title - Reduced -->
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-3 font-heading">
+        Engineering <span class="text-emerald-400">Tomorrow's</span><br class="hidden sm:block" />
+        <span class="text-white/90">Industrial Infrastructure</span>
+      </h1>
 
-    <!-- Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-      <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-        Start Your Project <i class="fas fa-arrow-right text-sm"></i>
-      </a>
-      <a href="#projects" class="inline-flex items-center justify-center gap-2 border-2 border-white/80 hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm">
-        View Our Work <i class="fas fa-chevron-right text-sm"></i>
-      </a>
+      <!-- Subtitle - Reduced -->
+      <p class="text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl mx-auto mb-6 leading-relaxed font-body font-light tracking-wide">
+        Global EPC • MEP • Turnkey Solutions — Delivering Excellence Across Continents
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-7 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/30 font-body text-[11px] sm:text-xs tracking-wide">
+          Start Your Project
+          <i class="fas fa-arrow-right text-[9px]"></i>
+        </a>
+        <a href="#projects" class="inline-flex items-center justify-center gap-2 border-2 border-white/70 hover:bg-white/10 text-white font-semibold px-7 py-3 rounded-full transition-all duration-300 backdrop-blur-sm font-body text-[11px] sm:text-xs tracking-wide">
+          View Our Work
+          <i class="fas fa-chevron-right text-[9px]"></i>
+        </a>
+      </div>
+
     </div>
   </div>
-</div>
 
   <!-- Slide Navigation Dots -->
-  <div class="absolute bottom-6 right-6 z-20 flex gap-2">
-    <button class="dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-emerald-400 focus:outline-none" data-slide="0"></button>
-    <button class="dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-emerald-400 focus:outline-none" data-slide="1"></button>
-    <button class="dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-emerald-400 focus:outline-none" data-slide="2"></button>
-    <button class="dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-emerald-400 focus:outline-none" data-slide="3"></button>
+  <div class="absolute bottom-4 right-5 z-20 flex gap-1.5" id="hero-dots">
+    <button class="dot w-5 h-1.5 rounded-full bg-emerald-400 transition-all duration-300 focus:outline-none" data-slide="0"></button>
+    <button class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300 hover:bg-emerald-400 focus:outline-none" data-slide="1"></button>
+    <button class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300 hover:bg-emerald-400 focus:outline-none" data-slide="2"></button>
+    <button class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300 hover:bg-emerald-400 focus:outline-none" data-slide="3"></button>
   </div>
+
 </section>
+
+<style>
+  /* ========================================
+     PROFESSIONAL FONT STYLING
+  ======================================== */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
+
+  /* Apply fonts to the hero section */
+  #home {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Heading font - Playfair Display for elegance */
+  .font-heading {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Body font - Inter for clean readability */
+  .font-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Additional refinements for the hero text */
+  #home h1 {
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  #home h1 .text-emerald-400 {
+    font-style: italic;
+    font-weight: 800;
+  }
+
+  #home .badge-text {
+    letter-spacing: 0.15em;
+    font-weight: 600;
+  }
+
+  #home .subtitle-text {
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  /* Button font styling */
+  #home .btn-text {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  /* Animation for fade-in-up */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  /* Responsive font adjustments */
+  @media (max-width: 640px) {
+    #home h1 {
+      font-size: 2.5rem;
+    }
+    #home .subtitle-text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    #home h1 {
+      font-size: 3.2rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    #home h1 {
+      font-size: 4.2rem;
+    }
+  }
+
+  /* Smooth hover for buttons */
+  #home .btn-primary {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.35);
+  }
+
+  #home .btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.45);
+  }
+
+  #home .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  #home .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Dot navigation styling */
+  #hero-dots .dot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #hero-dots .dot:hover {
+    transform: scale(1.2);
+  }
+
+  #hero-dots .dot.active-dot {
+    width: 24px;
+    background: #10b981;
+  }
+</style>
+
+<!-- Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('#hero-slider .slice-slide');
+    const dots = document.querySelectorAll('#hero-dots .dot');
+    let currentIndex = 0;
+    const intervalTime = 4000;
+    let slideInterval;
+
+    slides.forEach(slide => {
+      const imgUrl = slide.getAttribute('data-img');
+      const panels = slide.querySelectorAll('.slice-panel');
+      panels.forEach(panel => {
+        panel.style.backgroundImage = `url('${imgUrl}')`;
+      });
+    });
+
+    function goToSlide(index) {
+      slides.forEach((slide, idx) => {
+        if (idx === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx === index) {
+          dot.classList.remove('w-2', 'bg-white/40');
+          dot.classList.add('w-6', 'bg-emerald-400');
+        } else {
+          dot.classList.remove('w-6', 'bg-emerald-400');
+          dot.classList.add('w-2', 'bg-white/40');
+        }
+      });
+
+      currentIndex = index;
+    }
+
+    function nextSlide() {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      goToSlide(nextIndex);
+    }
+
+    function startTimer() {
+      slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    function resetTimer() {
+      clearInterval(slideInterval);
+      startTimer();
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        const slideIndex = parseInt(e.currentTarget.getAttribute('data-slide'));
+        goToSlide(slideIndex);
+        resetTimer();
+      });
+    });
+
+    startTimer();
+  });
+</script>
 
   <!-- Client Logos Marquee - Pauses on hover with smooth effect - Compact -->
 <section class="clients-section">
@@ -1801,25 +2013,6 @@
     </div>
   </div>
 </section>
-
-<!-- Gold Divider -->
-<div class="relative py-5">
-  <div class="flex items-center justify-center gap-4">
-    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-amber-300/40 relative">
-      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
-    </div>
-    
-    <div class="flex items-center gap-3 px-4">
-      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
-      <span class="text-amber-500 text-[10px] font-semibold tracking-[0.2em] uppercase"></span>
-      <span class="w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
-    </div>
-    
-    <div class="flex-1 h-px bg-gradient-to-l from-transparent via-amber-400/80 to-amber-300/40 relative">
-      <div class="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rounded-full blur-sm"></div>
-    </div>
-  </div>
-</div>
 
 <!-- Why Jianan - Redesigned to match Elite Endeavor style with images -->
 <section class="pt-8 pb-16 bg-[#e8f5e9]">

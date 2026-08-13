@@ -107,18 +107,23 @@
     @media (max-width: 1024px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) { .projects-grid { grid-template-columns: 1fr; } }
 
-    /* Project Card */
+    /* Project Card – plain white, shadow only */
     .project-card-modern {
-      background: white; border-radius: 20px; overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;
-      border: 1px solid #E2E8F0; height: 100%; display: flex; flex-direction: column;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+      height: 100%; display: flex; flex-direction: column;
     }
     .project-card-modern:hover {
-      transform: translateY(-8px); box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-      border-color: #28B463;
+      transform: translateY(-8px);
+      box-shadow: 0 30px 50px rgba(0,0,0,0.12), 0 10px 20px rgba(0,0,0,0.06);
+      border-color: #d0d0d0;
     }
     .project-card-modern .project-image-wrap {
-      position: relative; overflow: hidden; padding-top: 65%; background: #f0f4f8;
+      position: relative; overflow: hidden; padding-top: 65%; background: #f8fafc;
     }
     .project-card-modern .project-image-wrap img {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -176,23 +181,8 @@
     }
     .btn-primary:hover { background: #1E7A43; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(40,180,99,0.4); }
 
-    .gradient-bg {
-      position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      opacity: 0.6; pointer-events: none; transition: opacity 0.6s ease;
-    }
-    .group:hover .gradient-bg { opacity: 1; }
-    .gradient-all-colors {
-      background: linear-gradient(45deg, #e0f2fe, #bae6fd, #7dd3fc, #d1fae5, #6ee7b7, #34d399, #fef3c7, #e0f2fe);
-      background-size: 400% 400%; animation: gradientMove 20s ease-in-out infinite;
-    }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      25% { background-position: 100% 0%; }
-      50% { background-position: 100% 100%; }
-      75% { background-position: 0% 100%; }
-      100% { background-position: 0% 50%; }
-    }
-    .group:hover { border-color: #34d399; box-shadow: 0 20px 25px -5px rgba(52,211,153,0.25), 0 10px 10px -5px rgba(52,211,153,0.08); }
+    /* No gradient backgrounds anymore – plain white */
+    .group:hover { border-color: #d0d0d0; box-shadow: 0 30px 50px rgba(0,0,0,0.12); }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
@@ -209,7 +199,7 @@
     .status-progress { background: #F59E0B; }
     .status-suspended { background: #EF4444; }
 
-    /* ===== MODAL / OVERLAY CARD STYLES (from YS Interiors) ===== */
+    /* ===== MODAL / OVERLAY CARD STYLES ===== */
     .project-modal {
       display: none;
       position: fixed;
@@ -580,15 +570,6 @@
 </head>
 <body>
 
-<!-- Loader -->
-<div class="loader" id="loader">
-  <div class="loader-content">
-    <div class="loader-logo">J</div>
-    <div class="loader-text">JIANAN ENGINEERING</div>
-    <div class="loader-bar"></div>
-  </div>
-</div>
-
 <!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -719,7 +700,7 @@
 <!-- Footer Container -->
 <div id="footer-container"></div>
 
-<!-- ===== PROJECT MODAL (from YS Interiors) ===== -->
+<!-- ===== PROJECT MODAL ===== -->
 <div id="projectModal" class="project-modal">
   <div class="modal-content">
     <button class="modal-close" id="modalClose">
@@ -773,7 +754,6 @@
 <script>
   // ============================================================
   // PROJECT DATA (with images for modal)
-  // Each project now has an "images" array (can be 1 or more)
   // ============================================================
   const allProjects = [
     { id: 1, title: "Shreeji Cyclotron Pharma Project", category: "pharmaceutical", location: "Lucknow, India", desc: "₹13.25 Cr · Building works, Finishing Work, MEP Works, External Works", status: "Completed", img: "/assets/images/Shreeji 12.png", images: ["/assets/images/Shreeji 12.png", "/assets/images/P_6.jpg", "/assets/images/P_7.jpeg", "/assets/images/P_8.jpg"] },
@@ -832,7 +812,6 @@
     
     grid.innerHTML = visible.map(project => `
       <div class="project-card-modern group relative overflow-hidden" data-category="${project.category}" data-project-id="${project.id}">
-        <div class="gradient-bg gradient-all-colors"></div>
         <div class="project-image-wrap relative">
           <img src="${project.img}" alt="${project.title}" loading="lazy">
           <span class="project-badge ${getStatusClass(project.status)}">${project.status}</span>
@@ -888,7 +867,7 @@
   }
 
   // ============================================================
-  // MODAL LOGIC (copied from YS Interiors with adaptations)
+  // MODAL LOGIC
   // ============================================================
   const modal = document.getElementById('projectModal');
   const modalClose = document.getElementById('modalClose');
@@ -977,7 +956,6 @@
     document.getElementById('modalLocation').textContent = '📍 ' + project.location;
     document.getElementById('modalDescription').textContent = project.desc;
 
-    // Ensure images array exists, fallback to single img
     currentImages = project.images && project.images.length > 0 ? project.images : [project.img];
     carouselIndex = 0;
     renderGallery();

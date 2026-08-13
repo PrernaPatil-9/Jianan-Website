@@ -1,71 +1,214 @@
-<header class="header" id="header">
-  <div class="container">
-    <nav class="navbar">
+<!-- Sticky Header Wrapper -->
+<div class="site-header-wrapper" id="siteHeaderWrapper">
 
-      <!-- Logo -->
-      <a href="index.html" class="nav-logo">
-        <img src="/assets/images/logo.png" alt="Jianan Engineering Logo" class="logo-img">
-      </a>
+  <!-- Top Bar -->
+  <div class="top-bar" id="topBar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <a href="tel:+15551234567" class="top-bar-item">
+          <i class="fas fa-phone-alt"></i> +91 73105 44030
+        </a>
+        <a href="mailto:info@jiananeng.com" class="top-bar-item">
+          <i class="fas fa-envelope"></i> info@jianan.in
+        </a>
+        <!-- <span class="top-bar-item top-bar-hours">
+          <i class="fas fa-clock"></i> Mon - Fri: 8:00 AM - 6:00 PM
+        </span> -->
+      </div>
 
-      <div class="nav-menu" id="navMenu">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+      <div class="top-bar-right">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
 
-          <li class="dropdown">
-            <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="about.html">Company Overview</a></li>
-              <li><a href="leadership.html">Leadership Team</a></li>
-              <li><a href="global-presence.html">Global Presence</a></li>
-              <li><a href="certifications.html">Certifications & Policies</a></li>
-            </ul>
-          </li>
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar">
 
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="industries.html">Industries</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo">
+          <img src="/assets/images/logo.png" alt="Jianan Engineering Logo" class="logo-img">
+        </a>
 
-        <!-- Get In Touch Button - Properly aligned in mobile menu -->
-        <a href="contact.html" class="nav-cta-mobile">
+        <div class="nav-menu" id="navMenu">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html">Company Overview</a></li>
+                <li><a href="leadership.html">Leadership Team</a></li>
+                <li><a href="global-presence.html">Global Presence</a></li>
+                <li><a href="certifications.html">Certifications & Policies</a></li>
+              </ul>
+            </li>
+
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+
+          <!-- Get In Touch Button - Properly aligned in mobile menu -->
+          <a href="contact.html" class="nav-cta-mobile">
+            Get In Touch <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Desktop CTA Button (hidden on mobile) -->
+        <a href="contact.html" class="nav-cta">
           Get In Touch <i class="fas fa-arrow-right ml-1"></i>
         </a>
-      </div>
 
-      <!-- Desktop CTA Button (hidden on mobile) -->
-      <a href="contact.html" class="nav-cta">
-        Get In Touch <i class="fas fa-arrow-right ml-1"></i>
-      </a>
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-      <div class="nav-toggle" id="navToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      </nav>
+    </div>
+  </header>
 
-    </nav>
-  </div>
-</header>
+</div>
 
 <style>
 /* ========================================
-   HEADER
+   SITE HEADER WRAPPER (top bar + header together)
 ======================================== */
 
-.header {
+.site-header-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  transform: translateY(0);
+  transition: transform 0.35s ease;
+}
+
+.site-header-wrapper.hidden {
+  transform: translateY(-100%);
+}
+
+/* ========================================
+   TOP BAR
+======================================== */
+
+.top-bar {
+  width: 100%;
+  background: linear-gradient(135deg, #0F172A, #1E293B);
+  color: #E2E8F0;
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-bar-item {
+  color: #E2E8F0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.top-bar-item i {
+  color: #28B463;
+  font-size: 12px;
+}
+
+.top-bar-item:hover {
+  color: #28B463;
+}
+
+.top-bar-hours {
+  opacity: 0.85;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.top-bar-right a {
+  color: #E2E8F0;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.top-bar-right a:hover {
+  background: linear-gradient(135deg, #1E88E5, #28B463);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .top-bar-hours {
+    display: none;
+  }
+
+  .top-bar-left {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar-left {
+    gap: 12px;
+  }
+}
+
+/* Account for fixed wrapper pushing page content down */
+body {
+  padding-top: 106px; /* top-bar height + header height, adjust to match your logo/header size */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 92px;
+  }
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+  width: 100%;
   padding: 10px 0;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
 }
 
 .navbar {
@@ -94,7 +237,6 @@
   transition: all 0.3s ease;
 }
 
-/* Slightly smaller logo on tablets */
 @media (max-width: 1024px) {
   .logo-img {
     height: 60px;
@@ -102,7 +244,6 @@
   }
 }
 
-/* Mobile logo */
 @media (max-width: 768px) {
   .logo-img {
     height: 50px;
@@ -238,7 +379,6 @@
 ======================================== */
 
 @media (max-width: 1024px) {
-  /* Reset nav-links positioning for mobile */
   .nav-links {
     position: static;
     transform: none;
@@ -308,11 +448,10 @@
     overflow: hidden;
   }
 
-  /* Show mobile button, hide desktop button */
   .nav-cta-mobile {
     display: block;
   }
-  
+
   .nav-cta {
     display: none;
   }
@@ -330,16 +469,14 @@
 </style>
 
 <script>
-// Initialize navbar functionality
 (function initNavbar() {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupNavbarEventListeners);
   } else {
     setupNavbarEventListeners();
   }
-  
+
   function setupNavbarEventListeners() {
-    // Set active page based on current URL
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const allNavLinks = document.querySelectorAll('.nav-links a');
     allNavLinks.forEach(link => {
@@ -348,20 +485,19 @@
         link.classList.add('active');
       }
     });
-    
-    // Mobile menu toggle
+
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    
+
     if (navToggle && navMenu) {
       const newToggle = navToggle.cloneNode(true);
       navToggle.parentNode.replaceChild(newToggle, navToggle);
       const newMenu = navMenu.cloneNode(true);
       navMenu.parentNode.replaceChild(newMenu, navMenu);
-      
+
       const finalToggle = document.getElementById('navToggle');
       const finalMenu = document.getElementById('navMenu');
-      
+
       if (finalToggle && finalMenu) {
         finalToggle.addEventListener('click', function(e) {
           e.preventDefault();
@@ -372,8 +508,7 @@
         });
       }
     }
-    
-    // Close mobile menu on link click
+
     document.querySelectorAll('.nav-links a, .nav-cta-mobile').forEach(link => {
       link.addEventListener('click', function() {
         const mobileMenu = document.getElementById('navMenu');
@@ -383,8 +518,7 @@
         document.body.classList.remove('mobile-nav-active');
       });
     });
-    
-    // Dropdown toggle on mobile
+
     document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
       dropdownLink.addEventListener('click', function(e) {
         if (window.innerWidth <= 1024) {
@@ -394,6 +528,20 @@
         }
       });
     });
+
+    // Hide entire header wrapper (top bar + header) on scroll,
+    // show it again only when back at the very top of the page
+    const wrapper = document.getElementById('siteHeaderWrapper');
+
+    if (wrapper) {
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 10) {
+          wrapper.classList.add('hidden');
+        } else {
+          wrapper.classList.remove('hidden');
+        }
+      });
+    }
   }
 })();
 </script>
